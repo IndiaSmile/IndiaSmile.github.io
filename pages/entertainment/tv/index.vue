@@ -33,40 +33,24 @@ export default {
 
   data() {
     return {
-      image: require('~/assets/images/amitabh-bachchan.png'),
+      image: require('~/assets/images/how-i-met-your-mother.png'),
 
       list: [
         {
-          title: 'Movies',
-          subtitle: 'Hollywood & Bollywood',
-          image: require('~/assets/images/it-clown.png'),
-          color: 'rgba(48, 19, 1, 0.85)',
-          href: '/entertainment/movies',
-          isDarkText: false,
-        },
-        {
-          title: 'TV',
-          subtitle: 'English & Hindi',
+          title: 'English',
+          subtitle: '',
           image: require('~/assets/images/how-i-met-your-mother.png'),
           color: 'rgba(255, 230, 0, 0.85)',
-          href: '/entertainment/tv',
+          href: '/entertainment/tv/english',
           isDarkText: true,
         },
         {
-          title: 'Music',
-          subtitle: 'links to external playlists on YT/Spotify',
-          image: require('~/assets/images/girls-like-you.png'),
-          color: 'rgba(60, 77, 105, 0.85)',
-          href: '/entertainment/music',
-          isDarkText: false,
-        },
-        {
-          title: 'Jokes',
+          title: 'Hindi',
           subtitle: '',
-          image: require('~/assets/images/clown.png'),
-          color: 'rgba(140, 119, 140, 0.85)',
-          href: '/entertainment/jokes',
-          isDarkText: false,
+          image: require('~/assets/images/kuchh-rang-pyaar-ke.png'),
+          color: 'rgba(217, 219, 225, 0.85)',
+          href: '/entertainment/tv/hindi',
+          isDarkText: true,
         },
       ],
     }
