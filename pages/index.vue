@@ -168,5 +168,5 @@ export default {
       text-shadow 0px 1px 4px rgba(0, 0, 0, 0.25)
 
 .content
-  padding 0.75em
+  padding 2em 1.25em 1.25em
 </style>
