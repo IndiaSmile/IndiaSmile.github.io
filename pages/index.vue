@@ -76,7 +76,7 @@ export default {
           subtitle: 'Yoga & Fitness',
           image: require('~/assets/images/woman-meditating.png'),
           color: 'rgba(57, 95, 54, 0.85)',
-          href: '/get-fit-and-flexible',
+          href: '/get-fit-&-flexible',
           isDarkText: false,
         },
         {

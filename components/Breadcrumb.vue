@@ -39,7 +39,10 @@ export default {
     },
 
     prettyCrumb(crumb) {
-      return (crumb.charAt(0).toUpperCase() + crumb.substr(1)).replace('-', ' ')
+      return (crumb.charAt(0).toUpperCase() + crumb.substr(1)).replace(
+        /-/g,
+        ' '
+      )
     },
   },
 }
