@@ -60,10 +60,11 @@ export default {
 
 <style scoped lang="stylus">
 .content
-  padding 0.75em
+  padding 1.25em
 
   &__title
     color #19175B
     font-size 1.5em
     font-weight bold
+    padding-left 0.42em
 </style>
