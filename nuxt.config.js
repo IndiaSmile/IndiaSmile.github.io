@@ -69,7 +69,7 @@ export default {
           test: /\.(jpe?g|png)$/i,
           loader: 'responsive-loader',
           options: {
-            sizes: [300, 600, 1200, 2000],
+            sizes: [400, 800, 1600],
             placeholder: true,
             placeholderSize: 50
           }
