@@ -128,7 +128,7 @@ export default {
   &__background
     width 100%
     height 0
-    background url('~@/assets/images/girl-using-phone.png') center/contain no-repeat
+    background url('~@/assets/images/girl-using-phone.png') left/contain no-repeat
     padding-top 55%
     position relative
 
