@@ -12,7 +12,7 @@
 export default {
   props: {
     image: {
-      type: String,
+      type: Object,
       required: true,
     },
     color: {
@@ -43,7 +43,7 @@ export default {
 
 <style scoped lang="stylus">
 .card
-  height 11.25em
+  height 10.625em
   border-radius 0.4em
   position relative
   box-shadow none

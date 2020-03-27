@@ -98,7 +98,7 @@ export default {
 
   data() {
     return {
-      image: '/images/hindi-horror.png',
+      image: require('~/assets/images/hindi-horror.png'),
       title: 'Best Bollywood Horros',
     }
   },

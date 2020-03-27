@@ -43,7 +43,7 @@ export default {
         {
           title: 'Meet new people',
           subtitle: 'Discussion groups',
-          image: 'images/whatsapp.png',
+          image: require('~/assets/images/whatsapp-alt.png'),
           color: '#1ebfa5',
           href: '/meet-new-people',
           isDarkText: false,
@@ -51,7 +51,7 @@ export default {
         {
           title: 'Survival pack',
           subtitle: 'Essential supplies',
-          image: 'images/ration.png',
+          image: require('~/assets/images/ration.png'),
           color: 'rgba(247, 235, 205, 0.85)',
           href: '/survival-pack',
           isDarkText: true,
@@ -59,7 +59,7 @@ export default {
         {
           title: 'Beat anxiety',
           subtitle: 'Gain a peaceful calm',
-          image: 'images/woman-meditating.png',
+          image: require('~/assets/images/woman-meditating.png'),
           color: 'rgba(75, 82, 60, 0.85)',
           href: '/beat-anxiety',
           isDarkText: false,
@@ -67,7 +67,7 @@ export default {
         {
           title: 'Entertainment',
           subtitle: 'Best TV and movies',
-          image: 'images/amitabh-bachchan.png',
+          image: require('~/assets/images/amitabh-bachchan.png'),
           color: 'rgba(128, 150, 140, 0.85)',
           href: '/entertainment',
           isDarkText: false,
@@ -75,7 +75,7 @@ export default {
         {
           title: 'Get fit & flexible',
           subtitle: 'Yoga and fitness',
-          image: 'images/woman-meditating.png',
+          image: require('~/assets/images/woman-meditating.png'),
           color: 'rgba(57, 95, 54, 0.85)',
           href: '/get-fit-and-flexible',
           isDarkText: false,
@@ -83,7 +83,7 @@ export default {
         {
           title: 'Learn new things',
           subtitle: 'Video for new skills',
-          image: 'images/person-using-phone.png',
+          image: require('~/assets/images/person-using-mobile.png'),
           color: 'rgba(42, 94, 92, 0.85)',
           href: '/learn-new-things',
           isDarkText: false,
@@ -91,7 +91,7 @@ export default {
         {
           title: 'Safety Guidelines',
           subtitle: 'In Hindi and English',
-          image: 'images/doctor.png',
+          image: require('~/assets/images/doctor.png'),
           color: 'rgba(210, 223, 234, 0.85)',
           href: '/safety-guidelines',
           isDarkText: true,
@@ -99,7 +99,7 @@ export default {
         {
           title: 'Stay updated',
           subtitle: 'Curated news',
-          image: 'images/newspapers-stack.png',
+          image: require('~/assets/images/newspapers-stack.png'),
           color: 'rgba(235, 235, 236, 0.95)',
           href: '/stay-updated',
           isDarkText: true,

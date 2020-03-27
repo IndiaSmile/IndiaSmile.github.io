@@ -33,13 +33,13 @@ export default {
 
   data() {
     return {
-      image: '/images/english-horror.png',
+      image: require('~/assets/images/it-clown.png'),
 
       list: [
         {
           title: 'Hollywood',
           subtitle: 'English',
-          image: '/images/english-thriller.png',
+          image: require('~/assets/images/english-thriller.png'),
           color: 'rgba(252, 197, 177, 0.85)',
           href: '/entertainment/movies/english',
           isDarkText: false,
@@ -47,7 +47,7 @@ export default {
         {
           title: 'Bollywood',
           subtitle: 'Hindi',
-          image: '/images/hindi-rom-com.png',
+          image: require('~/assets/images/hindi-rom-com.png'),
           color: 'rgba(247, 235, 205, 0.85)',
           href: '/entertainment/movies/hindi',
           isDarkText: true,

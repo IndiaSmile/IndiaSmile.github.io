@@ -94,7 +94,7 @@ export default {
 
   data() {
     return {
-      image: '/images/english-horror.png',
+      image: require('~/assets/images/it-clown.png'),
       title: 'Best Hollywood Horrors',
     }
   },

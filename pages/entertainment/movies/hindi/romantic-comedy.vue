@@ -82,7 +82,7 @@ export default {
 
   data() {
     return {
-      image: '/images/hindi-rom-com.png',
+      image: require('~/assets/images/hindi-rom-com.png'),
       title: 'Best Bollywood Romantic Comedies',
     }
   },

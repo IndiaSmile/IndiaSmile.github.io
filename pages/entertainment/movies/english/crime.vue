@@ -100,7 +100,7 @@ export default {
 
   data() {
     return {
-      image: '/images/english-crime.png',
+      image: require('~/assets/images/english-crime.png'),
       title: 'Best Hollywood Crimes',
     }
   },

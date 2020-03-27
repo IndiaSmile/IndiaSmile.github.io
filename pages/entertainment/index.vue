@@ -33,13 +33,13 @@ export default {
 
   data() {
     return {
-      image: '/images/amitabh-bachchan.png',
+      image: require('~/assets/images/amitabh-bachchan.png'),
 
       list: [
         {
           title: 'Movies',
           subtitle: 'Hollywood & Bollywood',
-          image: '/images/english-horror.png',
+          image: require('~/assets/images/it-clown.png'),
           color: 'rgba(48, 19, 1, 0.85)',
           href: '/entertainment/movies',
           isDarkText: false,

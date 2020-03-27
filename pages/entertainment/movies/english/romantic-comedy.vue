@@ -79,7 +79,7 @@ export default {
 
   data() {
     return {
-      image: '/images/english-rom-com.png',
+      image: require('~/assets/images/english-rom-com.png'),
       title: 'Best Hollywood Romantic Comedies',
     }
   },

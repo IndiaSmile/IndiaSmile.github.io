@@ -16,7 +16,7 @@ export default {
   components: { Breadcrumb },
   props: {
     image: {
-      type: String,
+      type: Object,
       required: true,
     },
   },

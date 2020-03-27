@@ -33,13 +33,13 @@ export default {
 
   data() {
     return {
-      image: '/images/english-rom-com.png',
+      image: require('~/assets/images/english-thriller.png'),
 
       list: [
         {
           title: 'Thriller',
           subtitle: 'Best thrillers',
-          image: '/images/english-thriller.png',
+          image: require('~/assets/images/english-thriller.png'),
           color: 'rgba(71, 81, 56, 0.85)',
           href: '/entertainment/movies/english/thriller',
           isDarkText: false,
@@ -47,7 +47,7 @@ export default {
         {
           title: 'Crime',
           subtitle: 'Best crimes',
-          image: '/images/english-crime.png',
+          image: require('~/assets/images/english-crime.png'),
           color: 'rgba(247, 235, 205, 0.85)',
           href: '/entertainment/movies/english/crime',
           isDarkText: true,
@@ -55,7 +55,7 @@ export default {
         {
           title: 'Comedy',
           subtitle: 'Best comedies',
-          image: '/images/english-comedy.png',
+          image: require('~/assets/images/english-comedy.png'),
           color: 'rgba(234, 169, 83, 0.85)',
           href: '/entertainment/movies/english/comedy',
           isDarkText: false,
@@ -63,7 +63,7 @@ export default {
         {
           title: 'Horror',
           subtitle: 'Best horrors',
-          image: '/images/english-horror.png',
+          image: require('~/assets/images/it-clown.png'),
           color: 'rgba(26, 9, 2, 0.85)',
           href: '/entertainment/movies/english/horror',
           isDarkText: false,
@@ -71,7 +71,7 @@ export default {
         {
           title: 'Romantic Comedies',
           subtitle: 'Best rom-coms',
-          image: '/images/english-rom-com.png',
+          image: require('~/assets/images/english-rom-com.png'),
           color: 'rgba(247, 235, 205, 0.85)',
           href: '/entertainment/movies/english/romantic-comedy',
           isDarkText: true,

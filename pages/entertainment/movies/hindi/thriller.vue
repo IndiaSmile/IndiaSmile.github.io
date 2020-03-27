@@ -96,7 +96,7 @@ export default {
 
   data() {
     return {
-      image: '/images/hindi-thriller.png',
+      image: require('~/assets/images/hindi-thriller.png'),
       title: 'Best Bollywood Thrillers',
     }
   },

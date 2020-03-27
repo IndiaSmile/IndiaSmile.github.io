@@ -105,7 +105,7 @@ export default {
 
   data() {
     return {
-      image: '/images/hindi-crime.png',
+      image: require('~/assets/images/hindi-crime.png'),
       title: 'Best Bollywood Crimes',
     }
   },

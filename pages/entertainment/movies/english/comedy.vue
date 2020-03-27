@@ -88,7 +88,7 @@ export default {
 
   data() {
     return {
-      image: '/images/english-comedy.png',
+      image: require('~/assets/images/english-comedy.png'),
       title: 'Best Hollywood Comedies',
     }
   },

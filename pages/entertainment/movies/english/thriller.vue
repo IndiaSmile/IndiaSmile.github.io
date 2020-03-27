@@ -99,7 +99,7 @@ export default {
 
   data() {
     return {
-      image: '/images/english-thriller.png',
+      image: require('~/assets/images/english-thriller.png'),
       title: 'Best Hollywood Thrillers',
     }
   },

@@ -94,7 +94,7 @@ export default {
 
   data() {
     return {
-      image: '/images/hindi-comedy.png',
+      image: require('~/assets/images/hindi-comedy.png'),
       title: 'Best Bollywood Comedies',
     }
   },
