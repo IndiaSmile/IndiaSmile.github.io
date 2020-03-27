@@ -2,7 +2,7 @@
 	div.breadcrumb-container
 		ul.crumbs
 			li.crumbs__item(v-for="(item, index) in items" :key="index" :class="{'is-active': items.length === index + 1}")
-				nuxt-link(:to="path(index)").crumbs__item__link {{ item }}
+				nuxt-link(:to="path(index)").crumbs__item__link {{ prettyCrumb(item) }}
 
 </template>
 
@@ -14,15 +14,11 @@ export default {
     }
   },
 
-  computed: {},
-
   created() {
     const crumbs = this.$route.path.split('/')
     crumbs[0] = 'home'
 
-    for (const crumb of crumbs) {
-      this.items.push(crumb.charAt(0).toUpperCase() + crumb.substr(1))
-    }
+    this.items = crumbs
   },
 
   methods: {
@@ -40,6 +36,10 @@ export default {
             .toLowerCase()
         )
       }
+    },
+
+    prettyCrumb(crumb) {
+      return (crumb.charAt(0).toUpperCase() + crumb.substr(1)).replace('-', ' ')
     },
   },
 }
