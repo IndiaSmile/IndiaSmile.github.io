@@ -43,7 +43,6 @@ export default {
 
 <style scoped lang="stylus">
 .card
-  height 10.625em
   border-radius 0.4em
   position relative
   box-shadow none
@@ -57,7 +56,7 @@ export default {
     width 100%
     height 100%
     left 0
-    top 0
+    bottom 0
     z-index 2
     border-radius 0.4em
 

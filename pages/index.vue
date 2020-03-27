@@ -38,6 +38,8 @@ export default {
 
   data() {
     return {
+      title: 'IndiaSmile',
+
       list: [
         {
           title: 'Join Like Minded WhatsApp Communities',
@@ -104,6 +106,12 @@ export default {
           isDarkText: true,
         },
       ],
+    }
+  },
+
+  head() {
+    return {
+      title: this.title,
     }
   },
 }
