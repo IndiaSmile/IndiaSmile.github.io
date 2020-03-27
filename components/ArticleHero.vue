@@ -1,8 +1,8 @@
 <template lang="pug">
   .hero
     .hero__header
-      img.hero__header__logo(src="/logo.png")
-      span.hero__header__text India Smile
+      img.hero__header__logo(src="~/assets/logo-square.png")
+      span.hero__header__text IndiaSmile
 
     .hero__background
       img.hero__background__image(v-if="!!image" :src="image")
@@ -34,16 +34,16 @@ export default {
     padding 0.875em
     display flex
     align-items center
+    justify-content center
     background #fff
 
     &__logo
-      width 1.5em
-      height 1.5em
+      height 1.875em
 
     &__text
-      font-size 1.5em
+      font-size 1.375em
       font-weight bold
-      color #19175B
+      color #3B4CFE
       margin-left 0.25em
 
   &__background

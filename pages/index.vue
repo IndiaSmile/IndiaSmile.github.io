@@ -2,8 +2,8 @@
   div
     .hero
       .hero__header
-        img.hero__header__logo(src="/logo.png")
-        span.hero__header__text India Smile
+        img.hero__header__logo(src="~/assets/logo-square.png")
+        span.hero__header__text IndiaSmile
 
       .hero__background
         .hero__text
@@ -41,48 +41,48 @@ export default {
     return {
       list: [
         {
-          title: 'Meet new people',
-          subtitle: 'Discussion groups',
+          title: 'Join Like Minded WhatsApp Communities',
+          subtitle: 'Topic based community chats',
           image: require('~/assets/images/whatsapp-alt.png'),
           color: '#1ebfa5',
-          href: '/meet-new-people',
+          href: '/communities',
           isDarkText: false,
         },
         {
-          title: 'Survival pack',
-          subtitle: 'Essential supplies',
+          title: 'Survival Starter Pack ',
+          subtitle: '🧼Supplies and essentials to keep at home 🍞',
           image: require('~/assets/images/ration.png'),
           color: 'rgba(247, 235, 205, 0.85)',
           href: '/survival-pack',
           isDarkText: true,
         },
         {
-          title: 'Beat anxiety',
-          subtitle: 'Gain a peaceful calm',
+          title: 'Beat Anxiety & Gain a Peaceful Calm',
+          subtitle: '❌No to Negativity 🚫',
           image: require('~/assets/images/woman-meditating.png'),
           color: 'rgba(75, 82, 60, 0.85)',
           href: '/beat-anxiety',
           isDarkText: false,
         },
         {
-          title: 'Entertainment',
-          subtitle: 'Best TV and movies',
+          title: 'Best Modern TV & Movies ',
+          subtitle: 'Things to enjoy when bored',
           image: require('~/assets/images/amitabh-bachchan.png'),
           color: 'rgba(128, 150, 140, 0.85)',
           href: '/entertainment',
           isDarkText: false,
         },
         {
-          title: 'Get fit & flexible',
-          subtitle: 'Yoga and fitness',
+          title: 'Get Fit and Flexible at Home',
+          subtitle: 'Yoga & Fitness',
           image: require('~/assets/images/woman-meditating.png'),
           color: 'rgba(57, 95, 54, 0.85)',
           href: '/get-fit-and-flexible',
           isDarkText: false,
         },
         {
-          title: 'Learn new things',
-          subtitle: 'Video for new skills',
+          title: 'Learn Something New Quickly',
+          subtitle: '',
           image: require('~/assets/images/person-using-mobile.png'),
           color: 'rgba(42, 94, 92, 0.85)',
           href: '/learn-new-things',
@@ -90,15 +90,15 @@ export default {
         },
         {
           title: 'Safety Guidelines',
-          subtitle: 'In Hindi and English',
+          subtitle: '',
           image: require('~/assets/images/doctor.png'),
           color: 'rgba(210, 223, 234, 0.85)',
           href: '/safety-guidelines',
           isDarkText: true,
         },
         {
-          title: 'Stay updated',
-          subtitle: 'Curated news',
+          title: 'Stay Updated (Curated News)',
+          subtitle: '',
           image: require('~/assets/images/newspapers-stack.png'),
           color: 'rgba(235, 235, 236, 0.95)',
           href: '/stay-updated',
@@ -112,43 +112,41 @@ export default {
 
 <style scoped lang="stylus">
 .hero
-  position relative
   width 100%
   max-width 26em
   margin 0 auto
 
   &__header
-    position absolute
-    left 1.25em
-    top 1em
+    padding 0.875em
     display flex
     align-items center
+    justify-content center
+    background #fff
 
     &__logo
-      width 1.5em
-      height 1.5em
+      height 1.875em
 
     &__text
-      font-size 1.5em
+      font-size 1.375em
       font-weight bold
-      color #19175B
+      color #3B4CFE
       margin-left 0.25em
 
   &__background
     width 100%
     height 0
-    background url(/images/hero-bg.png) center/contain no-repeat
-    padding-top 72%
+    background url('~@/assets/images/girl-using-phone.png') center/contain no-repeat
+    padding-top 66%
+    position relative
 
     &__gradient
       position absolute
       width 100%
-      height 12.5em
+      height 100%
       left 0
-      bottom 0
+      top 0
       z-index 1
-      background linear-gradient(179.21deg, #FFFFFF 22.71%, rgba(255, 255, 255, 0) 87.36%)
-      transform matrix(-1, 0, 0, -1, 0, 0)
+      background linear-gradient(272.06deg, #C3C0AF 2.66%, #B8B7B3 42.6%, rgba(57, 57, 57, 0) 83.86%)
 
   &__text
     margin-right 0.875em
@@ -163,19 +161,19 @@ export default {
     height 100%
 
     &__title
-      color #000
+      color #fff
       font-size 1.25em
       font-weight bold
       line-height 1.5em
+      text-shadow  0px 1px 4px rgba(0, 0, 0, 0.25)
+      margin-bottom 0.25em
 
     &__subtitle
-      color rgba(25, 23, 91, 0.65)
+      color rgba(255, 255, 255, 0.8)
       font-size 0.875em
       line-height 1em
+      text-shadow 0px 1px 4px rgba(0, 0, 0, 0.25)
 
 .content
   padding 0.75em
-  position relative
-  z-index 5
-  margin-top -3.5em
 </style>
