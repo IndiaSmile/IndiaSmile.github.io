@@ -2,8 +2,7 @@
   div
     .hero
       .hero__header
-        img.hero__header__logo(src="~/assets/logo-square.png")
-        span.hero__header__text IndiaSmile
+        img.hero__header__logo(src="~/assets/logo-horizontal.png")
 
       .hero__background
         .hero__text
@@ -124,26 +123,20 @@ export default {
     background #fff
 
     &__logo
-      height 1.875em
-
-    &__text
-      font-size 1.375em
-      font-weight bold
-      color #3B4CFE
-      margin-left 0.25em
+      height 1.75em
 
   &__background
     width 100%
     height 0
     background url('~@/assets/images/girl-using-phone.png') center/contain no-repeat
-    padding-top 66%
+    padding-top 55%
     position relative
 
     &__gradient
       position absolute
-      width 100%
+      width 80%
       height 100%
-      left 0
+      right 0
       top 0
       z-index 1
       background linear-gradient(272.06deg, #C3C0AF 2.66%, #B8B7B3 42.6%, rgba(57, 57, 57, 0) 83.86%)

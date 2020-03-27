@@ -1,8 +1,7 @@
 <template lang="pug">
   .hero
     .hero__header
-      img.hero__header__logo(src="~/assets/logo-square.png")
-      span.hero__header__text IndiaSmile
+      img.hero__header__logo(src="~/assets/logo-horizontal.png")
 
     .hero__background
       img.hero__background__image(v-if="!!image" :src="image")
@@ -38,13 +37,7 @@ export default {
     background #fff
 
     &__logo
-      height 1.875em
-
-    &__text
-      font-size 1.375em
-      font-weight bold
-      color #3B4CFE
-      margin-left 0.25em
+      height 1.75em
 
   &__background
     &__image
