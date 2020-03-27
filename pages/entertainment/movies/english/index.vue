@@ -73,7 +73,7 @@ export default {
           subtitle: 'Best rom-coms',
           image: '/images/english-rom-com.png',
           color: 'rgba(247, 235, 205, 0.85)',
-          href: '/entertainment/movies/english/rom-com',
+          href: '/entertainment/movies/english/romantic-comedy',
           isDarkText: true,
         },
       ],

@@ -73,7 +73,7 @@ export default {
           subtitle: 'Best rom-coms',
           image: '/images/hindi-rom-com.png',
           color: 'rgba(247, 235, 205, 0.85)',
-          href: '/entertainment/movies/hindi/rom-com',
+          href: '/entertainment/movies/hindi/romantic-comedy',
           isDarkText: true,
         },
       ],
