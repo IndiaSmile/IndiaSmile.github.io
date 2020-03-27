@@ -3,7 +3,7 @@
     ArticleHero(:image="image")
 
     section.section.content
-      h2.content__title Movies
+      h2.content__title {{ title }}
 
       .container
         .columns.is-multiline
@@ -33,6 +33,8 @@ export default {
 
   data() {
     return {
+      title: 'Movies',
+
       image: require('~/assets/images/it-clown.png'),
 
       list: [
@@ -53,6 +55,12 @@ export default {
           isDarkText: true,
         },
       ],
+    }
+  },
+
+  head() {
+    return {
+      title: this.title,
     }
   },
 }

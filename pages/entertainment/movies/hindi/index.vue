@@ -3,7 +3,7 @@
     ArticleHero(:image="image")
 
     section.section.content
-      h2.content__title Hindi movies
+      h2.content__title {{ title }}
 
       .container
         .columns.is-multiline
@@ -33,6 +33,8 @@ export default {
 
   data() {
     return {
+      title: 'Bollywood',
+
       image: require('~/assets/images/hindi-rom-com.png'),
 
       list: [
@@ -77,6 +79,12 @@ export default {
           isDarkText: true,
         },
       ],
+    }
+  },
+
+  head() {
+    return {
+      title: this.title,
     }
   },
 }

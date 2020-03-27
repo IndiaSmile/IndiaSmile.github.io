@@ -3,7 +3,7 @@
     ArticleHero(:image="image")
 
     section.section.content
-      h2.content__title Entertainment
+      h2.content__title {{ title }}
 
       .container
         .columns.is-multiline
@@ -33,6 +33,8 @@ export default {
 
   data() {
     return {
+      title: 'TV',
+
       image: require('~/assets/images/how-i-met-your-mother.png'),
 
       list: [
@@ -53,6 +55,12 @@ export default {
           isDarkText: true,
         },
       ],
+    }
+  },
+
+  head() {
+    return {
+      title: this.title,
     }
   },
 }

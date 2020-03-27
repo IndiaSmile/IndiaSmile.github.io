@@ -3,7 +3,7 @@
     ArticleHero(:image="image")
 
     section.section.content
-      h2.content__title Survival Pack
+      h2.content__title {{ title }}
 
       .container
         .columns.is-multiline
@@ -33,6 +33,8 @@ export default {
 
   data() {
     return {
+      title: 'Survival Starter Pack',
+
       image: require('~/assets/images/ration.png'),
 
       list: [
@@ -69,6 +71,12 @@ export default {
           isDarkText: false,
         },
       ],
+    }
+  },
+
+  head() {
+    return {
+      title: this.title,
     }
   },
 }

@@ -3,7 +3,7 @@
     ArticleHero(:image="image")
 
     section.section.content
-      h2.content__title Entertainment
+      h2.content__title {{ title }}
 
       .container
         .columns.is-multiline
@@ -33,6 +33,8 @@ export default {
 
   data() {
     return {
+      title: 'Best Modern TV & Movies',
+
       image: require('~/assets/images/amitabh-bachchan.png'),
 
       list: [
@@ -69,6 +71,12 @@ export default {
           isDarkText: false,
         },
       ],
+    }
+  },
+
+  head() {
+    return {
+      title: this.title,
     }
   },
 }
