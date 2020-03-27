@@ -46,6 +46,8 @@ export default {
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
+    // Doc: https://github.com/bazzite/nuxt-optimized-images
+    '@bazzite/nuxt-optimized-images'
   ],
   /*
    ** Axios module configuration
@@ -59,9 +61,28 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {},
+    extend(config, ctx) {
+
+      // https://www.npmjs.com/package/responsive-loader
+      config.module.rules.push(
+        {
+          test: /\.(jpe?g|png)$/i,
+          loader: 'responsive-loader',
+          options: {
+            sizes: [300, 600, 1200, 2000],
+            placeholder: true,
+            placeholderSize: 50
+          }
+        }
+      )
+    },
   },
   server: {
     port: 8000,
   },
+
+  // @bazzite/nuxt-optimized-images
+  optimizedImages: {
+    optimizeImages: true
+  }
 }
