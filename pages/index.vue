@@ -66,8 +66,8 @@ export default {
         {
           title: 'Get Fit and Flexible at Home',
           subtitle: 'Yoga & Fitness',
-          image: require('~/assets/images/woman-meditating.png'),
-          color: 'rgba(57, 95, 54, 0.85)',
+          image: require('~/assets/images/healthy-man.png'),
+          color: 'rgba(78, 111, 140, 0.85)',
           href: '/fitness',
           isDarkText: false,
         },

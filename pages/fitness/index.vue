@@ -36,7 +36,7 @@ export default {
     return {
       title: 'Get Fit and Flexible at Home',
 
-      image: require('~/assets/images/woman-meditating.png'),
+      image: require('~/assets/images/healthy-man.png'),
 
       list: [
         {
