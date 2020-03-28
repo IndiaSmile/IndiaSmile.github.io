@@ -61,18 +61,7 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {
-      // https://www.npmjs.com/package/responsive-loader
-      config.module.rules.push({
-        test: /\.(jpe?g|png)$/i,
-        loader: 'responsive-loader',
-        options: {
-          sizes: [400, 800, 1600],
-          placeholder: true,
-          placeholderSize: 50,
-        },
-      })
-    },
+    extend(config, ctx) {},
   },
   server: {
     port: 8000,
@@ -82,5 +71,9 @@ export default {
   optimizedImages: {
     optimizeImages: true,
     optimizeImagesInDev: true,
+    responsive: {
+      sizes: [400, 800, 1600],
+      placeholder: true,
+    },
   },
 }
