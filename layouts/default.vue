@@ -3,7 +3,8 @@
     transition(name="fade")
       nuxt
     Colophon
-    HighlightSharer
+    no-ssr
+      HighlightSharer
 </template>
 
 <script>
@@ -11,6 +12,10 @@ import Colophon from '~/components/Colophon'
 import HighlightSharer from '~/components/HighlightSharer'
 
 export default {
+  components: {
+    Colophon,
+    HighlightSharer,
+  },
   data() {
     return {
       items: [
@@ -22,10 +27,6 @@ export default {
       ],
     }
   },
-  components: {
-    Colophon,
-    HighlightSharer
-  }
 }
 </script>
 

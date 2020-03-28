@@ -3,6 +3,8 @@
 </template>
 
 <script>
+import sharer from '~/services/sharer'
+
 export default {
   name: 'Sharer',
   props: {
@@ -28,18 +30,7 @@ export default {
   },
   methods: {
     share() {
-      if (navigator.share) {
-        navigator
-          .share({
-            title: this.fullTitle,
-            url: window.location.href,
-          })
-          .then(() => {})
-          .catch(console.error)
-      } else {
-        const text = `${this.fullTitle} ${window.location.href}`
-        window.open(`whatsapp://send?text=${encodeURIComponent(text)}`)
-      }
+      sharer(this.fullTitle, window.location.href)
     },
   },
 }

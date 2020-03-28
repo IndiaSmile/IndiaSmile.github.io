@@ -6,7 +6,7 @@
       h2.content__title {{ title }}
       .content__section(v-for="(data, index) in article" :key="index")
         h5.content__heading(v-if="!!data.heading") {{ data.heading }}
-        p.content__text {{ data.text }}
+        p.content__text(v-html="data.text")
 </template>
 
 <script>
@@ -42,7 +42,7 @@ export default {
         },
         {
           heading: '5. Common Myths',
-          text: `Don’t believe in superstitions and orthodox opinions. Even the most experienced doctors are facing this virus for the very first time! Assuming we have such non approved cures will lead to tragedy and more loss of lives. These are a few of the common myths we are hearing these days! Mainly circulating on Whatsapp.`,
+          text: `<span class="js--h">Don’t believe in superstitions and orthodox opinions. Even the most experienced doctors are facing this virus for the very first time! Assuming we have such non approved cures will lead to tragedy and more loss of lives.</span> These are a few of the common myths we are hearing these days! Mainly circulating on Whatsapp.`,
         },
         {
           text: `a) Summer heat will stop the virus.
