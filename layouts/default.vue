@@ -34,26 +34,13 @@ export default {
 .wrapper
   font-family 'DM Sans', sans-serif
 
-  .fade-enter-active
-    -webkit-animation-duration 1s
-    animation-duration 1s
-    -webkit-animation-fill-mode both
-    animation-fill-mode both
-    -webkit-animation-name fadeIn
-    animation-name fadeIn
+  .fade-enter-active,
+  .fade-leave-active
+    transition opacity .5s
 
-// fade page animation
-@-webkit-keyframes fadeIn
-  from
+  .fade-enter,
+  .fade-leave-active
     opacity 0
-  to
-    opacity 1
-
-@keyframes fadeIn
-  from
-    opacity 0
-  to
-    opacity 1
 
 // for article styles
 .article
@@ -70,6 +57,9 @@ export default {
       display flex
       justify-content space-between
       margin 1.5rem 0 1rem
+
+      .content__heading
+        margin 0
 
     &__rating
       font-size .875em
@@ -91,7 +81,7 @@ export default {
     &__heading
       color #19175B
       font-size 1.25em
-      margin 0
+      margin 1.5rem 0 1rem
       font-weight bold
 
     &__text

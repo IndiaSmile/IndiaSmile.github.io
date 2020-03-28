@@ -55,7 +55,14 @@ export default {
     '@nuxtjs/dotenv',
     // Doc: https://github.com/bazzite/nuxt-optimized-images
     '@bazzite/nuxt-optimized-images',
+    '@nuxtjs/google-gtag',
   ],
+  /*
+   **
+   */
+  'google-gtag': {
+    id: 'GTM-WGQZMD8',
+  },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options

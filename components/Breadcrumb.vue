@@ -1,9 +1,15 @@
 <template lang="pug">
-	div.breadcrumb-container
-		ul.crumbs
-			li.crumbs__item(v-for="(item, index) in items" :key="index" :class="{'is-active': items.length === index + 1}")
-				nuxt-link(:to="path(index)").crumbs__item__link {{ prettyCrumb(item) }}
-
+.breadcrumb-container
+  ul.crumbs
+    li.crumb(
+      v-for="(item, index) in items"
+      v-if="item.length > 1"
+      :key="index"
+      :class="{ 'is-active': items.length === index + 1 }"
+    )
+      nuxt-link(
+        :to="path(index)"
+      ).crumb__link {{ prettyCrumb(item) }}
 </template>
 
 <script>
@@ -60,17 +66,29 @@ export default {
     padding 0
     list-style-type none
 
-    &__item
-      background #fff
-      height 1.875em
-      display inline-flex
-      justify-content center
-      align-items center
-      padding 0.375em
-      margin 0.5em 0 0 0.5em
+  .crumb
+    background #fff
+    height 2em
+    display inline-flex
+    justify-content center
+    align-items center
+    padding .5em .375em .5em .5em
+    position relative
 
-      &__link
-        color #19175B
-        font-size 0.875em
-        font-weight bold
+    &:after
+      content ' '
+      border 1em solid transparent
+      border-left .5em solid white
+      height 1em
+      position absolute
+      right -1.5em
+      z-index 9999
+
+    &__link
+      color #19175B
+      font-size 0.875em
+      font-weight bold
+
+    + .crumb
+      margin-left .75em
 </style>
