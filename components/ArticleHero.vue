@@ -1,7 +1,6 @@
 <template lang="pug">
   .hero
-    Header
-    BackButton
+    Header(:showBackButton="true")
 
     .hero__background
       img.hero__background__image(v-if="!!image" :src="image")
@@ -9,13 +8,11 @@
 </template>
 
 <script>
-import BackButton from '~/components/BackButton'
 import Header from '~/components/Header'
 import Breadcrumb from '~/components/Breadcrumb'
 
 export default {
   components: {
-    BackButton,
     Header,
     Breadcrumb,
   },
