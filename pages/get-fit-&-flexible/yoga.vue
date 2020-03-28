@@ -58,8 +58,7 @@ export default {
             'This 10 minute morning yoga full body stretch for beginners is an informative guide to kickstart your Yoga journey',
         },
         {
-          heading:
-            'Yoga progression challenges 🙌',
+          heading: 'Yoga progression challenges 🙌',
           text: `They say that it takes a minimum of 21 days of a particular routine to build a true habit! As we have that amount of time in our lives currently, let’s set specific goals and achieve some real targets that help us step out into life with a deeper sense of calmness and a superior state of physical and mental health. We have selected some video courses that challenge you to be better! `,
         },
         {

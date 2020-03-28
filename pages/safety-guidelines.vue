@@ -48,7 +48,7 @@ export default {
           text: `a) Summer heat will stop the virus.
             b) Cow urine can cure coronavirus.
             c) Taking hot baths can prevent coronavirus.`,
-        }
+        },
       ],
     }
   },
