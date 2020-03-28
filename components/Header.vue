@@ -17,7 +17,7 @@ export default {
   align-items center
   justify-content center
   background linear-gradient(rgba(#fff, .9) 50%, transparent)
-  margin 0 0 -2em
+  margin 0 0 -3em
   position relative
   z-index 99
 
