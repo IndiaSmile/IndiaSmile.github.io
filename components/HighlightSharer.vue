@@ -12,13 +12,11 @@ export default {
   methods: {
     bindHighlightSharer() {
       if (!process.client) return false
-      const $AllH = [...document.querySelectorAll('.js--h')]
-      $AllH.forEach(($h) => {
-        $h.addEventListener('click', (e) => {
-          const text = e.target.textContent
-          const url = window.location.href
-          sharer(text, url)
-        })
+      document.addEventListener('click', (e) => {
+        if (e.target.classList.contains('js--h')) return
+        const text = e.target.textContent
+        const url = window.location.href
+        sharer(text, url)
       })
     },
   },
