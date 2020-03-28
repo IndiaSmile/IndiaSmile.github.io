@@ -2,13 +2,14 @@
   .wrapper
     transition(name="fade")
       nuxt
-    .colophon
-      .colophon__content
-        p By the अति विशिष्ट people at <a href="https://nataco.us/">NATACO</a>
-        p जनहित में जारी &copy; 2020
+    Colophon
+    HighlightSharer
 </template>
 
 <script>
+import Colophon from '~/components/Colophon'
+import HighlightSharer from '~/components/HighlightSharer'
+
 export default {
   data() {
     return {
@@ -21,6 +22,10 @@ export default {
       ],
     }
   },
+  components: {
+    Colophon,
+    HighlightSharer
+  }
 }
 </script>
 
@@ -48,14 +53,4 @@ export default {
     opacity 0
   to
     opacity 1
-
-// colophon
-.colophon
-  background #34495e
-  font-size .75em
-  padding 2em 0
-  margin 1.5em 0 0
-  text-align center
-  color rgba(white, .65)
-  line-height 2.5
 </style>
