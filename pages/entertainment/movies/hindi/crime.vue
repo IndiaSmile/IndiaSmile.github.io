@@ -4,93 +4,9 @@
 
     .content
       h2.content__title {{ title }}
-
-      .content__section
-        p.content__text
-          | Bollywood has had a history of portraying criminal character psychology really well. 🙏 The use of suspenseful plots and the ruthlessness of India’s underworld has made us witness some great performances and mind bending twists. Let’s go through some of the best crime movies which you can choose from, to enjoy at home!
-
-      .content__section
-        h5.content__heading
-          | Kahani
-
-        p.content__text
-          | A pregnant woman travels to Kolkata from London to search for her missing husband. When all clues lead to a dead end, she realises that there is more than what meets the eye. The story totally grips you and leaves you at a dramatic high. Vidya Balan is amazing as always!
-
-      .content__section
-        h5.content__heading
-          | A Wednesday
-
-        p.content__text
-          | A retired police commissioner recounts the most memorable case of his career wherein he was informed about a bomb scare in Mumbai by an ordinary commoner. Now this movie comes as a complete surprise and an extremely pleasant surprise I must say! Newer stories are slowly finding their way into cinema. A Wednesday is an intelligent diatribe against terrorism and a must watch!
-
-      .content__section
-        h5.content__heading
-          | Drishyam
-
-        p.content__text
-          | When the disappearance of a policewoman's son threatens to ruin Vijay’s family, he leaves no stone unturned in order to shield his family. A suspenseful drama with a nail-biting finish, it holds the viewer by the eyeballs till its' engaging climax.
-
-      .content__section
-        h5.content__heading
-          | Special 26
-
-        p.content__text
-          | A team of tricksters pose as CBI officers and conduct raids to rob politicians and businessmen of their black money. With the real CBI on their trail, they decide to pull off their biggest robbery. The film grips, excites and climaxes too! Catch it for a pure cinematic journey.
-
-
-      .content__section
-        h5.content__heading
-          | Omkara
-
-        p.content__text
-          | Langda dreams of becoming Omkara's successor after the latter wins the election. But when Omkara appoints Kesu as his lieutenant, Langda feels betrayed and plots revenge. An extraordinary movie! The Actors were praised for their performances and still today, is an interesting watch.
-
-
-      .content__section
-        h5.content__heading
-          | Raees
-
-        p.content__text
-          | Threat lurks over Raees Alam and his illicit business after the ACP decides to get the better of him. In order to survive and keep his trade thriving, Raees must overcome this. Shah Rukh Khan has never looked better, he is full of fury and for once, isn’t spreading his arms, but breaking others!
-
-
-      .content__section
-        h5.content__heading
-          | Satya
-
-        p.content__text
-          | Durga's brother is murdered in a gang war, turning him into a revenge-seeking man. Now, his ex-girlfriends cop husband is behind him. This movie has achieved a cult status, and is cited as one of the best Indian gangster films for its realistic portrayal of violence.
-
-
-      .content__section
-        h5.content__heading
-          | Sarkar
-
-        p.content__text
-          | An NRI businessman, returns home and learns about the practice of illegal voting. When he decides to investigate the matter, he finds himself pitted against two corrupt politicians. Sarkar’s plot is so intensely gripping, it leaves audiences with a chill down their spine, especially when Amitabh Bachchan’s dialogue delivery comes up!
-
-
-      .content__section
-        h5.content__heading
-          | Ab Tak Chhappan
-
-        p.content__text
-          | Sadhu, an encounter specialist, is armed with a personal vendetta to hunt and kill the gang responsible for his wife's death. Have to say, excellent camera work and great direction!
-
-      .content__section
-        h5.content__heading
-          | Shootout at Lokhandwala,
-
-        p.content__text
-          | An experienced policeman, Khan, sets out for a shoot-out of gangsters in a residential locality of Mumbai.Little does he know that this will lead to his own integrity being questioned. Based on a true story, Shootout at Lokhandwala is a fantastic movie that is full of violence and naughty action.
-
-      .content__section
-        h5.content__heading
-          | Paan Singh Tomar
-
-        p.content__text
-          | Paan Singh Tomar, an athlete, is a gold medallist at the Indian National Games seven times in a row. He is forced to become a dacoit when his mother is murdered and the police don't take any action. The movie works because Irfan makes Paan Singh Tomar come alive as an athlete, as a husband and as a dacoit. This is a flawless performance
-
+      .content__section(v-for="(data, index) in article" :key="index")
+        h5.content__heading(v-if="!!data.heading") {{ data.heading }}
+        p.content__text(v-if="typeof data.text === 'string'") {{ data.text }}
 
 </template>
 
@@ -107,6 +23,56 @@ export default {
     return {
       image: require('~/assets/images/hindi-crime.png'),
       title: 'Best Bollywood Crimes',
+
+      article: [
+        {
+          text: `Bollywood has had a history of portraying criminal character psychology really well. 🙏 The use of suspenseful plots and the ruthlessness of India’s underworld has made us witness some great performances and mind bending twists. Let’s go through some of the best crime movies which you can choose from, to enjoy at home!`,
+        },
+        {
+          heading: 'Kahani',
+          text: `A pregnant woman travels to Kolkata from London to search for her missing husband. When all clues lead to a dead end, she realises that there is more than what meets the eye. The story totally grips you and leaves you at a dramatic high. Vidya Balan is amazing as always!`,
+        },
+        {
+          heading: 'A Wednesday',
+          text: `A retired police commissioner recounts the most memorable case of his career wherein he was informed about a bomb scare in Mumbai by an ordinary commoner. Now this movie comes as a complete surprise and an extremely pleasant surprise I must say! Newer stories are slowly finding their way into cinema. A Wednesday is an intelligent diatribe against terrorism and a must watch!`,
+        },
+        {
+          heading: 'Drishyam',
+          text: `When the disappearance of a policewoman's son threatens to ruin Vijay’s family, he leaves no stone unturned in order to shield his family. A suspenseful drama with a nail-biting finish, it holds the viewer by the eyeballs till its' engaging climax.`,
+        },
+        {
+          heading: 'Special 26',
+          text: `A team of tricksters pose as CBI officers and conduct raids to rob politicians and businessmen of their black money. With the real CBI on their trail, they decide to pull off their biggest robbery. The film grips, excites and climaxes too! Catch it for a pure cinematic journey.`,
+        },
+        {
+          heading: 'Omkara',
+          text: `Langda dreams of becoming Omkara's successor after the latter wins the election. But when Omkara appoints Kesu as his lieutenant, Langda feels betrayed and plots revenge. An extraordinary movie! The Actors were praised for their performances and still today, is an interesting watch.`,
+        },
+        {
+          heading: 'Raees',
+          text: `Threat lurks over Raees Alam and his illicit business after the ACP decides to get the better of him. In order to survive and keep his trade thriving, Raees must overcome this. Shah Rukh Khan has never looked better, he is full of fury and for once, isn’t spreading his arms, but breaking others!`,
+        },
+        {
+          heading: 'Satya',
+          text: `Durga's brother is murdered in a gang war, turning him into a revenge-seeking man. Now, his ex-girlfriends cop husband is behind him. This movie has achieved a cult status, and is cited as one of the best Indian gangster films for its realistic portrayal of violence.`,
+        },
+        {
+          heading: 'Sarkar',
+          text: `An NRI businessman, returns home and learns about the practice of illegal voting. When he decides to investigate the matter, he finds himself pitted against two corrupt politicians. Sarkar’s plot is so intensely gripping, it leaves audiences with a chill down their spine, especially when Amitabh Bachchan’s dialogue delivery comes up!`,
+        },
+        {
+          heading: 'Ab Tak Chhappan',
+          text: `Sadhu, an encounter specialist, is armed with a personal vendetta to hunt and kill the gang responsible for his wife's death. Have to say, excellent camera work and great direction!`,
+        },
+        {
+          heading: 'Shootout at Lokhandwala',
+          text: `An experienced policeman, Khan, sets out for a shoot-out of gangsters in a residential locality of Mumbai.Little does he know that this will lead to his own integrity being questioned. Based on a true story, Shootout at Lokhandwala is a fantastic movie that is full of violence and naughty action.`,
+        },
+        {
+          heading: 'Paan Singh Tomar',
+          text: `Paan Singh Tomar, an athlete, is a gold medallist at the Indian National Games seven times in a row. He is forced to become a dacoit when his mother is murdered and the police don't take any action. The movie works because Irfan makes Paan Singh Tomar come alive as an athlete, as a husband and as a dacoit. This is a flawless performance.`,
+        },
+      ],
     }
   },
 
