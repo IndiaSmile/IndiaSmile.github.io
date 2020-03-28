@@ -3,7 +3,7 @@
     transition(name="fade")
       nuxt
     Colophon
-    no-ssr
+    client-only
       HighlightSharer
 </template>
 
