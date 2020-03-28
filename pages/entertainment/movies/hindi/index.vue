@@ -19,7 +19,6 @@
               :to="item.href"
               :isDarkText="item.isDarkText"
             )
-      Sharer(:title="title")
 </template>
 
 <script>

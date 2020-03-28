@@ -17,6 +17,7 @@
           .column.is-one-third(
             v-for="(item, index) in list"
             :key="index"
+            v-if="(typeof item.isHidden === 'boolean') ? !item.isHidden : true"
           )
             card(
               :title="item.title"
@@ -26,7 +27,6 @@
               :to="item.href"
               :isDarkText="item.isDarkText"
             )
-      Sharer(:title="title")
 </template>
 
 <script>

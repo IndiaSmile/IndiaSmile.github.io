@@ -5,9 +5,6 @@
     section.section.content
       h2.content__title {{ title }}
 
-
-      Sharer(:title="title")
-
 </template>
 
 <script>
