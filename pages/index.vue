@@ -44,7 +44,7 @@ export default {
 
   data() {
     return {
-      title: 'IndiaSmile',
+      title: 'IndiaSmile.org | Best things to do while stuck in quarantine',
 
       list: [
         {
