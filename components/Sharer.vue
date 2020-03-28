@@ -15,6 +15,8 @@ export default {
     fullTitle() {
       const topicTitleMap = {
         '/entertainment': `I found an awesome list of ${this.title} :) Check these out!`,
+        '/fitness': `I found the best ${this.title} exercises to do at home :) Check these out!`,
+        // @TODO add others
       }
       for (const topic of Object.keys(topicTitleMap)) {
         if (window.location.pathname.indexOf(topic) === 0) {
