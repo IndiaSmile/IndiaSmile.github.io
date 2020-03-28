@@ -8,6 +8,8 @@
         Sharer(v-if="data.custom === 'Sharer'" :title="title")
         h5.content__heading(v-if="!!data.heading") {{ data.heading }}
         p.content__text(v-if="typeof data.text === 'string'" v-html="data.text")
+        div(v-else-if="typeof data.text === 'object'")
+          p.content__text(v-for="(text, idx) in data.text" :key="idx" v-html="text")
 
 </template>
 
