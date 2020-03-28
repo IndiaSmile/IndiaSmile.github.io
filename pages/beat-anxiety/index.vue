@@ -59,7 +59,7 @@ export default {
           subtitle: '',
           image: require('~/assets/images/vegetables.png'),
           color: 'rgba(124, 98, 58, 0.85)',
-          href: '/beat-anxiety/vegetables',
+          href: '/beat-anxiety/manage-coronavirus-anxiety',
           isDarkText: false,
         },
         {
