@@ -33,42 +33,42 @@ export default {
         {
           heading: 'Healthy Lifestyle',
           text: [
-            `It is important, whilst we unite and battle this pandemic, we give our best effort to maintain health and strength ( both mental and physical! ) Once this period ends, we need to get back to our daily hurdles of life and be victorious. Focus should be more on involving fresh fruits and raw vegetables to maintain a proper diet. Food which is easy to prepare and accessible, is key.`,
-            `Maintain stock intelligently, no need to hoard and instil panic amongst others. It is also essential we indulge in fitness! Staying still with no exercise for more than 20 days will cause extreme fatigue, do avoid it! Learn how Yoga transforms lives and explore various home exercises that you can follow and achieve your dream body in the process. `,
-            `You have enough time to sleep, which in majority of cases leads to oversleeping! Indulging in sleeping excessively will do the opposite of what sleep is meant to provide! Do encourage your family and loved ones to participate along with you during workouts and diet plans, it can be a great way to spend time together.`,
+            `It is important, whilst we unite and battle this pandemic, we give our best effort to maintain health and strength (both mental and physical!) Once this period ends, we need to get back to our daily hurdles of life and be victorious. Focus on including fresh fruits and raw vegetables in your diet 🍉. Food which is easy to prepare and accessible is the key here.`,
+            `Avoid hoarding and instilling unnecessary panic amongst others, but do keep a minimum level of stock with you. It is also essential we focus on fitness! Staying still with no exercise for more than 20 days will cause extreme fatigue, do avoid it! Learn how Yoga 🧘‍♀️ transforms lives and explore the various home exercises that you can follow without any equipment, and achieve your dream body! `,
+            `You have enough time to sleep, which might lead to oversleeping! Avoid this, as excessive sleep only leads to you feeling drowsy during the day! Do encourage your family and loved ones to participate along with you during workouts and diet plans,it can be a great way to spend time together.`,
           ],
         },
         {
           heading: 'Schedule/Entertainment Options',
           text: `“Staying still and doing nothing are two very different things”
-              Just because we are isolated, doesn’t mean we think as if there isn’t anything to do. Don’t stress about boredom, we have many ways to keep ourselves entertained. You can take online courses on skills you always wished to learn, also there are numerous inspirational and emotional movies as well as TV shows at your disposal. Read books and novels to explore more. You can see our selected picks for the best movies and books specially for this isolation period.`,
+              Just because we are isolated, doesn’t mean there isn’t anything to do. There are multiple things you can do at home. You can take online courses on skills you always wished to learn, also there are numerous inspirational and emotional movies as well as TV shows at your disposal. Or you can feed your brain by reading books 📚. You can see our selected picks for the best movies and books specially curated for this isolation period.`,
           button: {
-            text: 'Best movies',
-            href: '/entertainment/movies/english/comedy',
+            text: 'Explore Entertainment',
+            href: '/entertainment',
           },
         },
         {
-          heading: 'Talking to people, friends and family',
-          text: `It is essential we stay connected. In touch with our loved ones! You can do your part in stopping the spread of misinformation too, only if you are 100% sure.Tell your friends not to panic, try being productive and pass on the message ahead. Engage in fitness challenges with your friends to pass time and have fun.`,
+          heading: 'Stay in touch with friends and family',
+          text: `It is essential we stay connected 🤙 and in touch with our loved ones! You can do your part in stopping the spread of misinformation as well. Tell your friends not to panic, try being productive and pass on the message ahead. Engage in fitness challenges with your friends to pass time and have fun in the process.`,
         },
         {
           heading: 'Stay informed and aware',
-          text: `Take your information only from trusted government sources and newspapers. Keep yourself informed about the virus, how fast it is spreading, necessary precautions, how to not panic, and most importantly to be alert and focused. It is very important for us to stop this virus from spreading, because it results in terrible consequences, especially because our large population cannot sustain it.`,
+          text: `Take your information only from trusted government sources and newspapers. Keep yourself informed about the virus and the necessary precautions to take, avoid panic, and most importantly be alert and focused. It is very important for us to stop this virus from spreading, so ensure you follow the government instructions diligently.`,
         },
         {
           heading:
             'At the same time, limit consumption of media coverage of coronavirus to alleviate anxiety.',
-          text: `Try not to be influenced by the news and avoid overthinking! Analyse the situation and try to overcome fear. We will get through it, eventually India will become more hygienic and health cautious. We will learn from our mistakes and further develop ourselves.`,
+          text: `Try not to be influenced by the news and avoid overthinking! Analyse the situation and try to overcome fear. We will get through it together, and emerge stronger on the other side. We will learn from our mistakes and further develop ourselves.`,
         },
         {
           heading: 'Meditate',
-          text: `We personally recommend meditation to avoid mind wavering thoughts. As you can’t go outside, go within! Explore true calmness and stop your wavering mind in order to focus.
-            We have sorted out the best meditation apps available in the market that shall help you practice the methods.`,
+          text: `Meditation calms your mind and helps you avoid mind wavering thoughts. As you can’t go outside, go within! Explore true calmness and stop your wavering mind in order to focus.
+          We have sorted out the best meditation apps available in the market that shall help you practice these methods.`,
         },
         {
           heading:
             'Children need extra care, talk to and reassure them, listen to their concerns and give attention',
-          text: `Children perceive emotions very differently. Seeing you freak out might disturb your child. Grave threats, disturbances and tragedies can negatively impact children’s mental health. Remember yourself as a child, some memories you can revisit that always haunted you. Reassure children and give them hope, motivate them to be courageous and tackle life head on, no matter what situation.`,
+          text: `Children perceive emotions very differently. Seeing you freak out might disturb your child. Grave threats, disturbances and tragedies can negatively impact children’s mental health. Talk to children to reassure them, and motivate them to be courageous and tackle this challenge head on.`,
         },
       ],
     }
