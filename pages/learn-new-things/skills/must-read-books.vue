@@ -24,7 +24,7 @@ export default {
 
   data() {
     return {
-      title: 'Must Read Books',
+      title: 'Must Read Books 📚',
       image: require('~/assets/images/books.png'),
       article: [
         {
