@@ -1,6 +1,6 @@
 <template lang="pug">
   .card
-    nuxt-link(:to="to")
+    nuxt-link.link(:to="to")
       img.card__image(:srcSet="image.srcSet" :src="image.src")
       .card__gradient(:style="{ backgroundImage: 'linear-gradient(180deg, rgba(196, 196, 196, 0) 30.73%, ' + color + ' 70.31%)'}")
       .card__text
@@ -87,4 +87,8 @@ export default {
 
       &.text--dark
         color rgba(25, 23, 91, 0.75)
+
+.link
+  display block
+  overflow hidden
 </style>

@@ -73,7 +73,6 @@ export default {
     display inline-flex
     justify-content center
     align-items center
-    padding .5em .375em .5em .5em
     position relative
     margin .5em 0 0 .75em
 
@@ -90,4 +89,5 @@ export default {
       color #19175B
       font-size 0.875em
       font-weight bold
+      padding .5rem .375rem .5rem .5rem
 </style>
