@@ -34,7 +34,7 @@ export default {
           heading: 'Healthy Lifestyle',
           text: [
             `It is important, whilst we unite and battle this pandemic, we give our best effort to maintain health and strength (both mental and physical!) Once this period ends, we need to get back to our daily hurdles of life and be victorious. Focus on including fresh fruits and raw vegetables in your diet 🍉. Food which is easy to prepare and accessible is the key here.`,
-            `Avoid hoarding and instilling unnecessary panic amongst others, but do keep a minimum level of stock with you. It is also essential we focus on fitness! Staying still with no exercise for more than 20 days will cause extreme fatigue, do avoid it! Learn how Yoga 🧘‍♀️ transforms lives and explore the various home exercises that you can follow without any equipment, and achieve your dream body! `,
+            `Avoid hoarding and instilling unnecessary panic amongst others, but do keep a minimum level of stock with you. It is also essential we focus on fitness! <span class="js--h">Staying still with no exercise for more than 20 days will cause extreme fatigue, do avoid it! Learn how Yoga 🧘‍♀️ transforms lives and explore the various home exercises that you can follow without any equipment, and achieve your dream body!</span>`,
             `You have enough time to sleep, which might lead to oversleeping! Avoid this, as excessive sleep only leads to you feeling drowsy during the day! Do encourage your family and loved ones to participate along with you during workouts and diet plans,it can be a great way to spend time together.`,
           ],
         },
@@ -53,7 +53,7 @@ export default {
         },
         {
           heading: 'Stay informed and aware',
-          text: `Take your information only from trusted government sources and newspapers. Keep yourself informed about the virus and the necessary precautions to take, avoid panic, and most importantly be alert and focused. It is very important for us to stop this virus from spreading, so ensure you follow the government instructions diligently.`,
+          text: `<span class="js--h">Take your information only from trusted government sources and newspapers. Keep yourself informed about the virus and the necessary precautions to take, avoid panic, and most importantly be alert and focused. It is very important for us to stop this virus from spreading, so ensure you follow the government instructions diligently.</span>`,
         },
         {
           heading:

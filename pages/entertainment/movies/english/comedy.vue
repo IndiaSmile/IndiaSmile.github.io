@@ -26,7 +26,7 @@ export default {
 
       article: [
         {
-          text: `Nothing better than to laugh yourself out till half the blood vessels of your face start popping out! Just kidding.😄 How can you not love comedy? It is the perfect stress buster for any situation especially during quarantine. Enjoy this list of fresh and heart lightening comedies that will help you pass your day with a smile, rather than utter boredom!`,
+          text: `Nothing better than to laugh yourself out till half the blood vessels of your face start popping out! Just kidding.😄 How can you not love comedy? It is the perfect stress buster for any situation especially during quarantine. <span class="js--h">Enjoy this list of fresh and heart lightening comedies that will help you pass your day with a smile, rather than utter boredom!</span>`,
         },
         {
           heading: 'Anchorman: The Legend of Ron Burgundy',

@@ -30,7 +30,7 @@ export default {
           text: `Only three percent of people around the world can speak over four languages. On top of that, our minds have the capacity to learn indefinitely. The isolation days present you an opportunity! A chance, a strong desire to learn can substantially boost your social skills and personality.`,
         },
         {
-          text: `We wish to encourage our readers to work on themselves and try out a new language. Speaking fluently in multiple dialects is truly impressive skill! Prepare for all the holidays you are going to take once this ends 😍`,
+          text: `We wish to encourage our readers to work on themselves and try out a new language. <span class="js--h">Speaking fluently in multiple dialects is a truly impressive skill! Prepare for all the holidays you are going to take once this ends with these apps 😍 </span>`,
         },
         {
           heading: 'DuoLingo',

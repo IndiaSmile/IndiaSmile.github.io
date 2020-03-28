@@ -26,7 +26,7 @@ export default {
 
       article: [
         {
-          text: `Here are Bollywood’s best suspense thrillers that you can watch! Filled with power packed performances ensuring that the viewers stay glued to the screen anticipating the next move!`,
+          text: `<span class="js--h">Here are Bollywood’s best suspense thrillers that you can watch! Filled with power packed performances ensuring that the viewers stay glued to the screen anticipating the next move!</span>`,
         },
         {
           heading: 'Madras Cafe',

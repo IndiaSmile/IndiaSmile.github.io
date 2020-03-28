@@ -26,7 +26,7 @@ export default {
 
       article: [
         {
-          text: `Horror Films deal with our most primal nature and its fears: our nightmares, our vulnerability, our alienation, our revulsions, our terror of the unknown, our fear of death, loss of identity, and fear of sexuality. Human beings are fearing beings!💀 We fear what we can’t see, just like the widespread infection of this invisible virus that has caused fear in our lives! Let's dive in, to the best horror movies that you should definitely give a watch!👍`,
+          text: `Horror Films deal with our most primal nature and its fears: our nightmares, our vulnerability, our alienation, our revulsions, our terror of the unknown, our fear of death, loss of identity, and fear of sexuality. <span class="js--h">Human beings are fearing beings!💀 We fear what we can’t see, just like the widespread infection of this invisible virus that has caused fear in our lives! Let's dive in, to the best horror movies that you should definitely give a watch!👍</span>`,
         },
         {
           heading: 'Hereditary',

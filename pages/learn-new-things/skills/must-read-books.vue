@@ -31,7 +31,7 @@ export default {
           text: [
             `A reader lives a thousand lives before he dies.😇`,
             `This is just great! All this free time, and access to some amazing writing work! We cannot stress the importance of reading in one’s life.`,
-            `We present our top picks you should add on your priority list ASAP. Open your mind to newer perspectives as you delve into the dreams of some extraordinary writers.`,
+            `<span class="js--h">IndiaSmile present our top curated picks you should add to your reading list ASAP. Open your mind to newer perspectives as you delve into the dreams of some extraordinary writers.</span>`,
           ],
         },
         {
@@ -40,7 +40,7 @@ export default {
         },
         {
           heading: 'Quichotte by Salman Rushdie',
-          text: `Rushdie’s 14th novel is certainly the work of a frisky and robust imagination. If it drives You nuts, that's fine, It is meant to. The witty and crazy are all there. It's a real magical fiction in the quest for love with all its pains and obstacles. A wonderfully perceived book by a famous author, brings in fresh perspective! `,
+          text: `Rushdie’s 14th novel is certainly the work of a frisky and robust imagination. If it drives you nuts, that's fine, It is meant to. The witty and crazy are all there. It's a real magical fiction in the quest for love with all its pains and obstacles. A wonderfully perceived book by a famous author, brings in fresh perspective! `,
         },
         {
           heading: 'Think and Grow rich',

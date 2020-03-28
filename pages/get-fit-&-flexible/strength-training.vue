@@ -50,7 +50,7 @@ export default {
         {
           youtube: 'https://www.youtube.com/watch?v=WLx5q7M741k',
           text:
-            'This is a guide that will help you burn that unwanted fat from your body and eventually convert them into muscle. Intensive strength workout from home, using no equipment! ',
+            '<span class="js--h">This is a guide that will help you burn that unwanted fat from your body and eventually convert them into muscle. Intensive strength workout from home, using no equipment!</span>',
         },
         {
           youtube: 'https://www.youtube.com/watch?v=3sEeVJEXTfY',

@@ -26,7 +26,7 @@ export default {
 
       article: [
         {
-          text: `There is no other feeling that literally gives you butterflies. Love is sacred and complex. Many embrace it, many lose it, many find it and many don’t believe in it! The important thing is that we need love and kindness. In such times, we need to be supportive and kind, especially to the doctors and nurses that are fighting for our safety.💖 These are a list of comedy movies, with romance at its core, that you can cozy up and watch with your loved ones!`,
+          text: `There is no other feeling that literally gives you butterflies. Love is sacred and complex. Many embrace it, many lose it, many find it and many don’t believe in it! The important thing is that we need love and kindness. <span class="js--h">In such times, we need to be supportive and kind, especially to the doctors and nurses that are fighting for our safety.💖 These are a list of comedy movies, with romance at its core, that you can cozy up and watch with your loved ones!</span>`,
         },
         {
           heading: 'Annie Hall',
