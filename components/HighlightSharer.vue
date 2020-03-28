@@ -11,12 +11,13 @@ export default {
   },
   methods: {
     bindHighlightSharer() {
-      if (!process.client) return false
       document.addEventListener('click', (e) => {
-        if (!e.target.classList.contains('js--h')) return
-        const text = e.target.textContent
-        const url = window.location.href
-        sharer(text, url)
+        if (e.target.classList.contains('js--h')) {
+          const text = e.target.textContent
+          const url = window.location.href
+          sharer(text, url)
+        }
+        return
       })
     },
   },
