@@ -11,11 +11,9 @@ export default {
     goBack() {
       // go up one level by default
       const path = window.location.pathname.split('/')
-      console.log(path)
       if (path.length >= 1) {
-        path.pop()
+        if (!path.pop()) path.pop() // pop twice if last is empty
         const backPath = path.join('/') || '/'
-        console.log(backPath)
         return this.$router.push({ path: backPath })
       }
     },
