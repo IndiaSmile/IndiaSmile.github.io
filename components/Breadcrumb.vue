@@ -1,9 +1,15 @@
 <template lang="pug">
-	div.breadcrumb-container
-		ul.crumbs
-			li.crumbs__item(v-for="(item, index) in items" :key="index" :class="{'is-active': items.length === index + 1}")
-				nuxt-link(:to="path(index)").crumbs__item__link {{ prettyCrumb(item) }}
-
+.breadcrumb-container
+  ul.crumbs
+    li.crumbs__item(
+      v-for="(item, index) in items"
+      v-if="item.length > 1"
+      :key="index"
+      :class="{ 'is-active': items.length === index + 1 }"
+    )
+      nuxt-link(
+        :to="path(index)"
+      ).crumbs__item__link {{ prettyCrumb(item) }}
 </template>
 
 <script>

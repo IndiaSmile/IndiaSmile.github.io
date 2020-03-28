@@ -17,7 +17,6 @@ export default {
           const url = window.location.href
           sharer(text, url)
         }
-        return
       })
     },
   },
@@ -27,6 +26,7 @@ export default {
 <style lang="stylus">
 .js--h
   background rgba(#54a0ff, .2)
+  cursor pointer
   &:after
     content 'Share'
     position absolute

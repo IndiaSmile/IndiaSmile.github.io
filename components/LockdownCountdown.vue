@@ -10,8 +10,8 @@ export default {
   name: 'LockdownCountdown',
   data() {
     return {
-      startDate: moment('25 March 2020'),
-      completionDate: moment('14 April 2020'),
+      startDate: moment('2020-03-25'),
+      completionDate: moment('2020-04-14'),
     }
   },
   computed: {
