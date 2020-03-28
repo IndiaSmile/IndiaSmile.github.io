@@ -17,6 +17,7 @@
           .column.is-one-third(
             v-for="(item, index) in list"
             :key="index"
+            v-if="(typeof item.isHidden === 'boolean') ? !item.isHidden : true"
           )
             card(
               :title="item.title"
@@ -26,7 +27,6 @@
               :to="item.href"
               :isDarkText="item.isDarkText"
             )
-      Sharer(:title="title")
 </template>
 
 <script>
@@ -73,7 +73,7 @@ export default {
         },
         {
           title: 'Learn Something New Quickly 🧠',
-          subtitle: '',
+          subtitle: 'Use the off-time to gain new skills ✍',
           image: require('~/assets/images/person-using-mobile.png'),
           color: 'rgba(42, 94, 92, 0.85)',
           href: '/learn',
@@ -104,8 +104,8 @@ export default {
           isDarkText: true,
         },
         {
-          title: 'Safety Guidelines 🧷',
-          subtitle: '',
+          title: 'Safety Guidelines 👩‍⚕️',
+          subtitle: 'Stay healthy physically and mentally',
           image: require('~/assets/images/doctor.png'),
           color: 'rgba(210, 223, 234, 0.85)',
           href: '/safety-guidelines',
