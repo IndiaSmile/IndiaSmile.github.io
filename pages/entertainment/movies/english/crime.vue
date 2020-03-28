@@ -1,12 +1,13 @@
 <template lang="pug">
-  div.main
+  .article
     ArticleHero(:image="image")
 
     .content
       h2.content__title {{ title }}
       .content__section(v-for="(data, index) in article" :key="index")
+        Sharer(v-if="data.custom === 'Sharer'" :title="title")
         h5.content__heading(v-if="!!data.heading") {{ data.heading }}
-        p.content__text(v-if="typeof data.text === 'string'") {{ data.text }}
+        p.content__text(v-if="typeof data.text === 'string'" v-html="data.text")
 
 </template>
 
@@ -27,6 +28,9 @@ export default {
       article: [
         {
           text: `Who doesn’t love imagining a world without law and order? Kind of like imagining yourself on the streets at this time.👅 The deceit, the lies, the panic and the darkness! Crime movies are developed around the sinister actions of criminals, gangsters, underworld figures, or ruthless hoodlums who operate outside the law, stealing and violently murdering their way through life. Such movies take us deep into the minds of criminals, and how human nature is inclined to be ruthless without law and order.✊`,
+        },
+        {
+          custom: 'Sharer',
         },
         {
           heading: 'GoodFellas',
@@ -80,29 +84,4 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
-.main
-  display flex
-  flex-direction column
-  align-items center
-
-  .content
-    width 100%
-    max-width 26em
-    padding 1.5em 1.875em
-
-    &__title
-      color #19175B
-      font-size 1.5em
-      font-weight bold
-
-    &__heading
-      color #19175B
-      font-size 1em
-      font-weight bold
-
-    &__text
-      color #000
-      font-size 0.875em
-      margin-bottom 1.5em
-</style>
+<style scoped lang="stylus"></style>

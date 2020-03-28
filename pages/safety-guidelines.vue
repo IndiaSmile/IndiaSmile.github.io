@@ -1,12 +1,13 @@
 <template lang="pug">
-  div.main
+  .article
     ArticleHero(:image="image")
 
     .content
       h2.content__title {{ title }}
       .content__section(v-for="(data, index) in article" :key="index")
+        Sharer(v-if="data.custom === 'Sharer'" :title="title")
         h5.content__heading(v-if="!!data.heading") {{ data.heading }}
-        p.content__text(v-html="data.text")
+        p.content__text(v-if="!!data.text" v-html="data.text")
 </template>
 
 <script>
@@ -27,6 +28,9 @@ export default {
           heading: '1. Washing Hands 👏',
           text: `Washing hands with soap, rinsing thoroughly between the fingers and cleaning the entire surface of the hand are essential practice! Let the soap stay on for 20 seconds to wipe out germs and stop any infection from entering your body.
             Sanitize yourself every few hours and remind your family members to do so as well. Remember to use an alcohol-based sanitizer, and be wary of the fake products being sold in the market to dupe customers.`,
+        },
+        {
+          custom: 'Sharer',
         },
         {
           heading: '2. Cough into Elbows 💪',
@@ -61,30 +65,4 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
-.main
-  display flex
-  flex-direction column
-  align-items center
-
-  .content
-    width 100%
-    max-width 26em
-    padding 1.5em 1.875em
-
-    &__title
-      color #19175B
-      font-size 1.5em
-      font-weight bold
-
-    &__heading
-      color #19175B
-      font-size 1em
-      font-weight bold
-
-    &__text
-      color #000
-      font-size 0.875em
-      margin-bottom 1.5em
-      white-space pre-line
-</style>
+<style scoped lang="stylus"></style>

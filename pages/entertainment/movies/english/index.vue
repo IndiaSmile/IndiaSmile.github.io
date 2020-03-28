@@ -1,5 +1,5 @@
 <template lang="pug">
-  div.main
+  .main
     ArticleHero(:image="image")
 
     section.section.content
@@ -19,6 +19,7 @@
               :to="item.href"
               :isDarkText="item.isDarkText"
             )
+      Sharer(:title="title")
 </template>
 
 <script>
@@ -90,13 +91,4 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
-.content
-  padding 1.25em
-
-  &__title
-    color #19175B
-    font-size 1.5em
-    font-weight bold
-    padding-left 0.42em
-</style>
+<style scoped lang="stylus"></style>

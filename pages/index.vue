@@ -26,6 +26,7 @@
               :to="item.href"
               :isDarkText="item.isDarkText"
             )
+      Sharer(:title="title")
 </template>
 
 <script>
@@ -55,22 +56,6 @@ export default {
           isDarkText: false,
         },
         {
-          title: 'Survival Starter Pack ',
-          subtitle: '🧼Supplies and essentials to keep at home 🍞',
-          image: require('~/assets/images/ration.png'),
-          color: 'rgba(247, 235, 205, 0.85)',
-          href: '/survival-pack',
-          isDarkText: true,
-        },
-        {
-          title: 'Beat Anxiety & Gain a Peaceful Calm',
-          subtitle: '❌No to Negativity 🚫',
-          image: require('~/assets/images/woman-meditating.png'),
-          color: 'rgba(75, 82, 60, 0.85)',
-          href: '/beat-anxiety',
-          isDarkText: false,
-        },
-        {
           title: 'Best Modern TV & Movies ',
           subtitle: 'Things to enjoy when bored',
           image: require('~/assets/images/amitabh-bachchan.png'),
@@ -83,7 +68,7 @@ export default {
           subtitle: 'Yoga & Fitness',
           image: require('~/assets/images/woman-meditating.png'),
           color: 'rgba(57, 95, 54, 0.85)',
-          href: '/get-fit-&-flexible',
+          href: '/fitness',
           isDarkText: false,
         },
         {
@@ -91,15 +76,23 @@ export default {
           subtitle: '',
           image: require('~/assets/images/person-using-mobile.png'),
           color: 'rgba(42, 94, 92, 0.85)',
-          href: '/learn-new-things',
+          href: '/learn',
           isDarkText: false,
         },
         {
-          title: 'Safety Guidelines',
-          subtitle: '',
-          image: require('~/assets/images/doctor.png'),
-          color: 'rgba(210, 223, 234, 0.85)',
-          href: '/safety-guidelines',
+          title: 'Beat Anxiety & Gain a Peaceful Calm',
+          subtitle: '❌No to Negativity 🚫',
+          image: require('~/assets/images/woman-meditating.png'),
+          color: 'rgba(75, 82, 60, 0.85)',
+          href: '/peace',
+          isDarkText: false,
+        },
+        {
+          title: 'Survival Starter Pack ',
+          subtitle: '🧼Supplies and essentials to keep at home 🍞',
+          image: require('~/assets/images/ration.png'),
+          color: 'rgba(247, 235, 205, 0.85)',
+          href: '/survive',
           isDarkText: true,
         },
         {
@@ -108,6 +101,14 @@ export default {
           image: require('~/assets/images/newspapers-stack.png'),
           color: 'rgba(235, 235, 236, 0.95)',
           href: '/stay-updated',
+          isDarkText: true,
+        },
+        {
+          title: 'Safety Guidelines',
+          subtitle: '',
+          image: require('~/assets/images/doctor.png'),
+          color: 'rgba(210, 223, 234, 0.85)',
+          href: '/safety-guidelines',
           isDarkText: true,
         },
       ],

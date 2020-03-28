@@ -1,13 +1,14 @@
 <template lang="pug">
-  div.main
+  .article
     ArticleHero(:image="image")
 
     .content
       h2.content__title {{ title }}
       .content__section(v-for="(data, index) in article" :key="index")
+        Sharer(v-if="data.custom === 'Sharer'" :title="title")
         h5.content__heading(v-if="!!data.heading") {{ data.heading }}
         YTEmbed(v-if="!!data.youtube" :src="data.youtube")
-        p.content__text {{ data.text }}
+        p.content__text(v-if="!!data.text" v-html="data.text")
 </template>
 
 <script>
@@ -28,6 +29,9 @@ export default {
       article: [
         {
           text: `Yoga is one of mankind’s most divine practices to attain peace of mind. Indulging in unwanted thoughts and negative emotions is the last thing we want as of now! An extremely beneficial practice to inculcate into your daily routine!`,
+        },
+        {
+          custom: 'Sharer',
         },
         {
           heading: 'Get Started',
@@ -84,30 +88,4 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
-.main
-  display flex
-  flex-direction column
-  align-items center
-
-  .content
-    width 100%
-    max-width 26em
-    padding 1.5em 1.875em
-
-    &__title
-      color #19175B
-      font-size 1.5em
-      font-weight bold
-
-    &__heading
-      color #19175B
-      font-size 1em
-      font-weight bold
-
-    &__text
-      color #000
-      font-size 0.875em
-      margin-bottom 1.5em
-      white-space pre-line
-</style>
+<style scoped lang="stylus"></style>

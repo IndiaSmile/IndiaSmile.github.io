@@ -1,12 +1,13 @@
 <template lang="pug">
-  div.main
+  .article
     ArticleHero(:image="image")
 
     .content
       h2.content__title {{ title }}
       .content__section(v-for="(data, index) in article" :key="index")
+        Sharer(v-if="data.custom === 'Sharer'" :title="title")
         h5.content__heading(v-if="!!data.heading") {{ data.heading }}
-        p.content__text(v-if="typeof data.text === 'string'") {{ data.text }}
+        p.content__text(v-if="typeof data.text === 'string'" v-html="data.text")
 
 </template>
 
@@ -31,6 +32,9 @@ export default {
         {
           heading: 'Madras Cafe',
           text: `An Indian intelligence agent who visits Sri Lanka on a secret mission, finds himself in the middle of a civil war and amidst a conspiracy to kill the former prime minister of India. A beautiful and brilliantly executed movie! It might simply be John Abraham's best work. Excellent direction and screenplay.`,
+        },
+        {
+          custom: 'Sharer',
         },
         {
           heading: 'Baby',
@@ -80,29 +84,4 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
-.main
-  display flex
-  flex-direction column
-  align-items center
-
-  .content
-    width 100%
-    max-width 26em
-    padding 1.5em 1.875em
-
-    &__title
-      color #19175B
-      font-size 1.5em
-      font-weight bold
-
-    &__heading
-      color #19175B
-      font-size 1em
-      font-weight bold
-
-    &__text
-      color #000
-      font-size 0.875em
-      margin-bottom 1.5em
-</style>
+<style scoped lang="stylus"></style>

@@ -1,12 +1,15 @@
 <template lang="pug">
-  div.main
+  .article
     ArticleHero(:image="image")
 
     .content
       h2.content__title {{ title }}
       .content__section(v-for="(data, index) in article" :key="index")
+
+        Sharer(v-if="data.custom === 'Sharer'" :title="title")
+
         h5.content__heading(v-if="!!data.heading") {{ data.heading }}
-        p.content__text {{ data.text }}
+        p.content__text(v-if="!!data.text" v-html="data.text")
         .content__buttons(v-if="!!data.buttons")
           Button.content__buttons__item(v-for="(button, idx) in data.buttons" :key="idx" :text="button.text" :href="button.link")
 </template>
@@ -32,6 +35,9 @@ export default {
         },
         {
           text: `This is real. Many in our country don’t acknowledge it, but are victims! Meditation is the practice of focusing on your breath. It is a proven way to stop wavering thoughts, unwanted emotions. We weren’t given any warning in advance to be mentally ready for this pandemic, but it is never too late! Here is a list of meditation apps that make your experience truly unique!`,
+        },
+        {
+          custom: 'Sharer',
         },
         {
           heading: 'Insight Timer',
@@ -92,36 +98,4 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
-.main
-  display flex
-  flex-direction column
-  align-items center
-
-  .content
-    width 100%
-    max-width 26em
-    padding 1.5em 1.875em
-
-    &__title
-      color #19175B
-      font-size 1.5em
-      font-weight bold
-
-    &__heading
-      color #19175B
-      font-size 1em
-      font-weight bold
-
-    &__text
-      color #000
-      font-size 0.875em
-      margin-bottom 1.5em
-      white-space pre-line
-
-    &__buttons
-      margin-bottom 1.5em
-
-      &__item
-        margin-right 0.5em
-</style>
+<style scoped lang="stylus"></style>

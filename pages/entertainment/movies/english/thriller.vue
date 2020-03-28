@@ -1,27 +1,22 @@
 <template lang="pug">
-  div.main
+  .article
     ArticleHero(:image="image")
 
     .content
       h2.content__title {{ title }}
-      .content__section(
-        v-for="(data, index) in article"
-        :key="index"
-      )
+      .content__section(v-for="(data, index) in article" :key="index")
         Sharer(v-if="data.custom === 'Sharer'" :title="title")
         h5.content__heading(v-if="!!data.heading") {{ data.heading }}
-        p.content__text(v-if="typeof data.text === 'string'") {{ data.text }}
+        p.content__text(v-if="typeof data.text === 'string'" v-html="data.text")
 
 </template>
 
 <script>
-import Sharer from '~/components/Sharer'
 import ArticleHero from '~/components/ArticleHero'
 
 export default {
   name: 'HomePage',
   components: {
-    Sharer,
     ArticleHero,
   },
 
@@ -92,29 +87,4 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
-.main
-  display flex
-  flex-direction column
-  align-items center
-
-  .content
-    width 100%
-    max-width 26em
-    padding 1.5em 1.875em
-
-    &__title
-      color #19175B
-      font-size 1.5em
-      font-weight bold
-
-    &__heading
-      color #19175B
-      font-size 1em
-      font-weight bold
-
-    &__text
-      color #000
-      font-size 0.875em
-      margin-bottom 1.5em
-</style>
+<style scoped lang="stylus"></style>

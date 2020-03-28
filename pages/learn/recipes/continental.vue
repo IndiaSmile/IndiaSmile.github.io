@@ -1,13 +1,15 @@
 <template lang="pug">
-  div.main
+  .article
     ArticleHero(:image="image")
 
     .content
       h2.content__title {{ title }}
       .content__section(v-for="(data, index) in article" :key="index")
-        h5.content__heading(v-if="!!data.heading") {{ data.heading }}
 
-        p.content__text {{ data.text }}
+        Sharer(v-if="data.custom === 'Sharer'" :title="title")
+
+        h5.content__heading(v-if="!!data.heading") {{ data.heading }}
+        p.content__text(v-if="!!data.text" v-html="data.text")
 
         YTEmbed(v-if="!!data.youtube" :src="data.youtube")
 </template>
@@ -35,6 +37,9 @@ export default {
           heading: 'Egg based dishes',
           text: `Egg recipes in 9 different ways, suited to Indian flavour. Eggs are beneficial in making a number of dishes, do try to stock them if you are an egg lover. `,
           youtube: 'https://www.youtube.com/watch?v=Nd2SUKWcBDM',
+        },
+        {
+          custom: 'Sharer',
         },
         {
           heading: 'Roasted Vegetable salad',
@@ -68,30 +73,4 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
-.main
-  display flex
-  flex-direction column
-  align-items center
-
-  .content
-    width 100%
-    max-width 26em
-    padding 1.5em 1.875em
-
-    &__title
-      color #19175B
-      font-size 1.5em
-      font-weight bold
-
-    &__heading
-      color #19175B
-      font-size 1em
-      font-weight bold
-
-    &__text
-      color #000
-      font-size 0.875em
-      margin-bottom 1.5em
-      white-space pre-line
-</style>
+<style scoped lang="stylus"></style>

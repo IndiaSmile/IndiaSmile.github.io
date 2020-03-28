@@ -19,6 +19,7 @@
               :to="item.href"
               :isDarkText="item.isDarkText"
             )
+      Sharer(:title="title")
 </template>
 
 <script>
@@ -33,33 +34,41 @@ export default {
 
   data() {
     return {
-      title: 'Learn Something New Quickly',
+      title: 'Skills',
 
-      image: require('~/assets/images/person-using-mobile.png'),
+      image: require('~/assets/images/person-using-laptop.png'),
 
       list: [
         {
-          title: 'Recipes',
+          title: 'Financial Planning',
           subtitle: '',
-          image: require('~/assets/images/recipes.png'),
+          image: require('~/assets/images/money-cash.png'),
+          color: 'rgba(69, 75, 61, 0.85)',
+          href: '/learn-new-things/skills/financial-planning',
+          isDarkText: false,
+        },
+        {
+          title: 'Must Read Books',
+          subtitle: '',
+          image: require('~/assets/images/books.png'),
           color: 'rgba(247, 235, 205, 0.85)',
-          href: '/learn-new-things/recipes',
+          href: '/learn-new-things/skills/must-read-books',
           isDarkText: true,
         },
         {
-          title: 'Skills',
+          title: 'Introduction to Programming',
           subtitle: '',
-          image: require('~/assets/images/person-using-laptop.png'),
-          color: 'rgba(247, 235, 205, 0.85)',
-          href: '/learn-new-things/skills',
-          isDarkText: true,
+          image: require('~/assets/images/code.png'),
+          color: 'rgba(37, 48, 66, 0.85)',
+          href: '/learn-new-things/skills/programming',
+          isDarkText: false,
         },
         {
-          title: 'Languages',
+          title: 'Digital India 2020 - Word/Excel/PPT',
           subtitle: '',
-          image: require('~/assets/images/languages.png'),
-          color: 'rgba(255, 149, 135, 0.85)',
-          href: '/learn-new-things/languages',
+          image: require('~/assets/images/digital-india.png'),
+          color: 'rgba(177, 177, 177, 0.85)',
+          href: '/learn-new-things/skills/digital-india',
           isDarkText: true,
         },
       ],
@@ -74,13 +83,4 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
-.content
-  padding 1.25em
-
-  &__title
-    color #19175B
-    font-size 1.5em
-    font-weight bold
-    padding-left 0.42em
-</style>
+<style scoped lang="stylus"></style>

@@ -1,13 +1,14 @@
 <template lang="pug">
-  div.main
+  .article
     ArticleHero(:image="image")
 
     .content
       h2.content__title {{ title }}
       .content__section(v-for="(data, index) in article" :key="index")
+        Sharer(v-if="data.custom === 'Sharer'" :title="title")
         h5.content__heading(v-if="!!data.heading") {{ data.heading }}
         YTEmbed(v-if="!!data.youtube" :src="data.youtube")
-        p.content__text {{ data.text }}
+        p.content__text(v-if="!!data.text" v-html="data.text")
 </template>
 
 <script>
@@ -32,6 +33,9 @@ export default {
         {
           heading: 'Basics of resistance training',
           text: `‘Strength’ is a type of training for developing the power and size of skeletal muscles. It utilises the force of gravity in the form of weights, in order to oppose the force generated through rhythmic contraction! Basically, you have to work your muscles. Take them out of their comfort zone. The more tough it is to push or pull, the stronger your body becomes! The formula is simple and effective. We will focus on how you can achieve these targets in the comfort of your home, without any additional equipment!`,
+        },
+        {
+          custom: 'Sharer',
         },
         {
           youtube: 'https://www.youtube.com/watch?v=8_8M53Y5PvI',
@@ -83,30 +87,4 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
-.main
-  display flex
-  flex-direction column
-  align-items center
-
-  .content
-    width 100%
-    max-width 26em
-    padding 1.5em 1.875em
-
-    &__title
-      color #19175B
-      font-size 1.5em
-      font-weight bold
-
-    &__heading
-      color #19175B
-      font-size 1em
-      font-weight bold
-
-    &__text
-      color #000
-      font-size 0.875em
-      margin-bottom 1.5em
-      white-space pre-line
-</style>
+<style scoped lang="stylus"></style>

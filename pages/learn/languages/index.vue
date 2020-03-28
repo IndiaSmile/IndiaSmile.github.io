@@ -1,5 +1,5 @@
 <template lang="pug">
-  .main
+  div.main
     ArticleHero(:image="image")
 
     section.section.content
@@ -34,26 +34,18 @@ export default {
 
   data() {
     return {
-      title: 'Movies',
+      title: 'Languages',
 
-      image: require('~/assets/images/it-clown.png'),
+      image: require('~/assets/images/languages.png'),
 
       list: [
         {
-          title: 'Hollywood',
-          subtitle: 'English',
-          image: require('~/assets/images/english-thriller.png'),
-          color: 'rgba(252, 197, 177, 0.85)',
-          href: '/entertainment/movies/english',
+          title: 'Best language learning apps',
+          subtitle: '',
+          image: require('~/assets/images/languages.png'),
+          color: 'rgba(255, 149, 135, 0.85)',
+          href: '/learn/languages/best-apps',
           isDarkText: false,
-        },
-        {
-          title: 'Bollywood',
-          subtitle: 'Hindi',
-          image: require('~/assets/images/hindi-rom-com.png'),
-          color: 'rgba(247, 235, 205, 0.85)',
-          href: '/entertainment/movies/hindi',
-          isDarkText: true,
         },
       ],
     }
@@ -67,4 +59,13 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus"></style>
+<style scoped lang="stylus">
+.content
+  padding 1.25em
+
+  &__title
+    color #19175B
+    font-size 1.5em
+    font-weight bold
+    padding-left 0.42em
+</style>

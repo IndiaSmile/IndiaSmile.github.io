@@ -1,15 +1,15 @@
 <template lang="pug">
-  div.main
+  .article
     ArticleHero(:image="image")
 
     .content
       h2.content__title {{ title }}
       .content__section(v-for="(data, index) in article" :key="index")
-        h5.content__heading(v-if="!!data.heading") {{ data.heading }}
 
-        p.content__text(v-if="typeof data.text === 'string'") {{ data.text }}
-        div(v-else)
-          p.content__text(v-for="(text, idx) in data.text" :key="idx") {{ text }}
+        Sharer(v-if="data.custom === 'Sharer'" :title="title")
+
+        h5.content__heading(v-if="!!data.heading") {{ data.heading }}
+        p.content__text(v-if="!!data.text" v-html="data.text")
 
         YTEmbed(v-if="!!data.youtube" :src="data.youtube")
 </template>
@@ -36,6 +36,9 @@ export default {
             `We would love to help our readers choose interesting recipes they can try at home. These are easy to make and require no additional equipment other than basic home ingredients. If any ingredient is unavailable, don’t worry, choose a dish from this variety of choices that suits your grocery shelf, as we know it is difficult to arrange essentials right now! `,
             `These are some unique Indian dishes that taste great and are easy to make!`,
           ],
+        },
+        {
+          custom: 'Sharer',
         },
         {
           heading: 'Kadi Pakoda',
@@ -74,30 +77,4 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
-.main
-  display flex
-  flex-direction column
-  align-items center
-
-  .content
-    width 100%
-    max-width 26em
-    padding 1.5em 1.875em
-
-    &__title
-      color #19175B
-      font-size 1.5em
-      font-weight bold
-
-    &__heading
-      color #19175B
-      font-size 1em
-      font-weight bold
-
-    &__text
-      color #000
-      font-size 0.875em
-      margin-bottom 1.5em
-      white-space pre-line
-</style>
+<style scoped lang="stylus"></style>

@@ -1,12 +1,15 @@
 <template lang="pug">
-  div.main
+  .article
     ArticleHero(:image="image")
 
     .content
       h2.content__title {{ title }}
       .content__section(v-for="(data, index) in article" :key="index")
+
+        Sharer(v-if="data.custom === 'Sharer'" :title="title")
+
         h5.content__heading(v-if="!!data.heading") {{ data.heading }}
-        p.content__text {{ data.text }}
+        p.content__text(v-if="!!data.text" v-html="data.text")
         Button.content__button(v-if="!!data.button" :text="data.button.text" :href="data.button.link")
 </template>
 
@@ -28,6 +31,9 @@ export default {
       article: [
         {
           text: `Only three percent of people around the world can speak over four languages. On top of that, our minds have the capacity to learn indefinitely. The isolation days present you an opportunity! A chance, a strong desire to learn can substantially boost your social skills and personality.`,
+        },
+        {
+          custom: 'Sharer',
         },
         {
           text: `We wish to encourage our readers to work on themselves and try out a new language. <span class="js--h">Speaking fluently in multiple dialects is a truly impressive skill! Prepare for all the holidays you are going to take once this ends with these apps 😍 </span>`,
@@ -68,33 +74,4 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
-.main
-  display flex
-  flex-direction column
-  align-items center
-
-  .content
-    width 100%
-    max-width 26em
-    padding 1.5em 1.875em
-
-    &__title
-      color #19175B
-      font-size 1.5em
-      font-weight bold
-
-    &__heading
-      color #19175B
-      font-size 1em
-      font-weight bold
-
-    &__text
-      color #000
-      font-size 0.875em
-      margin-bottom 1.5em
-      white-space pre-line
-
-    &__button
-      margin-bottom 1.5em
-</style>
+<style scoped lang="stylus"></style>

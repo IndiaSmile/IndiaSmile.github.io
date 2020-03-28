@@ -19,6 +19,7 @@
               :to="item.href"
               :isDarkText="item.isDarkText"
             )
+      Sharer(:title="title")
 </template>
 
 <script>
@@ -43,7 +44,7 @@ export default {
           subtitle: '',
           image: require('~/assets/images/recipe-indian.png'),
           color: 'rgba(86, 68, 58, 0.85)',
-          href: '/learn-new-things/recipes/indian',
+          href: '/learn/recipes/indian',
           isDarkText: false,
         },
         {
@@ -51,7 +52,7 @@ export default {
           subtitle: '',
           image: require('~/assets/images/recipe-italian.png'),
           color: 'rgba(193, 120, 78, 0.85)',
-          href: '/learn-new-things/recipes/italian',
+          href: '/learn/recipes/italian',
           isDarkText: false,
         },
         {
@@ -59,7 +60,7 @@ export default {
           subtitle: '',
           image: require('~/assets/images/recipe-chinese.png'),
           color: 'rgba(151, 122, 93, 0.85)',
-          href: '/learn-new-things/recipes/chinese',
+          href: '/learn/recipes/chinese',
           isDarkText: false,
         },
         {
@@ -67,7 +68,7 @@ export default {
           subtitle: '',
           image: require('~/assets/images/recipe-continental.png'),
           color: 'rgba(186, 134, 77, 0.85)',
-          href: '/learn-new-things/recipes/continental',
+          href: '/learn/recipes/continental',
           isDarkText: false,
         },
         {
@@ -75,7 +76,7 @@ export default {
           subtitle: '',
           image: require('~/assets/images/recipe-snacks.png'),
           color: 'rgba(127, 147, 103, 0.85)',
-          href: '/learn-new-things/recipes/snacks',
+          href: '/learn/recipes/snacks',
           isDarkText: false,
         },
       ],
@@ -90,13 +91,4 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
-.content
-  padding 1.25em
-
-  &__title
-    color #19175B
-    font-size 1.5em
-    font-weight bold
-    padding-left 0.42em
-</style>
+<style scoped lang="stylus"></style>

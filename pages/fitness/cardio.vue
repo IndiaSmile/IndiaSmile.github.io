@@ -1,13 +1,14 @@
 <template lang="pug">
-  div.main
+  .article
     ArticleHero(:image="image")
 
     .content
       h2.content__title {{ title }}
       .content__section(v-for="(data, index) in article" :key="index")
+        Sharer(v-if="data.custom === 'Sharer'" :title="title")
         h5.content__heading(v-if="!!data.heading") {{ data.heading }}
         YTEmbed(v-if="!!data.youtube" :src="data.youtube")
-        p.content__text {{ data.text }}
+        p.content__text(v-if="!!data.text" v-html="data.text")
 </template>
 
 <script>
@@ -28,6 +29,9 @@ export default {
       article: [
         {
           text: `Cardiovascular are exercises that raise your heart rate. Our bodies were made to move. And we all know that to keep our muscles in shape we need move them! The rhythmic and endurance based movements of body muscles comprise cardiovascular training. It is the training that will help you take deeper breaths, build a stronger heart, and make you feel like a powerhouse of energy! <span class="js--h">Cardio exercises are suggested for all those who want to see an improvement in blood pressure, cholesterol, stress, energy and overall health.</span>`,
+        },
+        {
+          custom: 'Sharer',
         },
         {
           heading: 'General Fitness Exercises',
@@ -83,30 +87,4 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
-.main
-  display flex
-  flex-direction column
-  align-items center
-
-  .content
-    width 100%
-    max-width 26em
-    padding 1.5em 1.875em
-
-    &__title
-      color #19175B
-      font-size 1.5em
-      font-weight bold
-
-    &__heading
-      color #19175B
-      font-size 1em
-      font-weight bold
-
-    &__text
-      color #000
-      font-size 0.875em
-      margin-bottom 1.5em
-      white-space pre-line
-</style>
+<style scoped lang="stylus"></style>

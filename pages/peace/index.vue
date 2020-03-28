@@ -1,5 +1,5 @@
 <template lang="pug">
-  div.main
+  .main
     ArticleHero(:image="image")
 
     section.section.content
@@ -19,6 +19,7 @@
               :to="item.href"
               :isDarkText="item.isDarkText"
             )
+      Sharer(:title="title")
 </template>
 
 <script>
@@ -43,7 +44,7 @@ export default {
           subtitle: 'Get back control of your life ☮',
           image: require('~/assets/images/meditating-app.png'),
           color: 'rgba(247, 235, 205, 0.85)',
-          href: '/beat-anxiety/meditation-apps',
+          href: '/peace/meditation-apps',
           isDarkText: true,
         },
         {
@@ -51,7 +52,7 @@ export default {
           subtitle: 'Learn the basics of Pranayam',
           image: require('~/assets/images/ramdev-yoga.png'),
           color: 'rgba(160, 173, 190, 0.85)',
-          href: '/beat-anxiety/breathing-techniques',
+          href: '/peace/breathing-techniques',
           isDarkText: false,
         },
         {
@@ -59,7 +60,7 @@ export default {
           subtitle: 'Tips to stay calm during the pandemic',
           image: require('~/assets/images/vegetables.png'),
           color: 'rgba(124, 98, 58, 0.85)',
-          href: '/beat-anxiety/manage-coronavirus-anxiety',
+          href: '/peace/manage-coronavirus-anxiety',
           isDarkText: false,
         },
         // {
@@ -67,7 +68,7 @@ export default {
         //   subtitle: '',
         //   image: require('~/assets/images/women-yoga.png'),
         //   color: 'rgba(194, 192, 206, 0.85)',
-        //   href: '/beat-anxiety/meditation-sessions',
+        //   href: '/peace/meditation-sessions',
         //   isDarkText: true,
         // },
         // {
@@ -75,7 +76,7 @@ export default {
         //   subtitle: '',
         //   image: require('~/assets/images/ration.png'),
         //   color: 'rgba(247, 235, 205, 0.85)',
-        //   href: '/beat-anxiety/pages-to-follow',
+        //   href: '/peace/pages-to-follow',
         //   isDarkText: true,
         // },
       ],
@@ -90,13 +91,4 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
-.content
-  padding 1.25em
-
-  &__title
-    color #19175B
-    font-size 1.5em
-    font-weight bold
-    padding-left 0.42em
-</style>
+<style scoped lang="stylus"></style>

@@ -19,6 +19,7 @@
               :to="item.href"
               :isDarkText="item.isDarkText"
             )
+      Sharer(:title="title")
 </template>
 
 <script>
@@ -43,7 +44,7 @@ export default {
           subtitle: 'Introduce yourself to a flexible lifestyle 🧘‍♂️',
           image: require('~/assets/images/girl-yoga.png'),
           color: 'rgba(82, 72, 61, 0.85)',
-          href: '/get-fit-&-flexible/yoga',
+          href: '/fitness/yoga',
           isDarkText: false,
         },
         {
@@ -51,7 +52,7 @@ export default {
           subtitle: 'Get ripped with these workouts 💪',
           image: require('~/assets/images/person-weightlifting.png'),
           color: 'rgba(0, 0, 0, 0.85)',
-          href: '/get-fit-&-flexible/strength-training',
+          href: '/fitness/strength-training',
           isDarkText: false,
         },
         {
@@ -59,7 +60,7 @@ export default {
           subtitle: 'Improve posture and strengthen muscles',
           image: require('~/assets/images/girl-pilates.png'),
           color: 'rgba(184, 179, 159, 0.85)',
-          href: '/get-fit-&-flexible/pilates',
+          href: '/fitness/pilates',
           isDarkText: true,
         },
         {
@@ -67,7 +68,7 @@ export default {
           subtitle: 'Give your endurance a boost 🏃‍♀️',
           image: require('~/assets/images/girl-running.png'),
           color: 'rgba(34, 38, 41, 0.85)',
-          href: '/get-fit-&-flexible/cardio',
+          href: '/fitness/cardio',
           isDarkText: false,
         },
       ],
@@ -82,13 +83,4 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
-.content
-  padding 1.25em
-
-  &__title
-    color #19175B
-    font-size 1.5em
-    font-weight bold
-    padding-left 0.42em
-</style>
+<style scoped lang="stylus"></style>

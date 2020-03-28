@@ -19,6 +19,7 @@
               :to="item.href"
               :isDarkText="item.isDarkText"
             )
+      Sharer(:title="title")
 </template>
 
 <script>
@@ -43,7 +44,7 @@ export default {
           subtitle: 'Discussion groups',
           image: require('~/assets/images/soaps.png'),
           color: 'rgba(234, 230, 219, 0.85)',
-          href: '/survival-pack/soaps',
+          href: '/survive/soaps',
           isDarkText: true,
         },
         {
@@ -51,7 +52,7 @@ export default {
           subtitle: 'Get fit at home',
           image: require('~/assets/images/sanitizers.png'),
           color: 'rgba(230, 226, 225, 0.85)',
-          href: '/survival-pack/sanitisers',
+          href: '/survive/sanitisers',
           isDarkText: true,
         },
         {
@@ -59,7 +60,7 @@ export default {
           subtitle: 'Discussion groups',
           image: require('~/assets/images/vegetables.png'),
           color: 'rgba(124, 98, 58, 0.85)',
-          href: '/survival-pack/vegetables',
+          href: '/survive/vegetables',
           isDarkText: false,
         },
         {
@@ -67,7 +68,7 @@ export default {
           subtitle: 'Discussion groups',
           image: require('~/assets/images/grocery.png'),
           color: 'rgba(108, 101, 84, 0.85)',
-          href: '/survival-pack/grocery-essentials',
+          href: '/survive/grocery-essentials',
           isDarkText: false,
         },
       ],
@@ -82,13 +83,4 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
-.content
-  padding 1.25em
-
-  &__title
-    color #19175B
-    font-size 1.5em
-    font-weight bold
-    padding-left 0.42em
-</style>
+<style scoped lang="stylus"></style>

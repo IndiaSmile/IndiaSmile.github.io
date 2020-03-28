@@ -1,15 +1,18 @@
 <template lang="pug">
-  div.main
+  .article
     ArticleHero(:image="image")
 
     .content
       h2.content__title {{ title }}
       .content__section(v-for="(data, index) in article" :key="index")
+
+        Sharer(v-if="data.custom === 'Sharer'" :title="title")
+
         h5.content__heading(v-if="!!data.heading") {{ data.heading }}
 
-        p.content__text(v-if="typeof data.text === 'string'") {{ data.text }}
-        div(v-else)
-          p.content__text(v-for="(text, idx) in data.text" :key="idx") {{ text }}
+        p.content__text(v-if="typeof data.text === 'string'" v-html="data.text")
+        div(v-else-if="typeof data.text === 'object'")
+          p.content__text(v-for="(text, idx) in data.text" :key="idx" v-html="text")
 
 </template>
 
@@ -33,6 +36,9 @@ export default {
             `This is just great! All this free time, and access to some amazing writing work! We cannot stress the importance of reading in one’s life.`,
             `<span class="js--h">IndiaSmile present our top curated picks you should add to your reading list ASAP. Open your mind to newer perspectives as you delve into the dreams of some extraordinary writers.</span>`,
           ],
+        },
+        {
+          custom: 'Sharer',
         },
         {
           heading: 'The Apology by Eve Ensler',
@@ -82,33 +88,4 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
-.main
-  display flex
-  flex-direction column
-  align-items center
-
-  .content
-    width 100%
-    max-width 26em
-    padding 1.5em 1.875em
-
-    &__title
-      color #19175B
-      font-size 1.5em
-      font-weight bold
-
-    &__heading
-      color #19175B
-      font-size 1em
-      font-weight bold
-
-    &__text
-      color #000
-      font-size 0.875em
-      margin-bottom 1.5em
-      white-space pre-line
-
-    &__button
-      margin-bottom 1.5em
-</style>
+<style scoped lang="stylus"></style>
