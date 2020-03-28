@@ -72,8 +72,8 @@ export default {
           isDarkText: false,
         },
         {
-          title: 'Learn Something New Quickly',
-          subtitle: '',
+          title: 'Learn Something New',
+          subtitle: 'Use the off-time to gain new skills ✍',
           image: require('~/assets/images/person-using-mobile.png'),
           color: 'rgba(42, 94, 92, 0.85)',
           href: '/learn',
@@ -96,8 +96,8 @@ export default {
           isDarkText: true,
         },
         {
-          title: 'Stay Updated (Curated News)',
-          subtitle: '',
+          title: 'Stay Updated',
+          subtitle: '📰 Curated news from verified sources',
           image: require('~/assets/images/newspapers-stack.png'),
           color: 'rgba(235, 235, 236, 0.95)',
           href: '/stay-updated',
@@ -105,7 +105,7 @@ export default {
         },
         {
           title: 'Safety Guidelines',
-          subtitle: '',
+          subtitle: 'Stay healthy both physically and mentally 👩‍⚕️',
           image: require('~/assets/images/doctor.png'),
           color: 'rgba(210, 223, 234, 0.85)',
           href: '/safety-guidelines',
