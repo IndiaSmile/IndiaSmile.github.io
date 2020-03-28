@@ -1,5 +1,6 @@
 <template lang="pug">
-  b-message.lockdown-countdown(type="is-info") You&rsquo;ve survived <strong>{{completed}} days so far</strong> 😷 only <strong>{{remaining}}&nbsp;more days</strong> before the lockdown is lifted. Congrats! 🥳
+  .container
+    b-message.lockdown-countdown(type="is-info") You&rsquo;ve survived <strong>{{completed}} days so far</strong> 😷 only <strong>{{remaining}}&nbsp;more days</strong> before the lockdown is lifted. Congrats! 🥳
 </template>
 
 <script>
@@ -28,5 +29,5 @@ export default {
 <style lang="stylus" scoped>
 .lockdown-countdown
   font-size .75em
-  margin .5rem 1rem -1.5rem
+  margin .5rem 0 -1.5rem
 </style>

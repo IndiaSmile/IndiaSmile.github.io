@@ -66,6 +66,23 @@ export default {
     max-width 26em
     padding 1.5em 1.875em
 
+    &__header
+      display flex
+      justify-content space-between
+      margin 1.5rem 0 1rem
+
+    &__rating
+      font-size .875em
+      display flex
+      align-content center
+      font-weight bold
+      color #f1c40f
+
+      /deep/ .icon
+        font-size 2em
+        margin-right .25em
+        height 1.375rem
+
     &__title
       color #19175B
       font-size 1.5em
@@ -74,8 +91,8 @@ export default {
     &__heading
       color #19175B
       font-size 1.25em
+      margin 0
       font-weight bold
-      margin-bottom 1rem
 
     &__text
       color #35394c
@@ -101,5 +118,5 @@ export default {
       color #19175B
       font-size 1.5em
       font-weight bold
-      padding-left 0.42em
+      text-align center
 </style>
