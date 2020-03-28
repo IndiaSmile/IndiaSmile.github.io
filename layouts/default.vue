@@ -34,26 +34,13 @@ export default {
 .wrapper
   font-family 'DM Sans', sans-serif
 
-  .fade-enter-active
-    -webkit-animation-duration 1s
-    animation-duration 1s
-    -webkit-animation-fill-mode both
-    animation-fill-mode both
-    -webkit-animation-name fadeIn
-    animation-name fadeIn
+  .fade-enter-active,
+  .fade-leave-active
+    transition opacity .5s
 
-// fade page animation
-@-webkit-keyframes fadeIn
-  from
+  .fade-enter,
+  .fade-leave-active
     opacity 0
-  to
-    opacity 1
-
-@keyframes fadeIn
-  from
-    opacity 0
-  to
-    opacity 1
 
 // for article styles
 .article
