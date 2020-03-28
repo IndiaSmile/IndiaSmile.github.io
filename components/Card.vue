@@ -53,6 +53,7 @@ export default {
   position relative
   box-shadow none
   overflow hidden
+  padding-bottom 56.25%
 
   &__image
     display block
@@ -91,4 +92,9 @@ export default {
 .link
   display block
   overflow hidden
+  position absolute
+  top 0
+  right 0
+  bottom 0
+  left 0
 </style>
