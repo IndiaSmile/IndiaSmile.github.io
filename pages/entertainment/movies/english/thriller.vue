@@ -4,18 +4,24 @@
 
     .content
       h2.content__title {{ title }}
-      .content__section(v-for="(data, index) in article" :key="index")
+      .content__section(
+        v-for="(data, index) in article"
+        :key="index"
+      )
+        Sharer(v-if="data.custom === 'Sharer'" :title="title")
         h5.content__heading(v-if="!!data.heading") {{ data.heading }}
         p.content__text(v-if="typeof data.text === 'string'") {{ data.text }}
 
 </template>
 
 <script>
+import Sharer from '~/components/Sharer'
 import ArticleHero from '~/components/ArticleHero'
 
 export default {
   name: 'HomePage',
   components: {
+    Sharer,
     ArticleHero,
   },
 
@@ -30,6 +36,9 @@ export default {
         {
           heading: 'The Silence Of The Lambs',
           text: `An FBI agent seeks help from a psychopathic serial killer and former psychiatrist, in order to apprehend another serial killer who has been claiming female victims. Psychological supplemented with a gripping tale which inspires suspense amongst its watchers. One of the best suspense thrillers of this decade!`,
+        },
+        {
+          custom: 'Sharer',
         },
         {
           heading: 'Seven',
