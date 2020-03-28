@@ -4,14 +4,19 @@
 
     .content
       h2.content__title {{ title }}
+
       .content__section(v-for="(data, index) in article" :key="index")
 
         Sharer(v-if="data.custom === 'Sharer'" :title="title")
 
-        h5.content__heading(v-if="!!data.heading") {{ data.heading }}
+        .content__header
+          h5.content__heading(v-if="!!data.heading") {{ data.heading }}
+
+          b-tag(v-if="!!data.recommended" type="is-info" rounded) Recommended
+
         p.content__text(v-if="!!data.text" v-html="data.text")
         .content__buttons(v-if="!!data.buttons")
-          Button.content__buttons__item(v-for="(button, idx) in data.buttons" :key="idx" :text="button.text" :href="button.link")
+          Button.content__buttons__item(v-for="(button, idx) in data.buttons" :key="idx" :text="button.text" :type="button.type" :href="button.link")
 </template>
 
 <script>
@@ -54,6 +59,7 @@ export default {
                 'https://apps.apple.com/us/app/insight-timer-meditation-app/id337472899',
             },
           ],
+          recommended: true,
         },
         {
           heading: 'Calm',

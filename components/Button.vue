@@ -1,8 +1,9 @@
 <template lang="pug">
-  component(:is="element" v-bind="attribute").wrapper
-    button.button
+  component.wrapper(:is="element" v-bind="attribute")
+    button.button(:class="computedClass")
+      img.button__image(v-if="!!computedClass" :src="iconSource")
       | {{ text }}
-      span.button__icon
+      span.button__icon(v-if="icon")
 
 </template>
 
@@ -21,8 +22,22 @@ export default {
     icon: {
       type: Boolean,
       required: false,
-      default: true,
+      default: false,
     },
+    type: {
+      type: String,
+      required: false,
+      default: '',
+    },
+  },
+
+  data() {
+    return {
+      icons: {
+        android: require('~/assets/images/play-store-icon.png'),
+        ios: require('~/assets/images/apple-icon.png'),
+      },
+    }
   },
 
   computed: {
@@ -44,6 +59,20 @@ export default {
       } else {
         return {}
       }
+    },
+
+    computedClass() {
+      if (this.text.toLowerCase() === 'ios') {
+        return 'button--ios'
+      } else if (this.text.toLowerCase() === 'android') {
+        return 'button--android'
+      } else {
+        return ''
+      }
+    },
+
+    iconSource() {
+      return this.icons[this.text.toLowerCase()]
     },
   },
 
@@ -78,6 +107,21 @@ export default {
     font-size 0.875em
     font-weight bold
     height 2.5em
+    display flex
+    justify-content space-between
+    align-items center
+
+    &--android
+      background green
+      color #fff
+
+    &--ios
+      background #000
+      color #fff
+
+    &__image
+      height 0.875em
+      margin-right 0.5em
 
     &__icon
       border solid #1C5BFF
