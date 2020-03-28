@@ -19,11 +19,9 @@
     "imagemin-mozjpeg": "^8.0.0",
     "imagemin-pngquant": "^8.0.0",
     "jimp": "^0.9.6",
-    "lqip-loader": "^2.2.0",
     "nuxt": "^2.0.0",
     "nuxt-buefy": "^0.3.2",
-    "responsive-loader": "^1.2.0",
-    "webp-loader": "^0.6.0"
+    "responsive-loader": "^1.2.0"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^2.0.0",

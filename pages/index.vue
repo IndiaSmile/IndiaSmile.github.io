@@ -1,8 +1,7 @@
 <template lang="pug">
   div
     .hero
-      .hero__header
-        img.hero__header__logo(src="~/assets/logo-horizontal.png")
+      Header
 
       .hero__background
         .hero__text
@@ -28,11 +27,13 @@
 </template>
 
 <script>
+import Header from '~/components/Header'
 import Card from '~/components/Card'
 
 export default {
   name: 'HomePage',
   components: {
+    Header,
     Card,
   },
 
@@ -122,16 +123,6 @@ export default {
   width 100%
   max-width 26em
   margin 0 auto
-
-  &__header
-    padding 0.875em
-    display flex
-    align-items center
-    justify-content center
-    background #fff
-
-    &__logo
-      height 1.75em
 
   &__background
     width 100%

@@ -1,7 +1,6 @@
 <template lang="pug">
   .hero
-    .hero__header
-      img.hero__header__logo(src="~/assets/logo-horizontal.png")
+    Header
 
     .hero__background
       img.hero__background__image(v-if="!!image" :src="image")
@@ -9,10 +8,14 @@
 </template>
 
 <script>
+import Header from '~/components/Header'
 import Breadcrumb from '~/components/Breadcrumb'
 
 export default {
-  components: { Breadcrumb },
+  components: {
+    Header,
+    Breadcrumb,
+  },
   props: {
     image: {
       type: Object,
@@ -28,13 +31,6 @@ export default {
   width 100%
   max-width 26em
   margin 0 auto
-
-  &__header
-    padding 0.875em
-    display flex
-    align-items center
-    justify-content center
-    background #fff
 
     &__logo
       height 1.75em
