@@ -2,13 +2,13 @@
   div.main
     ArticleHero(:image="image")
 
-    Button(text="Read more" href="hola")
-
     .content
       h2.content__title {{ title }}
       .content__section(v-for="(data, index) in article" :key="index")
         h5.content__heading(v-if="!!data.heading") {{ data.heading }}
         p.content__text {{ data.text }}
+        .content__buttons(v-if="!!data.buttons")
+          Button.content__buttons__item(v-for="(button, idx) in data.buttons" :key="idx" :text="button.text" :href="button.link")
 </template>
 
 <script>
@@ -24,53 +24,61 @@ export default {
 
   data() {
     return {
-      title: 'Cardio',
-      image: require('~/assets/images/girl-running.png'),
+      title: 'Meditation apps',
+      image: require('~/assets/images/meditating-app.png'),
       article: [
         {
-          text: `Cardiovascular are exercises that raise your heart rate. Our bodies were made to move. And we all know that to keep our muscles in shape we need move them! The rhythmic and endurance based movements of body muscles comprise cardiovascular training. It is the training that will help you take deeper breaths, build a stronger heart, and make you feel like a powerhouse of energy! Cardio exercises are suggested for all those who want to see an improvement in blood pressure, cholesterol, stress, energy and overall health.`,
+          text: `Being locked inside your home has been a surreal experience so far. It has been observed that social distancing increases levels of anxiety and stress in many cases! Well, staring at the wall in front of you will only generate more unnecessary and often negative thoughts :p. `,
         },
         {
-          heading: 'Daily Basic General Fitness',
-          text: `It is important to start small and increase the time you are active and the intensity of your cardio workout. It is all about movement! As your heart beats faster it increases blood flow. The lungs deliver more oxygen to your muscles and make you feel stronger. These at-home cardio workout suggestions are an efficient way to burn off extra calories and keep your metabolism stoked through these times of home isolation.`,
+          text: `This is real. Many in our country don’t acknowledge it, but are victims! Meditation is the practice of focusing on your breath. It is a proven way to stop wavering thoughts, unwanted emotions. We weren’t given any warning in advance to be mentally ready for this pandemic, but it is never too late! Here is a list of meditation apps that make your experience truly unique!`,
         },
         {
-          youtube: 'https://www.youtube.com/watch?v=YvrKIQ_Tbsk',
-          text:
-            'This is a quick video on the difference between cardio and strength, so that you become aware of how much and what you should do, according to your body and current status!',
+          heading: 'Insight Timer',
+          text: `The best free meditation app with the world's largest library of more than 30,000 guided meditations and over 5,000 teachers. We would encourage all our readers to give it a try!`,
+          buttons: [
+            {
+              text: 'Android',
+              link:
+                'https://play.google.com/store/apps/details?id=com.spotlightsix.zentimerlite2&hl=en_IN',
+            },
+            {
+              text: 'iOS',
+              link:
+                'https://apps.apple.com/us/app/insight-timer-meditation-app/id337472899',
+            },
+          ],
         },
         {
-          youtube: 'https://www.youtube.com/watch?v=7o39NrSwfb8',
-          text:
-            'An intense overall look into the world of cardio exercises! This will give you a good idea of how to establish a good cardio routine for yourself.',
+          heading: 'Calm',
+          text: `Just as the name suggests. ‘Calm’, the most popular paid app on meditation, surpassed 50 million downloads last month! With regular body scans, meditation masterclasses, and sleep stories, this app offers an amazing user experience. Many people find value enough to purchase their paid plans. `,
+          buttons: [
+            {
+              text: 'Android',
+              link: 'https://apps.apple.com/us/app/calm/id571800810',
+            },
+            {
+              text: 'iOS',
+              link:
+                'https://play.google.com/store/apps/details?id=com.calm.android&hl=en_IN',
+            },
+          ],
         },
         {
-          heading: 'Short 10 min workouts',
-          text: `Quick cardio workouts and effective instructions on how to get the most out of your cardio goals! As you keep progressing, you will observe how more oxygen to your muscles improve your endurance to perform the same routine better and more easily! Keep raising the bar high and feel full of stamina both mentally and physically.`,
-        },
-        {
-          youtube: 'https://www.youtube.com/watch?v=_knIf9vF4k4',
-          text:
-            'A comprehensive 10 min workout curated for maximum impact and effect. Mention thorough tips on how to maintain the right posture and feel motivated whilst doing it!',
-        },
-        {
-          youtube: 'https://www.youtube.com/watch?v=BR0jT6JxH-o',
-          text:
-            '5 mins of nonstop burst cardio exercises! A well perceived mix of jumping jacks and other aerobic exercises! Discover ways to recover quickly between sets as well.',
-        },
-        {
-          heading: '21 day- 30 day Progression workouts!',
-          text: `20-30 days of regular cardio can transform your life. There are tons of transformational videos of people who have achieved their dream bodies! If you are into sports or any movement based activity, we would suggest you set realistic goals and work to them! The feeling of success when you take your first run or swim after these days of lockdown, will surely satisfy you! We wish to motivate you to build an edge, lose that fat and get ahead of your peers!`,
-        },
-        {
-          youtube: 'https://www.youtube.com/watch?v=4WC-5ZBz2Q8',
-          text:
-            '30 days , burn all the belly fat and get toned! We would specially suggest this for all our female viewers who wish to achieve toned muscles, look fit and feel beautiful!',
-        },
-        {
-          youtube: 'https://www.youtube.com/watch?v=3p8EBPVZ2Iw',
-          text:
-            'When your body loses fat, you will start developing abs! These are a mix of body sculpting and fat burning exercises specially for toned abs! Follow this for 21 days and see the difference!',
+          heading: 'Headspace',
+          text: `‘Gym membership for the mind’. The tagline says it all! Headspace is an industry leader, the guided courses and quick meditations help achieve a great first experience! It is a paid meditation platform.`,
+          buttons: [
+            {
+              text: 'Android',
+              link:
+                'https://play.google.com/store/apps/details?id=com.getsomeheadspace.android&hl=en_IN',
+            },
+            {
+              text: 'iOS',
+              link:
+                'https://apps.apple.com/us/app/headspace-meditation-sleep/id493145008',
+            },
+          ],
         },
       ],
     }
@@ -110,4 +118,10 @@ export default {
       font-size 0.875em
       margin-bottom 1.5em
       white-space pre-line
+
+    &__buttons
+      margin-bottom 1.5em
+
+      &__item
+        margin-right 0.5em
 </style>
