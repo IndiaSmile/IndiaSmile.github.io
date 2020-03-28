@@ -1,5 +1,6 @@
 <template lang="pug">
-  nuxt
+  .wrapper
+    nuxt
 </template>
 
 <script>
@@ -19,7 +20,6 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.container
-  width 100%
-  margin 0 auto
+.wrapper
+  font-family 'DM Sans', sans-serif
 </style>
