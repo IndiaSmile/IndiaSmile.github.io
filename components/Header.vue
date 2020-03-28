@@ -1,12 +1,28 @@
 <template lang="pug">
   .hero__header
+    BackButton(v-if="showBackButton")
+
     nuxt-link(to="/")
       img.hero__header__logo(src="~/assets/logo-horizontal-2.png")
 </template>
 
 <script>
+import BackButton from '~/components/BackButton'
+
 export default {
   name: 'Header',
+
+  components: {
+    BackButton,
+  },
+
+  props: {
+    showBackButton: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+  },
 }
 </script>
 
