@@ -49,6 +49,7 @@ export default {
   overflow hidden
 
   &__image
+    display block
     width 100%
 
   &__gradient
