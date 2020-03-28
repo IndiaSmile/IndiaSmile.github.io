@@ -23,18 +23,18 @@ export default {
 
   data() {
     return {
-      title: 'Best language learning apps',
+      title: 'Learn new languages',
       image: require('~/assets/images/languages.png'),
       article: [
         {
-          text: `Only three percent of people around the world can speak over four languages. On top of that, our minds have the capacity to learn indefinitely. These essential days of isolation present an opportunity! A chance, a strong desire to learn can substantially boost your social skills and personality.`,
+          text: `Only three percent of people around the world can speak over four languages. On top of that, our minds have the capacity to learn indefinitely. The isolation days present you an opportunity! A chance, a strong desire to learn can substantially boost your social skills and personality.`,
         },
         {
-          text: `We wish to encourage our readers to work on themselves and try out a new language. Speaking fluently in multiple dialects is truly impressive! And especially the locals appreciate it. 😍`,
+          text: `We wish to encourage our readers to work on themselves and try out a new language. Speaking fluently in multiple dialects is truly impressive skill! Prepare for all the holidays you are going to take once this ends 😍`,
         },
         {
           heading: 'DuoLingo',
-          text: `DuoLingo boasts over 100 million users, the most well-known free language learning app available today. The success of this app comes from a gamified user experience of seamless learning. Most of the courses offered by DuoLingo are created by native speakers, which helps to ensure accuracy of dialect. A free platform you can use to learn your favourite language.`,
+          text: `DuoLingo boasts over 100 million users, and is the most well-known free language learning app available today. The success of this app comes from a gamified user experience of seamless learning. Most of the courses offered by DuoLingo are created by native speakers, which helps to ensure accuracy of dialect. A free platform you can use to learn your favourite language.`,
           button: {
             text: 'DuoLingo',
             link: 'https://www.duolingo.com/',
@@ -42,7 +42,7 @@ export default {
         },
         {
           heading: 'MemRise',
-          text: `With over 200 languages available, there’s a good chance MemRise has it. The free version of the app gives you access to the same number of languages as the Pro version, just with fewer functionalities. Where it truly excels is in its ability to make learning fun and engaging.`,
+          text: `With over 200 languages available, there’s a good  if you want to learn it, MemRise has it. The free version of the app gives you access to the same number of languages as the Pro version, just with fewer functionalities. Where it truly excels is in its ability to make learning fun and engaging.`,
           button: {
             text: 'MemRise',
             link: 'https://www.memrise.com/',

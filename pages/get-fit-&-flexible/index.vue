@@ -40,7 +40,7 @@ export default {
       list: [
         {
           title: 'Yoga',
-          subtitle: '',
+          subtitle: 'Introduce yourself to a flexible lifestyle 🧘‍♂️',
           image: require('~/assets/images/girl-yoga.png'),
           color: 'rgba(82, 72, 61, 0.85)',
           href: '/get-fit-&-flexible/yoga',
@@ -48,7 +48,7 @@ export default {
         },
         {
           title: 'Strength Training',
-          subtitle: '',
+          subtitle: 'Get ripped with these workouts 💪',
           image: require('~/assets/images/person-weightlifting.png'),
           color: 'rgba(0, 0, 0, 0.85)',
           href: '/get-fit-&-flexible/strength-training',
@@ -56,7 +56,7 @@ export default {
         },
         {
           title: 'Pilates',
-          subtitle: '',
+          subtitle: 'Improve posture and strengthen muscles',
           image: require('~/assets/images/girl-pilates.png'),
           color: 'rgba(184, 179, 159, 0.85)',
           href: '/get-fit-&-flexible/pilates',
@@ -64,7 +64,7 @@ export default {
         },
         {
           title: 'Cardio',
-          subtitle: '',
+          subtitle: 'Give your endurance a boost 🏃‍♀️',
           image: require('~/assets/images/girl-running.png'),
           color: 'rgba(34, 38, 41, 0.85)',
           href: '/get-fit-&-flexible/cardio',

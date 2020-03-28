@@ -30,7 +30,7 @@ export default {
           text: `Yoga is one of mankind’s most divine practices to attain peace of mind. Indulging in unwanted thoughts and negative emotions is the last thing we want as of now! An extremely beneficial practice to inculcate into your daily routine!`,
         },
         {
-          heading: '1. Daily Basic General Fitness',
+          heading: 'Get Started',
           text: `Yoga is the mixture of breath controlling exercises, simple meditation techniques, and the adoption of specific bodily postures. We learn to calm the mind by focusing on our breathing. Specific asana and body postures help induce flexibility and a divine sense of aura within. Our aim is to keep ourselves mentally alert and be physically strong in such times of self isolation! Yoga is one of those practices which promote physical and emotional well-being and have amassed a massive following in the western culture due to its benefits.`,
         },
         {
@@ -44,7 +44,7 @@ export default {
             'Explore the benefits of Yoga and how the western culture has been more proactive in adopting a Hindu originated practice.',
         },
         {
-          heading: '2. Short 10-min workouts',
+          heading: 'Short routines',
           text: `Yoga is a way of life. We do not need to feel disappointed or frustrated considering our limitations with regard to physical health, shape and size of the body, lack of time, lack of space or unavailability of a teacher. Yoga, in fact, is the means to overcome all these problems. Yoga includes every aspect of life! These quick video tutorials shall help you understand in a more constructive way as to what you need, to start off your journey!`,
         },
         {
@@ -59,7 +59,7 @@ export default {
         },
         {
           heading:
-            '3. 21d-30d progression workouts (For eg 50 pushups in 30 days challenge)',
+            'Yoga progression challenges 🙌',
           text: `They say that it takes a minimum of 21 days of a particular routine to build a true habit! As we have that amount of time in our lives currently, let’s set specific goals and achieve some real targets that help us step out into life with a deeper sense of calmness and a superior state of physical and mental health. We have selected some video courses that challenge you to be better! `,
         },
         {
