@@ -18,11 +18,14 @@ export default {
       const topicTitleMap = {
         '/entertainment': `I found an awesome list of ${this.title} :) Check these out!`,
         '/fitness': `I found the best ${this.title} exercises to do at home :) Check these out!`,
-        // @TODO add others
+        '/learn/languages': `${this.title} at home! Check this out`,
+        '/learn/recipes': `Interesting ${this.title} recipes here! Very easy to cook in this quarantine :) Check them out!`,
+        '/peace': `Interesting ${this.title} here! Very easy and useful in this quarantine :) Check them out!`,
+        default: `${this.title}! Check this out :)`,
       }
       for (const topic of Object.keys(topicTitleMap)) {
         if (window.location.pathname.indexOf(topic) === 0) {
-          return topicTitleMap[topic]
+          return topicTitleMap[topic] || topicTitleMap.default
         }
       }
       return ''

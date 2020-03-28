@@ -30,7 +30,7 @@ export default {
 
   data() {
     return {
-      title: 'Coronavirus Stress Management',
+      title: 'Tips to Manage Coronavirus Stress',
       image: require('~/assets/images/vegetables.png'),
 
       article: [
