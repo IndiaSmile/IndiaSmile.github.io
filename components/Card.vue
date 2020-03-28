@@ -1,7 +1,7 @@
 <template lang="pug">
   .card
     nuxt-link(:to="to")
-      img.card__image(:srcSet="image")
+      img.card__image(:srcSet="image.srcSet" :src="image.src")
       .card__gradient(:style="{ backgroundImage: 'linear-gradient(180deg, rgba(196, 196, 196, 0) 30.73%, ' + color + ' 70.31%)'}")
       .card__text
         .card__text__title(:class="{'text--dark': isDarkText}") {{ title }}
