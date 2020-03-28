@@ -3,7 +3,7 @@
     Header(:showBackButton="true")
 
     .hero__background
-      img.hero__background__image(v-if="!!image" :src="image")
+      img.hero__background__image(v-if="!!image" :src="image.src" :srcSet="image.srcSet")
       Breadcrumb
 </template>
 
