@@ -61,6 +61,7 @@ export default {
   bottom 0
   left 0
   width 100%
+  margin-left -.75em
 
   .crumbs
     padding 0
@@ -74,8 +75,9 @@ export default {
     align-items center
     padding .5em .375em .5em .5em
     position relative
+    margin .5em 0 0 .75em
 
-    &:after
+    &:not(:last-child):after
       content ' '
       border 1em solid transparent
       border-left .5em solid white
@@ -88,7 +90,4 @@ export default {
       color #19175B
       font-size 0.875em
       font-weight bold
-
-    + .crumb
-      margin-left .75em
 </style>
