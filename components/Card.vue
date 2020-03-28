@@ -4,8 +4,8 @@
       img.card__image(:srcSet="image.srcSet" :src="image.src")
       .card__gradient(:style="{ backgroundImage: 'linear-gradient(180deg, rgba(196, 196, 196, 0) 30.73%, ' + color + ' 70.31%)'}")
       .card__text
-        .card__text__title(:class="{'text--dark': isDarkText}") {{ title }}
-        .card__text__subtitle(:class="{'text--dark': isDarkText}") {{ subtitle }}
+        .card__text__title(:class="className") {{ title }}
+        .card__text__subtitle(:class="className") {{ subtitle }}
 </template>
 
 <script>
@@ -36,6 +36,12 @@ export default {
       type: Boolean,
       required: false,
       default: false,
+    },
+  },
+
+  computed: {
+    className() {
+      return this.isDarkText ? 'text--dark' : ''
     },
   },
 }
