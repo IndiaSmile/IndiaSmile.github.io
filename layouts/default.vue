@@ -71,6 +71,9 @@ export default {
       justify-content space-between
       margin 1.5rem 0 1rem
 
+      .content__heading
+        margin 0
+
     &__rating
       font-size .875em
       display flex
@@ -91,7 +94,7 @@ export default {
     &__heading
       color #19175B
       font-size 1.25em
-      margin 0
+      margin 1.5rem 0 1rem
       font-weight bold
 
     &__text
