@@ -24,11 +24,11 @@ export default {
 
   data() {
     return {
-      title: 'Meditation apps',
+      title: 'Meditation Apps',
       image: require('~/assets/images/meditating-app.png'),
       article: [
         {
-          text: `Being locked inside your home has been a surreal experience so far. It has been observed that social distancing increases levels of anxiety and stress in many cases! Well, staring at the wall in front of you will only generate more unnecessary and often negative thoughts :p. `,
+          text: `Being locked inside your home has been a surreal experience so far. It has been observed that social distancing increases levels of anxiety and stress in many cases! Well, staring at the wall in front of you will only generate more unnecessary and often negative thoughts 😝. `,
         },
         {
           text: `This is real. Many in our country don’t acknowledge it, but are victims! Meditation is the practice of focusing on your breath. It is a proven way to stop wavering thoughts, unwanted emotions. We weren’t given any warning in advance to be mentally ready for this pandemic, but it is never too late! Here is a list of meditation apps that make your experience truly unique!`,
