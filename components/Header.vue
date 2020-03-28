@@ -1,7 +1,7 @@
 <template lang="pug">
   .hero__header
     nuxt-link(to="/")
-      img.hero__header__logo(src="~/assets/logo-horizontal.png")
+      img.hero__header__logo(src="~/assets/logo-horizontal-2.png")
 </template>
 
 <script>
@@ -11,18 +11,17 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.hero
-  &__header
-    padding 0.5em
-    display flex
-    align-items center
-    justify-content center
-    background linear-gradient(rgba(#fff, .9) 50%, transparent)
-    margin 0 0 -2em
-    position relative
-    z-index 99
+.hero__header
+  padding 0.5em
+  display flex
+  align-items center
+  justify-content center
+  background linear-gradient(rgba(#fff, .9) 50%, transparent)
+  margin 0 0 -2em
+  position relative
+  z-index 99
 
-    &__logo
-      height 1em
-      display block
+  &__logo
+    height 2em
+    display block
 </style>

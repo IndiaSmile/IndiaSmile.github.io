@@ -32,9 +32,6 @@ export default {
   max-width 26em
   margin 0 auto
 
-    &__logo
-      height 1.75em
-
   &__background
     &__image
       width 100%

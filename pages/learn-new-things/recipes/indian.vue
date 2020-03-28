@@ -33,7 +33,8 @@ export default {
         {
           text: [
             `A day with good food is a day well spent in isolation. The aroma of a delicious dish is a stress buster, don’t you agree? We suggest trying a new recipe everyday to keep things spicy in the household 😋`,
-            `We would love to help our readers choose interesting recipes they can try at home. These are easy to make and require no additional equipment other than basic home ingredients. If any ingredient is unavailable, don’t worry, choose a dish from this variety of choices that suits your grocery shelf, as we know it is difficult to arrange essentials right now! ``These are some unique Indian dishes that taste great and are easy to make!`,
+            `We would love to help our readers choose interesting recipes they can try at home. These are easy to make and require no additional equipment other than basic home ingredients. If any ingredient is unavailable, don’t worry, choose a dish from this variety of choices that suits your grocery shelf, as we know it is difficult to arrange essentials right now! `,
+            `These are some unique Indian dishes that taste great and are easy to make!`,
           ],
         },
         {
