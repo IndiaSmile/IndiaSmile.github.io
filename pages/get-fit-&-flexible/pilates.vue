@@ -30,7 +30,7 @@ export default {
           text: `Pilates is a form of low-impact exercises that aims to strengthen muscles while improving the postural alignment and flexibility of your body! A flexible body will make you feel comfortable in your skin and a strong core will help you mobilize faster. As we endure this quarantine phase, it is essential we aim to optimise our body with a mix of dire strength, explosive speed and flexibility! Pilates moves tend to target the core, although the exercises work other areas of your body as well. You can do Pilates without any equipment. You shall expect the moves to involve slow, precise movements and voluntary breath control.`,
         },
         {
-          heading: 'Daily Basic General fitness',
+          heading: 'Learn the basics',
           text: `Pilates can be a great addition to your workout. The innovation it brings is that you can very specifically focus on toning your muscles! Focusing all your strength and power to contract and perform rhythmic movements! Athletes of the highest calibre include it in their workouts! You can feel the burn in your muscles as they get worked in order to provide brute strength and flexibility, to your body!`,
         },
         {
@@ -44,7 +44,7 @@ export default {
             'Essential sets and exercises of Pilates that shall get you going! Adapt and add these to your workout, many find these exercises really beneficial once they get the hang of it! ',
         },
         {
-          heading: 'Short 10 min workouts',
+          heading: 'Short workouts',
           text: `Start at your own pace, initially these exercises will render your effort, you have to keep at it, till it becomes your favourite set of moves!
           Myths-
           1. Pilates is only for serious athletes or professional dancers!
@@ -61,7 +61,7 @@ export default {
             'A great 10 min Pilates demonstration by a top level athlete! See how her movements are supplemented with synchronised breathing!',
         },
         {
-          heading: '21 day- 30 day Progression workouts!',
+          heading: 'Challenge yourself!',
           text: `Each new day is a new opportunity to improve ourselves. Let’s take it and make the most of it! We wish to inspire you to put more effort day by day, as we tackle these days of peril in front of us! These Pilates workout challenges are selected by us keeping in mind your workout!`,
         },
         {

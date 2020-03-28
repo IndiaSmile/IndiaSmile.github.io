@@ -40,7 +40,7 @@ export default {
       list: [
         {
           title: 'Movies',
-          subtitle: 'Hollywood & Bollywood',
+          subtitle: 'Curated Hollywood & Bollywood Movies',
           image: require('~/assets/images/it-clown.png'),
           color: 'rgba(48, 19, 1, 0.85)',
           href: '/entertainment/movies',
@@ -48,7 +48,7 @@ export default {
         },
         {
           title: 'TV',
-          subtitle: 'English & Hindi',
+          subtitle: 'Catch up on the best English and Hindi Web Shows',
           image: require('~/assets/images/how-i-met-your-mother.png'),
           color: 'rgba(255, 230, 0, 0.85)',
           href: '/entertainment/tv',
@@ -56,7 +56,7 @@ export default {
         },
         {
           title: 'Music',
-          subtitle: 'links to external playlists on YT/Spotify',
+          subtitle: 'Tune in and flow with these beats',
           image: require('~/assets/images/girls-like-you.png'),
           color: 'rgba(60, 77, 105, 0.85)',
           href: '/entertainment/music',

@@ -30,7 +30,7 @@ export default {
           text: `The need of the hour is to be strong! In such times, when an epidemic worries the masses, we want to develop true strength and power! Not just to look good, but to feel powerful, so that we believe our body can overcome all diseases! Real strength comes with persistence and continuous effort into ourselves. We believe it is essential for you to understand, and achieve what you always wanted! No more excuses, only results!`,
         },
         {
-          heading: 'Daily Basic General Fitness',
+          heading: 'Basics of resistance training',
           text: `‘Strength’ is a type of training for developing the power and size of skeletal muscles. It utilises the force of gravity in the form of weights, in order to oppose the force generated through rhythmic contraction! Basically, you have to work your muscles. Take them out of their comfort zone. The more tough it is to push or pull, the stronger your body becomes! The formula is simple and effective. We will focus on how you can achieve these targets in the comfort of your home, without any additional equipment!`,
         },
         {
@@ -44,7 +44,7 @@ export default {
             'This is a compelling video guide on how you can use bodyweight to your best advantage, to achieve a chiselled and powerful upper Body!',
         },
         {
-          heading: 'Short 10 min workouts',
+          heading: 'In a hurry?',
           text: `We want you to start simple, but start strong! These 10 min workouts should help you focus better on achieving your strength goals! You can easily incorporate these in your schedule and start seeing some results. The key here is persistence!`,
         },
         {
@@ -58,7 +58,7 @@ export default {
             'Highly reviewed intensive workout exercises you can follow, at your home, without any equipment.',
         },
         {
-          heading: '21 day- 30 day Progression workouts!',
+          heading: 'Challenge your body 🥇!',
           text: `Try our curated structured challenge tutorials, that can guide you day by day and transform you into a better version of yourself bit by bit! We have selected goal driven exercises so that you are clear with the target in mind. If you are able to adhere to this religiously, you will see yourself in a completely new limelight and it will be amazing.`,
         },
         {
