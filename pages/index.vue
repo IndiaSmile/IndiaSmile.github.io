@@ -9,6 +9,8 @@
           .hero__text__subtitle Click on the content you are interested in to start exploring.
         .hero__background__gradient
 
+    LockdownCountdown
+
     section.section.content
       .container
         .columns.is-multiline
@@ -29,12 +31,14 @@
 <script>
 import Header from '~/components/Header'
 import Card from '~/components/Card'
+import LockdownCountdown from '~/components/LockdownCountdown'
 
 export default {
   name: 'HomePage',
   components: {
     Header,
     Card,
+    LockdownCountdown,
   },
 
   data() {
@@ -167,5 +171,5 @@ export default {
       text-shadow 0px 1px 4px rgba(0, 0, 0, 0.25)
 
 .content
-  padding 2em 1.25em 1.25em
+  padding 2em 1em 1.25em
 </style>

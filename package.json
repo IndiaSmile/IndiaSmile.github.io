@@ -19,6 +19,7 @@
     "imagemin-mozjpeg": "^8.0.0",
     "imagemin-pngquant": "^8.0.0",
     "jimp": "^0.9.6",
+    "moment": "^2.24.0",
     "nuxt": "^2.0.0",
     "nuxt-buefy": "^0.3.2",
     "responsive-loader": "^1.2.0"
