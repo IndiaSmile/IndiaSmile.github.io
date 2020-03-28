@@ -39,7 +39,8 @@ export default {
           buttons: [
             {
               type: 'Google',
-              link: 'https://play.google.com/store/movies/details/The_Silence_of_the_Lambs?id=sHqrhjNCmTo&hl=en',
+              link:
+                'https://play.google.com/store/movies/details/The_Silence_of_the_Lambs?id=sHqrhjNCmTo&hl=en',
             },
           ],
         },
@@ -64,7 +65,8 @@ export default {
           buttons: [
             {
               type: 'Google',
-              link: 'https://play.google.com/store/movies/details/A_Simple_Favor?id=7A59F3987EFA280AMV&hl=en',
+              link:
+                'https://play.google.com/store/movies/details/A_Simple_Favor?id=7A59F3987EFA280AMV&hl=en',
             },
           ],
         },

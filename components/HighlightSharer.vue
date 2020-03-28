@@ -17,7 +17,6 @@ export default {
           const url = window.location.href
           sharer(text, url)
         }
-        return
       })
     },
   },
