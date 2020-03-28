@@ -10,11 +10,11 @@ export default {
   methods: {
     goBack() {
       // go up one level by default
-			const path = window.location.pathname.split('/')
-			if (path.length >= 1) {
-				path.pop()
-				return this.$router.push({ path: path.join('/') })
-			}
+      const path = window.location.pathname.split('/')
+      if (path.length >= 1) {
+        path.pop()
+        return this.$router.push({ path: path.join('/') })
+      }
     },
   },
 }
