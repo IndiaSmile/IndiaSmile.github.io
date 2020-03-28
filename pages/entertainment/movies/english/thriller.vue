@@ -6,7 +6,13 @@
       h2.content__title {{ title }}
       .content__section(v-for="(data, index) in article" :key="index")
         Sharer(v-if="data.custom === 'Sharer'" :title="title")
-        h5.content__heading(v-if="!!data.heading") {{ data.heading }}
+        .level
+          .level-left
+            .level-item
+              h5.content__heading(v-if="!!data.heading") {{ data.heading }}
+            .level-item(v-if="data.rating")
+              b-icon(icon="star")
+              | {{ data.rating }}
         p.content__text(v-if="typeof data.text === 'string'" v-html="data.text")
 
 </template>
@@ -31,6 +37,17 @@ export default {
         {
           heading: 'The Silence Of The Lambs',
           text: `An FBI agent seeks help from a psychopathic serial killer and former psychiatrist, in order to apprehend another serial killer who has been claiming female victims. Psychological supplemented with a gripping tale which inspires suspense amongst its watchers. One of the best suspense thrillers of this decade!`,
+          rating: 8.6,
+          buttons: [
+            {
+              type: 'Netflix',
+              link: 'https://foo.com',
+            },
+            {
+              type: 'Prime',
+              link: 'https://baz.com',
+            },
+          ],
         },
         {
           custom: 'Sharer',

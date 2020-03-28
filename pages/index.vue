@@ -48,7 +48,7 @@ export default {
 
       list: [
         {
-          title: 'Join Like Minded WhatsApp Communities',
+          title: 'Like Minded WhatsApp Communities 👨‍👧‍👧',
           subtitle: 'Topic based community chats',
           image: require('~/assets/images/whatsapp-alt.png'),
           color: '#1ebfa5',
@@ -56,7 +56,7 @@ export default {
           isDarkText: false,
         },
         {
-          title: 'Best Modern TV & Movies ',
+          title: 'Best Modern TV & Movies 📺',
           subtitle: 'Things to enjoy when bored',
           image: require('~/assets/images/amitabh-bachchan.png'),
           color: 'rgba(128, 150, 140, 0.85)',
@@ -64,7 +64,7 @@ export default {
           isDarkText: false,
         },
         {
-          title: 'Get Fit and Flexible at Home',
+          title: 'Get Fit and Flexible at Home 💪',
           subtitle: 'Yoga & Fitness',
           image: require('~/assets/images/healthy-man.png'),
           color: 'rgba(78, 111, 140, 0.85)',
@@ -72,7 +72,7 @@ export default {
           isDarkText: false,
         },
         {
-          title: 'Learn Something New',
+          title: 'Learn Something New Quickly 🧠',
           subtitle: 'Use the off-time to gain new skills ✍',
           image: require('~/assets/images/person-using-mobile.png'),
           color: 'rgba(42, 94, 92, 0.85)',
@@ -80,32 +80,32 @@ export default {
           isDarkText: false,
         },
         {
-          title: 'Beat Anxiety & Gain a Peaceful Calm',
-          subtitle: '❌No to Negativity 🚫',
+          title: 'Beat Anxiety & Gain a Peaceful Calm 🕊',
+          subtitle: 'No to Negativity',
           image: require('~/assets/images/woman-meditating.png'),
           color: 'rgba(75, 82, 60, 0.85)',
           href: '/peace',
           isDarkText: false,
         },
         {
-          title: 'Survival Starter Pack ',
-          subtitle: '🧼Supplies and essentials to keep at home 🍞',
+          title: 'Survival Starter Pack 🧼',
+          subtitle: 'Supplies and essentials to keep at home',
           image: require('~/assets/images/ration.png'),
           color: 'rgba(247, 235, 205, 0.85)',
           href: '/survive',
           isDarkText: true,
         },
         {
-          title: 'Stay Updated',
-          subtitle: '📰 Curated news from verified sources',
+          title: 'Stay Updated (Curated News) 📰',
+          subtitle: '',
           image: require('~/assets/images/newspapers-stack.png'),
           color: 'rgba(235, 235, 236, 0.95)',
           href: '/stay-updated',
           isDarkText: true,
         },
         {
-          title: 'Safety Guidelines',
-          subtitle: 'Stay healthy both physically and mentally 👩‍⚕️',
+          title: 'Safety Guidelines 👩‍⚕️',
+          subtitle: 'Stay healthy physically and mentally',
           image: require('~/assets/images/doctor.png'),
           color: 'rgba(210, 223, 234, 0.85)',
           href: '/safety-guidelines',

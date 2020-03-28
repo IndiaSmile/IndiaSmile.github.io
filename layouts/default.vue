@@ -73,13 +73,13 @@ export default {
 
     &__heading
       color #19175B
-      font-size 1em
+      font-size 1.25em
       font-weight bold
       margin-bottom 1rem
 
     &__text
-      color #000
-      font-size 0.875em
+      color #35394c
+      font-size 1em
       margin-bottom 1rem
       white-space pre-line
 
