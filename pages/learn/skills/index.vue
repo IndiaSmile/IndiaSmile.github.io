@@ -47,14 +47,6 @@ export default {
         //   isDarkText: false,
         // },
         {
-          title: 'Must Read Books',
-          subtitle: '',
-          image: require('~/assets/images/books.jpg'),
-          color: 'rgba(247, 235, 205, 0.85)',
-          href: '/learn/skills/must-read-books',
-          isDarkText: true,
-        },
-        {
           title: 'Introduction to Programming',
           subtitle: '',
           image: require('~/assets/images/code.jpg'),

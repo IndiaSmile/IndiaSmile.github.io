@@ -62,6 +62,14 @@ export default {
           href: '/learn/languages',
           isDarkText: true,
         },
+        {
+          title: 'Must Read Books',
+          subtitle: '',
+          image: require('~/assets/images/books.jpg'),
+          color: 'rgba(247, 235, 205, 0.85)',
+          href: '/learn/must-read-books',
+          isDarkText: true,
+        },
       ],
     }
   },
