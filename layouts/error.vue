@@ -6,7 +6,7 @@
       h2.content__title Content Not Available! 😳
 
       p.content__text
-        | We adding content as fast as possible! Please check again in a few hours to access this.
+        | We are adding content as fast as possible! Please check again in a few hours to access this.
 
       nuxt-link(to="/").content__heading Return to Home ↩️
 
