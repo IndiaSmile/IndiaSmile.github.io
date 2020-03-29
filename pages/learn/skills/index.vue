@@ -38,14 +38,14 @@ export default {
       image: require('~/assets/images/person-using-laptop.jpg'),
 
       list: [
-        {
-          title: 'Financial Planning',
-          subtitle: '',
-          image: require('~/assets/images/money-cash.jpg'),
-          color: 'rgba(69, 75, 61, 0.85)',
-          href: '/learn/skills/financial-planning',
-          isDarkText: false,
-        },
+        // {
+        //   title: 'Financial Planning',
+        //   subtitle: '',
+        //   image: require('~/assets/images/money-cash.jpg'),
+        //   color: 'rgba(69, 75, 61, 0.85)',
+        //   href: '/learn/skills/financial-planning',
+        //   isDarkText: false,
+        // },
         {
           title: 'Must Read Books',
           subtitle: '',
@@ -62,14 +62,14 @@ export default {
           href: '/learn/skills/programming',
           isDarkText: false,
         },
-        {
-          title: 'Digital India 2020 - Word/Excel/PPT',
-          subtitle: '',
-          image: require('~/assets/images/digital-india.jpg'),
-          color: 'rgba(177, 177, 177, 0.85)',
-          href: '/learn/skills/digital-india',
-          isDarkText: true,
-        },
+        // {
+        //   title: 'Digital India 2020 - Word/Excel/PPT',
+        //   subtitle: '',
+        //   image: require('~/assets/images/digital-india.jpg'),
+        //   color: 'rgba(177, 177, 177, 0.85)',
+        //   href: '/learn/skills/digital-india',
+        //   isDarkText: true,
+        // },
       ],
     }
   },
