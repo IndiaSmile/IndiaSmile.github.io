@@ -97,13 +97,6 @@ export default {
           ],
         },
         {
-          heading: 'Omkara',
-          text: `Langda dreams of becoming Omkara's successor after the latter wins the election. But when Omkara appoints Kesu as his lieutenant, Langda feels betrayed and plots revenge. An extraordinary movie! The Actors were praised for their performances and still today, is an interesting watch.`,
-          rating: 8.1,
-          image: require('~/assets/images/crime-omkara.jpg'),
-          message: 'Available on Indian streaming platforms',
-        },
-        {
           heading: 'Raees',
           text: `Threat lurks over Raees Alam and his illicit business after the ACP decides to get the better of him. In order to survive and keep his trade thriving, Raees must overcome this. Shah Rukh Khan has never looked better, he is full of fury and for once, isn’t spreading his arms, but breaking others!`,
           rating: 6.8,
@@ -129,20 +122,6 @@ export default {
           ],
         },
         {
-          heading: 'Sarkar',
-          text: `When a powerful gangster is framed for murder, his son steps up to protect his legacy. A gripping tale, this is Ram Gopal Varma at his finest!`,
-          rating: 7.6,
-          image: require('~/assets/images/crime-sarkar.jpg'),
-          message: 'Available on Indian streaming platforms',
-        },
-        {
-          heading: 'Ab Tak Chhappan',
-          text: `Sadhu, an encounter specialist, is armed with a personal vendetta to hunt and kill the gang responsible for his wife's death. Have to say, excellent camera work and great direction!`,
-          rating: 7.9,
-          image: require('~/assets/images/crime-ab-tak-chhappan.jpg'),
-          message: 'Available on Indian streaming platforms',
-        },
-        {
           heading: 'Shootout at Lokhandwala',
           text: `An experienced policeman, Khan, sets out for a shoot-out of gangsters in a residential locality of Mumbai.Little does he know that this will lead to his own integrity being questioned. Based on a true story, Shootout at Lokhandwala is a fantastic movie that is full of violence and naughty action.`,
           rating: 7.1,
@@ -165,6 +144,27 @@ export default {
               link: 'https://www.netflix.com/title/70123126',
             },
           ],
+        },
+        {
+          heading: 'Omkara',
+          text: `Langda dreams of becoming Omkara's successor after the latter wins the election. But when Omkara appoints Kesu as his lieutenant, Langda feels betrayed and plots revenge. An extraordinary movie! The Actors were praised for their performances and still today, is an interesting watch.`,
+          rating: 8.1,
+          image: require('~/assets/images/crime-omkara.jpg'),
+          message: 'Available on Indian streaming platforms',
+        },
+        {
+          heading: 'Sarkar',
+          text: `When a powerful gangster is framed for murder, his son steps up to protect his legacy. A gripping tale, this is Ram Gopal Varma at his finest!`,
+          rating: 7.6,
+          image: require('~/assets/images/crime-sarkar.jpg'),
+          message: 'Available on Indian streaming platforms',
+        },
+        {
+          heading: 'Ab Tak Chhappan',
+          text: `Sadhu, an encounter specialist, is armed with a personal vendetta to hunt and kill the gang responsible for his wife's death. Have to say, excellent camera work and great direction!`,
+          rating: 7.9,
+          image: require('~/assets/images/crime-ab-tak-chhappan.jpg'),
+          message: 'Available on Indian streaming platforms',
         },
       ],
     }

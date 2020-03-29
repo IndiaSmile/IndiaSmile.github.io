@@ -60,13 +60,6 @@ export default {
           custom: 'Sharer',
         },
         {
-          heading: 'Bhoot',
-          text: `A bereaved shipping officer must save a girl he believes is real, on a stranded, unmanned haunted ship! While the film’s runtime is short, scenes are made as such so as to leave you waiting for the big reveal.`,
-          image: require('~/assets/images/horror-bhoot.jpg'),
-          rating: 6.2,
-          message: 'Available on Indian streaming platforms',
-        },
-        {
           heading: 'Raaz',
           text: `Sanjana and Aditya go to Ooty for a holiday to save their unsteady marriage. However, Sanjana is haunted by a spirit who reveals some dark secrets about Aditya and his past. Raaz is an interesting mixture of thriller and romance. A good watch!`,
           image: require('~/assets/images/horror-raaz.jpg'),
@@ -90,13 +83,6 @@ export default {
                 'https://www.primevideo.com/detail/amzn1.dv.gti.b8b4041b-edd6-49f6-9a02-19c550f9deea/?ref_=dvm_pds_gen_in_as_s_gt_dtites1690B3|c_413926075644_m_XxHIU7ZL-dc_s_',
             },
           ],
-        },
-        {
-          heading: 'Raat',
-          text: `When a family moves into their new house in the city, they start experiencing strange incidents around the house. Soon, they seek the help of a priest when their daughter gets possessed. The movie establishes an aura and is intense at several places. Revathi is brilliant and truly convincing in her efforts.`,
-          image: require('~/assets/images/horror-raat.jpg'),
-          rating: 7.1,
-          message: 'Available on Indian streaming platforms',
         },
         {
           heading: '13B: Fear Has a New Address',
@@ -160,6 +146,20 @@ export default {
                 'https://www.primevideo.com/region/eu/detail/0N4MPYB5ZMT5FTXJWWKQU4KRDZ/ref_=dvm_pds_gen_in_as_s_gt_top1000dsad412?ext_vrnc=hi%7Cc_414533225917_m_pAec9xcy-dc_s_',
             },
           ],
+        },
+        {
+          heading: 'Bhoot',
+          text: `A bereaved shipping officer must save a girl he believes is real, on a stranded, unmanned haunted ship! While the film’s runtime is short, scenes are made as such so as to leave you waiting for the big reveal.`,
+          image: require('~/assets/images/horror-bhoot.jpg'),
+          rating: 6.2,
+          message: 'Available on Indian streaming platforms',
+        },
+        {
+          heading: 'Raat',
+          text: `When a family moves into their new house in the city, they start experiencing strange incidents around the house. Soon, they seek the help of a priest when their daughter gets possessed. The movie establishes an aura and is intense at several places. Revathi is brilliant and truly convincing in her efforts.`,
+          image: require('~/assets/images/horror-raat.jpg'),
+          rating: 7.1,
+          message: 'Available on Indian streaming platforms',
         },
       ],
     }

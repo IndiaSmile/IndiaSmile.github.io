@@ -99,13 +99,6 @@ export default {
           ],
         },
         {
-          heading: 'Welcome',
-          text: `Two thugs, Uday and Majnu, meet Rajeev, who belongs to a respectable family, and want to get their sister married to him. A series of funny situations occur when Rajeev's uncle opposes the marriage. We love this film! Hands on, one of the best comedy film you'll ever watch. Also, you can’t get tired of watching this movie!`,
-          image: require('~/assets/images/comedy-welcome.jpg'),
-          rating: 6.8,
-          message: 'Available on Indian streaming platforms',
-        },
-        {
           heading: 'Delhi Belly',
           text: `Three strugglers who are also roommates, unknowingly become the target of a powerful gangster when they misplace his expensive diamonds. As a comedy, Delhi Belly is such a refreshing change from the run-of-the-mill Hindi comedy.`,
           image: require('~/assets/images/comedy-delhi-belly.jpg'),
@@ -159,6 +152,13 @@ export default {
           text: `Ranjeet invites trouble when he welcomes Bharat, an aspiring singer, to his house. However, Bharat realises the mess he has created and tries to amend things for Ranjeet, but causes more damage. Bheja Fry is a movie that will irritate you from laughing too much unnecessarily.`,
           image: require('~/assets/images/comedy-bheja-fry.jpg'),
           rating: 7.6,
+          message: 'Available on Indian streaming platforms',
+        },
+        {
+          heading: 'Welcome',
+          text: `Two thugs, Uday and Majnu, meet Rajeev, who belongs to a respectable family, and want to get their sister married to him. A series of funny situations occur when Rajeev's uncle opposes the marriage. We love this film! Hands on, one of the best comedy film you'll ever watch. Also, you can’t get tired of watching this movie!`,
+          image: require('~/assets/images/comedy-welcome.jpg'),
+          rating: 6.8,
           message: 'Available on Indian streaming platforms',
         },
       ],
