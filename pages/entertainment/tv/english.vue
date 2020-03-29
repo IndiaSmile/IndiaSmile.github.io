@@ -4,6 +4,8 @@
 
     .content
       h2.content__title {{ title }}
+      StreamGuide
+
       .content__section(v-for="(data, index) in article" :key="index")
         Sharer(v-if="data.custom === 'Sharer'" :title="title")
 
@@ -19,11 +21,13 @@
 
 <script>
 import ArticleHero from '~/components/ArticleHero'
+import StreamGuide from '~/components/StreamGuide'
 
 export default {
   name: 'HomePage',
   components: {
     ArticleHero,
+    StreamGuide,
   },
 
   data() {

@@ -4,26 +4,34 @@
 
     .content
       h2.content__title {{ title }}
+      StreamGuide
       .content__section(v-for="(data, index) in article" :key="index")
         Sharer(v-if="data.custom === 'Sharer'" :title="title")
-        .content__header
-          h5.content__heading(v-if="!!data.heading") {{ data.heading }}
-          .content__rating(v-if="data.rating")
-            b-icon(icon="star" size="is-small")
-            | {{ data.rating }}
 
-        img.content__image(v-if="!!data.image" :src="data.image")
+        template(v-if="!data.custom")
+          .content__header
+            h5.content__heading(v-if="!!data.heading") {{ data.heading }}
+            .content__rating(v-if="data.rating")
+              b-icon(icon="star" size="is-small")
+              | {{ data.rating }}
 
-        p.content__text(v-if="typeof data.text === 'string'" v-html="data.text")
+          img.content__image(v-if="!!data.image" :src="data.image")
 
+          p.content__text(v-if="typeof data.text === 'string'" v-html="data.text")
+
+          ContentButtons(v-if="data.buttons" :buttons="data.buttons")
 </template>
 
 <script>
 import ArticleHero from '~/components/ArticleHero'
+import ContentButtons from '~/components/ContentButtons'
+import StreamGuide from '~/components/StreamGuide'
 
 export default {
   name: 'HomePage',
   components: {
+    StreamGuide,
+    ContentButtons,
     ArticleHero,
   },
 
