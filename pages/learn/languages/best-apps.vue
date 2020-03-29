@@ -6,9 +6,12 @@
       h2.content__title {{ title }}
       .content__section(v-for="(data, index) in article" :key="index")
 
+        h5.content__heading(v-if="!!data.heading") {{ data.heading }}
+
+        img.content__image(v-if="!!data.image" :src="data.image")
+
         Sharer(v-if="data.custom === 'Sharer'" :title="title")
 
-        h5.content__heading(v-if="!!data.heading") {{ data.heading }}
         p.content__text(v-if="!!data.text" v-html="data.text")
 
         a(v-if="!!data.button" :href="data.link")
@@ -36,6 +39,7 @@ export default {
         },
         {
           custom: 'Sharer',
+          image: require('~/assets/images/languages-grid.jpg'),
         },
         {
           text: `We wish to encourage our readers to work on themselves and try out a new language. <span class="js--h">Speaking fluently in multiple dialects is a truly impressive skill! Prepare for all the holidays you are going to take once this ends with these apps 😍 </span>`,
@@ -47,6 +51,7 @@ export default {
             text: 'DuoLingo',
             link: 'https://www.duolingo.com/',
           },
+          image: require('~/assets/images/duolingo-app.jpg'),
         },
         {
           heading: 'MemRise',
@@ -55,6 +60,7 @@ export default {
             text: 'MemRise',
             link: 'https://www.memrise.com/',
           },
+          image: require('~/assets/images/memrise-app.jpg'),
         },
         {
           heading: 'HelloTalk',
@@ -63,6 +69,7 @@ export default {
             text: 'HelloTalk',
             link: 'https://www.hellotalk.com/',
           },
+          image: require('~/assets/images/hellotalk-app.jpg'),
         },
       ],
     }
