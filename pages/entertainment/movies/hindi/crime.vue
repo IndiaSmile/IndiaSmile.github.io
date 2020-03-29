@@ -121,7 +121,7 @@ export default {
           image: require('~/assets/images/crime-satya.jpg'),
           buttons: [
             {
-              type: 'Prime Video',
+              type: 'Prime',
               link:
                 'https://www.amazon.com/Satya-J-D-Chakravarthy/dp/B07T1M3R51',
             },

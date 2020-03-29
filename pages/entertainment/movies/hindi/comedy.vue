@@ -50,7 +50,7 @@ export default {
           rating: 8.2,
           buttons: [
             {
-              type: 'Prime Video',
+              type: 'Prime',
               link:
                 'https://www.primevideo.com/detail/amzn1.dv.gti.ccb4bb1e-3252-0cbc-c0ac-f1dcc5ad0ff1/?ref_=dvm_pds_gen_in_as_s_gt_dtites367E3|c_413280971469_m_QLFZNXY9-dc_s_',
             },
@@ -78,7 +78,7 @@ export default {
           rating: 8.4,
           buttons: [
             {
-              type: 'Prime Video',
+              type: 'Prime',
               link:
                 'https://www.primevideo.com/detail/amzn1.dv.gti.6ab5ef5d-dd32-c5ab-3a8f-0aff6123c065/?ref_=dvm_pds_gen_in_as_s_gt_dtites275B2|c_413993736164_m_ZkKj4sbV-dc_s_',
             },
@@ -91,7 +91,7 @@ export default {
           rating: 8.1,
           buttons: [
             {
-              type: 'Prime Video',
+              type: 'Prime',
               link:
                 'https://www.primevideo.com/detail/amzn1.dv.gti.0eb620e0-09e4-053f-0dbe-9e498c8a1017/?ref_=dvm_pds_gen_in_as_s_gt_dtites693B1|c_413940616033_m_zbF6YGwQ-dc_s_',
             },
@@ -123,7 +123,7 @@ export default {
           rating: 8.2,
           buttons: [
             {
-              type: 'Prime Video',
+              type: 'Prime',
               link:
                 'https://www.primevideo.com/detail/amzn1.dv.gti.f8b3c8ac-b2ec-6b0a-74f0-6732031303a4/?ref_=dvm_pds_gen_in_as_s_gt_dtites177B1|c_413994272633_m_3SyTimrH-dc_s_',
             },

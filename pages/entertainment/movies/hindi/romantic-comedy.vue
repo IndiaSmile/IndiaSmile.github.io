@@ -53,7 +53,7 @@ export default {
           rating: 7.0,
           buttons: [
             {
-              type: 'Prime Video',
+              type: 'Prime',
               link:
                 'https://www.primevideo.com/detail/Hum-Tum/0N4MSOGAXQY3K2AO7O0K85PBS3?ext_vrnc=hi&ref_=dvm_pds_gen_in_as_s_gt_dsastandardadgroups',
             },
@@ -91,7 +91,7 @@ export default {
           rating: 7.9,
           buttons: [
             {
-              type: 'Prime Video',
+              type: 'Prime',
               link:
                 'https://www.primevideo.com/detail/amzn1.dv.gti.40b44d0c-4760-3773-5e98-b63d0c79b7e2/?ref_=dvm_pds_gen_in_as_s_gt_dtites354B5|c_413991889364_m_Tsfge8he-dc_s_',
             },
@@ -128,7 +128,7 @@ export default {
           rating: 7.5,
           buttons: [
             {
-              type: 'Prime Video',
+              type: 'Prime',
               link:
                 'https://www.primevideo.com/detail/0OBBOGV8P5V52OPEXPE43BYFDH/ref=atv_sr_def_c_unkc__1_1_1?sr=1-1&pageTypeIdSource=ASIN&pageTypeId=B07L7BMY63&qid=1585482359',
             },

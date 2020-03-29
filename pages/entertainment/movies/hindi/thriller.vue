@@ -117,7 +117,7 @@ export default {
           rating: 7.4,
           buttons: [
             {
-              type: 'Prime Video',
+              type: 'Prime',
               link: 'https://www.amazon.com/Badlapur-Divya-Dutta/dp/B0789VCQTL',
             },
           ],
@@ -129,7 +129,7 @@ export default {
           rating: 8.2,
           buttons: [
             {
-              type: 'Prime Video',
+              type: 'Prime',
               link:
                 'https://www.primevideo.com/detail/amzn1.dv.gti.a6b58658-eeb3-e776-a625-eaf019d6cf70/?ref_=dvm_pds_gen_in_as_s_gt_dtites193E4|c_413280970983_m_hmLr9fOC-dc_s_',
             },
@@ -142,7 +142,7 @@ export default {
           rating: 7.2,
           buttons: [
             {
-              type: 'Prime Video',
+              type: 'Prime',
               link:
                 'https://www.amazon.com/No-Smoking-Ayesha-Takia/dp/B0789WP9ZZ',
             },

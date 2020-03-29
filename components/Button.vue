@@ -58,6 +58,18 @@ export default {
           'icon-left': 'netflix',
           class: 'button--extra',
         },
+        prime: {
+          'icon-left': 'amazon',
+          class: 'button--extra',
+        },
+        hotstar: {
+          'icon-left': '',
+          class: 'button--extra',
+        },
+        google: {
+          'icon-left': 'google',
+          class: 'button--extra',
+        },
         default: {
           type: 'is-primary',
           outlined: true,
@@ -127,5 +139,17 @@ export default {
 
 .button--netflix
   background #e50914
+  color white
+
+.button--google
+  background #3BCCFF
+  color white
+
+.button--hotstar
+  background #048F70
+  color white
+
+.button--prime
+  background #00A8E1
   color white
 </style>

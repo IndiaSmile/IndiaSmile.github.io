@@ -72,7 +72,7 @@ export default {
           rating: 6.5,
           buttons: [
             {
-              type: 'Prime Video',
+              type: 'Prime',
               link: 'https://www.amazon.com/Raaz-Dino-Morea/dp/B06WW3LPD8',
             },
           ],
@@ -84,7 +84,7 @@ export default {
           rating: 6.3,
           buttons: [
             {
-              type: 'Prime Video',
+              type: 'Prime',
               link:
                 'https://www.primevideo.com/detail/amzn1.dv.gti.b8b4041b-edd6-49f6-9a02-19c550f9deea/?ref_=dvm_pds_gen_in_as_s_gt_dtites1690B3|c_413926075644_m_XxHIU7ZL-dc_s_',
             },
@@ -128,7 +128,7 @@ export default {
           rating: 8.3,
           buttons: [
             {
-              type: 'Prime Video',
+              type: 'Prime',
               link:
                 'https://www.primevideo.com/detail/Tumbbad/0JP2YUWYYUI1Q2NN73XBXXXC2T?ext_vrnc=hi&ref_=dvm_pds_gen_in_as_s_gt_dsastandardadgroups',
             },
@@ -141,7 +141,7 @@ export default {
           rating: 6.6,
           buttons: [
             {
-              type: 'Prime Video',
+              type: 'Prime',
               link:
                 'https://www.primevideo.com/detail/0IV864SLW83K2KCA2LWGBULRC6/?ref_=dvm_pds_gen_in_as_s_gt_gobig98desktop&ext_vrnc=hi|c_362587654941_m_qOZ8LHIi-dc_s_',
             },
