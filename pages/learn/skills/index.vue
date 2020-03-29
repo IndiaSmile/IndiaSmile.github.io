@@ -43,7 +43,7 @@ export default {
           subtitle: '',
           image: require('~/assets/images/money-cash.jpg'),
           color: 'rgba(69, 75, 61, 0.85)',
-          href: '/learn-new-things/skills/financial-planning',
+          href: '/learn/skills/financial-planning',
           isDarkText: false,
         },
         {
@@ -51,7 +51,7 @@ export default {
           subtitle: '',
           image: require('~/assets/images/books.jpg'),
           color: 'rgba(247, 235, 205, 0.85)',
-          href: '/learn-new-things/skills/must-read-books',
+          href: '/learn/skills/must-read-books',
           isDarkText: true,
         },
         {
@@ -59,7 +59,7 @@ export default {
           subtitle: '',
           image: require('~/assets/images/code.jpg'),
           color: 'rgba(37, 48, 66, 0.85)',
-          href: '/learn-new-things/skills/programming',
+          href: '/learn/skills/programming',
           isDarkText: false,
         },
         {
@@ -67,7 +67,7 @@ export default {
           subtitle: '',
           image: require('~/assets/images/digital-india.jpg'),
           color: 'rgba(177, 177, 177, 0.85)',
-          href: '/learn-new-things/skills/digital-india',
+          href: '/learn/skills/digital-india',
           isDarkText: true,
         },
       ],

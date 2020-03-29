@@ -14,6 +14,8 @@
 
           b-tag(v-if="!!data.recommended" type="is-info" rounded) Recommended
 
+        img.content__image(v-if="!!data.image" :src="data.image")
+
         p.content__text(v-if="!!data.text" v-html="data.text")
         .content__buttons(v-if="!!data.buttons")
           Button.content__buttons__item(v-for="(button, idx) in data.buttons" :key="idx" :text="button.text" :type="button.type" :href="button.link")
@@ -40,6 +42,7 @@ export default {
         },
         {
           text: `This is real. Many in our country don’t acknowledge it, but are victims! Meditation is the practice of focusing on your breath. It is a proven way to stop wavering thoughts, unwanted emotions. We weren’t given any warning in advance to be mentally ready for this pandemic, but it is never too late! Here is a list of meditation apps that make your experience truly unique!`,
+          image: require('~/assets/images/meditation-general-1.jpg'),
         },
         {
           custom: 'Sharer',
@@ -60,6 +63,7 @@ export default {
             },
           ],
           recommended: true,
+          image: require('~/assets/images/the-timer.jpg'),
         },
         {
           heading: 'Calm',
@@ -75,6 +79,7 @@ export default {
                 'https://play.google.com/store/apps/details?id=com.calm.android&hl=en_IN',
             },
           ],
+          image: require('~/assets/images/calm-app.jpg'),
         },
         {
           heading: 'Headspace',
@@ -91,6 +96,7 @@ export default {
                 'https://apps.apple.com/us/app/headspace-meditation-sleep/id493145008',
             },
           ],
+          image: require('~/assets/images/headspace-app.jpg'),
         },
       ],
     }

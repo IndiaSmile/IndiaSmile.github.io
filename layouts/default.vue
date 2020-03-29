@@ -140,6 +140,10 @@ export default {
           color #3B4CFE
           font-size 0.625em
 
+    &__image
+      width 100%
+      margin-bottom 1rem
+
 // for card list index pages
 .main
   .content
