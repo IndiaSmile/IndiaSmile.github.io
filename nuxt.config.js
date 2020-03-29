@@ -4,14 +4,27 @@ export default {
    ** Headers of the page
    */
   head: {
-    title: process.env.npm_package_name || '',
+    titleTemplate(titleChunk) {
+      if(titleChunk === 'IndiaSmile.org | Best things to do while stuck in quarantine'){
+        return titleChunk
+      }
+      else {
+        return titleChunk ? titleChunk + ' | IndiaSmile.org' : 'IndiaSmile.org'
+      }
+    },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
         hid: 'description',
         name: 'description',
-        content: process.env.npm_package_description || '',
+        content:
+          'One-stop resource for the best things to do while stuck in quarantine, with a unique indian context. Shareable lists of content to consume and advice to follow',
+      },
+      {
+        hid: 'ogtitle',
+        property: 'og:title',
+        content: 'IndiaSmile.org | Best things to do while stuck in quarantine',
       },
     ],
     link: [

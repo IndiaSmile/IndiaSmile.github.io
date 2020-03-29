@@ -118,6 +118,13 @@ export default {
   head() {
     return {
       title: this.title,
+      meta: [
+        {
+          hid: 'ogimage',
+          property: 'og:image',
+          content: require('~/assets/images/meta-image.jpg'),
+        },
+      ],
     }
   },
 }
