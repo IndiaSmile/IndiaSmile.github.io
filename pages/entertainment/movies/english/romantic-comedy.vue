@@ -6,7 +6,11 @@
       h2.content__title {{ title }}
       .content__section(v-for="(data, index) in article" :key="index")
         Sharer(v-if="data.custom === 'Sharer'" :title="title")
-        h5.content__heading(v-if="!!data.heading") {{ data.heading }}
+        .content__header
+          h5.content__heading(v-if="!!data.heading") {{ data.heading }}
+          .content__rating(v-if="data.rating")
+            b-icon(icon="star" size="is-small")
+            | {{ data.rating }}
         p.content__text(v-if="typeof data.text === 'string'" v-html="data.text")
 
 </template>
