@@ -12,12 +12,18 @@
             :key="index"
           )
             card(
+              v-if="!item.custom"
               :title="item.title"
               :subtitle="item.subtitle"
               :image="item.image"
               :color="item.color"
               :to="item.href"
               :isDarkText="item.isDarkText"
+            )
+            Sharer(
+              v-else-if="item.custom === 'Sharer'"
+              :title="title"
+              textType="list"
             )
 </template>
 
@@ -78,6 +84,9 @@ export default {
         //   href: '/peace/pages-to-follow',
         //   isDarkText: true,
         // },
+        {
+          custom: 'Sharer',
+        },
       ],
     }
   },

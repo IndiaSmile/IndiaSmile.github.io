@@ -20,12 +20,18 @@
             v-if="(typeof item.isHidden === 'boolean') ? !item.isHidden : true"
           )
             card(
+              v-if="!item.custom"
               :title="item.title"
               :subtitle="item.subtitle"
               :image="item.image"
               :color="item.color"
               :to="item.href"
               :isDarkText="item.isDarkText"
+            )
+            Sharer(
+              v-else-if="item.custom === 'Sharer'"
+              :title="title"
+              textType="list"
             )
 </template>
 
@@ -110,6 +116,9 @@ export default {
           color: 'rgba(210, 223, 234, 0.85)',
           href: '/safety-guidelines',
           isDarkText: true,
+        },
+        {
+          custom: 'Sharer',
         },
       ],
     }

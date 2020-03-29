@@ -12,6 +12,7 @@
             :key="index"
           )
             card(
+              v-if="!item.custom"
               :title="item.title"
               :subtitle="item.subtitle"
               :image="item.image"
@@ -19,6 +20,11 @@
               :to="item.href"
               :isDarkText="item.isDarkText"
               :button="item.button"
+            )
+            Sharer(
+              v-else-if="item.custom === 'Sharer'"
+              :title="title"
+              textType="list"
             )
 </template>
 
@@ -78,6 +84,9 @@ export default {
           href: 'https://chat.whatsapp.com/KrTMHQTJ8CcA1V58rYy9Mc',
           isDarkText: false,
           button: 'Join on WhatsApp',
+        },
+        {
+          custom: 'Sharer',
         },
       ],
     }

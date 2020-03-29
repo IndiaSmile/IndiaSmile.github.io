@@ -12,12 +12,18 @@
             :key="index"
           )
             card(
+              v-if="!item.custom"
               :title="item.title"
               :subtitle="item.subtitle"
               :image="item.image"
               :color="item.color"
               :to="item.href"
               :isDarkText="item.isDarkText"
+            )
+            Sharer(
+              v-else-if="item.custom === 'Sharer'"
+              :title="title"
+              textType="list"
             )
 </template>
 
@@ -45,6 +51,9 @@ export default {
           color: 'rgba(255, 149, 135, 0.85)',
           href: '/learn/languages/best-apps',
           isDarkText: false,
+        },
+        {
+          custom: 'Sharer',
         },
       ],
     }

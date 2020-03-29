@@ -12,6 +12,7 @@
             :key="index"
           )
             card(
+              v-if="!item.custom"
               :title="item.title"
               :subtitle="item.subtitle"
               :image="item.image"
@@ -19,6 +20,12 @@
               :to="item.href"
               :isDarkText="item.isDarkText"
             )
+            Sharer(
+              v-else-if="item.custom === 'Sharer'"
+              :title="title"
+              textType="list"
+            )
+
 </template>
 
 <script>
@@ -62,6 +69,9 @@ export default {
         //   href: '/learn/skills/digital-india',
         //   isDarkText: true,
         // },
+        {
+          custom: 'Sharer',
+        },
       ],
     }
   },

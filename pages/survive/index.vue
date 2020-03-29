@@ -12,12 +12,18 @@
             :key="index"
           )
             card(
+              v-if="!item.custom"
               :title="item.title"
               :subtitle="item.subtitle"
               :image="item.image"
               :color="item.color"
               :to="item.href"
               :isDarkText="item.isDarkText"
+            )
+            Sharer(
+              v-else-if="item.custom === 'Sharer'"
+              :title="title"
+              textType="list"
             )
 </template>
 
@@ -69,6 +75,9 @@ export default {
           color: 'rgba(108, 101, 84, 0.85)',
           href: '/survive/grocery-essentials',
           isDarkText: false,
+        },
+        {
+          custom: 'Sharer',
         },
       ],
     }
