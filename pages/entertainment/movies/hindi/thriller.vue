@@ -74,13 +74,6 @@ export default {
           ],
         },
         {
-          heading: 'Ghajini',
-          text: `A successful industrialist suffering from acute short-term memory loss, is unable to remember anything after fifteen minutes. With a bunch of polaroids and tattoos on his body, he sets out to find his lover's killer. You are purely heartless if you don't cry watching this movie.`,
-          image: require('~/assets/images/thriller-ghajini.jpg'),
-          rating: 6.4,
-          message: 'Available on Indian streaming platforms',
-        },
-        {
           heading: 'Andhadhun',
           text: `Akash, a piano player pretending to be blind, unwittingly becomes involved in a number of problems as he witnesses the murder of a former film actor. For the better part of the film, you'll be glued to the screen, reluctant to so much as peek at your phone for fear of missing a crucial moment. A fresh edge to Bollywood’s list of thrillers.`,
           image: require('~/assets/images/thriller-andhadun.jpg'),
@@ -103,13 +96,6 @@ export default {
               link: 'https://www.netflix.com/title/70096752',
             },
           ],
-        },
-        {
-          heading: 'Te3n',
-          text: `A 70-year-old man, seeks help from a priest and a police officer in his quest to find the people who kidnapped and killed his granddaughter. This medium paced suspense film which starts off with a strong plot, balances itself to deliver strong performances and are able to get their message across well.`,
-          image: require('~/assets/images/thriller-te3n.jpg'),
-          rating: 7.3,
-          message: 'Available on Indian streaming platforms',
         },
         {
           heading: 'Badlapur',
@@ -160,6 +146,20 @@ export default {
               link: 'https://www.netflix.com/title/80094096',
             },
           ],
+        },
+        {
+          heading: 'Ghajini',
+          text: `A successful industrialist suffering from acute short-term memory loss, is unable to remember anything after fifteen minutes. With a bunch of polaroids and tattoos on his body, he sets out to find his lover's killer. You are purely heartless if you don't cry watching this movie.`,
+          image: require('~/assets/images/thriller-ghajini.jpg'),
+          rating: 6.4,
+          message: 'Available on Indian streaming platforms',
+        },
+        {
+          heading: 'Te3n',
+          text: `A 70-year-old man, seeks help from a priest and a police officer in his quest to find the people who kidnapped and killed his granddaughter. This medium paced suspense film which starts off with a strong plot, balances itself to deliver strong performances and are able to get their message across well.`,
+          image: require('~/assets/images/thriller-te3n.jpg'),
+          rating: 7.3,
+          message: 'Available on Indian streaming platforms',
         },
       ],
     }
