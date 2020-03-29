@@ -53,7 +53,7 @@ export default {
           title: 'Updates',
           subtitle:
             'Important information regarding Covid 19 from official sources. Stay updated 🤙',
-          image: require('~/assets/images/friends.jpg'),
+          image: require('~/assets/images/modi.jpg'),
           color: 'rgb(255, 255, 242)',
           href: 'Jokes',
           isDarkText: true,
@@ -63,7 +63,7 @@ export default {
           title: 'Mood Support',
           subtitle:
             'We’ll get through this together 👨‍👩‍👧‍👦💖! Share what’s troubling you and get help from our other users.',
-          image: require('~/assets/images/modi.jpg'),
+          image: require('~/assets/images/friends.jpg'),
           color: 'rgb(161, 131, 175)',
           href: 'https://chat.whatsapp.com/F97AbnosfqeEC3gJObw6sU',
           isDarkText: false,
