@@ -77,4 +77,5 @@ export default {
 .button--android
   background #a4c639
   color #fff
+  border 0
 </style>
