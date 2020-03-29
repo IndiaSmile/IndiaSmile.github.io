@@ -56,13 +56,17 @@ export default {
         // @TODO: make netflix, hotstar, and prime buittons with correct colors
         netflix: {
           'icon-left': 'netflix',
-          class: 'button--extra button--netflix',
+          class: 'button--extra',
         },
         default: {
           type: 'is-primary',
           outlined: true,
           'icon-left': 'web',
         },
+      }
+      const selected = attributesMap[this.type]
+      if (selected && selected.class) {
+        selected.class += ' button--' + this.type
       }
       return attributesMap[this.type] || attributesMap.default
     },
@@ -71,8 +75,10 @@ export default {
       const htmlMap = {
         android: 'Android',
         ios: 'iOS',
-        // @TODO: make netflix, hotstar, and prime buittons with correct colors
         netflix: `<span class="sm">Watch on</span><span class="text">Netflix</span>`,
+        google: `<span class="sm">Watch on</span><span class="text">Google</span>`,
+        hotstar: `<span class="sm">Watch on</span><span class="text">Hotstar</span>`,
+        prime: `<span class="sm">Watch on</span><span class="text">Prime</span>`,
         default: '',
       }
       return this.text || htmlMap[this.type] || this.type || htmlMap.default
