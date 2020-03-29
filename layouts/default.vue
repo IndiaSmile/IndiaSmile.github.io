@@ -99,6 +99,10 @@ export default {
       &__item
         margin-right 0.5em
 
+    &__embed
+      width 100%
+      height 30em
+
 // for card list index pages
 .main
   .content
