@@ -1,6 +1,6 @@
 <template lang="pug">
-  component.wrapper(:is="element" v-bind="attribute")
-    b-button(:type="computedType" :icon-left="leftIcon") {{text}}
+  component.wrapper(:is="element" v-bind="parentAttributes")
+    b-button(v-bind="buttonAttributes") {{text}}
 
 </template>
 
@@ -34,7 +34,7 @@ export default {
       }
     },
 
-    attribute() {
+    parentAttributes() {
       if (this.element === 'a') {
         return { href: this.href, target: '_blank' }
       } else if (this.element === 'nuxt-link') {
@@ -44,21 +44,11 @@ export default {
       }
     },
 
-    computedType() {
+    buttonAttributes() {
       if (this.text.toLowerCase() === 'ios') {
-        return 'is-black'
+        return { type: 'is-black', 'icon-left': 'apple' }
       } else if (this.text.toLowerCase() === 'android') {
-        return 'is-success'
-      } else {
-        return ''
-      }
-    },
-
-    leftIcon() {
-      if (this.text.toLowerCase() === 'android') {
-        return 'google-play'
-      } else if (this.text.toLowerCase() === 'ios') {
-        return 'apple'
+        return { 'icon-left': 'google-play', class: 'button--android' }
       } else {
         return ''
       }
@@ -83,4 +73,8 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped></style>
+<style lang="stylus" scoped>
+.button--android
+  background #a4c639
+  color #fff
+</style>
