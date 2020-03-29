@@ -9,7 +9,7 @@
 
         .card__action(v-if="!!button")
           a(:href="to")
-            b-button.card__action__button(icon-right="chevron-right") {{ button }}
+            b-button.card__action__button(icon-right="chevron-right" :class="className") {{ button }}
 
 </template>
 
@@ -82,7 +82,7 @@ export default {
     padding-bottom 100%
 
     .card__gradient
-      height 150%
+      height 125%
 
   &__image
     display block
@@ -118,6 +118,10 @@ export default {
       border 0
       color #fff
       background rgba(255, 255, 255, 0.2)
+
+      &.text--dark
+        color #000
+        background rgba(0,0,0,0.1)
 
 .link
   display block
