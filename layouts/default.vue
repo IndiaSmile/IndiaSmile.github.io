@@ -107,10 +107,11 @@ export default {
       width 100%
       height 30em
 
-    &__header
+    &__user
       display flex
       justify-content flex-start
       align-items center
+      margin 1.5rem 0 1rem
 
       &__image
         height 2.25rem

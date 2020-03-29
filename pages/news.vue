@@ -8,12 +8,12 @@
 
         h2.content__title(v-if="!!data.title") {{ data.title }}
 
-        .content__header(v-if="!!data.date")
-          .content__header__image
+        .content__user(v-if="!!data.date")
+          .content__user__image
             img(src="~/assets/logo-square.png")
-          .content__header__text
-            .content__header__text__name IndiaSmile Team
-            .content__header__text__date {{ data.date }}
+          .content__user__text
+            .content__user__text__name IndiaSmile Team
+            .content__user__text__date {{ data.date }}
 
         p.content__text(v-if="typeof data.text === 'string'" v-html="data.text")
         div(v-else-if="typeof data.text === 'object'")
