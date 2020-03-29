@@ -101,14 +101,14 @@ export default {
           href: '/survive',
           isDarkText: true,
         },
-        {
-          title: 'Stay Updated (Curated News) 📰',
-          subtitle: '',
-          image: require('~/assets/images/newspapers-stack.jpg'),
-          color: 'rgba(235, 235, 236, 0.95)',
-          href: '/news',
-          isDarkText: true,
-        },
+        // {
+        //   title: 'Stay Updated (Curated News) 📰',
+        //   subtitle: '',
+        //   image: require('~/assets/images/newspapers-stack.jpg'),
+        //   color: 'rgba(235, 235, 236, 0.95)',
+        //   href: '/news',
+        //   isDarkText: true,
+        // },
         {
           title: 'Safety Guidelines 👩‍⚕️',
           subtitle: 'Stay healthy physically and mentally',
