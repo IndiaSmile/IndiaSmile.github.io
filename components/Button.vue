@@ -62,7 +62,7 @@ export default {
           class: 'button--extra',
         },
         hotstar: {
-          'icon-left': '',
+          'icon-left': 'star-outline',
           class: 'button--extra',
         },
         google: {
