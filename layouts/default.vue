@@ -90,8 +90,12 @@ export default {
       margin-bottom 1rem
       white-space pre-line
 
-    &__button
+    &__button, &__button:hover
       margin-bottom 1rem
+      background rgba(28, 91, 255, 0.1)
+      color #1C5BFF
+      font-weight bold
+      border 0
 
     &__buttons
       margin-bottom 1.5em
@@ -102,6 +106,38 @@ export default {
     &__embed
       width 100%
       height 30em
+
+    &__header
+      display flex
+      justify-content flex-start
+      align-items center
+
+      &__image
+        height 2.25rem
+        width 2.25rem
+        border-radius 100%
+        box-shadow 0px 0px 1px #3B4CFE
+        display inline-flex
+        justify-content center
+        align-items center
+
+        img
+          height 2rem
+
+      &__text
+        margin-left 0.5rem
+        display inline-flex
+        justify-content center
+        flex-direction column
+
+        &__name
+          color #19175B
+          font-size 0.75em
+          font-weight bold
+
+        &__date
+          color #3B4CFE
+          font-size 0.625em
 
 // for card list index pages
 .main

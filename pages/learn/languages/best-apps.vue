@@ -10,7 +10,9 @@
 
         h5.content__heading(v-if="!!data.heading") {{ data.heading }}
         p.content__text(v-if="!!data.text" v-html="data.text")
-        Button.content__button(v-if="!!data.button" :text="data.button.text" :href="data.button.link")
+
+        a(v-if="!!data.button" :href="data.link")
+          b-button.content__button(icon-right="chevron-right") {{ data.button.text }}
 </template>
 
 <script>

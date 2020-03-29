@@ -100,7 +100,7 @@ export default {
           subtitle: '',
           image: require('~/assets/images/newspapers-stack.jpg'),
           color: 'rgba(235, 235, 236, 0.95)',
-          href: '/stay-updated',
+          href: '/news',
           isDarkText: true,
         },
         {
