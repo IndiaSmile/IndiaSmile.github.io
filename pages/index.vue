@@ -1,13 +1,11 @@
 <template lang="pug">
   div
-    .hero
+    .hero.is-primary
       Header
-
-      .hero__background
-        .hero__text
-          .hero__text__title Getting bored at home?
-          .hero__text__subtitle Click on the content you are interested in to start exploring.
-        .hero__background__gradient
+      .hero-body.has-text-centered
+        .container
+          h2.title Getting bored at home?
+          h3.subtitle Click on the content you are interested in to start exploring.
 
     LockdownCountdown
 
@@ -141,51 +139,11 @@ export default {
 
 <style scoped lang="stylus">
 .hero
-  width 100%
-  max-width 26em
-  margin 0 auto
+  .title
+    font-size 1.6em
 
-  &__background
-    width 100%
-    height 0
-    background url('~@/assets/images/girl-using-phone.jpg') left/contain no-repeat
-    padding-top 55%
-    position relative
-
-    &__gradient
-      position absolute
-      width 80%
-      height 100%
-      right 0
-      top 0
-      z-index 1
-      background linear-gradient(272.06deg, #C3C0AF 2.66%, #B8B7B3 42.6%, rgba(57, 57, 57, 0) 83.86%)
-
-  &__text
-    margin-right 0.875em
-    width 45%
-    position absolute
-    right 0
-    top 0
-    z-index 2
-    display flex
-    flex-direction column
-    justify-content center
-    height 100%
-
-    &__title
-      color #fff
-      font-size 1.25em
-      font-weight bold
-      line-height 1.5em
-      text-shadow  0px 1px 4px rgba(0, 0, 0, 0.25)
-      margin-bottom 0.25em
-
-    &__subtitle
-      color rgba(255, 255, 255, 0.8)
-      font-size 0.875em
-      line-height 1em
-      text-shadow 0px 1px 4px rgba(0, 0, 0, 0.25)
+  .subtitle
+    font-size 1em
 
 .content
   padding 2em 1em 1.25em
