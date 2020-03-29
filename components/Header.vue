@@ -38,16 +38,17 @@ export default {
   display flex
   align-items center
   justify-content center
-  background linear-gradient(rgba(#fff, .9) 50%, transparent)
-  margin 0 0 -3em
+  background #fff
+  margin 0
   position relative
-  z-index 99
 
   &__button
     position absolute
     left 1.125rem
+    border 0
     border-radius 2.5rem!important
     background-color rgba(59, 76, 254, 0.2)
+
 
   &__logo
     height 2em
