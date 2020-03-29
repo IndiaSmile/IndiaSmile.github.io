@@ -31,7 +31,7 @@ export default {
         {
           custom: 'Spotify',
           embed:
-            'https://open.spotify.com/embed/playlist/37i9dQZF1DWYRTlrhMB12D?si=Gdwq0W6WTp--nAEX1SD1GQ',
+            'https://open.spotify.com/embed/playlist/37i9dQZF1DX5HjYnbxXZwh?si=7GCaZ2qkTXmtnFbAkxxUsg',
         },
       ],
     }
