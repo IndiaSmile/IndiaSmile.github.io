@@ -1,7 +1,7 @@
 <template lang="pug">
   component.wrapper(:is="element" v-bind="parentAttributes")
-    b-button(v-bind="buttonAttributes") {{text}}
-
+    b-button(v-bind="buttonAttributes")
+      span(v-html="content")
 </template>
 
 <script>
@@ -22,7 +22,6 @@ export default {
       default: '',
     },
   },
-
   computed: {
     element() {
       if (this.href === '#') {
@@ -45,13 +44,38 @@ export default {
     },
 
     buttonAttributes() {
-      if (this.text.toLowerCase() === 'ios') {
-        return { type: 'is-black', 'icon-left': 'apple' }
-      } else if (this.text.toLowerCase() === 'android') {
-        return { 'icon-left': 'google-play', class: 'button--android' }
-      } else {
-        return ''
+      const attributesMap = {
+        ios: {
+          type: 'is-black',
+          'icon-left': 'apple',
+        },
+        android: {
+          class: 'button--android',
+          'icon-left': 'google-play',
+        },
+        // @TODO: make netflix, hotstar, and prime buittons with correct colors
+        netflix: {
+          'icon-left': 'netflix',
+          class: 'button--extra button--netflix',
+        },
+        default: {
+          type: 'is-primary',
+          outlined: true,
+          'icon-left': 'web',
+        },
       }
+      return attributesMap[this.type] || attributesMap.default
+    },
+
+    content() {
+      const htmlMap = {
+        android: 'Android',
+        ios: 'iOS',
+        // @TODO: make netflix, hotstar, and prime buittons with correct colors
+        netflix: `<span class="sm">Watch on</span><span class="text">Netflix</span>`,
+        default: '',
+      }
+      return this.text || htmlMap[this.type] || this.type || htmlMap.default
     },
   },
 
@@ -74,8 +98,28 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+.button--extra
+  padding-top calc(.75em - 1px)
+  height 2.625em
+  border 0
+
+/deep/ .sm
+  display block
+  font-size .5em
+  line-height 1em
+  text-transform uppercase
+  position absolute
+  top .75em
+  color rgba(white, .75)
+
+
+// @TODO: make netflix, hotstar, and prime buittons with correct colors
 .button--android
   background #a4c639
   color #fff
   border 0
+
+.button--netflix
+  background #e50914
+  color white
 </style>

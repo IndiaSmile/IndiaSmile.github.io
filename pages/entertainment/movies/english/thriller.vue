@@ -16,15 +16,18 @@
 
         p.content__text(v-if="typeof data.text === 'string'" v-html="data.text")
 
+        ContentButtons(v-if="data.buttons" :buttons="data.buttons")
 </template>
 
 <script>
 import ArticleHero from '~/components/ArticleHero'
+import ContentButtons from '~/components/ContentButtons'
 
 export default {
   name: 'HomePage',
   components: {
     ArticleHero,
+    ContentButtons,
   },
 
   data() {

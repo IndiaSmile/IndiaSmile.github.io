@@ -17,19 +17,18 @@
         img.content__image(v-if="!!data.image" :src="data.image")
 
         p.content__text(v-if="!!data.text" v-html="data.text")
-        .content__buttons(v-if="!!data.buttons")
-          Button.content__buttons__item(v-for="(button, idx) in data.buttons" :key="idx" :text="button.text" :type="button.type" :href="button.link")
+        ContentButtons(v-if="data.buttons" :buttons="data.buttons")
 </template>
 
 <script>
 import ArticleHero from '~/components/ArticleHero'
-import Button from '~/components/Button'
+import ContentButtons from '~/components/ContentButtons'
 
 export default {
   name: 'HomePage',
   components: {
     ArticleHero,
-    Button,
+    ContentButtons,
   },
 
   data() {
@@ -52,12 +51,12 @@ export default {
           text: `The best free meditation app with the world's largest library of more than 30,000 guided meditations and over 5,000 teachers. We would encourage all our readers to give it a try!`,
           buttons: [
             {
-              text: 'Android',
+              type: 'Android',
               link:
                 'https://play.google.com/store/apps/details?id=com.spotlightsix.zentimerlite2&hl=en_IN',
             },
             {
-              text: 'iOS',
+              type: 'iOS',
               link:
                 'https://apps.apple.com/us/app/insight-timer-meditation-app/id337472899',
             },
@@ -70,11 +69,11 @@ export default {
           text: `Just as the name suggests. ‘Calm’, the most popular paid app on meditation, surpassed 50 million downloads last month! With regular body scans, meditation masterclasses, and sleep stories, this app offers an amazing user experience. Many people find value enough to purchase their paid plans. `,
           buttons: [
             {
-              text: 'Android',
+              type: 'Android',
               link: 'https://apps.apple.com/us/app/calm/id571800810',
             },
             {
-              text: 'iOS',
+              type: 'iOS',
               link:
                 'https://play.google.com/store/apps/details?id=com.calm.android&hl=en_IN',
             },
@@ -86,12 +85,12 @@ export default {
           text: `‘Gym membership for the mind’. The tagline says it all! Headspace is an industry leader, the guided courses and quick meditations help achieve a great first experience! It is a paid meditation platform.`,
           buttons: [
             {
-              text: 'Android',
+              type: 'Android',
               link:
                 'https://play.google.com/store/apps/details?id=com.getsomeheadspace.android&hl=en_IN',
             },
             {
-              text: 'iOS',
+              type: 'iOS',
               link:
                 'https://apps.apple.com/us/app/headspace-meditation-sleep/id493145008',
             },

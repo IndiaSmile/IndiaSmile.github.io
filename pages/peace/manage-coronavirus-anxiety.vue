@@ -14,18 +14,18 @@
         div(v-else-if="typeof data.text === 'object'")
           p.content__text(v-for="(text, idx) in data.text" :key="idx" v-html="text")
 
-        Button.content__button(v-if="data.button" :text="data.button.text" :href="data.button.href")
+        ContentButtons(:buttons="data.buttons")
 </template>
 
 <script>
 import ArticleHero from '~/components/ArticleHero'
-import Button from '~/components/Button'
+import ContentButtons from '~/components/ContentButtons'
 
 export default {
   name: 'HomePage',
   components: {
     ArticleHero,
-    Button,
+    ContentButtons,
   },
 
   data() {
@@ -46,10 +46,12 @@ export default {
           heading: 'Schedule/Entertainment Options',
           text: `“Staying still and doing nothing are two very different things”
               Just because we are isolated, doesn’t mean there isn’t anything to do. There are multiple things you can do at home. You can take online courses on skills you always wished to learn, also there are numerous inspirational and emotional movies as well as TV shows at your disposal. Or you can feed your brain by reading books 📚. You can see our selected picks for the best movies and books specially curated for this isolation period.`,
-          button: {
-            text: 'Explore Entertainment',
-            href: '/entertainment',
-          },
+          buttons: [
+            {
+              text: 'Explore Entertainment',
+              href: '/entertainment',
+            },
+          ],
         },
         {
           custom: 'Sharer',
