@@ -11,6 +11,9 @@
           .content__rating(v-if="data.rating")
             b-icon(icon="star" size="is-small")
             | {{ data.rating }}
+
+        img.content__image(v-if="!!data.image" :src="data.image")
+
         p.content__text(v-if="typeof data.text === 'string'" v-html="data.text")
 
 </template>
