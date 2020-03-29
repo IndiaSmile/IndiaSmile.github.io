@@ -1,5 +1,5 @@
 <template lang="pug">
-  .card(:class="{'card--large': !!button}")
+  .card
     component.link(:is="element" :to="to")
       img.card__image(:srcSet="image.srcSet" :src="image.src")
       .card__gradient(:style="{ backgroundImage: 'linear-gradient(180deg, rgba(196, 196, 196, 0) 30.73%, ' + color + ' 70.31%)'}")

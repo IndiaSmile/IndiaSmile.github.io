@@ -41,8 +41,7 @@ export default {
       list: [
         {
           title: 'TV and Movies',
-          subtitle:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+          subtitle: '',
           image: require('~/assets/images/family-tv.jpg'),
           color: 'rgb(247, 235, 205)',
           href: 'https://chat.whatsapp.com/CSEaQHFghRmKfoDBwM9ePP',
@@ -51,8 +50,7 @@ export default {
         },
         {
           title: 'Updates',
-          subtitle:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+          subtitle: '',
           image: require('~/assets/images/friends.jpg'),
           color: 'rgb(255, 255, 242)',
           href: 'Jokes',
@@ -61,8 +59,7 @@ export default {
         },
         {
           title: 'Mood Support',
-          subtitle:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+          subtitle: '',
           image: require('~/assets/images/modi.jpg'),
           color: 'rgb(161, 131, 175)',
           href: 'https://chat.whatsapp.com/F97AbnosfqeEC3gJObw6sU',
@@ -71,8 +68,7 @@ export default {
         },
         {
           title: 'Jokes',
-          subtitle:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+          subtitle: '',
           image: require('~/assets/images/clown.jpg'),
           color: 'rgb(140, 119, 140)',
           href: 'https://chat.whatsapp.com/KrTMHQTJ8CcA1V58rYy9Mc',
