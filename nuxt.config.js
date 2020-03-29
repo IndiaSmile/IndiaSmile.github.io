@@ -5,10 +5,12 @@ export default {
    */
   head: {
     titleTemplate(titleChunk) {
-      if(titleChunk === 'IndiaSmile.org | Best things to do while stuck in quarantine'){
+      if (
+        titleChunk ===
+        'IndiaSmile.org | Best things to do while stuck in quarantine'
+      ) {
         return titleChunk
-      }
-      else {
+      } else {
         return titleChunk ? titleChunk + ' | IndiaSmile.org' : 'IndiaSmile.org'
       }
     },

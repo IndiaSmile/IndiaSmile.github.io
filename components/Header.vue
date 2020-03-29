@@ -1,26 +1,32 @@
 <template lang="pug">
   .hero__header
-    BackButton(v-if="showBackButton")
+    b-button.hero__header__button(v-if="showBackButton" size="is-small" icon-left="chevron-left" @click="goBack") BACK
 
     nuxt-link(to="/")
       img.hero__header__logo(src="~/assets/logo-horizontal-2.png")
 </template>
 
 <script>
-import BackButton from '~/components/BackButton'
-
 export default {
   name: 'Header',
-
-  components: {
-    BackButton,
-  },
 
   props: {
     showBackButton: {
       type: Boolean,
       required: false,
       default: false,
+    },
+  },
+
+  methods: {
+    goBack() {
+      // go up one level by default
+      const path = window.location.pathname.split('/')
+      if (path.length >= 1) {
+        if (!path.pop()) path.pop() // pop twice if last is empty
+        const backPath = path.join('/') || '/'
+        return this.$router.push({ path: backPath })
+      }
     },
   },
 }
@@ -36,6 +42,12 @@ export default {
   margin 0 0 -3em
   position relative
   z-index 99
+
+  &__button
+    position absolute
+    left 1.125rem
+    border-radius 2.5rem!important
+    background-color rgba(59, 76, 254, 0.2)
 
   &__logo
     height 2em
