@@ -65,6 +65,7 @@ export default {
     'nuxt-buefy',
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
+    '@nuxtjs/onesignal',
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
@@ -106,4 +107,42 @@ export default {
       placeholder: false,
     },
   },
+
+  // for webmanifest
+  pwa: {
+    manifest: {
+      name: "IndiaSmile",
+      short_name: "IndiaSmile",
+      icons: [
+          {
+            src: "/android-chrome-144x144.png",
+            sizes: "144x144",
+            type: "image/png"
+          },
+        {
+          src: "/android-chrome-192x192.png",
+          sizes: "192x192",
+          type: "image/png"
+        },
+        {
+          src: "/android-chrome-512x512.png",
+          sizes: "512x512",
+          type: "image/png"
+        }
+      ],
+      theme_color: "#ffffff",
+      background_color: "#ffffff",
+      display: "standalone"
+    }
+  },
+
+  oneSignal: {
+    init: {
+      appId: '6a136cce-da58-4f01-885a-ca2f3dd195dc',
+      allowLocalhostAsSecureOrigin: true,
+      welcomeNotification: {
+          disable: true
+      }
+    }
+  }
 }
