@@ -1,9 +1,6 @@
 <template lang="pug">
   component.wrapper(:is="element" v-bind="attribute")
-    button.button(:class="computedClass")
-      img.button__image(v-if="!!computedClass" :src="iconSource")
-      | {{ text }}
-      span.button__icon(v-if="icon")
+    b-button(:type="computedType" :icon-left="leftIcon") {{text}}
 
 </template>
 
@@ -19,25 +16,11 @@ export default {
       required: false,
       default: '#',
     },
-    icon: {
-      type: Boolean,
-      required: false,
-      default: false,
-    },
     type: {
       type: String,
       required: false,
       default: '',
     },
-  },
-
-  data() {
-    return {
-      icons: {
-        android: require('~/assets/images/play-store-icon.jpg'),
-        ios: require('~/assets/images/apple-icon.jpg'),
-      },
-    }
   },
 
   computed: {
@@ -61,18 +44,24 @@ export default {
       }
     },
 
-    computedClass() {
+    computedType() {
       if (this.text.toLowerCase() === 'ios') {
-        return 'button--ios'
+        return 'is-black'
       } else if (this.text.toLowerCase() === 'android') {
-        return 'button--android'
+        return 'is-success'
       } else {
         return ''
       }
     },
 
-    iconSource() {
-      return this.icons[this.text.toLowerCase()]
+    leftIcon() {
+      if (this.text.toLowerCase() === 'android') {
+        return 'google-play'
+      } else if (this.text.toLowerCase() === 'ios') {
+        return 'apple'
+      } else {
+        return ''
+      }
     },
   },
 
@@ -94,39 +83,4 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
-.wrapper
-  display inline-block
-
-  .button
-    padding 0.5em 0.875em 0.5em 0.75em
-    background rgba(28, 91, 255, 0.1)
-    border 0
-    border-radius 4px
-    color #1C5BFF
-    font-size 0.875em
-    font-weight bold
-    height 2.5em
-    display flex
-    justify-content space-between
-    align-items center
-
-    &--android
-      background green
-      color #fff
-
-    &--ios
-      background #000
-      color #fff
-
-    &__image
-      height 0.875em
-      margin-right 0.5em
-
-    &__icon
-      border solid #1C5BFF
-      border-width 0 1.5px 1.5px 0
-      transform rotate(-45deg)
-      margin-left 0.5em
-      padding 2px
-</style>
+<style lang="stylus" scoped></style>
