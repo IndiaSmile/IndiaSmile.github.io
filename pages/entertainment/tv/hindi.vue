@@ -16,7 +16,10 @@
             | {{ data.rating }}
 
         p.content__text(v-if="typeof data.text === 'string'" v-html="data.text")
+        div(v-else-if="typeof data.text === 'object'")
+          p.content__text(v-for="(text, idx) in data.text" :key="idx" v-html="text")
 
+      Sharer(:title="title")
 </template>
 
 <script>
