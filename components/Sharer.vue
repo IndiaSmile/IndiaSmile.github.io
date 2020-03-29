@@ -1,5 +1,14 @@
 <template lang="pug">
-  b-message.sharer(type="is-warning") Know someone who&rsquo;d find this list useful? <a href="#" @click.prevent="share">Share this and let them know you're thinking of them 💕</a>
+  a.sharer(@click.prevent="share")
+    span(v-html="text")
+    .sharer__icons
+      b-icon(
+        v-for="icon in icons"
+        :key="icon"
+        :icon="icon"
+        size="is-medium"
+        :class="`i--icon`"
+      )
 </template>
 
 <script>
@@ -12,6 +21,15 @@ export default {
       type: String,
       required: true,
     },
+    textType: {
+      type: String,
+      default: 'article',
+    },
+  },
+  data() {
+    return {
+      icons: ['whatsapp', 'facebook', 'instagram'],
+    }
   },
   computed: {
     fullTitle() {
@@ -30,6 +48,14 @@ export default {
       }
       return ''
     },
+
+    text() {
+      const textMap = {
+        article: `Your friends & family can find this list useful 💕 Share, <strong>spread the love</strong>, and <strong>#EnjoyKaroNa</strong> 😆`,
+        list: `Any friend or family who would like this list? <strong>Share this & stay positive</strong> to beat corona 💪`,
+      }
+      return textMap[this.textType] || ''
+    },
   },
   methods: {
     share() {
@@ -40,7 +66,31 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+.column > .sharer
+  margin 0
+  height 100%
+
 .sharer
-  font-size .875em
+  display flex
+  flex-direction column
+  justify-content center
+  background #3742fa
+  background linear-gradient(#5352ed, #3742fa)
+  text-align center
+  color white
+  padding 1em
+  border-radius .25em
   margin 1.5rem 0
+  text-shadow 0 1px 1px rgba(black, .5)
+  color rgba(white, .85)
+
+  /deep/ strong
+    color white
+
+  &__icons
+    margin .75rem 0 0
+    color white
+
+    /deep/ span + span
+      margin-left 1.5em
 </style>
