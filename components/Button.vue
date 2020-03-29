@@ -53,7 +53,6 @@ export default {
           class: 'button--android',
           'icon-left': 'google-play',
         },
-        // @TODO: make netflix, hotstar, and prime buittons with correct colors
         netflix: {
           'icon-left': 'netflix',
           class: 'button--extra',
@@ -130,8 +129,6 @@ export default {
   top .75em
   color rgba(white, .75)
 
-
-// @TODO: make netflix, hotstar, and prime buittons with correct colors
 .button--android
   background #a4c639
   color #fff
