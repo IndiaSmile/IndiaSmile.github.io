@@ -93,14 +93,14 @@ export default {
           href: '/peace',
           isDarkText: false,
         },
-        {
-          title: 'Survival Starter Pack 🧼',
-          subtitle: 'Supplies and essentials to keep at home',
-          image: require('~/assets/images/ration.jpg'),
-          color: 'rgba(247, 235, 205, 0.85)',
-          href: '/survive',
-          isDarkText: true,
-        },
+        // {
+        //   title: 'Survival Starter Pack 🧼',
+        //   subtitle: 'Supplies and essentials to keep at home',
+        //   image: require('~/assets/images/ration.jpg'),
+        //   color: 'rgba(247, 235, 205, 0.85)',
+        //   href: '/survive',
+        //   isDarkText: true,
+        // },
         // {
         //   title: 'Stay Updated (Curated News) 📰',
         //   subtitle: '',
