@@ -31,7 +31,7 @@ export default {
   data() {
     return {
       title: 'Tips to Manage Coronavirus Stress',
-      image: require('~/assets/images/vegetables.png'),
+      image: require('~/assets/images/vegetables.jpg'),
 
       article: [
         {
@@ -84,6 +84,13 @@ export default {
   head() {
     return {
       title: this.title,
+      meta: [
+        {
+          hid: 'ogimage',
+          property: 'og:image',
+          content: this.image,
+        },
+      ],
     }
   },
 }

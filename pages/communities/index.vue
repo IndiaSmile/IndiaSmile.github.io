@@ -18,7 +18,7 @@ export default {
 
   data() {
     return {
-      image: require('~/assets/images/whatsapp-alt.png'),
+      image: require('~/assets/images/whatsapp-alt.jpg'),
       title: 'Whatsapp communities',
     }
   },
@@ -26,6 +26,13 @@ export default {
   head() {
     return {
       title: this.title,
+      meta: [
+        {
+          hid: 'ogimage',
+          property: 'og:image',
+          content: this.image,
+        },
+      ],
     }
   },
 }

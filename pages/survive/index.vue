@@ -35,13 +35,13 @@ export default {
     return {
       title: 'Survival Starter Pack',
 
-      image: require('~/assets/images/ration.png'),
+      image: require('~/assets/images/ration.jpg'),
 
       list: [
         {
           title: 'Soaps',
           subtitle: 'Discussion groups',
-          image: require('~/assets/images/soaps.png'),
+          image: require('~/assets/images/soaps.jpg'),
           color: 'rgba(234, 230, 219, 0.85)',
           href: '/survive/soaps',
           isDarkText: true,
@@ -49,7 +49,7 @@ export default {
         {
           title: 'Sanitisers',
           subtitle: 'Get fit at home',
-          image: require('~/assets/images/sanitizers.png'),
+          image: require('~/assets/images/sanitizers.jpg'),
           color: 'rgba(230, 226, 225, 0.85)',
           href: '/survive/sanitisers',
           isDarkText: true,
@@ -57,7 +57,7 @@ export default {
         {
           title: 'Vegetables',
           subtitle: 'Discussion groups',
-          image: require('~/assets/images/vegetables.png'),
+          image: require('~/assets/images/vegetables.jpg'),
           color: 'rgba(124, 98, 58, 0.85)',
           href: '/survive/vegetables',
           isDarkText: false,
@@ -65,7 +65,7 @@ export default {
         {
           title: 'Grocery essentials',
           subtitle: 'Discussion groups',
-          image: require('~/assets/images/grocery.png'),
+          image: require('~/assets/images/grocery.jpg'),
           color: 'rgba(108, 101, 84, 0.85)',
           href: '/survive/grocery-essentials',
           isDarkText: false,
@@ -77,6 +77,13 @@ export default {
   head() {
     return {
       title: this.title,
+      meta: [
+        {
+          hid: 'ogimage',
+          property: 'og:image',
+          content: this.image,
+        },
+      ],
     }
   },
 }

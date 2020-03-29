@@ -28,7 +28,7 @@ export default {
   data() {
     return {
       title: 'Continental',
-      image: require('~/assets/images/recipe-continental.png'),
+      image: require('~/assets/images/recipe-continental.jpg'),
       article: [
         {
           text: `A range of continental recipes that are simple and easy to make at home with available ingredients.`,
@@ -68,6 +68,13 @@ export default {
   head() {
     return {
       title: this.title,
+      meta: [
+        {
+          hid: 'ogimage',
+          property: 'og:image',
+          content: this.image,
+        },
+      ],
     }
   },
 }

@@ -35,13 +35,13 @@ export default {
     return {
       title: 'Music',
 
-      image: require('~/assets/images/girls-like-you.png'),
+      image: require('~/assets/images/girls-like-you.jpg'),
 
       list: [
         {
           title: 'Old Hindi Songs',
           subtitle: '',
-          image: require('~/assets/images/old-man.png'),
+          image: require('~/assets/images/old-man.jpg'),
           color: 'rgba(247, 235, 205, 0.85)',
           href: '/entertainment/music/old-songs',
           isDarkText: true,
@@ -49,7 +49,7 @@ export default {
         {
           title: 'New Hindi Songs',
           subtitle: '',
-          image: require('~/assets/images/kriti-sanon.png'),
+          image: require('~/assets/images/kriti-sanon.jpg'),
           color: 'rgba(118, 9, 27, 0.85)',
           href: '/entertainment/music/new-songs',
           isDarkText: false,
@@ -57,7 +57,7 @@ export default {
         {
           title: 'Punjabi Music',
           subtitle: '',
-          image: require('~/assets/images/happy-person.png'),
+          image: require('~/assets/images/happy-person.jpg'),
           color: 'rgba(247, 235, 205, 0.85)',
           href: '/entertainment/music/punjabi',
           isDarkText: true,
@@ -65,7 +65,7 @@ export default {
         {
           title: 'Hindi Rap',
           subtitle: '',
-          image: require('~/assets/images/kyij.png'),
+          image: require('~/assets/images/kyij.jpg'),
           color: ' rgba(34, 34, 34, 0.85)',
           href: '/entertainment/music/hindi-rap',
           isDarkText: false,
@@ -73,7 +73,7 @@ export default {
         {
           title: 'Rap',
           subtitle: '',
-          image: require('~/assets/images/rap.png'),
+          image: require('~/assets/images/rap.jpg'),
           color: 'rgba(3, 17, 45, 0.85)',
           href: '/entertainment/music/rap',
           isDarkText: false,
@@ -81,7 +81,7 @@ export default {
         {
           title: 'Pop',
           subtitle: '',
-          image: require('~/assets/images/girls-like-you.png'),
+          image: require('~/assets/images/girls-like-you.jpg'),
           color: 'rgba(60, 77, 105, 0.85)',
           href: '/entertainment/music/pop',
           isDarkText: false,
@@ -93,6 +93,13 @@ export default {
   head() {
     return {
       title: this.title,
+      meta: [
+        {
+          hid: 'ogimage',
+          property: 'og:image',
+          content: this.image,
+        },
+      ],
     }
   },
 }

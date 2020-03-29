@@ -28,7 +28,7 @@ export default {
   data() {
     return {
       title: 'Italian',
-      image: require('~/assets/images/recipe-italian.png'),
+      image: require('~/assets/images/recipe-italian.jpg'),
       article: [
         {
           text: `Mamma mia! A list of simple Indo-Italian recipes that are hands on.`,
@@ -58,6 +58,13 @@ export default {
   head() {
     return {
       title: this.title,
+      meta: [
+        {
+          hid: 'ogimage',
+          property: 'og:image',
+          content: this.image,
+        },
+      ],
     }
   },
 }

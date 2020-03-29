@@ -35,13 +35,13 @@ export default {
     return {
       title: 'Hollywood',
 
-      image: require('~/assets/images/english-thriller.png'),
+      image: require('~/assets/images/english-thriller.jpg'),
 
       list: [
         {
           title: 'Thriller',
           subtitle: 'Best thrillers',
-          image: require('~/assets/images/english-thriller.png'),
+          image: require('~/assets/images/english-thriller.jpg'),
           color: 'rgba(71, 81, 56, 0.85)',
           href: '/entertainment/movies/english/thriller',
           isDarkText: false,
@@ -49,7 +49,7 @@ export default {
         {
           title: 'Crime',
           subtitle: 'Best crimes',
-          image: require('~/assets/images/english-crime.png'),
+          image: require('~/assets/images/english-crime.jpg'),
           color: 'rgba(247, 235, 205, 0.85)',
           href: '/entertainment/movies/english/crime',
           isDarkText: true,
@@ -57,7 +57,7 @@ export default {
         {
           title: 'Comedy',
           subtitle: 'Best comedies',
-          image: require('~/assets/images/english-comedy.png'),
+          image: require('~/assets/images/english-comedy.jpg'),
           color: 'rgba(234, 169, 83, 0.85)',
           href: '/entertainment/movies/english/comedy',
           isDarkText: false,
@@ -65,7 +65,7 @@ export default {
         {
           title: 'Horror',
           subtitle: 'Best horrors',
-          image: require('~/assets/images/it-clown.png'),
+          image: require('~/assets/images/it-clown.jpg'),
           color: 'rgba(26, 9, 2, 0.85)',
           href: '/entertainment/movies/english/horror',
           isDarkText: false,
@@ -73,7 +73,7 @@ export default {
         {
           title: 'Romantic Comedies',
           subtitle: 'Best rom-coms',
-          image: require('~/assets/images/english-rom-com.png'),
+          image: require('~/assets/images/english-rom-com.jpg'),
           color: 'rgba(247, 235, 205, 0.85)',
           href: '/entertainment/movies/english/romantic-comedy',
           isDarkText: true,
@@ -85,6 +85,13 @@ export default {
   head() {
     return {
       title: this.title,
+      meta: [
+        {
+          hid: 'ogimage',
+          property: 'og:image',
+          content: this.image,
+        },
+      ],
     }
   },
 }

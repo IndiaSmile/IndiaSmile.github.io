@@ -34,8 +34,8 @@ export default {
   data() {
     return {
       icons: {
-        android: require('~/assets/images/play-store-icon.png'),
-        ios: require('~/assets/images/apple-icon.png'),
+        android: require('~/assets/images/play-store-icon.jpg'),
+        ios: require('~/assets/images/apple-icon.jpg'),
       },
     }
   },

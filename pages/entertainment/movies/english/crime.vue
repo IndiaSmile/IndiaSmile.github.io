@@ -22,7 +22,7 @@ export default {
 
   data() {
     return {
-      image: require('~/assets/images/english-crime.png'),
+      image: require('~/assets/images/english-crime.jpg'),
       title: 'Best Hollywood Crimes',
 
       article: [
@@ -79,6 +79,13 @@ export default {
   head() {
     return {
       title: this.title,
+      meta: [
+        {
+          hid: 'ogimage',
+          property: 'og:image',
+          content: this.image,
+        },
+      ],
     }
   },
 }

@@ -35,13 +35,13 @@ export default {
     return {
       title: 'TV',
 
-      image: require('~/assets/images/how-i-met-your-mother.png'),
+      image: require('~/assets/images/how-i-met-your-mother.jpg'),
 
       list: [
         {
           title: 'English',
           subtitle: '',
-          image: require('~/assets/images/how-i-met-your-mother.png'),
+          image: require('~/assets/images/how-i-met-your-mother.jpg'),
           color: 'rgba(255, 230, 0, 0.85)',
           href: '/entertainment/tv/english',
           isDarkText: true,
@@ -49,7 +49,7 @@ export default {
         {
           title: 'Hindi',
           subtitle: '',
-          image: require('~/assets/images/kuchh-rang-pyaar-ke.png'),
+          image: require('~/assets/images/kuchh-rang-pyaar-ke.jpg'),
           color: 'rgba(217, 219, 225, 0.85)',
           href: '/entertainment/tv/hindi',
           isDarkText: true,
@@ -61,6 +61,13 @@ export default {
   head() {
     return {
       title: this.title,
+      meta: [
+        {
+          hid: 'ogimage',
+          property: 'og:image',
+          content: this.image,
+        },
+      ],
     }
   },
 }

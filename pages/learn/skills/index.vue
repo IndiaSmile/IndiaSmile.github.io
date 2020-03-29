@@ -35,13 +35,13 @@ export default {
     return {
       title: 'Skills',
 
-      image: require('~/assets/images/person-using-laptop.png'),
+      image: require('~/assets/images/person-using-laptop.jpg'),
 
       list: [
         {
           title: 'Financial Planning',
           subtitle: '',
-          image: require('~/assets/images/money-cash.png'),
+          image: require('~/assets/images/money-cash.jpg'),
           color: 'rgba(69, 75, 61, 0.85)',
           href: '/learn-new-things/skills/financial-planning',
           isDarkText: false,
@@ -49,7 +49,7 @@ export default {
         {
           title: 'Must Read Books',
           subtitle: '',
-          image: require('~/assets/images/books.png'),
+          image: require('~/assets/images/books.jpg'),
           color: 'rgba(247, 235, 205, 0.85)',
           href: '/learn-new-things/skills/must-read-books',
           isDarkText: true,
@@ -57,7 +57,7 @@ export default {
         {
           title: 'Introduction to Programming',
           subtitle: '',
-          image: require('~/assets/images/code.png'),
+          image: require('~/assets/images/code.jpg'),
           color: 'rgba(37, 48, 66, 0.85)',
           href: '/learn-new-things/skills/programming',
           isDarkText: false,
@@ -65,7 +65,7 @@ export default {
         {
           title: 'Digital India 2020 - Word/Excel/PPT',
           subtitle: '',
-          image: require('~/assets/images/digital-india.png'),
+          image: require('~/assets/images/digital-india.jpg'),
           color: 'rgba(177, 177, 177, 0.85)',
           href: '/learn-new-things/skills/digital-india',
           isDarkText: true,
@@ -77,6 +77,13 @@ export default {
   head() {
     return {
       title: this.title,
+      meta: [
+        {
+          hid: 'ogimage',
+          property: 'og:image',
+          content: this.image,
+        },
+      ],
     }
   },
 }

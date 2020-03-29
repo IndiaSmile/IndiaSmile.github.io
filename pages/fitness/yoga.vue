@@ -25,7 +25,7 @@ export default {
   data() {
     return {
       title: 'Yoga',
-      image: require('~/assets/images/girl-yoga.png'),
+      image: require('~/assets/images/girl-yoga.jpg'),
       article: [
         {
           text: `Yoga is one of mankind’s most divine practices to attain peace of mind. Indulging in unwanted thoughts and negative emotions is the last thing we want as of now! An extremely beneficial practice to inculcate into your daily routine!`,
@@ -83,6 +83,13 @@ export default {
   head() {
     return {
       title: this.title,
+      meta: [
+        {
+          hid: 'ogimage',
+          property: 'og:image',
+          content: this.image,
+        },
+      ],
     }
   },
 }

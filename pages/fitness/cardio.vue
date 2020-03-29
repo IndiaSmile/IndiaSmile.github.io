@@ -25,7 +25,7 @@ export default {
   data() {
     return {
       title: 'Cardio',
-      image: require('~/assets/images/girl-running.png'),
+      image: require('~/assets/images/girl-running.jpg'),
       article: [
         {
           text: `Cardiovascular are exercises that raise your heart rate. Our bodies were made to move. And we all know that to keep our muscles in shape we need move them! The rhythmic and endurance based movements of body muscles comprise cardiovascular training. It is the training that will help you take deeper breaths, build a stronger heart, and make you feel like a powerhouse of energy! <span class="js--h">Cardio exercises are suggested for all those who want to see an improvement in blood pressure, cholesterol, stress, energy and overall health.</span>`,
@@ -82,6 +82,13 @@ export default {
   head() {
     return {
       title: this.title,
+      meta: [
+        {
+          hid: 'ogimage',
+          property: 'og:image',
+          content: this.image,
+        },
+      ],
     }
   },
 }

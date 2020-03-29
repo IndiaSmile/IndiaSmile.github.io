@@ -35,13 +35,13 @@ export default {
     return {
       title: 'Learn Something New Quickly',
 
-      image: require('~/assets/images/person-using-mobile.png'),
+      image: require('~/assets/images/person-using-mobile.jpg'),
 
       list: [
         {
           title: 'Recipes',
           subtitle: '',
-          image: require('~/assets/images/recipes.png'),
+          image: require('~/assets/images/recipes.jpg'),
           color: 'rgba(247, 235, 205, 0.85)',
           href: '/learn/recipes',
           isDarkText: true,
@@ -49,7 +49,7 @@ export default {
         {
           title: 'Skills',
           subtitle: '',
-          image: require('~/assets/images/person-using-laptop.png'),
+          image: require('~/assets/images/person-using-laptop.jpg'),
           color: 'rgba(247, 235, 205, 0.85)',
           href: '/learn/skills',
           isDarkText: true,
@@ -57,7 +57,7 @@ export default {
         {
           title: 'Languages',
           subtitle: '',
-          image: require('~/assets/images/languages.png'),
+          image: require('~/assets/images/languages.jpg'),
           color: 'rgba(255, 149, 135, 0.85)',
           href: '/learn/languages',
           isDarkText: true,
@@ -69,6 +69,13 @@ export default {
   head() {
     return {
       title: this.title,
+      meta: [
+        {
+          hid: 'ogimage',
+          property: 'og:image',
+          content: this.image,
+        },
+      ],
     }
   },
 }

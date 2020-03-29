@@ -35,13 +35,13 @@ export default {
     return {
       title: 'Languages',
 
-      image: require('~/assets/images/languages.png'),
+      image: require('~/assets/images/languages.jpg'),
 
       list: [
         {
           title: 'Best language learning apps',
           subtitle: '',
-          image: require('~/assets/images/languages.png'),
+          image: require('~/assets/images/languages.jpg'),
           color: 'rgba(255, 149, 135, 0.85)',
           href: '/learn/languages/best-apps',
           isDarkText: false,
@@ -53,18 +53,16 @@ export default {
   head() {
     return {
       title: this.title,
+      meta: [
+        {
+          hid: 'ogimage',
+          property: 'og:image',
+          content: this.image,
+        },
+      ],
     }
   },
 }
 </script>
 
-<style scoped lang="stylus">
-.content
-  padding 1.25em
-
-  &__title
-    color #19175B
-    font-size 1.5em
-    font-weight bold
-    padding-left 0.42em
-</style>
+<style scoped lang="stylus"></style>

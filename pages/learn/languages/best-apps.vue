@@ -27,7 +27,7 @@ export default {
   data() {
     return {
       title: 'Learn new languages',
-      image: require('~/assets/images/languages.png'),
+      image: require('~/assets/images/languages.jpg'),
       article: [
         {
           text: `Only three percent of people around the world can speak over four languages. On top of that, our minds have the capacity to learn indefinitely. The isolation days present you an opportunity! A chance, a strong desire to learn can substantially boost your social skills and personality.`,
@@ -69,6 +69,13 @@ export default {
   head() {
     return {
       title: this.title,
+      meta: [
+        {
+          hid: 'ogimage',
+          property: 'og:image',
+          content: this.image,
+        },
+      ],
     }
   },
 }

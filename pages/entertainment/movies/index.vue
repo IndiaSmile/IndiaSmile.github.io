@@ -35,13 +35,13 @@ export default {
     return {
       title: 'Movies',
 
-      image: require('~/assets/images/it-clown.png'),
+      image: require('~/assets/images/it-clown.jpg'),
 
       list: [
         {
           title: 'Hollywood',
           subtitle: 'English',
-          image: require('~/assets/images/english-thriller.png'),
+          image: require('~/assets/images/english-thriller.jpg'),
           color: 'rgba(252, 197, 177, 0.85)',
           href: '/entertainment/movies/english',
           isDarkText: false,
@@ -49,7 +49,7 @@ export default {
         {
           title: 'Bollywood',
           subtitle: 'Hindi',
-          image: require('~/assets/images/hindi-rom-com.png'),
+          image: require('~/assets/images/hindi-rom-com.jpg'),
           color: 'rgba(247, 235, 205, 0.85)',
           href: '/entertainment/movies/hindi',
           isDarkText: true,
@@ -61,6 +61,13 @@ export default {
   head() {
     return {
       title: this.title,
+      meta: [
+        {
+          hid: 'ogimage',
+          property: 'og:image',
+          content: this.image,
+        },
+      ],
     }
   },
 }

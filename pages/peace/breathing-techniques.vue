@@ -29,7 +29,7 @@ export default {
   data() {
     return {
       title: 'Breathing techniques',
-      image: require('~/assets/images/ramdev-yoga.png'),
+      image: require('~/assets/images/ramdev-yoga.jpg'),
       article: [
         {
           text: `In our culture, breathing techniques are known as ‘Pranayam’ (Prana - life and Yama - control of). It is said that one who controls breath, controls life! Many researchers have spent years studying this concept and concluded that many diseases are caused due to incorrect breathing. <span class="js--h">If we have been breathing wrong the entire time, what is the right way? Or as we would like to ask, what is the best way to breathe?</span>`,
@@ -54,6 +54,13 @@ export default {
   head() {
     return {
       title: this.title,
+      meta: [
+        {
+          hid: 'ogimage',
+          property: 'og:image',
+          content: this.image,
+        },
+      ],
     }
   },
 }

@@ -35,13 +35,13 @@ export default {
     return {
       title: 'Get Fit and Flexible at Home',
 
-      image: require('~/assets/images/healthy-man.png'),
+      image: require('~/assets/images/healthy-man.jpg'),
 
       list: [
         {
           title: 'Yoga',
           subtitle: 'Introduce yourself to a flexible lifestyle 🧘‍♂️',
-          image: require('~/assets/images/girl-yoga.png'),
+          image: require('~/assets/images/girl-yoga.jpg'),
           color: 'rgba(82, 72, 61, 0.85)',
           href: '/fitness/yoga',
           isDarkText: false,
@@ -49,7 +49,7 @@ export default {
         {
           title: 'Strength Training',
           subtitle: 'Get ripped with these workouts 💪',
-          image: require('~/assets/images/person-weightlifting.png'),
+          image: require('~/assets/images/person-weightlifting.jpg'),
           color: 'rgba(0, 0, 0, 0.85)',
           href: '/fitness/strength-training',
           isDarkText: false,
@@ -57,7 +57,7 @@ export default {
         {
           title: 'Pilates',
           subtitle: 'Improve posture and strengthen muscles',
-          image: require('~/assets/images/girl-pilates.png'),
+          image: require('~/assets/images/girl-pilates.jpg'),
           color: 'rgba(184, 179, 159, 0.85)',
           href: '/fitness/pilates',
           isDarkText: true,
@@ -65,7 +65,7 @@ export default {
         {
           title: 'Cardio',
           subtitle: 'Give your endurance a boost 🏃‍♀️',
-          image: require('~/assets/images/girl-running.png'),
+          image: require('~/assets/images/girl-running.jpg'),
           color: 'rgba(34, 38, 41, 0.85)',
           href: '/fitness/cardio',
           isDarkText: false,
@@ -77,6 +77,13 @@ export default {
   head() {
     return {
       title: this.title,
+      meta: [
+        {
+          hid: 'ogimage',
+          property: 'og:image',
+          content: this.image,
+        },
+      ],
     }
   },
 }

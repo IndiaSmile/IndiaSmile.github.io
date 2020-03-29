@@ -22,7 +22,7 @@ export default {
 
   data() {
     return {
-      image: require('~/assets/images/hindi-comedy.png'),
+      image: require('~/assets/images/hindi-comedy.jpg'),
       title: 'Best Bollywood Comedies',
       article: [
         {
@@ -78,6 +78,13 @@ export default {
   head() {
     return {
       title: this.title,
+      meta: [
+        {
+          hid: 'ogimage',
+          property: 'og:image',
+          content: this.image,
+        },
+      ],
     }
   },
 }

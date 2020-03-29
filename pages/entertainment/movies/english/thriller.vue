@@ -26,7 +26,7 @@ export default {
 
   data() {
     return {
-      image: require('~/assets/images/english-thriller.png'),
+      image: require('~/assets/images/english-thriller.jpg'),
       title: 'Best Hollywood Thrillers',
       article: [
         {
@@ -197,6 +197,13 @@ export default {
   head() {
     return {
       title: this.title,
+      meta: [
+        {
+          hid: 'ogimage',
+          property: 'og:image',
+          content: this.image,
+        },
+      ],
     }
   },
 }

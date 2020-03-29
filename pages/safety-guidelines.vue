@@ -22,7 +22,7 @@ export default {
   data() {
     return {
       title: 'Safety Guidelines',
-      image: require('~/assets/images/doctor.png'),
+      image: require('~/assets/images/doctor.jpg'),
       article: [
         {
           heading: '1. Washing Hands 👏',
@@ -60,6 +60,13 @@ export default {
   head() {
     return {
       title: this.title,
+      meta: [
+        {
+          hid: 'ogimage',
+          property: 'og:image',
+          content: this.image,
+        },
+      ],
     }
   },
 }

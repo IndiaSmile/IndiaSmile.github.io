@@ -33,7 +33,7 @@ export default {
   data() {
     return {
       title: 'Meditation Apps',
-      image: require('~/assets/images/meditating-app.png'),
+      image: require('~/assets/images/meditating-app.jpg'),
       article: [
         {
           text: `Being locked inside your home has been a surreal experience so far. It has been observed that social distancing increases levels of anxiety and stress in many cases! Well, staring at the wall in front of you will only generate more unnecessary and often negative thoughts 😝. `,
@@ -99,6 +99,13 @@ export default {
   head() {
     return {
       title: this.title,
+      meta: [
+        {
+          hid: 'ogimage',
+          property: 'og:image',
+          content: this.image,
+        },
+      ],
     }
   },
 }

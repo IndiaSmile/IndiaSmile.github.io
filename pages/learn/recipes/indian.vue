@@ -31,7 +31,7 @@ export default {
   data() {
     return {
       title: 'Indian',
-      image: require('~/assets/images/recipe-indian.png'),
+      image: require('~/assets/images/recipe-indian.jpg'),
       article: [
         {
           text: [
@@ -75,6 +75,13 @@ export default {
   head() {
     return {
       title: this.title,
+      meta: [
+        {
+          hid: 'ogimage',
+          property: 'og:image',
+          content: this.image,
+        },
+      ],
     }
   },
 }

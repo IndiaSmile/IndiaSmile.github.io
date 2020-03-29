@@ -35,13 +35,13 @@ export default {
     return {
       title: 'Beat Anxiety & Gain a Peaceful Calm ',
 
-      image: require('~/assets/images/woman-meditating.png'),
+      image: require('~/assets/images/woman-meditating.jpg'),
 
       list: [
         {
           title: 'Best Meditation Apps',
           subtitle: 'Get back control of your life ☮',
-          image: require('~/assets/images/meditating-app.png'),
+          image: require('~/assets/images/meditating-app.jpg'),
           color: 'rgba(247, 235, 205, 0.85)',
           href: '/peace/meditation-apps',
           isDarkText: true,
@@ -49,7 +49,7 @@ export default {
         {
           title: 'Breathing Techniques',
           subtitle: 'Learn the basics of Pranayam',
-          image: require('~/assets/images/ramdev-yoga.png'),
+          image: require('~/assets/images/ramdev-yoga.jpg'),
           color: 'rgba(160, 173, 190, 0.85)',
           href: '/peace/breathing-techniques',
           isDarkText: false,
@@ -57,7 +57,7 @@ export default {
         {
           title: 'Manage coronavirus anxiety',
           subtitle: 'Tips to stay calm during the pandemic',
-          image: require('~/assets/images/vegetables.png'),
+          image: require('~/assets/images/vegetables.jpg'),
           color: 'rgba(124, 98, 58, 0.85)',
           href: '/peace/manage-coronavirus-anxiety',
           isDarkText: false,
@@ -65,7 +65,7 @@ export default {
         // {
         //   title: 'Live meditation sessions',
         //   subtitle: '',
-        //   image: require('~/assets/images/women-yoga.png'),
+        //   image: require('~/assets/images/women-yoga.jpg'),
         //   color: 'rgba(194, 192, 206, 0.85)',
         //   href: '/peace/meditation-sessions',
         //   isDarkText: true,
@@ -73,7 +73,7 @@ export default {
         // {
         //   title: 'Pages to follow',
         //   subtitle: '',
-        //   image: require('~/assets/images/ration.png'),
+        //   image: require('~/assets/images/ration.jpg'),
         //   color: 'rgba(247, 235, 205, 0.85)',
         //   href: '/peace/pages-to-follow',
         //   isDarkText: true,
@@ -85,6 +85,13 @@ export default {
   head() {
     return {
       title: this.title,
+      meta: [
+        {
+          hid: 'ogimage',
+          property: 'og:image',
+          content: this.image,
+        },
+      ],
     }
   },
 }

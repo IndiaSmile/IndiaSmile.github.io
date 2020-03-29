@@ -25,7 +25,7 @@ export default {
   data() {
     return {
       title: 'Pilates',
-      image: require('~/assets/images/girl-pilates.png'),
+      image: require('~/assets/images/girl-pilates.jpg'),
       article: [
         {
           text: `Pilates is a form of low-impact exercises that aims to strengthen muscles while improving the postural alignment and flexibility of your body! A flexible body will make you feel comfortable in your skin and a strong core will help you mobilize faster. As we endure this quarantine phase, it is essential we aim to optimise our body with a mix of dire strength, explosive speed and flexibility! Pilates moves tend to target the core, although the exercises work other areas of your body as well. You can do Pilates without any equipment. You shall expect the moves to involve slow, precise movements and voluntary breath control.`,
@@ -86,6 +86,13 @@ export default {
   head() {
     return {
       title: this.title,
+      meta: [
+        {
+          hid: 'ogimage',
+          property: 'og:image',
+          content: this.image,
+        },
+      ],
     }
   },
 }

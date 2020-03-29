@@ -28,7 +28,7 @@ export default {
   data() {
     return {
       title: 'Snacks',
-      image: require('~/assets/images/recipe-snacks.png'),
+      image: require('~/assets/images/recipe-snacks.jpg'),
       article: [
         {
           heading: 'Tadka Maggi',
@@ -65,6 +65,13 @@ export default {
   head() {
     return {
       title: this.title,
+      meta: [
+        {
+          hid: 'ogimage',
+          property: 'og:image',
+          content: this.image,
+        },
+      ],
     }
   },
 }

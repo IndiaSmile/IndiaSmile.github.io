@@ -28,7 +28,7 @@ export default {
   data() {
     return {
       title: 'Must Read Books 📚',
-      image: require('~/assets/images/books.png'),
+      image: require('~/assets/images/books.jpg'),
       article: [
         {
           text: [
@@ -83,6 +83,13 @@ export default {
   head() {
     return {
       title: this.title,
+      meta: [
+        {
+          hid: 'ogimage',
+          property: 'og:image',
+          content: this.image,
+        },
+      ],
     }
   },
 }

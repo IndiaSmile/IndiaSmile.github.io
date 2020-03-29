@@ -28,7 +28,7 @@ export default {
   data() {
     return {
       title: 'Chinese',
-      image: require('~/assets/images/recipe-chinese.png'),
+      image: require('~/assets/images/recipe-chinese.jpg'),
       article: [
         {
           text: `Delicious Indo- Chinese recipes suitable to make with the least amount of ingredients.`,
@@ -63,6 +63,13 @@ export default {
   head() {
     return {
       title: this.title,
+      meta: [
+        {
+          hid: 'ogimage',
+          property: 'og:image',
+          content: this.image,
+        },
+      ],
     }
   },
 }

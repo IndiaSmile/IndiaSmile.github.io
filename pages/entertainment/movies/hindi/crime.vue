@@ -22,7 +22,7 @@ export default {
 
   data() {
     return {
-      image: require('~/assets/images/hindi-crime.png'),
+      image: require('~/assets/images/hindi-crime.jpg'),
       title: 'Best Bollywood Crimes',
 
       article: [
@@ -94,6 +94,13 @@ export default {
   head() {
     return {
       title: this.title,
+      meta: [
+        {
+          hid: 'ogimage',
+          property: 'og:image',
+          content: this.image,
+        },
+      ],
     }
   },
 }

@@ -35,13 +35,13 @@ export default {
     return {
       title: 'Recipes',
 
-      image: require('~/assets/images/recipes.png'),
+      image: require('~/assets/images/recipes.jpg'),
 
       list: [
         {
           title: 'Indian',
           subtitle: '',
-          image: require('~/assets/images/recipe-indian.png'),
+          image: require('~/assets/images/recipe-indian.jpg'),
           color: 'rgba(86, 68, 58, 0.85)',
           href: '/learn/recipes/indian',
           isDarkText: false,
@@ -49,7 +49,7 @@ export default {
         {
           title: 'Italian',
           subtitle: '',
-          image: require('~/assets/images/recipe-italian.png'),
+          image: require('~/assets/images/recipe-italian.jpg'),
           color: 'rgba(193, 120, 78, 0.85)',
           href: '/learn/recipes/italian',
           isDarkText: false,
@@ -57,7 +57,7 @@ export default {
         {
           title: 'Chinese',
           subtitle: '',
-          image: require('~/assets/images/recipe-chinese.png'),
+          image: require('~/assets/images/recipe-chinese.jpg'),
           color: 'rgba(151, 122, 93, 0.85)',
           href: '/learn/recipes/chinese',
           isDarkText: false,
@@ -65,7 +65,7 @@ export default {
         {
           title: 'Continental',
           subtitle: '',
-          image: require('~/assets/images/recipe-continental.png'),
+          image: require('~/assets/images/recipe-continental.jpg'),
           color: 'rgba(186, 134, 77, 0.85)',
           href: '/learn/recipes/continental',
           isDarkText: false,
@@ -73,7 +73,7 @@ export default {
         {
           title: 'Snacks',
           subtitle: '',
-          image: require('~/assets/images/recipe-snacks.png'),
+          image: require('~/assets/images/recipe-snacks.jpg'),
           color: 'rgba(127, 147, 103, 0.85)',
           href: '/learn/recipes/snacks',
           isDarkText: false,
@@ -85,6 +85,13 @@ export default {
   head() {
     return {
       title: this.title,
+      meta: [
+        {
+          hid: 'ogimage',
+          property: 'og:image',
+          content: this.image,
+        },
+      ],
     }
   },
 }

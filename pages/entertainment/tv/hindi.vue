@@ -22,7 +22,7 @@ export default {
 
   data() {
     return {
-      image: require('~/assets/images/kuchh-rang-pyaar-ke.png'),
+      image: require('~/assets/images/kuchh-rang-pyaar-ke.jpg'),
       title: 'Hindi TV Shows',
 
       article: [
@@ -80,6 +80,13 @@ export default {
   head() {
     return {
       title: this.title,
+      meta: [
+        {
+          hid: 'ogimage',
+          property: 'og:image',
+          content: this.image,
+        },
+      ],
     }
   },
 }
