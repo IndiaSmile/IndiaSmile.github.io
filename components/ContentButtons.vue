@@ -4,7 +4,7 @@
       v-for="(button, idx) in buttons"
       :key="idx"
       :text="button.text || ''"
-      :type="button.type.toLowerCase() || ''"
+      :type="!!button.type ? button.type.toLowerCase() : ''"
       :href="button.link"
     )
 </template>
