@@ -1,11 +1,16 @@
 <template lang="pug">
-  .card
-    nuxt-link.link(:to="to")
+  .card(:class="{'card--large': !!button}")
+    component.link(:is="element" :to="to")
       img.card__image(:srcSet="image.srcSet" :src="image.src")
       .card__gradient(:style="{ backgroundImage: 'linear-gradient(180deg, rgba(196, 196, 196, 0) 30.73%, ' + color + ' 70.31%)'}")
       .card__text
         .card__text__title(:class="className") {{ title }}
         .card__text__subtitle(:class="className") {{ subtitle }}
+
+        .card__action(v-if="!!button")
+          a(:href="to")
+            b-button.card__action__button(icon-right="chevron-right") {{ button }}
+
 </template>
 
 <script>
@@ -37,11 +42,20 @@ export default {
       required: false,
       default: false,
     },
+    button: {
+      type: String,
+      required: false,
+      default: '',
+    },
   },
 
   computed: {
     className() {
       return this.isDarkText ? 'text--dark' : ''
+    },
+
+    element() {
+      return this.button ? 'div' : 'nuxt-link'
     },
   },
 }
@@ -55,10 +69,6 @@ export default {
   overflow hidden
   padding-bottom 56.25%
 
-  &__image
-    display block
-    width 100%
-
   &__gradient
     position absolute
     width 100%
@@ -67,6 +77,17 @@ export default {
     bottom 0
     z-index 2
     border-radius 0.4em
+
+  &--large
+    padding-bottom 100%
+
+    .card__gradient
+      height 150%
+
+  &__image
+    display block
+    width 100%
+
 
   &__text
     position absolute
@@ -88,6 +109,14 @@ export default {
 
       &.text--dark
         color rgba(25, 23, 91, 0.75)
+
+  &__action
+    margin-top 0.75rem
+
+    &__button
+      border 0
+      color #fff
+      background rgba(255, 255, 255, 0.2)
 
 .link
   display block

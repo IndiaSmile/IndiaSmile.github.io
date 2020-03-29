@@ -21,7 +21,12 @@ export default {
   components: {
     Header,
   },
-  props: ['error'],
+  props: {
+    error: {
+      type: Object,
+      required: true,
+    },
+  },
 
   head() {
     return {

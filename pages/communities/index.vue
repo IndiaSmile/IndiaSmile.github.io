@@ -1,25 +1,85 @@
 <template lang="pug">
-  .main
+  div.main
     ArticleHero(:image="image")
 
     section.section.content
       h2.content__title {{ title }}
 
+      .container
+        .columns.is-multiline
+          .column.is-one-third(
+            v-for="(item, index) in list"
+            :key="index"
+          )
+            card(
+              :title="item.title"
+              :subtitle="item.subtitle"
+              :image="item.image"
+              :color="item.color"
+              :to="item.href"
+              :isDarkText="item.isDarkText"
+              :button="item.button"
+            )
 </template>
 
 <script>
+import Card from '~/components/Card'
 import ArticleHero from '~/components/ArticleHero'
 
 export default {
-  name: 'HomePage',
   components: {
+    Card,
     ArticleHero,
   },
 
   data() {
     return {
-      image: require('~/assets/images/whatsapp-alt.jpg'),
       title: 'Whatsapp communities',
+
+      image: require('~/assets/images/whatsapp-alt.jpg'),
+
+      list: [
+        {
+          title: 'TV and Movies',
+          subtitle:
+            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+          image: require('~/assets/images/family-tv.jpg'),
+          color: '#7C4F45',
+          href: 'https://chat.whatsapp.com/CSEaQHFghRmKfoDBwM9ePP',
+          isDarkText: false,
+          button: 'Join on WhatsApp',
+        },
+        {
+          title: 'Updates',
+          subtitle:
+            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+          image: require('~/assets/images/family-tv.jpg'),
+          color: '#5C7D5B',
+          href: 'Jokes',
+          isDarkText: false,
+          button: 'Join on WhatsApp',
+        },
+        {
+          title: 'Mood Support',
+          subtitle:
+            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+          image: require('~/assets/images/family-tv.jpg'),
+          color: '#262D67',
+          href: 'https://chat.whatsapp.com/F97AbnosfqeEC3gJObw6sU',
+          isDarkText: false,
+          button: 'Join on WhatsApp',
+        },
+        {
+          title: 'Jokes',
+          subtitle:
+            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+          image: require('~/assets/images/family-tv.jpg'),
+          color: '#5C7D5B',
+          href: 'https://chat.whatsapp.com/KrTMHQTJ8CcA1V58rYy9Mc',
+          isDarkText: false,
+          button: 'Join on WhatsApp',
+        },
+      ],
     }
   },
 
