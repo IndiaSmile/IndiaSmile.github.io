@@ -33,6 +33,16 @@ export default {
         name: 'twitter:title',
         content: 'IndiaSmile.org | Best things to do while stuck in quarantine',
       },
+      {
+        hid: 'twitterDescription',
+        name: 'twitter:description',
+        content: 'One-stop resource for the best things to do while stuck in quarantine, with a unique indian context. Shareable lists of content to consume and advice to follow',
+      },
+      {
+        hid: 'twitterCard',
+        name: 'twitter:card',
+        content: 'summary_large_image',
+      },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
