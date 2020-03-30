@@ -111,24 +111,23 @@ export default {
 
   &--list
     &--1
-      padding-bottom 90%
+      padding-bottom 75%
 
       .card__gradient
         height 100%
     &--2
-
       padding-bottom 70%
 
       .card__gradient
         height 90%
     &--3
-      padding-bottom 120%
+      padding-bottom 100%
 
       .card__gradient
         height 170%
 
     &--4
-      padding-bottom 128%
+      padding-bottom 124%
 
       .card__gradient
         height 170%
@@ -204,6 +203,8 @@ export default {
             color rgba(25, 23, 91, 0.6)
 
         &__icon
+          display inline-flex
+          align-items center
           color #000000
 
 .link
