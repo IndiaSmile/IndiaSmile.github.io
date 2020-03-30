@@ -9,6 +9,7 @@
         h5.content__heading(v-if="!!data.heading") {{ data.heading }}
         YTEmbed(v-if="!!data.youtube" :src="data.youtube")
         p.content__text(v-if="!!data.text" v-html="data.text")
+      Sharer(:title="title")
 </template>
 
 <script>

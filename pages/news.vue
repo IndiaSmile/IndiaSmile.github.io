@@ -22,6 +22,7 @@
         nuxt-link(v-if="!!data.link" :to="data.link")
           b-button.content__button(type="is-primary" icon-right="chevron-right") Read more
 
+      Sharer(:title="title")
 </template>
 
 <script>

@@ -15,6 +15,7 @@
         p.content__text(v-if="!!data.text" v-html="data.text")
 
         ContentButtons(v-if="data.buttons" :buttons="data.buttons")
+      Sharer(:title="title")
 </template>
 
 <script>

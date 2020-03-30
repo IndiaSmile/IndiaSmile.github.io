@@ -15,6 +15,7 @@
           p.content__text(v-for="(text, idx) in data.text" :key="idx" v-html="text")
 
         YTEmbed(v-if="!!data.youtube" :src="data.youtube")
+      Sharer(:title="title")
 </template>
 
 <script>

@@ -8,6 +8,7 @@
         Sharer(v-if="data.custom === 'Sharer'" :title="title")
         h5.content__heading(v-if="!!data.heading") {{ data.heading }}
         p.content__text(v-if="!!data.text" v-html="data.text")
+      Sharer(:title="title")
 </template>
 
 <script>

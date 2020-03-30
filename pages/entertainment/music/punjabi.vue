@@ -9,6 +9,7 @@ embed/<template lang="pug">
 
         iframe.content__embed(v-if="data.custom === 'Spotify'" :src="data.embed")
 
+      Sharer(:title="title")
 </template>
 
 <script>

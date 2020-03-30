@@ -12,6 +12,7 @@
         p.content__text(v-if="!!data.text" v-html="data.text")
 
         YTEmbed(v-if="!!data.youtube" :src="data.youtube")
+      Sharer(:title="title")
 </template>
 
 <script>

@@ -15,6 +15,7 @@
           p.content__text(v-for="(text, idx) in data.text" :key="idx" v-html="text")
 
         ContentButtons(:buttons="data.buttons")
+      Sharer(:title="title")
 </template>
 
 <script>

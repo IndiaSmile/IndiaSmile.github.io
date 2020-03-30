@@ -35,7 +35,7 @@ export default {
 
     parentAttributes() {
       if (this.element === 'a') {
-        return { href: this.href, target: '_blank' }
+        return { href: this.href, target: '_blank', rel: 'nofollow' }
       } else if (this.element === 'nuxt-link') {
         return { to: this.href }
       } else {

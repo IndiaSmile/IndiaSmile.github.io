@@ -8,7 +8,7 @@
         Sharer(v-if="data.custom === 'Sharer'" :title="title")
 
         iframe.content__embed(v-if="data.custom === 'Spotify'" :src="data.embed")
-
+      Sharer(:title="title")
 </template>
 
 <script>
