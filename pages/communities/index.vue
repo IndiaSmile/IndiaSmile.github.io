@@ -61,7 +61,7 @@ export default {
             'Important information regarding Covid 19 from official sources. Stay updated 🤙',
           image: require('~/assets/images/modi.jpg'),
           color: 'rgb(255, 255, 242)',
-          href: 'Jokes',
+          href: 'https://chat.whatsapp.com/KGdpQoNwG7q4IsZy2n13dd',
           isDarkText: true,
           button: 'Join on WhatsApp',
         },

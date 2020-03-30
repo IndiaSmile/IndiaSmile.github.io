@@ -52,41 +52,81 @@ export default {
           heading: 'Annie Hall',
           text: `A divorced Jewish comedian, reflects on his relationship with ex-lover Annie Hall, an aspiring nightclub singer, which ended abruptly just like his previous marriages. The movie is a brilliant meditation on the beauty, conflict and bittersweetness of romance. An evergreen tale of love and humour as well.`,
           image: require('~/assets/images/romcom-annie-hall.jpg'),
+          rating: 8.0,
         },
         {
           heading: 'You’ve Got Mail',
           text: `The owner of a bookstore chain meets the owner of a quaint little bookshop online and they fall in love with each other. However, they are unaware that they are actually business rivals. You shouldn’t be surprised if this love story touches your heart. The vulnerability and pride in her mother, Joe's sensitivity and devious behaviour are a treat to witness!`,
           image: require('~/assets/images/romcom-youve-got-mail.jpg'),
+          rating: 6.6,
+          buttons: [
+            {
+              type: 'Hotstar',
+              link:
+                'https://www.hotstar.com/in/movies/youve-got-mail/1221110044',
+            },
+          ],
         },
         {
           heading: 'Groundhog Day',
           text: `Phil, a self-centred weatherman, goes to the town of Punxsutawney for an assignment. He is later shocked when he wakes up the next morning and realises that he is reliving the same day over and over again. Bill Murray shines in this good-natured comedy that delivers lots of laughs and some honest sentiment.`,
           image: require('~/assets/images/romcom-groundhog-day.jpg'),
+          rating: 8.0,
+          buttons: [
+            {
+              type: 'Netflix',
+              link: 'https://www.netflix.com/title/563104',
+            },
+          ],
         },
         {
           heading: 'Notting Hill',
           text: `William, a British bookseller, meets and falls in love with Anna, a high-profile American actress. However, their relationship goes through many problems due to their different social statuses. While this romantic comedy doesn't expose the dirty underbelly of our celebrity-crazed culture, it's definitely funny and a beautiful romantic comedy!`,
           image: require('~/assets/images/romcom-notting-hill.jpg'),
+          rating: 7.1,
+          buttons: [
+            {
+              type: 'Netflix',
+              link: 'https://www.netflix.com/watch/21304015',
+            },
+          ],
         },
         {
           heading: 'Down With Love',
           text: `A journalist, vows to seduce a writer, Barbara Novak, who preaches that women do not need men to make them happy. However, he starts falling for her while carrying out his ploy. An amusing script and a neat pay-off are enough to entertain women in particular. Down With Love sticks to romance without ever actually becoming a part of it.`,
           image: require('~/assets/images/romcom-annie-hall.jpg'),
+          rating: 6.2,
+          buttons: [
+            {
+              type: 'Prime',
+              link:
+                'https://www.primevideo.com/detail/amzn1.dv.gti.a2b04b03-e070-dec3-2016-e3819c10be74/?ref_=dvm_pds_gen_in_as_s_gt_dtites1364B3%7Cc_413926075608_m_WKemS59s-dc_s_',
+            },
+          ],
         },
         {
           heading: 'Amelie (French)',
           text: `Despite being caught in her imaginative world, Amelie, a young waitress, decides to help people find happiness. Her quest to spread joy leads her on a journey where she finds true love. A beautiful and heartwarming story that will grip you and take you on a ride of joy and true love!`,
           image: require('~/assets/images/romcom-amelie.jpg'),
+          rating: 8.3,
         },
         {
           heading: 'Always Be My Maybe',
           text: `Childhood sweethearts have a falling out and don't speak for 15 years, only reconnecting as adults when they run into each other. Although the old sparks are still there, the couple live in different worlds. The movie did a fantastic job of depicting Asians in an American upbringing while retaining the nuanced cultural aspects of growing up in an Asian family household.`,
           image: require('~/assets/images/romcom-always-be-my-maybe.jpg'),
+          rating: 6.8,
+          buttons: [
+            {
+              type: 'Netflix',
+              link: 'https://www.netflix.com/title/80202874',
+            },
+          ],
         },
         {
           heading: 'Punch-Drunk Love',
           text: `A frustrated Barry Egan calls a phone-sex line to curb his loneliness. Little does he know that he will land in huge trouble and will also jeopardise his relationship with Lena. Definitely worth a viewing, Adam Sandler, in the best performance of his career, is a disturbed repressed fellow about to explode!`,
           image: require('~/assets/images/romcom-punch-drunk-love.jpg'),
+          rating: 7.3,
         },
       ],
     }

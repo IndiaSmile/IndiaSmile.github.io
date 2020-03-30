@@ -90,30 +90,60 @@ export default {
           text: `Two US marshals, are sent to an asylum on a remote island in order to investigate the disappearance of a patient, where Teddy uncovers a shocking truth about the place. Oh what can we say about this classic! The film's primary effect is on the senses. Everything is brought together into a disturbing pool of secrets.`,
           rating: 8.1,
           image: require('~/assets/images/thriller-shutter-island.jpg'),
+          buttons: [
+            {
+              type: 'Netflix',
+              link: 'https://www.netflix.com/title/70095139',
+            },
+          ],
         },
         {
           heading: 'No Country for Old Men',
           text: `A hunter's life takes a drastic turn when he is pursued by a psychopathic killer who wants the money he acquired! Powerful and moving performances from the cast, having won an Oscar for the best film!`,
           rating: 8.1,
           image: require('~/assets/images/thriller-no-country.jpg'),
+          buttons: [
+            {
+              type: 'Netflix',
+              link: 'https://www.netflix.com/title/70071613',
+            },
+          ],
         },
         {
           heading: 'Oldboy (2003, Korean)',
           text: `A man, held captive for no apparent reason for years, is given a cell phone, money and expensive clothes and released. Unless he finds out the identity of his captor, an even worse fate awaits him. This one is for the strong hearted and can be considered a real mind bender!`,
           rating: 8.4,
           image: require('~/assets/images/thriller-oldboy.jpg'),
+          buttons: [
+            {
+              type: 'Netflix',
+              link: 'https://www.netflix.com/title/70024111',
+            },
+          ],
         },
         {
           heading: 'Mystic River',
           text: `After the death of a girl, a police officer, investigates her murder which leads him to a crime that took place twenty-five years ago. A back in time thriller with an unprecedented set of events that turn your mind topsy turvy in search for the truth!`,
           rating: 7.9,
           image: require('~/assets/images/thriller-mystic-river.jpg'),
+          buttons: [
+            {
+              type: 'Netflix',
+              link: 'https://www.netflix.com/title/60031232',
+            },
+          ],
         },
         {
           heading: 'Gone Girl',
           text: `Nick discovers that the entire media focus has shifted on him when his wife disappears on the day of their fifth wedding anniversary. This is a sick film, and also brilliant.`,
           rating: 8.1,
           image: require('~/assets/images/thriller-gone-girl.jpg'),
+          buttons: [
+            {
+              type: 'Netflix',
+              link: 'https://www.netflix.com/watch/70305893',
+            },
+          ],
         },
         {
           heading: 'Memento',
@@ -124,14 +154,26 @@ export default {
         {
           heading: 'The Gift',
           text: `A married couple run into an old acquaintance. Things take a turn when he begins to drop in unannounced at their house and inundates them with mysterious gifts. This resourceful and edgy thriller marks another string in the talented director Joel Edgerton’s palette.`,
-          rating: 7,
+          rating: 7.0,
           image: require('~/assets/images/thriller-the-gift.jpg'),
+          buttons: [
+            {
+              type: 'Netflix',
+              link: 'https://www.netflix.com/title/80046694',
+            },
+          ],
         },
         {
           heading: 'Bird Box',
           text: `When a mysterious force decimates the world, only one thing is certain, if you see it, you die. Facing the unknown, Malorie finds love, hope and a new beginning and must flee with her two children down a treacherous river to the one place left that may offer sanctuary. Sandra Bullock stars and finds praise for her performance in this thrilling contest of life.`,
           rating: 6.6,
           image: require('~/assets/images/thriller-bird-box.jpg'),
+          buttons: [
+            {
+              type: 'Netflix',
+              link: 'https://www.netflix.com/title/80196789',
+            },
+          ],
         },
       ],
     }

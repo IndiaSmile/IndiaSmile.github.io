@@ -49,6 +49,7 @@ export default {
           heading: 'Anchorman: The Legend of Ron Burgundy',
           text: `A chauvinistic host of a top-rated American news programme is threatened with the arrival of an ambitious female reporter which starts a battle of the sexes. Filled with inspired silliness and quotable lines, though Anchorman isn't the most consistent comedy in the world, it hosts a great lead performance from Will Ferrell and a talented ensemble cast.`,
           image: require('~/assets/images/comedy-anchorman.jpg'),
+          rating: 7.2,
         },
         {
           custom: 'Sharer',
@@ -57,36 +58,69 @@ export default {
           heading: 'Borat',
           text: `Borat, a Kazakh resident, travels to the USA to make a documentary on the country. While on his mission, he learns that the USA is the same as his own country in many ways. The brilliance of “Borat” is that its comedy is pitiless but simultaneously brainy. It seems absurd and is simultaneously outrageous as well as gross! One guarantee, you will laugh!`,
           image: require('~/assets/images/comedy-borat.jpg'),
+          rating: 7.3,
+          buttons: [
+            {
+              type: 'Hotstar',
+              link:
+                'https://www.hotstar.com/in/movies/borat-cultural-learnings-of-america-for-make-benefit-glorious-nation-of-kazakhstan/1770000753',
+            },
+          ],
         },
         {
           heading: 'The Big Lebowski',
           text: `Two goons mistake Lebowski for a millionaire urinating on his rug. Trying to recompense his rug from the wealthy Lebowski, he gets involved in a kidnapping case. This masterpiece is sleek and sharp, with a slight dose of menace and mystery! Indulge into a wild and funny as hell ride through Los Angeles' underworld`,
           image: require('~/assets/images/comedy-big-lebowski.jpg'),
+          rating: 8.1,
         },
         {
           heading: 'Game Night',
           text: `Max and Annie set out to solve the mystery and find Brooks, Max's brother, who mysteriously disappeared during their game night. Game Night meshes together a twist-filled plot, outlandish gags and a clever fusion of visuals. Hosts awesome dialogues, outstanding camerawork as well as compelling direction. A must watch!`,
           image: require('~/assets/images/comedy-game-night.jpg'),
+          rating: 6.9,
+          buttons: [
+            {
+              type: 'Netflix',
+              link: 'https://www.netflix.com/watch/80201565',
+            },
+          ],
         },
         {
           heading: 'In Bruges',
           text: `Two hitmen get stuck in Bruges, after an unsuccessful mission. The situation becomes complicated when their boss asks one to kill the other. It's a smart and funny gangster film, with some high powered acting by Colin Farrell as the conscience-stricken, suicidal hitman who has killed a small boy on his first assignment`,
           image: require('~/assets/images/comedy-in-bruges.jpg'),
+          rating: 7.9,
+          buttons: [
+            {
+              type: 'Netflix',
+              link: 'https://www.netflix.com/title/70083111',
+            },
+          ],
         },
         {
           heading: 'Burn After Reading',
           text: `Two gym employees chance upon a CD containing the memoirs of a CIA agent. They then decide to sell it back to him, failing which they plan to sell it to the Russian embassy.The self amusing comedy has a tricky plot, a set visual style and little heart. Wickedly funny and outrageous!`,
           image: require('~/assets/images/comedy-burn-after-reading.jpg'),
+          rating: 7.0,
         },
         {
           heading: 'The Grand Budapest Hotel',
           text: `A concierge, is wrongly framed for murder at the Grand Budapest Hotel. In the process of proving his innocence, he befriends a lobby boy This movie makes a marvellous mockery of history, turning its horrors into a series of graceful jokes and hilarious instances!`,
           image: require('~/assets/images/comedy-budapest.jpg'),
+          rating: 8.1,
+          buttons: [
+            {
+              type: 'Hotstar',
+              link:
+                'https://www.hotstar.com/in/movies/the-grand-budapest-hotel/1770000334/watch?utm_source=gwa',
+            },
+          ],
         },
         {
           heading: 'Shaun of the Dead',
           text: `Shaun is a salesman whose life has no direction. However, his uneventful life takes a sudden turn when he has to single handedly deal with an entire community of zombies A cult favourite for sure! Shaun of the Dead cleverly balances scares and witty satire, making for a bloody good zombie movie with some good old fashioned comedy. The trilogy is an anthology series of films directed by Edgar Wright, consists of Shaun of the dead (2004), Hot Fuzz(2007), and The World’s End(2013). We suggest giving each one a look!`,
           image: require('~/assets/images/comedy-shaun-of-the-dead.jpg'),
+          rating: 7.9,
         },
       ],
     }
