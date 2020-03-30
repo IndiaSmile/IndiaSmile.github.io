@@ -28,6 +28,11 @@ export default {
         property: 'og:title',
         content: 'IndiaSmile.org | Best things to do while stuck in quarantine',
       },
+      {
+        hid: 'twitterTitle',
+        name: 'twitter:title',
+        content: 'IndiaSmile.org | Best things to do while stuck in quarantine',
+      },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },

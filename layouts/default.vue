@@ -27,6 +27,18 @@ export default {
       ],
     }
   },
+
+  head() {
+    return {
+      meta: [
+        {
+          hid: 'twitterImage',
+          name: 'twitter:image',
+          content: require('~/assets/images/meta-image.jpg'),
+        },
+      ],
+    }
+  },
 }
 </script>
 
