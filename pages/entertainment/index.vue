@@ -68,14 +68,14 @@ export default {
           href: '/entertainment/music',
           isDarkText: false,
         },
-        // {
-        //   title: 'Jokes',
-        //   subtitle: '',
-        //   image: require('~/assets/images/clown.jpg'),
-        //   color: 'rgba(140, 119, 140, 0.85)',
-        //   href: '/entertainment/jokes',
-        //   isDarkText: false,
-        // },
+        {
+          title: 'Jokes',
+          subtitle: '',
+          image: require('~/assets/images/clown.jpg'),
+          color: 'rgba(140, 119, 140, 0.85)',
+          href: '/entertainment/jokes',
+          isDarkText: false,
+        },
         {
           custom: 'Sharer',
         },

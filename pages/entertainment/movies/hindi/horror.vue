@@ -79,7 +79,8 @@ export default {
           buttons: [
             {
               type: 'Prime',
-              link: 'https://www.primevideo.com/detail/amzn1.dv.gti.b8b4041b-edd6-49f6-9a02-19c550f9deea/?ref_=dvm_pds_gen_in_as_s_gt_dtites1690B3|c_413926075644_m_XxHIU7ZL-dc_s_',
+              link:
+                'https://www.primevideo.com/detail/amzn1.dv.gti.b8b4041b-edd6-49f6-9a02-19c550f9deea/?ref_=dvm_pds_gen_in_as_s_gt_dtites1690B3|c_413926075644_m_XxHIU7ZL-dc_s_',
             },
           ],
         },
