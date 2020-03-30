@@ -16,6 +16,7 @@ export default {
     Colophon,
     HighlightSharer,
   },
+
   data() {
     return {
       items: [
@@ -40,6 +41,12 @@ export default {
         },
       ],
     }
+  },
+
+  mounted() {
+    window.dataLayer.push({
+      'event': 'nuxtLoad',
+    });
   },
 }
 </script>
