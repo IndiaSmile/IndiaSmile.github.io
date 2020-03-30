@@ -72,6 +72,7 @@ export default {
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
+    '@nuxtjs/gtm',
   ],
   /*
    ** Nuxt.js modules
@@ -87,17 +88,13 @@ export default {
     '@nuxtjs/dotenv',
     // Doc: https://github.com/bazzite/nuxt-optimized-images
     '@bazzite/nuxt-optimized-images',
-    '@nuxtjs/google-gtag',
   ],
   /*
-   **
+   ** GTM
    */
-  'google-gtag': {
+  gtm: {
     id: 'GTM-WGQZMD8',
-    config: {
-      send_page_view: false,
-    },
-    disableAutoPageTrack: true,
+    pageTracking: true,
   },
   /*
    ** Axios module configuration
@@ -113,6 +110,7 @@ export default {
      */
     extend(config, ctx) {},
   },
+
   server: {
     port: 8000,
   },
