@@ -36,7 +36,8 @@ export default {
       {
         hid: 'twitterDescription',
         name: 'twitter:description',
-        content: 'One-stop resource for the best things to do while stuck in quarantine, with a unique indian context. Shareable lists of content to consume and advice to follow',
+        content:
+          'One-stop resource for the best things to do while stuck in quarantine, with a unique indian context. Shareable lists of content to consume and advice to follow',
       },
       {
         hid: 'twitterCard',

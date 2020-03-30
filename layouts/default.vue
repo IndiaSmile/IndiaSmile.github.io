@@ -34,7 +34,9 @@ export default {
         {
           hid: 'twitterImage',
           name: 'twitter:image',
-          content: require('~/assets/images/meta-image.jpg'),
+          content:
+            'https://indiasmile.org' +
+            require('~/assets/images/meta-image.jpg'),
         },
       ],
     }
