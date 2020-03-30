@@ -94,6 +94,10 @@ export default {
    */
   'google-gtag': {
     id: 'GTM-WGQZMD8',
+    config: {
+      send_page_view: false,
+    },
+    disableAutoPageTrack: true,
   },
   /*
    ** Axios module configuration

@@ -44,9 +44,13 @@ export default {
   },
 
   mounted() {
-    window.dataLayer.push({
-      'event': 'nuxtLoad',
-    });
+    if (process.browser) {
+      this.$gtag('config', 'GTM-WGQZMD8', {
+        page_title: this.$metaInfo.title,
+        page_path: this.$route.fullPath,
+      })
+      this.$gtag('event', 'nuxtLoad');
+    }
   },
 }
 </script>
