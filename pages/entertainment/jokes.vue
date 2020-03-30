@@ -38,7 +38,7 @@ export default {
         },
         {
           heading: '1. Zakir Khan - Coronavirus ka Sach',
-          text: `A popular and tasty street food recipe prepared with cauliflower & basic sauces.`,
+          text: `Needless to say ‘Sakht Launda’ does a great job in this one too! Zakir Khan manages to hit nerves with some beautiful comedy, hilarious plots and snippets on ‘Coronavirus ka Sach’.💖`,
           youtube: 'https://www.youtube.com/watch?v=1CPVEFvYL8Y',
         },
         {
