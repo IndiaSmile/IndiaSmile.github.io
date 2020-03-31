@@ -42,13 +42,13 @@ export default {
     return {
       title: 'Skills',
 
-      image: require('~/assets/images/person-using-laptop.jpg'),
+      image: require('~/assets/images/person-using-laptop.jpg?resize'),
 
       list: [
         // {
         //   title: 'Financial Planning',
         //   subtitle: '',
-        //   image: require('~/assets/images/money-cash.jpg'),
+        //   image: require('~/assets/images/money-cash.jpg?resize'),
         //   color: 'rgba(69, 75, 61, 0.85)',
         //   href: '/learn/skills/financial-planning',
         //   isDarkText: false,
@@ -56,7 +56,7 @@ export default {
         {
           title: 'Introduction to Programming',
           subtitle: '',
-          image: require('~/assets/images/code.jpg'),
+          image: require('~/assets/images/code.jpg?resize'),
           color: 'rgba(37, 48, 66, 0.85)',
           href: '/learn/skills/programming',
           isDarkText: false,
@@ -64,7 +64,7 @@ export default {
         // {
         //   title: 'Digital India 2020 - Word/Excel/PPT',
         //   subtitle: '',
-        //   image: require('~/assets/images/digital-india.jpg'),
+        //   image: require('~/assets/images/digital-india.jpg?resize'),
         //   color: 'rgba(177, 177, 177, 0.85)',
         //   href: '/learn/skills/digital-india',
         //   isDarkText: true,

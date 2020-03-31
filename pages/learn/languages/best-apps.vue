@@ -32,14 +32,14 @@ export default {
   data() {
     return {
       title: 'Learn new languages',
-      image: require('~/assets/images/languages.jpg'),
+      image: require('~/assets/images/languages.jpg?resize'),
       article: [
         {
           text: `Only three percent of people around the world can speak over four languages. On top of that, our minds have the capacity to learn indefinitely. The isolation days present you an opportunity! A chance, a strong desire to learn can substantially boost your social skills and personality.`,
         },
         {
           custom: 'Sharer',
-          image: require('~/assets/images/languages-grid.jpg'),
+          image: require('~/assets/images/languages-grid.jpg?resize'),
         },
         {
           text: `We wish to encourage our readers to work on themselves and try out a new language. <span class="js--h">Speaking fluently in multiple dialects is a truly impressive skill! Prepare for all the holidays you are going to take once this ends with these apps 😍 </span>`,
@@ -53,7 +53,7 @@ export default {
               link: 'https://www.duolingo.com/',
             },
           ],
-          image: require('~/assets/images/duolingo-app.jpg'),
+          image: require('~/assets/images/duolingo-app.jpg?resize'),
         },
         {
           heading: 'MemRise',
@@ -64,7 +64,7 @@ export default {
               link: 'https://www.memrise.com/',
             },
           ],
-          image: require('~/assets/images/memrise-app.jpg'),
+          image: require('~/assets/images/memrise-app.jpg?resize'),
         },
         {
           heading: 'HelloTalk',
@@ -75,7 +75,7 @@ export default {
               link: 'https://www.hellotalk.com/',
             },
           ],
-          image: require('~/assets/images/hellotalk-app.jpg'),
+          image: require('~/assets/images/hellotalk-app.jpg?resize'),
         },
       ],
     }

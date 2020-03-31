@@ -32,7 +32,7 @@ export default {
   data() {
     return {
       title: 'Introduction to Programming 👨‍💻',
-      image: require('~/assets/images/code.jpg'),
+      image: require('~/assets/images/code.jpg?resize'),
       article: [
         {
           text: [

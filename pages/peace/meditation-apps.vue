@@ -35,14 +35,14 @@ export default {
   data() {
     return {
       title: 'Meditation Apps',
-      image: require('~/assets/images/meditating-app.jpg'),
+      image: require('~/assets/images/meditating-app.jpg?resize'),
       article: [
         {
           text: `Being locked inside your home has been a surreal experience so far. It has been observed that social distancing increases levels of anxiety and stress in many cases! Well, staring at the wall in front of you will only generate more unnecessary and often negative thoughts 😝. `,
         },
         {
           text: `This is real. Many in our country don’t acknowledge it, but are victims! Meditation is the practice of focusing on your breath. It is a proven way to stop wavering thoughts, unwanted emotions. We weren’t given any warning in advance to be mentally ready for this pandemic, but it is never too late! Here is a list of meditation apps that make your experience truly unique!`,
-          image: require('~/assets/images/meditation-general-1.jpg'),
+          image: require('~/assets/images/meditation-general-1.jpg?resize'),
         },
         {
           custom: 'Sharer',
@@ -63,7 +63,7 @@ export default {
             },
           ],
           recommended: true,
-          image: require('~/assets/images/the-timer.jpg'),
+          image: require('~/assets/images/the-timer.jpg?resize'),
         },
         {
           heading: 'Calm',
@@ -79,7 +79,7 @@ export default {
                 'https://play.google.com/store/apps/details?id=com.calm.android&hl=en_IN',
             },
           ],
-          image: require('~/assets/images/calm-app.jpg'),
+          image: require('~/assets/images/calm-app.jpg?resize'),
         },
         {
           heading: 'Headspace',
@@ -96,7 +96,7 @@ export default {
                 'https://apps.apple.com/us/app/headspace-meditation-sleep/id493145008',
             },
           ],
-          image: require('~/assets/images/headspace-app.jpg'),
+          image: require('~/assets/images/headspace-app.jpg?resize'),
         },
       ],
     }

@@ -38,7 +38,7 @@ export default {
 
   data() {
     return {
-      image: require('~/assets/images/newspapers-stack.jpg'),
+      image: require('~/assets/images/newspapers-stack.jpg?resize'),
       title: 'News',
 
       article: [

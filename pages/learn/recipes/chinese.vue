@@ -29,7 +29,7 @@ export default {
   data() {
     return {
       title: 'Chinese',
-      image: require('~/assets/images/recipe-chinese.jpg'),
+      image: require('~/assets/images/recipe-chinese.jpg?resize'),
       article: [
         {
           text: `Delicious Indo- Chinese recipes suitable to make with the least amount of ingredients.`,

@@ -41,13 +41,13 @@ export default {
     return {
       title: 'Languages',
 
-      image: require('~/assets/images/languages.jpg'),
+      image: require('~/assets/images/languages.jpg?resize'),
 
       list: [
         {
           title: 'Best language learning apps',
           subtitle: '',
-          image: require('~/assets/images/languages.jpg'),
+          image: require('~/assets/images/languages.jpg?resize'),
           color: 'rgba(255, 149, 135, 0.85)',
           href: '/learn/languages/best-apps',
           isDarkText: false,

@@ -23,7 +23,7 @@ export default {
 
   data() {
     return {
-      image: require('~/assets/images/kriti-sanon.jpg'),
+      image: require('~/assets/images/kriti-sanon.jpg?resize'),
       title: 'New Hindi Songs',
       article: [
         {

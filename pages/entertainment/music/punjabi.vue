@@ -1,4 +1,4 @@
-embed/<template lang="pug">
+<template lang="pug">
   .article
     ArticleHero(:image="image")
 
@@ -23,7 +23,7 @@ export default {
 
   data() {
     return {
-      image: require('~/assets/images/happy-person.jpg'),
+      image: require('~/assets/images/happy-person.jpg?resize'),
       title: 'Punjabi Music',
       article: [
         {

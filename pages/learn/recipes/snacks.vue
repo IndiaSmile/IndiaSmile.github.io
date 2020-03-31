@@ -29,7 +29,7 @@ export default {
   data() {
     return {
       title: 'Snacks',
-      image: require('~/assets/images/recipe-snacks.jpg'),
+      image: require('~/assets/images/recipe-snacks.jpg?resize'),
       article: [
         {
           heading: 'Tadka Maggi',

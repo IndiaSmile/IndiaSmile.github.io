@@ -23,7 +23,7 @@ export default {
 
   data() {
     return {
-      image: require('~/assets/images/girls-like-you.jpg'),
+      image: require('~/assets/images/girls-like-you.jpg?resize'),
       title: 'Pop',
       article: [
         {

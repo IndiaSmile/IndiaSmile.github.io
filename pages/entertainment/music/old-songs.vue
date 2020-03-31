@@ -23,7 +23,7 @@ export default {
 
   data() {
     return {
-      image: require('~/assets/images/old-man.jpg'),
+      image: require('~/assets/images/old-man.jpg?resize'),
       title: 'Old Hindi Songs',
       article: [
         {

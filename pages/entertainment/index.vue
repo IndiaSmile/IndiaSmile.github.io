@@ -41,13 +41,13 @@ export default {
     return {
       title: 'Best Modern TV & Movies',
 
-      image: require('~/assets/images/amitabh-bachchan.jpg'),
+      image: require('~/assets/images/amitabh-bachchan.jpg?resize'),
 
       list: [
         {
           title: 'Movies',
           subtitle: 'Curated Hollywood & Bollywood Movies',
-          image: require('~/assets/images/it-clown.jpg'),
+          image: require('~/assets/images/it-clown.jpg?resize'),
           color: 'rgba(48, 19, 1, 0.85)',
           href: '/entertainment/movies',
           isDarkText: false,
@@ -55,7 +55,7 @@ export default {
         {
           title: 'TV',
           subtitle: 'Catch up on the best English and Hindi Web Shows',
-          image: require('~/assets/images/how-i-met-your-mother.jpg'),
+          image: require('~/assets/images/how-i-met-your-mother.jpg?resize'),
           color: 'rgba(255, 230, 0, 0.85)',
           href: '/entertainment/tv',
           isDarkText: true,
@@ -63,7 +63,7 @@ export default {
         {
           title: 'Music',
           subtitle: 'Tune in and flow with these beats',
-          image: require('~/assets/images/girls-like-you.jpg'),
+          image: require('~/assets/images/girls-like-you.jpg?resize'),
           color: 'rgba(60, 77, 105, 0.85)',
           href: '/entertainment/music',
           isDarkText: false,
@@ -71,7 +71,7 @@ export default {
         {
           title: 'Jokes',
           subtitle: '',
-          image: require('~/assets/images/clown.jpg'),
+          image: require('~/assets/images/clown.jpg?resize'),
           color: 'rgba(140, 119, 140, 0.85)',
           href: '/entertainment/jokes',
           isDarkText: false,

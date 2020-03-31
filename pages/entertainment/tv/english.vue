@@ -37,7 +37,7 @@ export default {
 
   data() {
     return {
-      image: require('~/assets/images/how-i-met-your-mother.jpg'),
+      image: require('~/assets/images/how-i-met-your-mother.jpg?resize'),
       title: 'English TV Shows',
 
       article: [

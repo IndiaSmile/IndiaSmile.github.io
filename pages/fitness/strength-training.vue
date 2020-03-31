@@ -26,7 +26,7 @@ export default {
   data() {
     return {
       title: 'Strength Training',
-      image: require('~/assets/images/person-weightlifting.jpg'),
+      image: require('~/assets/images/person-weightlifting.jpg?resize'),
       article: [
         {
           text: `The need of the hour is to be strong! In such times, when an epidemic worries the masses, we want to develop true strength and power! Not just to look good, but to feel powerful, so that we believe our body can overcome all diseases! Real strength comes with persistence and continuous effort into ourselves. We believe it is essential for you to understand, and achieve what you always wanted! No more excuses, only results!`,

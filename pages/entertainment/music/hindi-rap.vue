@@ -23,7 +23,7 @@ export default {
 
   data() {
     return {
-      image: require('~/assets/images/kyij.jpg'),
+      image: require('~/assets/images/kyij.jpg?resize'),
       title: 'Hindi Rap',
       article: [
         {

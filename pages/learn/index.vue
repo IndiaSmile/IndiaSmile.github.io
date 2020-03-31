@@ -41,13 +41,13 @@ export default {
     return {
       title: 'Learn Something New Quickly',
 
-      image: require('~/assets/images/person-using-mobile.jpg'),
+      image: require('~/assets/images/person-using-mobile.jpg?resize'),
 
       list: [
         {
           title: 'Recipes',
           subtitle: '',
-          image: require('~/assets/images/recipes.jpg'),
+          image: require('~/assets/images/recipes.jpg?resize'),
           color: 'rgba(247, 235, 205, 0.85)',
           href: '/learn/recipes',
           isDarkText: true,
@@ -55,7 +55,7 @@ export default {
         {
           title: 'Skills',
           subtitle: '',
-          image: require('~/assets/images/person-using-laptop.jpg'),
+          image: require('~/assets/images/person-using-laptop.jpg?resize'),
           color: 'rgba(247, 235, 205, 0.85)',
           href: '/learn/skills',
           isDarkText: true,
@@ -63,7 +63,7 @@ export default {
         {
           title: 'Languages',
           subtitle: '',
-          image: require('~/assets/images/languages.jpg'),
+          image: require('~/assets/images/languages.jpg?resize'),
           color: 'rgba(255, 149, 135, 0.85)',
           href: '/learn/languages',
           isDarkText: true,
@@ -71,7 +71,7 @@ export default {
         {
           title: 'Must Read Books',
           subtitle: '',
-          image: require('~/assets/images/books.jpg'),
+          image: require('~/assets/images/books.jpg?resize'),
           color: 'rgba(247, 235, 205, 0.85)',
           href: '/learn/must-read-books',
           isDarkText: true,

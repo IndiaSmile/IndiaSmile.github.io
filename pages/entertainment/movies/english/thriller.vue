@@ -38,7 +38,7 @@ export default {
 
   data() {
     return {
-      image: require('~/assets/images/english-thriller.jpg'),
+      image: require('~/assets/images/english-thriller.jpg?resize'),
       title: 'Best Hollywood Thrillers',
       article: [
         {
@@ -48,7 +48,7 @@ export default {
           heading: 'The Silence Of The Lambs',
           text: `An FBI agent seeks help from a psychopathic serial killer and former psychiatrist, in order to apprehend another serial killer who has been claiming female victims. Psychological supplemented with a gripping tale which inspires suspense amongst its watchers. One of the best suspense thrillers of this decade!`,
           rating: 8.6,
-          image: require('~/assets/images/thriller-silence-of-the-lambs.jpg'),
+          image: require('~/assets/images/thriller-silence-of-the-lambs.jpg?resize'),
           buttons: [
             {
               type: 'Google',
@@ -64,7 +64,7 @@ export default {
           heading: 'Seven',
           text: `A dark and gripping thriller which saves its most shocking revelations for the final moments of the movie! Based on two detectives, who try to run down a gruesome serial killer who bases his murders on the seven deadly sins. Will surely get your heart pumping!`,
           rating: 8.6,
-          image: require('~/assets/images/thriller-seven.jpg'),
+          image: require('~/assets/images/thriller-seven.jpg?resize'),
           buttons: [
             {
               type: 'Netflix',
@@ -76,7 +76,7 @@ export default {
           heading: 'A Simple Favor',
           text: `A stylish post-modern film noir directed by Paul Feig, based around Stephanie who seeks to uncover the truth behind her best friend’s sudden disappearance from their small town. It is a thriller, carries suspense and is packed with an uneasy but mild humour at its core!`,
           rating: 6.8,
-          image: require('~/assets/images/thriller-a-simple-favor.jpg'),
+          image: require('~/assets/images/thriller-a-simple-favor.jpg?resize'),
           buttons: [
             {
               type: 'Google',
@@ -89,7 +89,7 @@ export default {
           heading: 'Shutter Island',
           text: `Two US marshals, are sent to an asylum on a remote island in order to investigate the disappearance of a patient, where Teddy uncovers a shocking truth about the place. Oh what can we say about this classic! The film's primary effect is on the senses. Everything is brought together into a disturbing pool of secrets.`,
           rating: 8.1,
-          image: require('~/assets/images/thriller-shutter-island.jpg'),
+          image: require('~/assets/images/thriller-shutter-island.jpg?resize'),
           buttons: [
             {
               type: 'Netflix',
@@ -101,7 +101,7 @@ export default {
           heading: 'No Country for Old Men',
           text: `A hunter's life takes a drastic turn when he is pursued by a psychopathic killer who wants the money he acquired! Powerful and moving performances from the cast, having won an Oscar for the best film!`,
           rating: 8.1,
-          image: require('~/assets/images/thriller-no-country.jpg'),
+          image: require('~/assets/images/thriller-no-country.jpg?resize'),
           buttons: [
             {
               type: 'Netflix',
@@ -113,7 +113,7 @@ export default {
           heading: 'Oldboy (2003, Korean)',
           text: `A man, held captive for no apparent reason for years, is given a cell phone, money and expensive clothes and released. Unless he finds out the identity of his captor, an even worse fate awaits him. This one is for the strong hearted and can be considered a real mind bender!`,
           rating: 8.4,
-          image: require('~/assets/images/thriller-oldboy.jpg'),
+          image: require('~/assets/images/thriller-oldboy.jpg?resize'),
           buttons: [
             {
               type: 'Netflix',
@@ -125,7 +125,7 @@ export default {
           heading: 'Mystic River',
           text: `After the death of a girl, a police officer, investigates her murder which leads him to a crime that took place twenty-five years ago. A back in time thriller with an unprecedented set of events that turn your mind topsy turvy in search for the truth!`,
           rating: 7.9,
-          image: require('~/assets/images/thriller-mystic-river.jpg'),
+          image: require('~/assets/images/thriller-mystic-river.jpg?resize'),
           buttons: [
             {
               type: 'Netflix',
@@ -137,7 +137,7 @@ export default {
           heading: 'Gone Girl',
           text: `Nick discovers that the entire media focus has shifted on him when his wife disappears on the day of their fifth wedding anniversary. This is a sick film, and also brilliant.`,
           rating: 8.1,
-          image: require('~/assets/images/thriller-gone-girl.jpg'),
+          image: require('~/assets/images/thriller-gone-girl.jpg?resize'),
           buttons: [
             {
               type: 'Netflix',
@@ -149,13 +149,13 @@ export default {
           heading: 'Memento',
           text: `An insurance investigator suffers from anterograde amnesia and uses notes and tattoos to hunt for the man he thinks killed his wife, which is the last thing he remembers! One of the most original and unique thrillers that Hollywood has seen in its prime!`,
           rating: 8.4,
-          image: require('~/assets/images/thriller-momento.jpg'),
+          image: require('~/assets/images/thriller-momento.jpg?resize'),
         },
         {
           heading: 'The Gift',
           text: `A married couple run into an old acquaintance. Things take a turn when he begins to drop in unannounced at their house and inundates them with mysterious gifts. This resourceful and edgy thriller marks another string in the talented director Joel Edgerton’s palette.`,
           rating: 7.0,
-          image: require('~/assets/images/thriller-the-gift.jpg'),
+          image: require('~/assets/images/thriller-the-gift.jpg?resize'),
           buttons: [
             {
               type: 'Netflix',
@@ -167,7 +167,7 @@ export default {
           heading: 'Bird Box',
           text: `When a mysterious force decimates the world, only one thing is certain, if you see it, you die. Facing the unknown, Malorie finds love, hope and a new beginning and must flee with her two children down a treacherous river to the one place left that may offer sanctuary. Sandra Bullock stars and finds praise for her performance in this thrilling contest of life.`,
           rating: 6.6,
-          image: require('~/assets/images/thriller-bird-box.jpg'),
+          image: require('~/assets/images/thriller-bird-box.jpg?resize'),
           buttons: [
             {
               type: 'Netflix',

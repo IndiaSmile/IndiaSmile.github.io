@@ -22,7 +22,7 @@ export default {
 
   data() {
     return {
-      image: require('~/assets/images/rap.jpg'),
+      image: require('~/assets/images/rap.jpg?resize'),
       title: 'Rap',
       article: [
         {

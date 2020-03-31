@@ -35,7 +35,7 @@ export default {
 
   data() {
     return {
-      image: require('~/assets/images/kuchh-rang-pyaar-ke.jpg'),
+      image: require('~/assets/images/kuchh-rang-pyaar-ke.jpg?resize'),
       title: 'Hindi TV Shows',
 
       article: [

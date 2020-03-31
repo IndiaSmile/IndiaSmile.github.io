@@ -31,7 +31,7 @@ export default {
   data() {
     return {
       title: 'Jokes',
-      image: require('~/assets/images/clown.jpg'),
+      image: require('~/assets/images/clown.jpg?resize'),
       article: [
         {
           text: `Till someone makes the medicine for coronavirus, the best medicine we can use to fight it is laughter 🤣 We have prepared a list of some great comedy and joke clips themed around Coronavirus, join along and laugh your heart out 😆`,

@@ -54,7 +54,7 @@ export default {
         {
           title: 'Like Minded WhatsApp Communities 👨‍👧‍👧',
           subtitle: 'Topic based community chats',
-          image: require('~/assets/images/whatsapp-alt.jpg'),
+          image: require('~/assets/images/whatsapp-alt.jpg?resize'),
           color: '#1ebfa5',
           href: '/communities',
           isDarkText: false,
@@ -62,7 +62,7 @@ export default {
         {
           title: 'Best Modern TV & Movies 📺',
           subtitle: 'Things to enjoy when bored',
-          image: require('~/assets/images/amitabh-bachchan.jpg'),
+          image: require('~/assets/images/amitabh-bachchan.jpg?resize'),
           color: 'rgba(128, 150, 140, 0.85)',
           href: '/entertainment',
           isDarkText: false,
@@ -70,7 +70,7 @@ export default {
         {
           title: 'Get Fit and Flexible at Home 💪',
           subtitle: 'Yoga & Fitness',
-          image: require('~/assets/images/healthy-man.jpg'),
+          image: require('~/assets/images/healthy-man.jpg?resize'),
           color: 'rgba(78, 111, 140, 0.85)',
           href: '/fitness',
           isDarkText: false,
@@ -78,7 +78,7 @@ export default {
         {
           title: 'Learn Something New Quickly 🧠',
           subtitle: 'Use the off-time to gain new skills ✍',
-          image: require('~/assets/images/person-using-mobile.jpg'),
+          image: require('~/assets/images/person-using-mobile.jpg?resize'),
           color: 'rgba(42, 94, 92, 0.85)',
           href: '/learn',
           isDarkText: false,
@@ -86,7 +86,7 @@ export default {
         {
           title: 'Beat Anxiety & Gain a Peaceful Calm 🕊',
           subtitle: 'No to Negativity',
-          image: require('~/assets/images/woman-meditating.jpg'),
+          image: require('~/assets/images/woman-meditating.jpg?resize'),
           color: 'rgba(75, 82, 60, 0.85)',
           href: '/peace',
           isDarkText: false,
@@ -94,7 +94,7 @@ export default {
         {
           title: 'Survival Starter Pack 🧼',
           subtitle: 'Supplies and essentials to keep at home',
-          image: require('~/assets/images/ration.jpg'),
+          image: require('~/assets/images/ration.jpg?resize'),
           color: 'rgba(247, 235, 205, 0.85)',
           href: '/essentials',
           isDarkText: true,
@@ -102,7 +102,7 @@ export default {
         // {
         //   title: 'Stay Updated (Curated News) 📰',
         //   subtitle: '',
-        //   image: require('~/assets/images/newspapers-stack.jpg'),
+        //   image: require('~/assets/images/newspapers-stack.jpg?resize'),
         //   color: 'rgba(235, 235, 236, 0.95)',
         //   href: '/news',
         //   isDarkText: true,
@@ -110,7 +110,7 @@ export default {
         {
           title: 'Safety Guidelines 👩‍⚕️',
           subtitle: 'Stay healthy physically and mentally',
-          image: require('~/assets/images/doctor.jpg'),
+          image: require('~/assets/images/doctor.jpg?resize'),
           color: 'rgba(210, 223, 234, 0.85)',
           href: '/safety-guidelines',
           isDarkText: true,
@@ -129,7 +129,7 @@ export default {
         {
           hid: 'ogimage',
           property: 'og:image',
-          content: require('~/assets/images/meta-image.jpg'),
+          content: require('~/assets/images/meta-image.jpg?resize'),
         },
       ],
     }

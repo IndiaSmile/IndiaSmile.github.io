@@ -38,7 +38,7 @@ export default {
 
   data() {
     return {
-      image: require('~/assets/images/hindi-rom-com.jpg'),
+      image: require('~/assets/images/hindi-rom-com.jpg?resize'),
       title: 'Best Bollywood Romantic Comedies',
       article: [
         {
@@ -50,7 +50,7 @@ export default {
         {
           heading: 'Hum Tum',
           text: `Karan and Rhea meet on a flight and end up hating each other. Things change between them when they continue to bump into each other.Hum Tum is an extremely modern and lighthearted romantic comedy. It is very well directed, beautifully shot, and is entertaining!`,
-          image: require('~/assets/images/romcom-hum-tum.jpg'),
+          image: require('~/assets/images/romcom-hum-tum.jpg?resize'),
           rating: 7.0,
           buttons: [
             {
@@ -63,7 +63,7 @@ export default {
         {
           heading: '2 States',
           text: `Coming from two very different cultures, Krish and Ananya try to convince their parents to bless their relationship before marriage. 2 States is a riveting tale of journey from love to marriage. Of laughter and tears, love and longing.`,
-          image: require('~/assets/images/romcom-two-states.jpg'),
+          image: require('~/assets/images/romcom-two-states.jpg?resize'),
           rating: 6.9,
           buttons: [
             {
@@ -76,7 +76,7 @@ export default {
         {
           heading: 'Pyaar ke Side Effects',
           text: `Sid, a commitment fearer, agrees to marry his girlfriend, Trisha. However, while negotiating other problems, they face a major hurdle when Trisha's father dislikes Sid. Rahul Bose can even pull off stupidity in an intelligent manner. Mallika Sherawat is good. An interesting watch!`,
-          image: require('~/assets/images/romcom-pyaar-ke-side-effects.jpg'),
+          image: require('~/assets/images/romcom-pyaar-ke-side-effects.jpg?resize'),
           rating: 6.7,
           buttons: [
             {
@@ -88,7 +88,7 @@ export default {
         {
           heading: 'Jab We Met',
           text: `Aditya, a heartbroken business tycoon, aimlessly boards a train to escape his depressing life. He meets Geet, a bubbly Punjabi girl, and gets pulled into her crazy life. Fresher than any romantic comedy you've seen , Jab We Met works because it delivers what it promises – a snug, heart-warming and relatable love story.`,
-          image: require('~/assets/images/romcom-jab-we-met.jpg'),
+          image: require('~/assets/images/romcom-jab-we-met.jpg?resize'),
           rating: 7.9,
           buttons: [
             {
@@ -101,7 +101,7 @@ export default {
         {
           heading: 'Wake Up Sid',
           text: `Siddharth Mehra, a spoilt and selfish college student, learns the meaning of life and the importance of responsibility from an aspiring writer from Kolkata. Refreshing and heart-warming, Wake Up Sid will put you in the mood for love.`,
-          image: require('~/assets/images/romcom-wake-up-sid.jpg'),
+          image: require('~/assets/images/romcom-wake-up-sid.jpg?resize'),
           rating: 7.6,
           buttons: [
             {
@@ -113,7 +113,7 @@ export default {
         {
           heading: 'Tanu Weds Manu',
           text: `Manu, an NRI doctor, comes to India in search of a bride and falls in love with Tanu. But Tanu, a fun-loving girl, has absolutely no plans of marrying him. A feel-good, light-hearted entertainer with the right dose of humour, drama and romance! Some really nice music just an additional topping.`,
-          image: require('~/assets/images/romcom-tanu-weds-manu.jpg'),
+          image: require('~/assets/images/romcom-tanu-weds-manu.jpg?resize'),
           rating: 6.7,
           buttons: [
             {
@@ -125,7 +125,7 @@ export default {
         {
           heading: 'Socha Na Tha',
           text: `Viren and Aditi reject each other when their families propose marriage. However, later they develop a bond of friendship, only to realise that they are in love. Literally, who ever thought that the first outing of love specialist Imtiaz Ali is an underrated and lesser known fantastic piece of cinema.`,
-          image: require('~/assets/images/romcom-socha-na-tha.jpg'),
+          image: require('~/assets/images/romcom-socha-na-tha.jpg?resize'),
           rating: 7.5,
           buttons: [
             {
@@ -138,7 +138,7 @@ export default {
         {
           heading: 'Masaan',
           text: `In Varanasi, Devi struggles to shake off the social stigma of pre-marital sexual relations. Masaan is arguably one of the finest Bollywood films. Belonging to the elite cadre, the film bestows upon its viewers the varied satisfaction that meaningful cinema has to offer.`,
-          image: require('~/assets/images/romcom-masaan.jpg'),
+          image: require('~/assets/images/romcom-masaan.jpg?resize'),
           rating: 8.1,
           buttons: [
             {

@@ -32,7 +32,7 @@ export default {
   data() {
     return {
       title: 'Tips to Manage Coronavirus Stress',
-      image: require('~/assets/images/vegetables.jpg'),
+      image: require('~/assets/images/vegetables.jpg?resize'),
 
       article: [
         {

@@ -41,13 +41,13 @@ export default {
     return {
       title: 'Recipes',
 
-      image: require('~/assets/images/recipes.jpg'),
+      image: require('~/assets/images/recipes.jpg?resize'),
 
       list: [
         {
           title: 'Indian',
           subtitle: '',
-          image: require('~/assets/images/recipe-indian.jpg'),
+          image: require('~/assets/images/recipe-indian.jpg?resize'),
           color: 'rgba(86, 68, 58, 0.85)',
           href: '/learn/recipes/indian',
           isDarkText: false,
@@ -55,7 +55,7 @@ export default {
         {
           title: 'Italian',
           subtitle: '',
-          image: require('~/assets/images/recipe-italian.jpg'),
+          image: require('~/assets/images/recipe-italian.jpg?resize'),
           color: 'rgba(193, 120, 78, 0.85)',
           href: '/learn/recipes/italian',
           isDarkText: false,
@@ -63,7 +63,7 @@ export default {
         {
           title: 'Chinese',
           subtitle: '',
-          image: require('~/assets/images/recipe-chinese.jpg'),
+          image: require('~/assets/images/recipe-chinese.jpg?resize'),
           color: 'rgba(151, 122, 93, 0.85)',
           href: '/learn/recipes/chinese',
           isDarkText: false,
@@ -71,7 +71,7 @@ export default {
         {
           title: 'Continental',
           subtitle: '',
-          image: require('~/assets/images/recipe-continental.jpg'),
+          image: require('~/assets/images/recipe-continental.jpg?resize'),
           color: 'rgba(186, 134, 77, 0.85)',
           href: '/learn/recipes/continental',
           isDarkText: false,
@@ -79,7 +79,7 @@ export default {
         {
           title: 'Snacks',
           subtitle: '',
-          image: require('~/assets/images/recipe-snacks.jpg'),
+          image: require('~/assets/images/recipe-snacks.jpg?resize'),
           color: 'rgba(127, 147, 103, 0.85)',
           href: '/learn/recipes/snacks',
           isDarkText: false,

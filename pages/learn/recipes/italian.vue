@@ -29,7 +29,7 @@ export default {
   data() {
     return {
       title: 'Italian',
-      image: require('~/assets/images/recipe-italian.jpg'),
+      image: require('~/assets/images/recipe-italian.jpg?resize'),
       article: [
         {
           text: `Mamma mia! A list of simple Indo-Italian recipes that are hands on.`,

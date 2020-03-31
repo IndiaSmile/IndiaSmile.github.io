@@ -32,7 +32,7 @@ export default {
   data() {
     return {
       title: 'Indian',
-      image: require('~/assets/images/recipe-indian.jpg'),
+      image: require('~/assets/images/recipe-indian.jpg?resize'),
       article: [
         {
           text: [

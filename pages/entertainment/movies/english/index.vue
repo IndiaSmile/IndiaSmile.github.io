@@ -41,13 +41,13 @@ export default {
     return {
       title: 'Hollywood',
 
-      image: require('~/assets/images/english-thriller.jpg'),
+      image: require('~/assets/images/english-thriller.jpg?resize'),
 
       list: [
         {
           title: 'Thriller',
           subtitle: 'Best thrillers',
-          image: require('~/assets/images/english-thriller.jpg'),
+          image: require('~/assets/images/english-thriller.jpg?resize'),
           color: 'rgba(71, 81, 56, 0.85)',
           href: '/entertainment/movies/english/thriller',
           isDarkText: false,
@@ -55,7 +55,7 @@ export default {
         {
           title: 'Crime',
           subtitle: 'Best crimes',
-          image: require('~/assets/images/english-crime.jpg'),
+          image: require('~/assets/images/english-crime.jpg?resize'),
           color: 'rgba(247, 235, 205, 0.85)',
           href: '/entertainment/movies/english/crime',
           isDarkText: true,
@@ -63,7 +63,7 @@ export default {
         {
           title: 'Comedy',
           subtitle: 'Best comedies',
-          image: require('~/assets/images/english-comedy.jpg'),
+          image: require('~/assets/images/english-comedy.jpg?resize'),
           color: 'rgba(234, 169, 83, 0.85)',
           href: '/entertainment/movies/english/comedy',
           isDarkText: false,
@@ -71,7 +71,7 @@ export default {
         {
           title: 'Horror',
           subtitle: 'Best horrors',
-          image: require('~/assets/images/it-clown.jpg'),
+          image: require('~/assets/images/it-clown.jpg?resize'),
           color: 'rgba(26, 9, 2, 0.85)',
           href: '/entertainment/movies/english/horror',
           isDarkText: false,
@@ -79,7 +79,7 @@ export default {
         {
           title: 'Romantic Comedies',
           subtitle: 'Best rom-coms',
-          image: require('~/assets/images/english-rom-com.jpg'),
+          image: require('~/assets/images/english-rom-com.jpg?resize'),
           color: 'rgba(247, 235, 205, 0.85)',
           href: '/entertainment/movies/english/romantic-comedy',
           isDarkText: true,

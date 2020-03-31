@@ -23,7 +23,7 @@ export default {
   data() {
     return {
       title: 'Safety Guidelines',
-      image: require('~/assets/images/doctor.jpg'),
+      image: require('~/assets/images/doctor.jpg?resize'),
       article: [
         {
           heading: '1. Washing Hands 👏',

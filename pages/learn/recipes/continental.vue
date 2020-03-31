@@ -29,7 +29,7 @@ export default {
   data() {
     return {
       title: 'Continental',
-      image: require('~/assets/images/recipe-continental.jpg'),
+      image: require('~/assets/images/recipe-continental.jpg?resize'),
       article: [
         {
           text: `A range of continental recipes that are simple and easy to make at home with available ingredients.`,
