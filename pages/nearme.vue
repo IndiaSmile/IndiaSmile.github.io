@@ -180,6 +180,7 @@ export default {
     font-weight bold
 
   &__list
+    margin 0
     margin-top 1rem
     padding 0
     list-style-type none
