@@ -16,6 +16,7 @@ export default {
     Colophon,
     HighlightSharer,
   },
+
   data() {
     return {
       items: [

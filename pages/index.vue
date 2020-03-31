@@ -5,7 +5,13 @@
       .hero-body.has-text-centered
         .container
           h2.title Getting bored at home?
-          h3.subtitle Click on the content you are interested in to start exploring.
+          .subtitle
+            ul
+              li 👇 <strong>Scroll down</strong> to see all content
+              li 🎊 Choose Entertainment, Fitness, News, or anything you like!
+              li 😍 Scroll and click on all cards to find best content
+              li 🧠 Visit every day and add to homescreen to <strong>beat boredom</strong>
+              li 🐱‍🏍 <strong>Share</strong> in friends & family groups to spread the love!
 
     LockdownCountdown
 
@@ -139,11 +145,21 @@ export default {
 
 <style scoped lang="stylus">
 .hero
+  .hero-body
+    padding 1.5rem
+
   .title
     font-size 1.6em
 
   .subtitle
     font-size 1em
+    width fit-content
+    text-align left
+    margin -.5em auto 0
+
+    li
+      padding .5em 0
+      list-style normal
 
 .content
   padding 2em 1em 1.25em
