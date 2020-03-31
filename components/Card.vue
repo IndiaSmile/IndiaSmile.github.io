@@ -111,7 +111,7 @@ export default {
 
   &--list
     &--1
-      padding-bottom 75%
+      padding-bottom 56%
 
       .card__gradient
         height 100%
@@ -121,13 +121,13 @@ export default {
       .card__gradient
         height 90%
     &--3
-      padding-bottom 100%
+      padding-bottom 96%
 
       .card__gradient
         height 170%
 
     &--4
-      padding-bottom 124%
+      padding-bottom 109%
 
       .card__gradient
         height 170%
