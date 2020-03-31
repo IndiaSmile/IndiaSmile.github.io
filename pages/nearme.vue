@@ -40,7 +40,7 @@
 
 
       .content__footer
-        p.content__footer__text Powered by our friends at
+        p.content__footer__text This information has been provided by our friends at
         a.content__footer__link(href="https://coronatracker.in" target="_blank" rel="nofollow") coronatracker.in
           b-icon(icon="open-in-new" size="is-small")
 
