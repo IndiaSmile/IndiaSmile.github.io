@@ -95,7 +95,7 @@ export default {
 
     shareOnWhatsapp() {
       const message = `Nearest COVID19 case to my location is ${this.distance} km away! 😨
-      Check yours at ➡ [https://IndiaSmile.org/NearMe](https://indiasmile.org/NearMe) & Stay Safe 😊`
+      Check yours at ➡ https://indiasmile.org/NearMe & Stay Safe 😊`
 
       sharer(message)
     },
