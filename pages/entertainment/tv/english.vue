@@ -19,12 +19,13 @@
         div(v-else-if="typeof data.text === 'object'")
           p.content__text(v-for="(text, idx) in data.text" :key="idx" v-html="text")
 
-        ContentButtons(v-if="data.buttons" :buttons="data.buttons")
+        ContentButtons(v-if="!!data.buttons" :buttons="data.buttons")
 
       Sharer(:title="title")
 </template>
 
 <script>
+import ContentButtons from '~/components/ContentButtons'
 import ArticleHero from '~/components/ArticleHero'
 import StreamGuide from '~/components/StreamGuide'
 
@@ -33,6 +34,7 @@ export default {
   components: {
     ArticleHero,
     StreamGuide,
+    ContentButtons,
   },
 
   data() {
