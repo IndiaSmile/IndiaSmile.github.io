@@ -21,6 +21,7 @@
 
         ContentButtons(v-if="!!data.buttons" :buttons="data.buttons")
 
+      StreamGuide
       Sharer(:title="title")
 </template>
 

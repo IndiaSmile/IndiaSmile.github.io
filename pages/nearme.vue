@@ -5,8 +5,6 @@
     .content
       .content__section
         h2.content__title COVID-19 Tracker
-        p.content__text.is-size-7
-          | Interested in knowing how far from you the nearest COVID-19 confirmed case in India is?
 
       .content__section
         h3.content__title.content__title--blue.is-size-5
@@ -21,14 +19,13 @@
           .location__wrapper__icon
             b-icon(icon="map-marker")
           .location__wrapper__text.is-size-7 You are
-          .location__wrapper__text.is-size-5 {{ distance }} KM
+          .location__wrapper__text.is-size-5 {{ computedDistance }} KM
           .location__wrapper__text.is-size-7 from the nearest confirmed case
 
-        .location__subtext Know anyone who would also like to check?
-        .location__link Share this & keep them informed 😇
+        .location__text Your family or friends could be close to someone affected. Share this page & keep your loved ones and safe.
 
-        ul.location__list
-          li.location__list__item(@click="shareOnWhatsapp")
+        ul.location__list(@click="shareOnWhatsapp")
+          li.location__list__item
             img.location__list__item__image(src="~/assets/whatsapp.png")
             | Share on WhatsApp
           li.location__list__item
@@ -69,27 +66,33 @@ export default {
   },
 
   computed: {
-    locationData() {
-      return true
+    computedDistance() {
+      return this.distance ? this.distance : '...'
     },
+  },
+
+  created() {
+    this.fetchLocation()
   },
 
   methods: {
     fetchLocation() {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(async (position) => {
-          this.position = position.coords
+      if (!process.server) {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(async (position) => {
+            this.position = position.coords
 
-          const data = await this.$axios(
-            this.endpoint +
-              '?lat=' +
-              this.position.latitude +
-              '&long=' +
-              this.position.longitude
-          )
+            const data = await this.$axios(
+              this.endpoint +
+                '?lat=' +
+                this.position.latitude +
+                '&long=' +
+                this.position.longitude
+            )
 
-          this.distance = Math.round(Number(data.data) * 100) / 100
-        })
+            this.distance = Math.round(Number(data.data) * 100) / 100
+          })
+        }
       }
     },
 
@@ -172,12 +175,8 @@ export default {
       align-items center
       margin-bottom 0.56rem
 
-  &__subtext
+  &__text
     margin-top 1rem
-    font-size 0.8125rem
-
-  &__link
-    font-size 0.875rem
     font-weight bold
 
   &__list

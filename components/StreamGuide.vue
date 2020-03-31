@@ -1,6 +1,6 @@
 <template lang="pug">
   a(href="https://bit.ly/IndiaSmile-WatchForFree" target="_blank" rel="nofollow").stream-guide
-    | <strong><u>Watch For Free Guide</u> 🎉</strong> Learn how to watch any movie or tv show for free at any time. Just ask <strong>any tech savvy family member</strong> to follow this 2 minute guide 🥳
+    | <strong><u>Watch For Free Guide</u> 🎉</strong> Learn how to watch any movie or tv show for free at any time. Just ask <strong><u>any tech savvy</u> family member</strong> to follow this 2 minute guide 🥳
 </template>
 
 <style lang="stylus" scoped>

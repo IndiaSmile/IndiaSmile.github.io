@@ -11,7 +11,7 @@
               li 🎊 Choose Entertainment, Fitness, News, or anything you like!
               li 😍 Scroll and click on all photos to find best content
               li 🧠 Visit every day and add to homescreen to <strong>beat boredom</strong>
-              li 🐱‍🏍 <strong>Share</strong> in friends & family groups to spread the love!
+              li 👬 <strong>Share</strong> in friends & family groups to spread the love!
 
     LockdownCountdown
 
@@ -121,6 +121,14 @@ export default {
           href: '/safety-guidelines',
           isDarkText: true,
         },
+        // {
+        //   title: 'COVID tracker',
+        //   subtitle: 'Use this tool to find out how far is COVID-19 from you!',
+        //   image: require('~/assets/images/virus.jpg?resize'),
+        //   color: 'rgba(122, 182, 196, 0.85)',
+        //   href: '/nearme',
+        //   isDarkText: false,
+        // },
         {
           custom: 'Sharer',
         },

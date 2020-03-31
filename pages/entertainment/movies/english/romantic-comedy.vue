@@ -20,6 +20,7 @@
           p.content__text(v-if="typeof data.text === 'string'" v-html="data.text")
 
           ContentButtons(v-if="data.buttons" :buttons="data.buttons")
+      StreamGuide
       Sharer(:title="title")
 </template>
 
