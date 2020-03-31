@@ -9,7 +9,7 @@
             ul
               li 👇 <strong>Scroll down</strong> to see all content
               li 🎊 Choose Entertainment, Fitness, News, or anything you like!
-              li 😍 Scroll and click on all cards to find best content
+              li 😍 Scroll and click on all photos to find best content
               li 🧠 Visit every day and add to homescreen to <strong>beat boredom</strong>
               li 🐱‍🏍 <strong>Share</strong> in friends & family groups to spread the love!
 
