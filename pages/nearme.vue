@@ -12,8 +12,8 @@
         h3.content__title.content__title--blue.is-size-5
           | Use this tool to find out how far is #Covid from you!
 
-      .content__section.request-container(v-if="!locationData")
-        b-button.request__button(icon-left="crosshairs-gps" type="is-primary" @click="requestPermission") Allow location access
+      .content__section.request-container(v-if="!position")
+        b-button.request__button(icon-left="crosshairs-gps" type="is-primary" @click="fetchLocation") Allow location access
         p.request__text Your current location will be used to get this data.
 
       .content__section.location(v-else)
@@ -21,14 +21,14 @@
           .location__wrapper__icon
             b-icon(icon="map-marker")
           .location__wrapper__text.is-size-7 You are
-          .location__wrapper__text.is-size-5 2.78 KM
+          .location__wrapper__text.is-size-5 {{ distance }} KM
           .location__wrapper__text.is-size-7 from the nearest confirmed case
 
         .location__subtext Know anyone who would also like to check?
         .location__link Share this & keep them informed 😇
 
         ul.location__list
-          li.location__list__item
+          li.location__list__item(@click="shareOnWhatsapp")
             img.location__list__item__image(src="~/assets/whatsapp.png")
             | Share on WhatsApp
           li.location__list__item
@@ -42,11 +42,13 @@
       .content__footer
         p.content__footer__text Powered by our friends at
         a.content__footer__link(href="https://coronatracker.in" target="_blank" rel="nofollow") coronatracker.in
+          b-icon(icon="open-in-new" size="is-small")
 
 </template>
 
 <script>
 import ArticleHero from '~/components/ArticleHero'
+import sharer from '~/services/sharer'
 
 export default {
   name: 'TrackerPage',
@@ -58,6 +60,11 @@ export default {
     return {
       image: require('~/assets/images/virus.jpg?resize'),
       title: 'News',
+
+      position: null,
+      distance: 0,
+      endpoint:
+        'https://script.google.com/macros/s/AKfycbwqcrVhD9D6Oi2aIi9EG16ks3hLjbJqag_jznwxqpY88xdoBQun/exec',
     }
   },
 
@@ -68,8 +75,29 @@ export default {
   },
 
   methods: {
-    requestPermission() {
-      return null
+    fetchLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(async (position) => {
+          this.position = position.coords
+
+          const data = await this.$axios(
+            this.endpoint +
+              '?lat=' +
+              this.position.latitude +
+              '&long=' +
+              this.position.longitude
+          )
+
+          this.distance = Math.round(Number(data.data) * 100) / 100
+        })
+      }
+    },
+
+    shareOnWhatsapp() {
+      const message = `Nearest COVID19 case to my location is ${this.distance} km away! 😨
+      Check yours at ➡ [https://IndiaSmile.org/NearMe](https://indiasmile.org/NearMe) & Stay Safe 😊`
+
+      sharer(message)
     },
   },
 }
@@ -109,7 +137,13 @@ export default {
 
   &__link
     color #1C5BFF
-    border-bottom 1px solid #1C5BFF
+    padding 0.5rem 1rem
+    background-color rgba(28, 91, 255, 0.1)
+    text-decoration underline
+    margin-top 0.5rem
+    display inline-block
+    font-size 0.875rem
+    border-radius 0.25rem
 
 .location
   text-align center

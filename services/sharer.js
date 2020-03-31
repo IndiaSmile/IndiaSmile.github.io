@@ -1,4 +1,4 @@
-export default function(title, url) {
+export default function(title, url = '') {
   console.log(title, url)
   if (navigator.share) {
     navigator
