@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import ContentButtons '~/components/ContentButtons'
+import ContentButtons from '~/components/ContentButtons'
 import ArticleHero from '~/components/ArticleHero'
 import StreamGuide from '~/components/StreamGuide'
 
