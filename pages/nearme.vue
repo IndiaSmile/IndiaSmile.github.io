@@ -10,6 +10,8 @@
         h3.content__title.content__title--blue.is-size-5
           | Use this tool to find out how far is #Covid from you!
 
+      b-message(v-if="showError" type="is-warning") We need access to your location to find the nearest case
+
       .content__section.request-container(v-if="!position")
         b-button.request__button(icon-left="crosshairs-gps" type="is-primary" @click="fetchLocation") Allow location access
         p.request__text Your current location will be used to get this data.
@@ -19,7 +21,12 @@
           .location__wrapper__icon
             b-icon(icon="map-marker")
           .location__wrapper__text.is-size-7 You are
-          .location__wrapper__text.is-size-5 {{ computedDistance }} KM
+          .location__wrapper__text.is-size-5
+
+            span(v-if="computedDistance") {{ computedDistance }} KM
+
+            b-icon.location__wrapper__loading(v-else icon="loading")
+
           .location__wrapper__text.is-size-7 from the nearest confirmed case
 
         .location__text Your family or friends could be close to someone affected. Share this page & keep your loved ones and safe.
@@ -64,6 +71,8 @@ export default {
       distance: null,
       endpoint:
         'https://script.google.com/macros/s/AKfycbwqcrVhD9D6Oi2aIi9EG16ks3hLjbJqag_jznwxqpY88xdoBQun/exec',
+
+      showError: false,
     }
   },
 
@@ -73,39 +82,56 @@ export default {
         ? this.distance < 3
           ? 'Within 3'
           : this.distance
-        : '...'
+        : false
     },
   },
 
   created() {
-    this.fetchLocation()
+    if (!process.server) {
+      if (localStorage.getItem('isLocationPermissionGranted')) {
+        this.fetchLocation()
+      }
+    }
   },
 
   methods: {
     fetchLocation() {
       if (!process.server) {
         if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(async (position) => {
-            this.position = position.coords
+          navigator.geolocation.getCurrentPosition(
+            async (position) => {
+              this.showError = false
+              this.position = position.coords
 
-            const data = await this.$axios(
-              this.endpoint +
-                '?lat=' +
-                this.position.latitude +
-                '&long=' +
-                this.position.longitude
-            )
+              const data = await this.$axios(
+                this.endpoint +
+                  '?lat=' +
+                  this.position.latitude +
+                  '&long=' +
+                  this.position.longitude
+              )
 
-            this.distance = Math.round(Number(data.data) * 100) / 100
-          })
+              this.distance = Math.round(Number(data.data) * 100) / 100
+
+              // set the localstorage data
+              localStorage.setItem('isLocationPermissionGranted', true)
+            },
+            () => {
+              this.showError = true
+            }
+          )
         }
       }
     },
 
     shareOnWhatsapp() {
-      const message = `Nearest COVID19 case to my location is ${this.distance} km away! 😨 Check yours & Stay Safe 😊`
+      const message = `'Nearest COVID19 case to my location is around ${this.distance} km away! 😨
 
-      sharer(message, 'https://indiasmile.org/nearme')
+Check from your family's location: https://indiasmile.org/nearme 🦠
+
+Stay Indoors & Stay Safe  🇮🇳`
+
+      sharer(message)
     },
   },
 
@@ -196,6 +222,9 @@ export default {
       align-items center
       margin-bottom 0.56rem
 
+    &__loading
+      animation spin 1s linear infinite
+
   &__text
     margin-top 1rem
     font-weight bold
@@ -213,4 +242,10 @@ export default {
 
       &__image
         margin-right 0.5rem
+
+@keyframes spin
+  0%
+    transform rotate(0)
+  100%
+    transform rotate(360deg)
 </style>

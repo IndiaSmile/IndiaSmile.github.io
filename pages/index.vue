@@ -121,14 +121,14 @@ export default {
           href: '/safety-guidelines',
           isDarkText: true,
         },
-        // {
-        //   title: 'COVID tracker',
-        //   subtitle: 'Use this tool to find out how far is COVID-19 from you!',
-        //   image: require('~/assets/images/virus.jpg?resize'),
-        //   color: 'rgba(122, 182, 196, 0.85)',
-        //   href: '/nearme',
-        //   isDarkText: false,
-        // },
+        {
+          title: 'COVID tracker',
+          subtitle: 'Use this tool to find out how far is COVID-19 from you!',
+          image: require('~/assets/images/tracker.jpg?resize'),
+          color: 'rgba(0, 0, 0, 0.85)',
+          href: '/nearme',
+          isDarkText: false,
+        },
         {
           custom: 'Sharer',
         },
