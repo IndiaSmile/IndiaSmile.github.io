@@ -109,7 +109,7 @@ export default {
           title: 'Best Modern TV & Movies',
           subtitle: 'Things to watch when bored',
           image: require('~/assets/images/amitabh-bachchan.jpg?resize'),
-          color: '#81958A',
+          color: '#ce4040',
           isDarkText: false,
           links: [
             {
