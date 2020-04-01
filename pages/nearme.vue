@@ -31,16 +31,16 @@
 
         .location__text Your family or friends could be close to someone affected. Share this page & keep your loved ones and safe.
 
-        ul.location__list(@click="shareOnWhatsapp")
-          li.location__list__item
-            img.location__list__item__image(src="~/assets/whatsapp.png")
+        ul.location__list
+          li.location__list__item(@click="share('whatsapp')")
+            img.location__list__item__icon(src="~/assets/whatsapp.png")
             | Share on WhatsApp
-          li.location__list__item
-            img.location__list__item__image(src="~/assets/facebook.png")
+          li.location__list__item(@click="share('facebook')")
+            img.location__list__item__icon(src="~/assets/facebook.png")
             | Share on Facebook
-          li.location__list__item
-            img.location__list__item__image(src="~/assets/instagram.png")
-            | Share on Instagram
+          li.location__list__item(@click="share('twitter')")
+            b-icon.location__list__item__icon.icon--twitter(icon="twitter")
+            | Share on Twitter
 
 
       .content__footer
@@ -124,14 +124,14 @@ export default {
       }
     },
 
-    shareOnWhatsapp() {
+    share(platform) {
       const message = `Nearest COVID19 case to my location is around ${this.distance} km away! 😨
 
 Check from your family's location: https://indiasmile.org/nearme 🦠
 
 Stay Indoors & Stay Safe  🇮🇳`
 
-      sharer(message)
+      sharer(message, '', platform)
     },
   },
 
@@ -143,6 +143,16 @@ Stay Indoors & Stay Safe  🇮🇳`
           hid: 'ogimage',
           property: 'og:image',
           content: this.image,
+        },
+        {
+          hid: 'ogtitle',
+          property: 'og:title',
+          content: 'IndiaSmile.org | COVID-19 Tracker',
+        },
+        {
+          hid: 'og:description',
+          name: 'og:description',
+          content: 'Find out your distance from Covid-19',
         },
       ],
     }
@@ -240,8 +250,14 @@ Stay Indoors & Stay Safe  🇮🇳`
       justify-content center
       margin-top 1rem
 
-      &__image
+      &__icon
         margin-right 0.5rem
+
+        &.icon--twitter
+          background-color #1DA1F2
+          color #fff
+          border-radius 100%
+          font-size 1.25em
 
 @keyframes spin
   0%
