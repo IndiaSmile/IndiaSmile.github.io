@@ -27,7 +27,7 @@
 
             b-icon.location__wrapper__loading(v-else icon="loading")
 
-          .location__wrapper__text.is-size-7 from the nearest confirmed case
+          .location__wrapper__text.is-size-7 from the nearest confirmed case *
 
         .location__text Your family or friends could be close to someone affected 😷 Share this page & keep your loved ones safe 👨‍👩‍👦
 
@@ -48,8 +48,6 @@
         a.content__footer__link(href="https://bit.ly/COVID19Distance" target="_blank" rel="nofollow") coronatracker.in
           b-icon(icon="open-in-new" size="is-small")
 
-        b-message.content__footer__message(v-if="!!distance" type="is-warning") This information is sourced from crowdsource data and can be inaccurate. Do not panic & wait for government sources to verify this data.
-
       card.margin-top(
         :title="list.card1.title"
         :subtitle="list.card1.subtitle"
@@ -67,6 +65,8 @@
         :isDarkText="list.card2.isDarkText"
         :list="list.card2.links"
       )
+
+      b-message.content__message(v-if="!!distance" type="is-warning is-small") * This information is sourced from crowdsource data and can be inaccurate. Do not panic & wait for government sources to verify this data.
 
       Sharer(:title="title")
 </template>
@@ -265,7 +265,7 @@ Stay Indoors & Stay Safe  🇮🇳`
     font-size 0.875rem
     border-radius 0.25rem
 
-  &__message
+.content__message
     margin-top 1rem
 
 .location
