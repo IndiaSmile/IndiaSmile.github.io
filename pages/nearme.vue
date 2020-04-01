@@ -151,7 +151,7 @@ Stay Indoors & Stay Safe  🇮🇳`
         },
         {
           hid: 'og:description',
-          name: 'og:description',
+          property: 'og:description',
           content: 'Find out your distance from Covid-19',
         },
       ],
