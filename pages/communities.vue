@@ -88,7 +88,7 @@ export default {
         {
           title: 'Books',
           subtitle:
-            'Are you a book worm? then this is a perfect group for people like you.',
+            'Perfect opportunity to hole up and demolish your reading list 😎📚 Discuss your favorite books here and get recommendations',
           image: require('~/assets/images/books.jpg?resize'),
           color: 'rgba(247, 235, 205, 0.85)',
           href: 'https://chat.whatsapp.com/FdykzBBqtJ0CBXOJGHnXbA',
