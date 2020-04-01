@@ -33,10 +33,10 @@
 
         ul.location__list
           li.location__list__item(@click="share('whatsapp')")
-            img.location__list__item__icon(src="~/assets/whatsapp.png")
+            b-icon.location__list__item__icon.icon--whatsapp(icon="whatsapp")
             | Share on WhatsApp
           li.location__list__item(@click="share('facebook')")
-            img.location__list__item__icon(src="~/assets/facebook.png")
+            b-icon.location__list__item__icon.icon--facebook(icon="facebook")
             | Share on Facebook
           li.location__list__item(@click="share('twitter')")
             b-icon.location__list__item__icon.icon--twitter(icon="twitter")
@@ -252,12 +252,21 @@ Stay Indoors & Stay Safe  🇮🇳`
 
       &__icon
         margin-right 0.5rem
+        color #fff
+        border-radius 100%
+        font-size 1em
 
         &.icon--twitter
           background-color #1DA1F2
-          color #fff
-          border-radius 100%
-          font-size 1.25em
+
+        &.icon--facebook
+          background-color #4267B2
+
+        &.icon--whatsapp
+          background-color #25D366
+
+.mdi-24px.mdi:before
+  font-size 1rem
 
 @keyframes spin
   0%
