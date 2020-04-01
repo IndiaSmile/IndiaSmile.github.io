@@ -58,10 +58,10 @@ export default {
   data() {
     return {
       image: require('~/assets/images/virus.jpg?resize'),
-      title: 'News',
+      title: 'COVID Tracker',
 
       position: null,
-      distance: 0,
+      distance: null,
       endpoint:
         'https://script.google.com/macros/s/AKfycbwqcrVhD9D6Oi2aIi9EG16ks3hLjbJqag_jznwxqpY88xdoBQun/exec',
     }
@@ -69,7 +69,11 @@ export default {
 
   computed: {
     computedDistance() {
-      return this.distance ? this.distance : '...'
+      return this.distance
+        ? this.distance < 3
+          ? 'Within 3'
+          : this.distance
+        : '...'
     },
   },
 
