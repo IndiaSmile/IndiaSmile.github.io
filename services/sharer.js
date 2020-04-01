@@ -1,35 +1,35 @@
 export default function(title, url = '', platform = 'whatsapp') {
   console.log(title, url)
   if (navigator.share) {
-    const object = { text: title }
-
-    if (url) {
-      object.url = url
-    }
-
     navigator
-      .share(object)
+      .share({
+        text: title,
+        url: url || undefined,
+      })
       .then(() => {})
       .catch(console.error)
   } else {
     const text = encodeURIComponent(`${title} ${url}`)
 
-    let openUrl = ''
+    const urlsMap = {
+      facebook: () => {
+        return (
+          `https://www.facebook.com/sharer/sharer.php?u=` +
+          (url || window.location.href) +
+          '&quote=' +
+          encodeURIComponent(title.replace(/[^\x00-\x7F]/g, ''))
+        )
+      },
 
-    if (platform === 'whatsapp') {
-      openUrl = `https://wa.me?text=${text}`
-    } else if (platform === 'twitter') {
-      openUrl = `https://twitter.com/share?text=${text}`
-    } else if (platform === 'facebook') {
-      openUrl =
-        `https://www.facebook.com/sharer/sharer.php?u=` +
-        (url || window.location.href) +
-        '&quote=' +
-        encodeURIComponent(title)
+      whatsapp() {
+        return `https://wa.me?text=${text}`
+      },
+
+      twitter() {
+        return `https://twitter.com/share?text=${text}`
+      },
     }
 
-    console.log(openUrl)
-
-    window.open(openUrl)
+    window.open(urlsMap[platform]())
   }
 }
