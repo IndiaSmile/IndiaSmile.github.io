@@ -86,6 +86,7 @@ export default {
   data() {
     return {
       image: require('~/assets/images/virus.jpg?resize'),
+      metaImage: require('~/assets/images/CovidTracker.png?resize'),
       title: 'COVID Tracker',
 
       position: null,
@@ -199,7 +200,7 @@ Stay Indoors & Stay Safe  🇮🇳`
         {
           hid: 'ogimage',
           property: 'og:image',
-          content: this.image,
+          content: this.metaImage,
         },
         {
           hid: 'ogtitle',
@@ -210,6 +211,11 @@ Stay Indoors & Stay Safe  🇮🇳`
           hid: 'og:description',
           property: 'og:description',
           content: 'Find out your distance from Covid-19',
+        },
+        {
+          hid: 'twitterImage',
+          name: 'twitter:image',
+          content: 'https://indiasmile.org' + this.metaImage,
         },
       ],
     }
