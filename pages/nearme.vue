@@ -29,7 +29,7 @@
 
           .location__wrapper__text.is-size-7 from the nearest confirmed case
 
-        .location__text Your family or friends could be close to someone affected. Share this page & keep your loved ones and safe.
+        .location__text Your family or friends could be close to someone affected 😷 Share this page & keep your loved ones safe 👨‍👩‍👦
 
         ul.location__list
           li.location__list__item(@click="share('whatsapp')")
