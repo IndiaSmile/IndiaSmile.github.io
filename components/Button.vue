@@ -5,6 +5,8 @@
 </template>
 
 <script>
+import isValidURL from '~/plugins/isValidURL'
+
 export default {
   props: {
     text: {
@@ -26,7 +28,7 @@ export default {
     element() {
       if (this.href === '#') {
         return 'span'
-      } else if (this.isValidURL(this.href)) {
+      } else if (isValidURL(this.href)) {
         return 'a'
       } else {
         return 'nuxt-link'
@@ -93,22 +95,6 @@ export default {
         default: '',
       }
       return this.text || htmlMap[this.type] || this.type || htmlMap.default
-    },
-  },
-
-  methods: {
-    isValidURL(str) {
-      const pattern = new RegExp(
-        '^(https?:\\/\\/)?' + // protocol
-        '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name
-        '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address
-        '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // port and path
-        '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
-          '(\\#[-a-z\\d_]*)?$',
-        'i'
-      ) // fragment locator
-
-      return !!pattern.test(str)
     },
   },
 }

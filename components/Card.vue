@@ -1,6 +1,6 @@
 <template lang="pug">
   .card(:class="parentClassNames")
-    component.link(:is="element" :to="to")
+    component.link(:is="parentElement" :to="to")
       img.card__image(:srcSet="image.srcSet" :src="image.src")
       .card__gradient(:style="{ backgroundImage: 'linear-gradient(180deg, rgba(196, 196, 196, 0) 30.73%, ' + color + ' 70.31%)'}")
       .card__text
@@ -12,18 +12,20 @@
             b-button.card__action__button(icon-right="chevron-right" :class="textClassName") {{ button }}
 
         .card__list(v-if="!!list.length")
-          a.card__list__item(v-for="(item, idx) in list" :key="idx" :href="item.link" target="_blank" rel="nofollow")
-            img.card__list__item__icon(:src="item.image")
+          component.card__list__item(:is="childElement(item.link)" v-for="(item, idx) in list" :key="idx" :to="item.link" :href="item.link" :target="target(item.link)" rel="nofollow")
+            img.card__list__item__icon(v-if="!!item.image" :src="item.image")
             .card__list__item__body
               .card__list__item__body__text
-                .card__list__item__body__text__name {{ item.name }}
-                .card__list__item__body__text__subtext Buy now
-              .card__list__item__body__icon
+                .card__list__item__body__text__name(:class="textClassName") {{ item.name }}
+                .card__list__item__body__text__subtext(v-if="item.text" :class="textClassName") {{ item.text }}
+              .card__list__item__body__icon(:class="textClassName")
                 b-icon(icon="chevron-right")
 
 </template>
 
 <script>
+import isValidURL from '~/plugins/isValidURL'
+
 export default {
   props: {
     image: {
@@ -76,11 +78,21 @@ export default {
     },
 
     textClassName() {
-      return this.isDarkText ? 'text--dark' : ''
+      return this.isDarkText ? 'text--dark' : 'text--light'
     },
 
-    element() {
+    parentElement() {
       return this.button || !!this.list.length ? 'div' : 'nuxt-link'
+    },
+  },
+
+  methods: {
+    childElement(url) {
+      return isValidURL(url) ? 'a' : 'nuxt-link'
+    },
+
+    target(url) {
+      return isValidURL(url) ? '_blank' : '_self'
     },
   },
 }
@@ -177,6 +189,7 @@ export default {
       align-items center
       border-bottom 1px solid rgba(0, 0, 0, 0.12)
       padding 8px 0
+      min-height 3.375rem
 
       &:last-child
         border-bottom 0
@@ -198,14 +211,24 @@ export default {
             color #19175B
             font-size 0.875em
 
+            &.text--light
+              color rgba(255,255,255,0.90)
+
           &__subtext
             font-size 0.75em
             color rgba(25, 23, 91, 0.6)
+
+            &.text--light
+              color rgba(255,255,255,0.85)
 
         &__icon
           display inline-flex
           align-items center
           color #000000
+
+          &.text--light
+            color rgba(255,255,255,0.85)
+
 
 .link
   display block

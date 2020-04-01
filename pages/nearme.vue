@@ -33,33 +33,52 @@
 
         ul.location__list
           li.location__list__item(@click="share('whatsapp')")
-            b-icon.location__list__item__icon.icon--whatsapp(icon="whatsapp")
+            b-icon.location__list__item__icon.icon--whatsapp(size="is-small" icon="whatsapp")
             | Share on WhatsApp
           li.location__list__item(@click="share('facebook')")
-            b-icon.location__list__item__icon.icon--facebook(icon="facebook")
+            b-icon.location__list__item__icon.icon--facebook(size="is-small" icon="facebook")
             | Share on Facebook
           li.location__list__item(@click="share('twitter')")
-            b-icon.location__list__item__icon.icon--twitter(icon="twitter")
+            b-icon.location__list__item__icon.icon--twitter(size="is-small" icon="twitter")
             | Share on Twitter
 
 
       .content__footer
         p.content__footer__text This information has been provided by our friends at
-        a.content__footer__link(href="https://coronatracker.in" target="_blank" rel="nofollow") coronatracker.in
+        a.content__footer__link(href="https://bit.ly/COVID19Distance" target="_blank" rel="nofollow") coronatracker.in
           b-icon(icon="open-in-new" size="is-small")
 
         b-message.content__footer__message(v-if="!!distance" type="is-warning") This information is sourced from crowdsource data and can be inaccurate. Do not panic & wait for government sources to verify this data.
 
+      card.margin-top(
+        :title="list.card1.title"
+        :subtitle="list.card1.subtitle"
+        :image="list.card1.image"
+        :color="list.card1.color"
+        :to="list.card1.href"
+        :isDarkText="list.card1.isDarkText"
+      )
+
+      card.margin-top(
+        :title="list.card2.title"
+        :subtitle="list.card2.subtitle"
+        :image="list.card2.image"
+        :color="list.card2.color"
+        :isDarkText="list.card2.isDarkText"
+        :list="list.card2.links"
+      )
 </template>
 
 <script>
 import ArticleHero from '~/components/ArticleHero'
 import sharer from '~/services/sharer'
+import Card from '~/components/Card'
 
 export default {
   name: 'TrackerPage',
   components: {
     ArticleHero,
+    Card,
   },
 
   data() {
@@ -73,6 +92,42 @@ export default {
         'https://script.google.com/macros/s/AKfycbwqcrVhD9D6Oi2aIi9EG16ks3hLjbJqag_jznwxqpY88xdoBQun/exec',
 
       showError: false,
+
+      list: {
+        card1: {
+          title: 'Find like-minded people to talk to!',
+          subtitle: 'Topic based community chats',
+          image: require('~/assets/images/whatsapp-alt.jpg?resize'),
+          color: '#1ebfa5',
+          href: '/communities',
+          isDarkText: false,
+        },
+        card2: {
+          title: 'Best Modern TV & Movies',
+          subtitle: 'Things to watch when bored',
+          image: require('~/assets/images/amitabh-bachchan.jpg?resize'),
+          color: '#81958A',
+          isDarkText: false,
+          links: [
+            {
+              name: 'English Movies',
+              link: '/entertainment/movies/english',
+            },
+            {
+              name: 'Hindi Movies',
+              link: '/entertainment/movies/hindi',
+            },
+            {
+              name: 'English TV',
+              link: '/entertainment/tv/english',
+            },
+            {
+              name: 'Hindi TV',
+              link: '/entertainment/tv/hindi',
+            },
+          ],
+        },
+      },
     }
   },
 
@@ -254,7 +309,8 @@ Stay Indoors & Stay Safe  🇮🇳`
         margin-right 0.5rem
         color #fff
         border-radius 100%
-        font-size 1em
+        height 1.5rem
+        width 1.5rem
 
         &.icon--twitter
           background-color #1DA1F2
@@ -265,8 +321,8 @@ Stay Indoors & Stay Safe  🇮🇳`
         &.icon--whatsapp
           background-color #25D366
 
-.mdi-24px.mdi:before
-  font-size 1rem
+.margin-top
+  margin-top 1rem
 
 @keyframes spin
   0%

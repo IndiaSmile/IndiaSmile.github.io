@@ -57,11 +57,13 @@ export default {
           links: [
             {
               name: 'Big Basket',
+              text: 'Buy now',
               image: IconBigBasket,
               link: 'https://www.bigbasket.com/ps/?q=soap',
             },
             {
               name: 'Grofers',
+              text: 'Buy now',
               image: IconGrofers,
               link:
                 'https://grofers.com/s/?q=Soap&category_id=979&suggestion_type=1&t=1',
@@ -77,6 +79,7 @@ export default {
           links: [
             {
               name: 'Big Basket',
+              text: 'Buy now',
               image: IconBigBasket,
               link: 'https://www.bigbasket.com/ps/?q=sanitizer',
             },
@@ -91,17 +94,20 @@ export default {
           links: [
             {
               name: 'Big Basket',
+              text: 'Buy now',
               image: IconBigBasket,
               link: 'https://www.bigbasket.com/cl/fruits-vegetables/?nc=nb',
             },
             {
               name: 'Frugivore',
+              text: 'Buy now',
               image: IconFrugivore,
               link:
                 'https://www.frugivore.in/product-listing-category/vegetables',
             },
             {
               name: 'Amazon Fresh',
+              text: 'Buy now',
               image: IconAmazonFresh,
               link:
                 'https://www.amazon.com/alm/category?almBrandId=QW1hem9uIEZyZXNo&node=6506977011&pf_rd_r=TP0Q49EDBD9BRRJG9K6X&pf_rd_p=a1eaf3f8-3995-44f2-af04-1f3d738af323&ref_=fs_dsk_sf_ai_sml_f3_sf_ais',
@@ -117,23 +123,27 @@ export default {
           links: [
             {
               name: 'Big Basket',
+              text: 'Buy now',
               image: IconBigBasket,
               link: 'https://www.bigbasket.com/cl/foodgrains-oil-masala/?nc=nb',
             },
             {
               name: 'Frugivore',
+              text: 'Buy now',
               image: IconFrugivore,
               link:
                 'https://www.frugivore.in/product-listing-category/essentials',
             },
             {
               name: 'Amazon Fresh',
+              text: 'Buy now',
               image: IconAmazonFresh,
               link:
                 'https://www.amazon.com/alm/category?almBrandId=QW1hem9uIEZyZXNo&node=18787303011&redirect=rsp',
             },
             {
               name: 'Grofers',
+              text: 'Buy now',
               image: IconGrofers,
               link: 'https://grofers.com/cn/grocery-staples/cid/16',
             },
