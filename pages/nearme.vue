@@ -41,6 +41,8 @@
         a.content__footer__link(href="https://coronatracker.in" target="_blank" rel="nofollow") coronatracker.in
           b-icon(icon="open-in-new" size="is-small")
 
+        b-message.content__footer__message(v-if="!!distance" type="is-warning") This information is sourced from crowdsource data and can be inaccurate. Do not panic & wait for government sources to verify this data.
+
 </template>
 
 <script>
@@ -102,6 +104,19 @@ export default {
       sharer(message)
     },
   },
+
+  head() {
+    return {
+      title: this.title,
+      meta: [
+        {
+          hid: 'ogimage',
+          property: 'og:image',
+          content: this.image,
+        },
+      ],
+    }
+  },
 }
 </script>
 
@@ -146,6 +161,9 @@ export default {
     display inline-block
     font-size 0.875rem
     border-radius 0.25rem
+
+  &__message
+    margin-top 1rem
 
 .location
   text-align center
