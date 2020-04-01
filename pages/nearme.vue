@@ -67,6 +67,8 @@
         :isDarkText="list.card2.isDarkText"
         :list="list.card2.links"
       )
+
+      Sharer(:title="title")
 </template>
 
 <script>
