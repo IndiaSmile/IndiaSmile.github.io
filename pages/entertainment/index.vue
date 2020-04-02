@@ -77,6 +77,14 @@ export default {
           isDarkText: false,
         },
         {
+          title: 'Must Read Books',
+          subtitle: '',
+          image: require('~/assets/images/books.jpg?resize'),
+          color: 'rgba(247, 235, 205, 0.85)',
+          href: '/learn/must-read-books',
+          isDarkText: true,
+        },
+        {
           custom: 'Sharer',
         },
       ],
