@@ -51,9 +51,9 @@ export default {
             'Discuss (and defend 😉) your favourite movies and TV shows. Also discover fresh recommendations from our users on this group 😋',
           image: require('~/assets/images/family-tv.jpg?resize'),
           color: 'rgb(247, 235, 205)',
-          href: 'https://chat.whatsapp.com/CSEaQHFghRmKfoDBwM9ePP',
+          href: 'https://t.me/entertainment_isc',
           isDarkText: true,
-          button: 'Join on WhatsApp',
+          button: 'Join on Telegram',
         },
         {
           title: 'Updates',
