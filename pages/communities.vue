@@ -91,7 +91,7 @@ export default {
             'Perfect opportunity to hole up and demolish your reading list 😎📚 Discuss your favorite books here and get recommendations',
           image: require('~/assets/images/books.jpg?resize'),
           color: 'rgba(247, 235, 205, 0.85)',
-          href: 'https://t.me/joinchat/H9Z3xlP-S0Qg255Ec-q6XA',
+          href: 'https://t.me/books_isc',
           isDarkText: true,
           button: 'Join on Telegram',
         },
