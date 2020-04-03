@@ -19,6 +19,6 @@ module.exports = {
   ],
   // add your custom rules here
   rules: {
-    no-control-regex: 0
+    'no-control-regex': 0
   }
 }

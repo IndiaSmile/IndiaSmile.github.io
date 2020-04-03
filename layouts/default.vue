@@ -104,6 +104,7 @@ export default {
       font-size 1em
       margin-bottom 1rem
       white-space pre-line
+      word-break break-word
 
     &__button, &__button:hover
       margin-bottom 1rem
@@ -139,6 +140,7 @@ export default {
 
         img
           height 2rem
+          border-radius 100%
 
       &__text
         margin-left 0.5rem
