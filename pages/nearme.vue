@@ -69,18 +69,22 @@
       b-message.content__message(v-if="!!distance" type="is-warning is-small") * This information is sourced from crowdsource data and can be inaccurate. Do not panic & wait for government sources to verify this data.
 
       Sharer(:title="title")
+
+    Stats
 </template>
 
 <script>
 import ArticleHero from '~/components/ArticleHero'
 import sharer from '~/services/sharer'
 import Card from '~/components/Card'
+import Stats from '~/components/Stats'
 
 export default {
   name: 'TrackerPage',
   components: {
     ArticleHero,
     Card,
+    Stats,
   },
 
   data() {
@@ -224,6 +228,9 @@ Stay Indoors & Stay Safe  🇮🇳`
 </script>
 
 <style scoped lang="stylus">
+.content
+  margin-bottom 0
+
 .content__title--blue
   line-height 140%
   color #1C5BFF
