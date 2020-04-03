@@ -148,6 +148,6 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-.content__button
-  margin-bottom 2rem
+.content__section
+  margin-bottom 1rem
 </style>

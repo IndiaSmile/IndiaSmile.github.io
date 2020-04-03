@@ -106,7 +106,7 @@ export default {
       white-space pre-line
       word-break break-word
 
-    &__button, &__button:hover
+    &__button, &__button:hover, &__button:active
       margin-bottom 1rem
       background rgba(28, 91, 255, 0.1)
       color #1C5BFF
