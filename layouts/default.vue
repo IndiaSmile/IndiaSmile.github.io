@@ -137,13 +137,13 @@ export default {
         display inline-flex
         justify-content center
         align-items center
+        margin-right 0.5rem
 
         img
           height 2rem
           border-radius 100%
 
       &__text
-        margin-left 0.5rem
         display inline-flex
         justify-content center
         flex-direction column
