@@ -2,9 +2,9 @@
   .article
     ArticleHero(:image="image")
 
-    Stats.stats
-
     .content
+      Stats.stats
+
       Sharer(:title="title")
 
       .content__section(v-for="(data, index) in articles" :key="index")
@@ -139,6 +139,11 @@ export default {
   head() {
     return {
       title: this.title,
+      script: [
+        {
+          src: '//geoip-js.com/js/apis/geoip2/v2.1/geoip2.js',
+        },
+      ],
       meta: [
         {
           hid: 'ogimage',
