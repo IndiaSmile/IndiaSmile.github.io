@@ -70,7 +70,7 @@
 
       Sharer(:title="title")
 
-    Stats
+      Stats
 </template>
 
 <script>
@@ -200,6 +200,11 @@ Stay Indoors & Stay Safe  🇮🇳`
   head() {
     return {
       title: this.title,
+      script: [
+        {
+          src: '//geoip-js.com/js/apis/geoip2/v2.1/geoip2.js',
+        },
+      ],
       meta: [
         {
           hid: 'ogimage',
