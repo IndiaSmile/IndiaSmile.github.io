@@ -1,5 +1,5 @@
 <template lang="pug">
-  .stats
+  .stats(v-if="!isHidden")
     h3.stats__title COVID Stats
 
     .stats__item(v-for="(item, idx) in data" :key="idx")
@@ -23,6 +23,7 @@
 export default {
   data() {
     return {
+      isHidden: true,
       data: {
         total: {},
         state: {},
