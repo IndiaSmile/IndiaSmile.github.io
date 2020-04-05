@@ -4,16 +4,20 @@
 
     .content
       InternationalCases
+
+      Tracker.margin-top
 </template>
 
 <script>
 import ArticleHero from '~/components/ArticleHero'
 import InternationalCases from '~/components/InternationalCases'
+import Tracker from '~/components/Tracker'
 
 export default {
   components: {
     ArticleHero,
     InternationalCases,
+    Tracker,
   },
 
   data() {
@@ -27,6 +31,11 @@ export default {
   head() {
     return {
       title: this.title,
+      script: [
+        {
+          src: '//geoip-js.com/js/apis/geoip2/v2.1/geoip2.js',
+        },
+      ],
       meta: [
         {
           hid: 'ogimage',

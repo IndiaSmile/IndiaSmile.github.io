@@ -171,4 +171,7 @@ export default {
       font-size 1.5em
       font-weight bold
       text-align center
+
+.margin-top
+  margin-top 1rem
 </style>
