@@ -31,6 +31,7 @@
 </template>
 
 <script>
+import moment from 'moment'
 import Feed from 'rss-to-json'
 import Button from '~/components/Button'
 import ArticleHero from '~/components/ArticleHero'
@@ -123,9 +124,7 @@ export default {
     },
 
     date(timestamp) {
-      const d = new Date(timestamp)
-
-      return d.getDate() + '/' + (d.getMonth() + 1) + '/' + d.getFullYear()
+      return moment(timestamp).format('llll')
     },
 
     showTitle(data) {
