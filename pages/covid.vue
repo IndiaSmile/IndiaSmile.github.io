@@ -8,6 +8,8 @@
       Tracker.margin-top
 
       LocalStats.margin-top
+
+      LockdownCountdown.margin-top
 </template>
 
 <script>
@@ -15,6 +17,7 @@ import ArticleHero from '~/components/ArticleHero'
 import InternationalCases from '~/components/InternationalCases'
 import Tracker from '~/components/Tracker'
 import LocalStats from '~/components/LocalStats'
+import LockdownCountdown from '~/components/LockdownCountdown'
 
 export default {
   components: {
@@ -22,6 +25,7 @@ export default {
     InternationalCases,
     Tracker,
     LocalStats,
+    LockdownCountdown,
   },
 
   data() {
