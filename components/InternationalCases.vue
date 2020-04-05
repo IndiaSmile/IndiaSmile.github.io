@@ -2,39 +2,14 @@
   div
     .wrapper
       h3.wrapper__title Global statistics
-
-      .stats
-        .stats__item.stats__item--confirmed
-          .stats__item__text CONFIRMED
-          .stats__item__number {{ global.total_cases }}
-        .stats__item.stats__item--active
-          .stats__item__text ACTIVE
-          .stats__item__number {{ global.currently_infected }}
-        .stats__item.stats__item--recovered
-          .stats__item__text RECOVERED
-          .stats__item__number {{ global.recovery_cases }}
-        .stats__item.stats__item--deceased
-          .stats__item__text DECEASED
-          .stats__item__number {{ global.death_cases }}
+      StatsBox(:data='globalData')
 
       .tabs-container
         .buttons.has-addons.is-centered
           .button.is-small(v-for="(country, idx) in countries" :key="idx" @click="switchCountry(idx)" :class="{'is-info is-selected': idx === currentCountry}") {{ country }}
 
         h3.wrapper__title {{ countries[currentCountry] }}
-        .stats
-          .stats__item.stats__item--confirmed
-            .stats__item__text CONFIRMED
-            .stats__item__number {{ selectedCountry.total_cases }}
-          .stats__item.stats__item--active
-            .stats__item__text ACTIVE
-            .stats__item__number {{ selectedCountry.active_cases }}
-          .stats__item.stats__item--recovered
-            .stats__item__text RECOVERED
-            .stats__item__number {{ selectedCountry.total_recovered }}
-          .stats__item.stats__item--deceased
-            .stats__item__text DECEASED
-            .stats__item__number {{ selectedCountry.total_deaths }}
+        StatsBox(:data='selectedCountry')
 
         .historical
           svg.historical__graph#historicalGraph
@@ -43,8 +18,13 @@
 
 <script>
 import moment from 'moment'
+import StatsBox from '~/components/StatsBox'
 
 export default {
+  components: {
+    StatsBox,
+  },
+
   data() {
     return {
       endpoints: {
@@ -75,6 +55,15 @@ export default {
   computed: {
     selectedCountry() {
       return this.countriesData[this.countries[this.currentCountry]]
+    },
+
+    globalData() {
+      return {
+        total_cases: this.global.total_cases,
+        active_cases: this.global.currently_infected,
+        total_recovered: this.global.recovery_cases,
+        total_deaths: this.global.death_cases,
+      }
     },
   },
 
@@ -214,48 +203,6 @@ export default {
 
   .tabs-container
     margin-top 1rem
-
-  .stats
-    display flex
-
-    &__title
-      font-weight bold
-
-    &__item
-      flex 1 0
-      text-align center
-
-      &__text
-        font-weight 600
-        font-size 0.75rem
-
-      &__number
-        font-size 1rem
-        font-weight bold
-
-      &--confirmed
-        .stats__item__text
-          color rgba(255,7,58,.6)
-        .stats__item__number
-          color #ff073a
-
-      &--active
-        .stats__item__text
-          color rgba(0,123,255,.6)
-        .stats__item__number
-          color #007bff
-
-      &--recovered
-        .stats__item__text
-          color rgba(40,167,69,.6)
-        .stats__item__number
-          color #28a745
-
-      &--deceased
-        .stats__item__text
-          color rgba(108,117,125,.6)
-        .stats__item__number
-          color #6c757d
 
   .historical
     width calc(100% + 2rem)

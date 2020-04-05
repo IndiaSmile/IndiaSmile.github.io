@@ -7,21 +7,21 @@
 
       Tracker.margin-top
 
-      Stats.margin-top
+      LocalStats.margin-top
 </template>
 
 <script>
 import ArticleHero from '~/components/ArticleHero'
 import InternationalCases from '~/components/InternationalCases'
 import Tracker from '~/components/Tracker'
-import Stats from '~/components/Stats'
+import LocalStats from '~/components/LocalStats'
 
 export default {
   components: {
     ArticleHero,
     InternationalCases,
     Tracker,
-    Stats,
+    LocalStats,
   },
 
   data() {

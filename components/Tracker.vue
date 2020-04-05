@@ -44,6 +44,9 @@
       p.content__footer__text This information has been provided by our friends at
       a.content__footer__link(href="https://bit.ly/COVID19Distance" target="_blank" rel="nofollow") coronatracker.in
         b-icon(icon="open-in-new" size="is-small")
+
+    b-message.content__message(v-if="!!distance" type="is-warning is-small") * This information is sourced from crowdsource data and can be inaccurate. Do not panic & wait for government sources to verify this data.
+
 </template>
 
 <script>

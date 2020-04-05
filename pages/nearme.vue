@@ -24,17 +24,16 @@
         :list="list.card2.links"
       )
 
-      b-message.content__message(v-if="!!distance" type="is-warning is-small") * This information is sourced from crowdsource data and can be inaccurate. Do not panic & wait for government sources to verify this data.
-
       Sharer(:title="title")
 
-      Stats
+      h3 COVID-19 India Statistics
+      LocalStats
 </template>
 
 <script>
 import ArticleHero from '~/components/ArticleHero'
 import Card from '~/components/Card'
-import Stats from '~/components/Stats'
+import LocalStats from '~/components/LocalStats'
 import Tracker from '~/components/Tracker'
 
 export default {
@@ -42,7 +41,7 @@ export default {
   components: {
     ArticleHero,
     Card,
-    Stats,
+    LocalStats,
     Tracker,
   },
 

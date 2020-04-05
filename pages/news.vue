@@ -3,7 +3,8 @@
     ArticleHero(:image="image")
 
     .content
-      Stats.stats
+      h3 COVID-19 India Statistics
+      LocalStats.stats
 
       Sharer(:title="title")
 
@@ -33,7 +34,7 @@
 import Feed from 'rss-to-json'
 import Button from '~/components/Button'
 import ArticleHero from '~/components/ArticleHero'
-import Stats from '~/components/Stats'
+import LocalStats from '~/components/LocalStats'
 // import indiaSmileLogo from '~/assets/logo-square.png'
 
 export default {
@@ -41,7 +42,7 @@ export default {
   components: {
     Button,
     ArticleHero,
-    Stats,
+    LocalStats,
   },
 
   data() {
@@ -161,8 +162,6 @@ export default {
   margin-top 1.5rem
 
 .content
-  padding-top 0
-
   &__section
     margin-bottom 1rem
 </style>
