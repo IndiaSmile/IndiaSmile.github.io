@@ -170,5 +170,5 @@ export default {
       list-style normal
 
 .content
-  padding 2em 1em 1.25em
+  padding 2em 1em 0
 </style>

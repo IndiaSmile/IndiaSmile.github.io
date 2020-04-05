@@ -10,6 +10,12 @@
       IndianCases(:historical="historical")
 
       LockdownCountdown.margin-top
+
+      div
+        h3 Recent updates
+
+        Articles(count="3")
+
 </template>
 
 <script>
@@ -18,6 +24,7 @@ import InternationalCases from '~/components/InternationalCases'
 import Tracker from '~/components/Tracker'
 import LockdownCountdown from '~/components/LockdownCountdown'
 import IndianCases from '~/components/IndianCases'
+import Articles from '~/components/Articles'
 
 export default {
   components: {
@@ -26,6 +33,7 @@ export default {
     Tracker,
     LockdownCountdown,
     IndianCases,
+    Articles,
   },
 
   data() {

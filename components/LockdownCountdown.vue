@@ -29,5 +29,5 @@ export default {
 <style lang="stylus" scoped>
 .lockdown-countdown
   font-size .75em
-  margin .5rem 0 -1.5rem
+  margin .5rem 0
 </style>
