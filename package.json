@@ -20,6 +20,7 @@
     "@nuxtjs/onesignal": "^3.0.0-beta.16",
     "@nuxtjs/pwa": "^3.0.0-0",
     "axios": "^0.19.2",
+    "d3": "^5.15.1",
     "imagemin-mozjpeg": "^8.0.0",
     "imagemin-pngquant": "^8.0.0",
     "jimp": "^0.9.6",
