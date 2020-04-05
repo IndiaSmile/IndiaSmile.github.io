@@ -1,6 +1,6 @@
 <template lang="pug">
   .stats
-    h3.stats__title COVID Stats
+    h3.stats__title COVID-19 India Statistics
 
     .stats__item(v-for="(item, idx) in data" :key="idx")
       h4.stats__item__title {{ item.state }}

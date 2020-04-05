@@ -6,18 +6,22 @@
       InternationalCases
 
       Tracker.margin-top
+
+      Stats.margin-top
 </template>
 
 <script>
 import ArticleHero from '~/components/ArticleHero'
 import InternationalCases from '~/components/InternationalCases'
 import Tracker from '~/components/Tracker'
+import Stats from '~/components/Stats'
 
 export default {
   components: {
     ArticleHero,
     InternationalCases,
     Tracker,
+    Stats,
   },
 
   data() {
