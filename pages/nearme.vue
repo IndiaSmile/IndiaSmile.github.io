@@ -27,7 +27,12 @@
       Sharer(:title="title")
 
       h3 COVID-19 India Statistics
+
       LocalStats
+
+      Articles(:count="count")
+
+      b-button(v-if="count !== 0" @click="count = 0" icon-left="chevron-down" type="is-primary") View more
 </template>
 
 <script>
@@ -35,6 +40,7 @@ import ArticleHero from '~/components/ArticleHero'
 import Card from '~/components/Card'
 import LocalStats from '~/components/LocalStats'
 import Tracker from '~/components/Tracker'
+import Articles from '~/components/Articles'
 
 export default {
   name: 'TrackerPage',
@@ -43,6 +49,7 @@ export default {
     Card,
     LocalStats,
     Tracker,
+    Articles,
   },
 
   data() {
@@ -50,6 +57,7 @@ export default {
       image: require('~/assets/images/virus.jpg?resize'),
       metaImage: require('~/assets/images/CovidTracker.png?resize'),
       title: 'COVID Tracker',
+      count: 3,
 
       list: {
         card1: {

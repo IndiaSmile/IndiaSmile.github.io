@@ -9,10 +9,7 @@
 
       IndianCases(:historical="historical")
 
-      .margin-top
-        h3 Recent updates
-
-        Articles(count="3")
+      Articles.margin-top(count="3")
 
       LockdownCountdown.margin-top
 

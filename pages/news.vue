@@ -8,7 +8,9 @@
 
       Sharer(:title="title")
 
-      Articles
+      Articles(:count="count")
+
+      b-button(v-if="count !== 0" @click="count = 0" icon-left="chevron-down" type="is-primary") View more
 
       Sharer(:title="title")
 </template>
@@ -31,6 +33,8 @@ export default {
     return {
       image: require('~/assets/images/newspapers-stack.jpg?resize'),
       title: 'News',
+
+      count: 3,
     }
   },
 

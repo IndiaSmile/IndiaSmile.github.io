@@ -1,5 +1,7 @@
 <template lang="pug">
   div
+    h3 Recent updates
+
     .content__section(v-for="(data, index) in articles" :key="index")
 
       h2.content__title(v-if="showTitle(data)") {{ data.title }}
