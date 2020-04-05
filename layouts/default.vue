@@ -68,6 +68,10 @@ export default {
     max-width 26em
     padding 1.5em 1.875em
 
+    .historical
+      width calc(100% + 2rem)
+      margin 0 -1rem
+
     &__header
       display flex
       justify-content space-between

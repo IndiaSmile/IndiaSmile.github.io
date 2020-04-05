@@ -3,11 +3,11 @@
     ArticleHero(:image="image")
 
     .content
-      InternationalCases
+      InternationalCases(:historical="historical")
 
       Tracker.margin-top
 
-      LocalStats.margin-top
+      IndianCases(:historical="historical")
 
       LockdownCountdown.margin-top
 </template>
@@ -16,16 +16,16 @@
 import ArticleHero from '~/components/ArticleHero'
 import InternationalCases from '~/components/InternationalCases'
 import Tracker from '~/components/Tracker'
-import LocalStats from '~/components/LocalStats'
 import LockdownCountdown from '~/components/LockdownCountdown'
+import IndianCases from '~/components/IndianCases'
 
 export default {
   components: {
     ArticleHero,
     InternationalCases,
     Tracker,
-    LocalStats,
     LockdownCountdown,
+    IndianCases,
   },
 
   data() {
@@ -33,7 +33,22 @@ export default {
       title: 'COVID19 Status',
 
       image: require('~/assets/images/virus.jpg?resize'),
+
+      endpoints: {
+        countrywise:
+          'https://corona-virus-stats.herokuapp.com/api/v1/cases/countries-search?search=',
+        historical: 'https://corona.lmao.ninja/v2/historical',
+      },
+
+      historical: [],
     }
+  },
+
+  async created() {
+    // fetch historical data
+    const historical = await this.$axios(this.endpoints.historical)
+
+    this.historical = historical.data
   },
 
   head() {

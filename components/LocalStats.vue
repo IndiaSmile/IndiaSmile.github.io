@@ -3,6 +3,8 @@
     h3 India
     StatsBox(:data="computedTotal")
 
+    slot
+
     h3 {{ state.state }}
     StatsBox(:data="computedState")
 </template>

@@ -12,17 +12,25 @@
         StatsBox(:data='selectedCountry')
 
         .historical
-          svg.historical__graph#historicalGraph
+          HistoricalGraph(:data="graphData")
 
 </template>
 
 <script>
-import moment from 'moment'
 import StatsBox from '~/components/StatsBox'
+import HistoricalGraph from '~/components/HistoricalGraph'
 
 export default {
   components: {
     StatsBox,
+    HistoricalGraph,
+  },
+
+  props: {
+    historical: {
+      type: Array,
+      required: true,
+    },
   },
 
   data() {
@@ -32,7 +40,6 @@ export default {
           'https://corona-virus-stats.herokuapp.com/api/v1/cases/general-stats',
         countrywise:
           'https://corona-virus-stats.herokuapp.com/api/v1/cases/countries-search?search=',
-        historical: 'https://corona.lmao.ninja/v2/historical',
       },
 
       countries: ['Pakistan', 'Bangladesh', 'USA', 'Spain', 'Italy'],
@@ -48,7 +55,7 @@ export default {
         India: {},
       },
 
-      historical: [],
+      graphData: {},
     }
   },
 
@@ -79,118 +86,22 @@ export default {
       this.countriesData[country] = response.data.data.rows[0]
     }
 
-    // fetch historical data
-    const historical = await this.$axios(this.endpoints.historical)
-
-    this.historical = historical.data
-
-    if (typeof window !== 'undefined') {
-      this.createGraph()
-    }
+    this.updateGraph()
   },
 
   methods: {
     switchCountry(countryIndex) {
       this.currentCountry = countryIndex
 
-      this.createGraph()
+      this.updateGraph()
     },
 
-    createGraph() {
-      const d3 = require('d3')
-
-      const w = document.querySelector('.historical').offsetWidth - 20
-      const h = w * 0.67
-      const margin = { top: 0, right: 40, bottom: 30, left: 0 }
-      const innerWidth = w - margin.left - margin.right
-      const innerHeight = h - margin.top - margin.bottom
-
-      const { cases, deaths, recovered } = this.historical.find(
-        (o) => o.country === this.countries[this.currentCountry]
-      ).timeline
-
-      const parseData = (d) => {
-        return Object.entries(d).map((a) => {
-          return { date: new Date(a[0]).getTime(), value: a[1] }
-        })
+    updateGraph() {
+      if (this.historical.length) {
+        this.graphData = this.historical.find(
+          (o) => o.country === this.countries[this.currentCountry]
+        ).timeline
       }
-
-      const casesData = parseData(cases)
-
-      const deathsData = parseData(deaths)
-
-      const recoveredData = parseData(recovered)
-
-      const date = (d) => {
-        return moment(d).format('MMM DD')
-      }
-
-      const svg = d3
-        .select('#historicalGraph')
-        .attr('width', w)
-        .attr('height', h)
-
-      svg.selectAll('*').remove()
-
-      const xValue = (d) => d.date
-      const yValue = (d) => d.value
-
-      const xScale = d3
-        .scaleTime()
-        .domain(d3.extent(casesData, xValue))
-        .rangeRound([0, innerWidth])
-        .nice()
-
-      const yScale = d3
-        .scaleLinear()
-        .domain(d3.extent(casesData, yValue))
-        .rangeRound([innerHeight, 0])
-        .nice()
-
-      const g = svg.append('g').attr('transform', 'translate(0, 10)')
-
-      // create x axis
-      g.append('g')
-        .attr('transform', `translate(0, ${innerHeight})`)
-        .attr('class', 'axis axis--x')
-        .call(
-          d3
-            .axisBottom(xScale)
-            .ticks(d3.timeWeek)
-            .tickFormat(date)
-        )
-        .select('.domain')
-        .remove()
-
-      // create y axis
-      g.append('g')
-        .attr('transform', `translate(${innerWidth}, 0)`)
-        .attr('class', 'axis axis--y')
-        .call(
-          d3
-            .axisRight(yScale)
-            .ticks(5)
-            .tickPadding(5)
-            .tickFormat(d3.format('~s'))
-        )
-
-      const lineGenerator = d3
-        .line()
-        .x((d) => xScale(xValue(d)))
-        .y((d) => yScale(yValue(d)))
-        .curve(d3.curveCardinal)
-
-      g.append('path')
-        .attr('class', 'line-path line-path--cases')
-        .attr('d', lineGenerator(casesData))
-
-      g.append('path')
-        .attr('class', 'line-path line-path--deaths')
-        .attr('d', lineGenerator(deathsData))
-
-      g.append('path')
-        .attr('class', 'line-path line-path--recovered')
-        .attr('d', lineGenerator(recoveredData))
     },
   },
 }
@@ -203,36 +114,4 @@ export default {
 
   .tabs-container
     margin-top 1rem
-
-  .historical
-    width calc(100% + 2rem)
-    margin 0 -1rem
-
-    &__graph
-      display block
-      margin 0 auto
-</style>
-
-<style lang="stylus">
-.line-path
-  fill none
-  stroke-width 2
-  stroke-linejoin round
-
-  &--cases
-    stroke #ff073a
-
-  &--recovered
-    stroke #28a745
-
-  &--deaths
-    stroke #6c757d
-
-.axis
-  stroke #6c757d
-  stroke-width 1px
-
-  .tick
-    stroke none
-    color #6c757d
 </style>
