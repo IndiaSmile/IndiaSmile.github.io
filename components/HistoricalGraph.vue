@@ -178,35 +178,20 @@ export default {
               total_cases: casesData[i].value,
               total_recovered: recoveredData[i].value,
               total_deaths: deathsData[i].value,
-              active_cases: i
-                ? casesData[i].value - casesData[i - 1].value
-                : casesData[i].value,
+              active_cases:
+                casesData[i].value -
+                recoveredData[i].value -
+                deathsData[i].value,
             })
           }
         })
         .on('mouseout', () => {
-          this.emitData({
-            timestamp: undefined,
-            total_cases: casesData[casesData.length - 1].value,
-            total_recovered: recoveredData[casesData.length - 1].value,
-            total_deaths: deathsData[casesData.length - 1].value,
-            active_cases:
-              casesData.length - 1
-                ? casesData[casesData.length - 1].value -
-                  casesData[casesData.length - 2].value
-                : casesData[casesData.length - 1].value,
-          })
+          this.emitData({})
         })
     },
 
     emitData(values) {
-      this.$emit('updateBox', {
-        timestamp: values.timestamp,
-        total_cases: values.total_cases,
-        active_cases: values.active_cases,
-        total_recovered: values.total_recovered,
-        total_deaths: values.total_deaths,
-      })
+      this.$emit('updateBox', values)
     },
   },
 }
