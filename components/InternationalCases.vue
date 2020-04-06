@@ -6,7 +6,12 @@
 
       .tabs-container
         .buttons.has-addons.is-centered
-          .button.is-small(v-for="(country, idx) in countries" :key="idx" @click="switchCountry(idx)" :class="{'is-info is-selected': idx === currentCountry}") {{ country }}
+          .button.is-small(
+            v-for="(country, idx) in countries"
+            :key="idx"
+            @click="switchCountry(idx)"
+            :class="{ 'is-info is-selected': idx === currentCountry }"
+          ) {{ country }}
 
         h3.wrapper__title {{ countries[currentCountry] }}
         StatsBox(:data='selectedCountry')
