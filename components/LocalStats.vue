@@ -1,7 +1,7 @@
 <template lang="pug">
   div
     div(v-if="!hideIndia")
-      h3 India
+      h3(v-if="!hideState") India
       StatsBox(:data="computedTotal")
 
     //- slot

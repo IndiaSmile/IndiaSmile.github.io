@@ -18,7 +18,7 @@
         .testing__data__item
           span.testing__data__item__box.testing__data__item__box--total
           .testing__data__item__count {{ stats.totalTests }}
-          .testing__data__item__text total tests done
+          .testing__data__item__text total tests done so far
 
       svg#testingGraph
 
@@ -269,7 +269,7 @@ export default {
 .testing
   &__data
     position absolute
-    left 0
+    left 1rem
     top 0
 
     &__date

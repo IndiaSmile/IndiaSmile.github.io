@@ -9,6 +9,8 @@
         li 🧠 <strong>Share & save</strong>: only source you need to keep updated.
 
     .content
+      h2 🇮🇳 Indian statistics
+      h6 How our country is fighting CoronaVirus #jaihind
       LocalStats(:hideState="true")
 
       hr.wrapper__hr
