@@ -56,8 +56,6 @@ export default {
           this.computedData.length - 2
         ]
 
-        console.log(moment().isSame(lastElement.date, 'date'))
-
         return [
           {
             name: 'Today',
