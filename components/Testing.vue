@@ -4,7 +4,7 @@
       .wrapper__title 🧪 Testing in <strong>India</strong>
       .wrapper__subtitle {{ testsDone[2] ? testsDone[2].value : '...' }} samples tested so far
 
-    .testing
+    .historical.testing
       .testing__data(v-show="showStats")
         .testing__data__date {{ computedTestDate }}
         .testing__data__item
@@ -267,8 +267,6 @@ export default {
 
 <style lang="stylus" scoped>
 .testing
-  position relative
-
   &__data
     position absolute
     left 0
