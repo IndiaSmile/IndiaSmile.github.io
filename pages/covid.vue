@@ -91,5 +91,10 @@ export default {
 
 <style lang="stylus" scoped>
 .content
+<<<<<<< HEAD
   padding 1rem 1.5rem
+=======
+  padding 1rem
+  padding-top 2rem
+>>>>>>> 815cd355677a09c7a0262ac403e1a1c2af3edf66
 </style>
