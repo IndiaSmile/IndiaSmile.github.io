@@ -13,9 +13,9 @@
 
       IndianCases(:historical="historical")
 
-      Testing.margin-top
-
       InternationalCases.margin-top(:historical="historical")
+
+      Testing.margin-top
 
       Articles.margin-top(:count="3")
 
