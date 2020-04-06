@@ -7,7 +7,10 @@
       StatsBox(:data='globalData')
 
       .tabs-container
-        .wrapper__subtitle Country history: Tap to see their charts
+        hr.wrapper__hr
+        header.wrapper__header
+          .wrapper__title 🚩 Country History
+          .wrapper__subtitle Tap to see their charts
         .country-selector.buttons.has-addons
           .button.is-small(
             v-for="(country, idx) in countries"
