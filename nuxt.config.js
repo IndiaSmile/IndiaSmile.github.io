@@ -95,6 +95,8 @@ export default {
     '@bazzite/nuxt-optimized-images',
     // Doc: https://github.com/nuxt-community/feed-module
     '@nuxtjs/feed',
+    // Doc: https://github.com/nuxt-community/proxy-module
+    '@nuxtjs/proxy',
   ],
   /*
    ** GTM
@@ -107,7 +109,9 @@ export default {
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  axios: {},
+  axios: {
+    proxy: true,
+  },
   /*
    ** Build configuration
    */
@@ -239,4 +243,8 @@ export default {
       },
     },
   ],
+
+  proxy: {
+    '/api-c19': {target: 'https://api.covid19india.org/data.json', pathRewrite: {'^/api-c19': ''}},
+  },
 }

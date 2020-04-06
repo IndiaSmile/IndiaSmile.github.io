@@ -18,6 +18,7 @@
     "@nuxtjs/feed": "^1.1.0",
     "@nuxtjs/gtm": "^2.2.3",
     "@nuxtjs/onesignal": "^3.0.0-beta.16",
+    "@nuxtjs/proxy": "^1.3.3",
     "@nuxtjs/pwa": "^3.0.0-0",
     "axios": "^0.19.2",
     "d3": "^5.15.1",

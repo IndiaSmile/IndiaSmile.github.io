@@ -31,6 +31,11 @@ export default {
 
   head() {
     return {
+      script: [
+        {
+          src: '//geoip-js.com/js/apis/geoip2/v2.1/geoip2.js',
+        },
+      ],
       meta: [
         {
           hid: 'twitterImage',

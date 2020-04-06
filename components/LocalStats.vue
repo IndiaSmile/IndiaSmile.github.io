@@ -61,20 +61,26 @@ export default {
     },
   },
 
-  mounted() {
-    window.geoip2.city(async (res) => {
-      this.stateCode = res.subdivisions[0].iso_code
+  created() {
+    if (process.client) {
+      this.fetchData()
+    }
+  },
 
-      const response = await this.$axios(
-        'https://api.covid19india.org/data.json'
-      )
+  methods: {
+    fetchData() {
+      window.geoip2.city(async (res) => {
+        this.stateCode = res.subdivisions[0].iso_code
 
-      this.total = response.data.statewise[0]
+        const response = await this.$axios('/api-c19')
 
-      this.state = response.data.statewise.filter(
-        (item) => item.statecode === this.stateCode
-      )[0]
-    })
+        this.total = response.data.statewise[0]
+
+        this.state = response.data.statewise.filter(
+          (item) => item.statecode === this.stateCode
+        )[0]
+      })
+    },
   },
 }
 </script>

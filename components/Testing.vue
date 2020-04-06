@@ -291,7 +291,7 @@ export default {
         &--positive
           background #ff4757
         &--total
-          background #ff7f50
+          background #70a1ff
 
       &__count
         margin 0 0.5rem

@@ -1,7 +1,7 @@
 <template lang="pug">
   div
     TextHero(
-      text="Getting bored at home?"
+      title="Getting bored at home?"
     )
       ul
         li 👇 <strong>Scroll down</strong> to see all content

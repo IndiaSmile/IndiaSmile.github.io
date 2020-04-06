@@ -75,7 +75,7 @@ export default {
     return {
       title: 'COVID19 Status',
 
-      image: require('~/assets/images/virus.jpg?resize'),
+      image: require('~/assets/images/meta-image-covid.png?resize'),
 
       endpoints: {
         countrywise:
@@ -126,12 +126,7 @@ export default {
 
   head() {
     return {
-      title: this.title,
-      script: [
-        {
-          src: '//geoip-js.com/js/apis/geoip2/v2.1/geoip2.js',
-        },
-      ],
+      title: 'Find how near COVID-19 is and other stats',
       meta: [
         {
           hid: 'ogimage',
