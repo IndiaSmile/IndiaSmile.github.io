@@ -82,6 +82,6 @@ export default {
 
 <style lang="stylus" scoped>
 .content
-  padding 16px
-  padding-top 32px
+  padding 1rem
+  padding-top 2rem
 </style>
