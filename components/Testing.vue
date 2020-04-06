@@ -4,7 +4,23 @@
       .wrapper__title 🧪 Testing in <strong>India</strong>
       .wrapper__subtitle {{ testsDone[2] ? testsDone[2].value : '...' }} samples tested so far
 
-    svg#testingGraph
+    .testing
+      .testing__data(v-show="showStats")
+        .testing__data__date {{ computedTestDate }}
+        .testing__data__item
+          span.testing__data__item__box.testing__data__item__box--today
+          .testing__data__item__count {{ stats.testsToday }}
+          .testing__data__item__text tests done
+        .testing__data__item
+          span.testing__data__item__box.testing__data__item__box--positive
+          .testing__data__item__count {{ stats.totalPositive }}
+          .testing__data__item__text tests turned out positive
+        .testing__data__item
+          span.testing__data__item__box.testing__data__item__box--total
+          .testing__data__item__count {{ stats.totalTests }}
+          .testing__data__item__text total tests done
+
+      svg#testingGraph
 
     b-message.margin-top(type="is-info is-small") Source #[a(href="https://icmr.nic.in/content/covid-19") https://icmr.nic.in/content/covid-19]
 
@@ -19,6 +35,15 @@ export default {
       rows: [],
       endpoint:
         'https://sheets.googleapis.com/v4/spreadsheets/1R08ny_AVHLasuEyfT9lNX5sscBi6Nl5mgKvQ3cmSvj8/values/Sheet1!A1:G40?key=AIzaSyB1O3W2yx8LTFwrYDsn98FuvaAG50k7hkI',
+
+      stats: {
+        date: 0,
+        testsToday: 0,
+        totalPositive: 0,
+        totalTests: 0,
+      },
+
+      showStats: false,
     }
   },
 
@@ -86,6 +111,10 @@ export default {
         return []
       }
     },
+
+    computedTestDate() {
+      return moment(this.stats.date).format('DD MMMM')
+    },
   },
 
   async created() {
@@ -137,6 +166,11 @@ export default {
         .rangeRound([innerHeight, 0])
         .nice()
 
+      const indexScale = d3
+        .scaleLinear()
+        .domain([0, data.length])
+        .range([0, innerWidth])
+
       const g = svg.append('g').attr('transform', 'translate(0, 10)')
 
       // create x axis
@@ -176,13 +210,56 @@ export default {
         .y((d) => yScale(yValue2(d)))
         .curve(d3.curveCardinal)
 
+      // this line is about total tests done that day
       g.append('path')
         .attr('class', 'line-path line-path--recovered')
         .attr('d', lineGenerator1(data))
 
+      // this line is about positive cases
       g.append('path')
         .attr('class', 'line-path line-path--cases')
         .attr('d', lineGenerator2(data))
+
+      // add dots
+      // these dots are for successful tests
+      g.selectAll('.circle--recovered')
+        .data(data)
+        .enter()
+        .append('circle')
+        .attr('class', 'circle circle--recovered')
+        .attr('cx', (d) => xScale(xValue(d)))
+        .attr('cy', (d) => yScale(yValue1(d)))
+        .attr('r', 2.5)
+
+      // these dots are for positive tests
+      g.selectAll('.circle--cases')
+        .data(data)
+        .enter()
+        .append('circle')
+        .attr('class', 'circle circle--cases')
+        .attr('cx', (d) => xScale(xValue(d)))
+        .attr('cy', (d) => yScale(yValue2(d)))
+        .attr('r', 2.5)
+
+      const mouseG = svg.append('g').attr('class', 'cover-mouse-over')
+
+      mouseG
+        .append('svg:rect')
+        .attr('width', w)
+        .attr('height', h)
+        .attr('pointer-events', 'all')
+        .on('mousemove', () => {
+          const mouse = d3.mouse(d3.event.target)
+
+          const i = Math.round(indexScale.invert(mouse[0]))
+          if (i >= 0 && i < data.length) {
+            this.showStats = true
+            this.stats = data[i]
+          }
+        })
+        .on('mouseout', () => {
+          this.showStats = false
+        })
     },
   },
 }
@@ -190,37 +267,35 @@ export default {
 
 <style lang="stylus" scoped>
 .testing
-  display flex
-  text-align center
+  position relative
 
-  &__item
-    padding 1rem
-    border-radius 0.25rem
-    margin 0 0.125rem
+  &__data
+    position absolute
+    left 0
+    top 0
 
-    &.total
-      background rgba(108,117,125,.0627451)
-      color #6c757d
-
-    &.today
-      background rgba(40,167,69,.12549)
-      color #28a745
-
-    &.yesterday
-      background rgba(0,123,255,.0627451)
-      color #007bff
-
-    &.positive
-      background rgba(255,7,58,.12549)
-      color #ff073a
-
-    &__text
+    &__date
+      font-weight bold
       font-size 0.85rem
 
-    &__count
-      font-size 1.2rem
-      font-weight bold
-
-    &__subtext
+    &__item
+      display flex
+      align-items center
       font-size 0.75rem
+
+      &__box
+        width 0.5rem
+        height 0.5rem
+        border-radius 0.1rem
+
+        &--today
+          background #2ed573
+        &--positive
+          background #ff4757
+        &--total
+          background #ff7f50
+
+      &__count
+        margin 0 0.5rem
+        font-weight bold
 </style>

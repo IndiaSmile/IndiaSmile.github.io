@@ -5,10 +5,10 @@
       StatsBox(:data="computedTotal")
 
     //- slot
-
-    .wrapper__header
-      .wraper__title 🌆 Situation of Your State: <strong>{{ state.state }}</strong>
-    StatsBox(:data="computedState")
+    div(v-if="!hideState")
+      .wrapper__header
+        .wraper__title 🌆 Situation of Your State: <strong>{{ state.state }}</strong>
+      StatsBox(:data="computedState")
 </template>
 
 <script>
@@ -21,6 +21,11 @@ export default {
 
   props: {
     hideIndia: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    hideState: {
       type: Boolean,
       required: false,
       default: false,

@@ -9,7 +9,11 @@
         li 🧠 <strong>Share & save</strong>: only source you need to keep updated.
 
     .content
-      Tracker
+      LocalStats(:hideState="true")
+
+      hr.wrapper__hr
+
+      Tracker.margin-top
 
       IndianCases(:historical="historical")
 
@@ -19,7 +23,14 @@
       hr.wrapper__hr
       Testing.margin-top
 
-
+      card.margin-top(
+        :title="card.title"
+        :subtitle="card.subtitle"
+        :image="card.image"
+        :color="card.color"
+        :to="card.href"
+        :isDarkText="card.isDarkText"
+      )
 
       hr.wrapper__hr
       Articles.margin-top(:count="3")
@@ -40,6 +51,8 @@ import CovidDisclaimers from '~/components/CovidDisclaimers'
 import IndianCases from '~/components/IndianCases'
 import Articles from '~/components/Articles'
 import Testing from '~/components/Testing'
+import Card from '~/components/Card'
+import LocalStats from '~/components/LocalStats'
 
 export default {
   components: {
@@ -51,6 +64,8 @@ export default {
     IndianCases,
     Articles,
     Testing,
+    Card,
+    LocalStats,
   },
 
   data() {
@@ -66,6 +81,15 @@ export default {
       },
 
       historical: [],
+
+      card: {
+        title: 'Like Minded WhatsApp Communities 👨‍👧‍👧',
+        subtitle: 'Topic based community chats',
+        image: require('~/assets/images/whatsapp-alt.jpg?resize'),
+        color: '#1ebfa5',
+        href: '/communities',
+        isDarkText: false,
+      },
     }
   },
 

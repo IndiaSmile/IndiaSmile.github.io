@@ -208,30 +208,30 @@ svg
     stroke-linejoin round
 
     &--cases
-        stroke #ff073a
+        stroke #ff4757
 
     &--recovered
-        stroke #28a745
+        stroke #2ed573
 
     &--deaths
-        stroke #6c757d
+        stroke #57606f
 
 .axis
-    stroke #6c757d
+    stroke #57606f
     stroke-width 1px
 
     .tick
         stroke none
-        color #6c757d
+        color #57606f
 
 .circle
   stroke none
   &--cases
-    fill #ff073a
+    fill #ff4757
   &--deaths
-    fill #6c757d
+    fill #57606f
   &--recovered
-    fill #28a745
+    fill #2ed573
 
 .cover-mouse-over
   fill none
