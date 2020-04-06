@@ -1,17 +1,14 @@
 <template lang="pug">
   div
-    .hero.is-primary
-      Header
-      .hero-body.has-text-centered
-        .container
-          h2.title Getting bored at home?
-          .subtitle
-            ul
-              li 👇 <strong>Scroll down</strong> to see all content
-              li 🎊 Choose Entertainment, Fitness, News, or anything you like!
-              li 😍 Scroll and click on all photos to find best content
-              li 🧠 Visit every day and add to homescreen to <strong>beat boredom</strong>
-              li 👬 <strong>Share</strong> in friends & family groups to spread the love!
+    TextHero(
+      text="Getting bored at home?"
+    )
+      ul
+        li 👇 <strong>Scroll down</strong> to see all content
+        li 🎊 Choose Entertainment, Fitness, News, or anything you like!
+        li 😍 Scroll and click on all photos to find best content
+        li 🧠 Visit every day and add to homescreen to <strong>beat boredom</strong>
+        li 👬 <strong>Share</strong> in friends & family groups to spread the love!
 
     LockdownCountdown
 
@@ -42,6 +39,7 @@
 <script>
 import Header from '~/components/Header'
 import Card from '~/components/Card'
+import TextHero from '~/components/TextHero'
 import LockdownCountdown from '~/components/LockdownCountdown'
 
 export default {
@@ -49,6 +47,7 @@ export default {
   components: {
     Header,
     Card,
+    TextHero,
     LockdownCountdown,
   },
 
@@ -152,23 +151,6 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-.hero
-  .hero-body
-    padding 1.5rem
-
-  .title
-    font-size 1.6em
-
-  .subtitle
-    font-size 1em
-    width fit-content
-    text-align left
-    margin -.5em auto 0
-
-    li
-      padding .5em 0
-      list-style normal
-
 .content
   padding 2em 1em 0
 </style>

@@ -24,11 +24,13 @@
         :to="list.card2.href"
       )
 
-      Sharer(:title="title")
+      CovidDisclaimers
 
       h3 COVID-19 India Statistics
 
       LocalStats
+
+      // @TODO -- Add whatsapp card with community links here
 
       Articles.margin-top(:count="count")
 
@@ -39,6 +41,7 @@
 import ArticleHero from '~/components/ArticleHero'
 import Card from '~/components/Card'
 import LocalStats from '~/components/LocalStats'
+import CovidDisclaimers from '~/components/CovidDisclaimers'
 import Tracker from '~/components/Tracker'
 import Articles from '~/components/Articles'
 
@@ -48,6 +51,7 @@ export default {
     ArticleHero,
     Card,
     LocalStats,
+    CovidDisclaimers,
     Tracker,
     Articles,
   },

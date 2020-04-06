@@ -1,11 +1,10 @@
 <template lang="pug">
   div
     .content__section
-      h2.content__title COVID-19 Tracker
-
-    .content__section
-      h3.content__title.content__title--blue.is-size-5
-        | Use this tool to find out how far is #Covid from you!
+      header.wrapper__header
+        .wrapper__title 👪 COVID-19 Near You
+        .wrapper__subtitle.wrapper__subtitle--em
+          | Allow location access & find out how close an infected patient is from you!
 
     b-message(v-if="showError" type="is-warning") We need access to your location to find the nearest case
 
@@ -26,7 +25,7 @@
 
         .location__wrapper__text.is-size-7 from the nearest confirmed case *
 
-      .location__text Your family or friends could be close to someone affected 😷 Share this page & keep your loved ones safe 👨‍👩‍👦
+      .location__text Your <strong>family or friends</strong> could be close to someone affected 😷 <strong>Share this page</strong> & keep your loved ones safe 👨‍👩‍👦
 
       ul.location__list
         li.location__list__item(@click="share('whatsapp')")
@@ -38,15 +37,6 @@
         li.location__list__item(@click="share('twitter')")
           b-icon.location__list__item__icon.icon--twitter(size="is-small" icon="twitter")
           | Share on Twitter
-
-
-    .content__footer
-      p.content__footer__text This information has been provided by our friends at
-      a.content__footer__link(href="https://bit.ly/COVID19Distance" target="_blank" rel="nofollow") coronatracker.in
-        b-icon(icon="open-in-new" size="is-small")
-
-    b-message.content__message(v-if="!!distance" type="is-warning is-small") * This information is sourced from crowdsource data and can be inaccurate. Do not panic & wait for government sources to verify this data.
-
 </template>
 
 <script>
@@ -126,11 +116,6 @@ Stay Indoors & Stay Safe  🇮🇳`
 </script>
 
 <style lang="stylus" scoped>
-
-.content__title--blue
-  line-height 140%
-  color #1C5BFF
-
 .request-container
   height 6.94rem
   width 100%
@@ -149,27 +134,6 @@ Stay Indoors & Stay Safe  🇮🇳`
     text-align center
     font-size 0.625em
     margin-top 0.375rem
-
-.content__footer
-  margin-top 0.5rem
-  text-align center
-
-  &__text
-    font-size 0.625rem
-    margin-bottom 0!important
-
-  &__link
-    color #1C5BFF
-    padding 0.5rem 1rem
-    background-color rgba(28, 91, 255, 0.1)
-    text-decoration underline
-    margin-top 0.5rem
-    display inline-block
-    font-size 0.875rem
-    border-radius 0.25rem
-
-.content__message
-    margin-top 1rem
 
 .location
   text-align center
@@ -203,7 +167,6 @@ Stay Indoors & Stay Safe  🇮🇳`
 
   &__text
     margin-top 1rem
-    font-weight bold
 
   &__list
     margin 0

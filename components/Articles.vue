@@ -1,25 +1,21 @@
 <template lang="pug">
   div
-    h3 Recent updates
+    .wrapper__title 📰 Recent updates
 
-    .content__section(v-for="(data, index) in articles" :key="index")
+    .news__section(v-for="(data, index) in articles" :key="index")
 
-      h2.content__title(v-if="showTitle(data)") {{ data.title }}
+      .news__title(v-if="showTitle(data)") {{ data.title }}
 
-      .content__user
-        .content__user__image(v-if="avatar(data)")
-          img(:src="avatar(data)")
-        .content__user__text
-          .content__user__text__name {{ author(data) }}
-          .content__user__text__date {{ date(data.created) }}
-
-      p.content__text(v-if="typeof data.text === 'string'" v-html="data.text")
+      p.news__text(v-if="typeof data.text === 'string'" v-html="data.text")
       div(v-else-if="typeof data.text === 'object'")
-        p.content__text(v-for="(text, idx) in data.text" :key="idx" v-html="text")
-      p.content__text(v-else v-html="text(data)")
+        p.news__text(v-for="(text, idx) in data.text" :key="idx" v-html="text")
+      p.news__text(v-else v-html="text(data)")
 
-      a(v-if="!!data.link" :href="data.link" target="_blank" rel="nofollow")
-        b-button.content__button(type="is-primary" icon-right="chevron-right") Read more
+      //- .news__user
+        a(v-if="!!data.link" :href="data.link" target="_blank" rel="nofollow")
+          .news__user__text
+            .news__user__text__name {{ author(data) }}
+            //- .news__user__text__date {{ date(data.created) }}
 </template>
 
 <script>
@@ -129,3 +125,19 @@ export default {
   },
 }
 </script>
+
+<style lang="stylus" scoped>
+.news
+  &__section
+    margin .5rem 0
+    line-height 1.4
+    font-weight 400
+
+  &__title
+    font-size .875em
+    font-weight normal
+    margin 0
+  &__text
+    font-size .75em
+    color #999
+</style>

@@ -1,16 +1,16 @@
 <template lang="pug">
 .stats
-  .stats__item.stats__item--confirmed
-    .stats__item__text CONFIRMED
+  //- .stats__item.stats__item--confirmed
+    .stats__item__text Confirmed 😷
     .stats__item__number {{ data.total_cases }}
   .stats__item.stats__item--active
-    .stats__item__text ACTIVE
+    .stats__item__text Active 😷
     .stats__item__number {{ data.active_cases }}
   .stats__item.stats__item--recovered
-    .stats__item__text RECOVERED
+    .stats__item__text Recovered 👩‍⚕️
     .stats__item__number {{ data.total_recovered }}
   .stats__item.stats__item--deceased
-    .stats__item__text DECEASED
+    .stats__item__text Deceased 💀
     .stats__item__number {{ data.total_deaths }}
 </template>
 
@@ -34,7 +34,7 @@ export default {
 
   &__item
     flex 1 0
-    text-align center
+    text-align left
 
     &__text
       font-weight 600
@@ -54,17 +54,17 @@ export default {
       .stats__item__text
         color rgba(0,123,255,.6)
       .stats__item__number
-        color #007bff
+        color #70a1ff
 
     &--recovered
       .stats__item__text
         color rgba(40,167,69,.6)
       .stats__item__number
-        color #28a745
+        color #2ecc71
 
     &--deceased
       .stats__item__text
         color rgba(108,117,125,.6)
       .stats__item__number
-        color #6c757d
+        color #7f8c8d
 </style>
