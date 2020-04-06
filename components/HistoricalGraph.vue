@@ -49,6 +49,13 @@ export default {
 
       const recoveredData = parseData(recovered)
 
+      const activeData = casesData.map((o, index) => {
+        return {
+          date: o.date,
+          value: o.value - deathsData[index].value - recoveredData[index].value,
+        }
+      })
+
       const date = (d) => {
         return moment(d).format('MMM DD')
       }
@@ -65,19 +72,19 @@ export default {
 
       const xScale = d3
         .scaleTime()
-        .domain(d3.extent(casesData, xValue))
+        .domain(d3.extent(activeData, xValue))
         .rangeRound([0, innerWidth])
         .nice()
 
       const yScale = d3
         .scaleLinear()
-        .domain(d3.extent(casesData, yValue))
+        .domain(d3.extent(activeData, yValue))
         .rangeRound([innerHeight, 0])
         .nice()
 
       const indexScale = d3
         .scaleLinear()
-        .domain([0, casesData.length])
+        .domain([0, activeData.length])
         .range([0, innerWidth])
 
       const g = svg.append('g').attr('transform', 'translate(0, 10)')
@@ -114,8 +121,8 @@ export default {
         .curve(d3.curveCardinal)
 
       g.append('path')
-        .attr('class', 'line-path line-path--cases')
-        .attr('d', lineGenerator(casesData))
+        .attr('class', 'line-path line-path--active')
+        .attr('d', lineGenerator(activeData))
 
       g.append('path')
         .attr('class', 'line-path line-path--deaths')
@@ -125,11 +132,11 @@ export default {
         .attr('class', 'line-path line-path--recovered')
         .attr('d', lineGenerator(recoveredData))
 
-      g.selectAll('.circle--cases')
-        .data(casesData)
+      g.selectAll('.circle--active')
+        .data(activeData)
         .enter()
         .append('circle')
-        .attr('class', 'circle circle--cases')
+        .attr('class', 'circle circle--active')
         .attr('cx', (d) => xScale(xValue(d)))
         .attr('cy', (d) => yScale(yValue(d)))
         .attr('r', 2.5)
@@ -207,6 +214,9 @@ svg
     stroke-width 2
     stroke-linejoin round
 
+    &--active
+      stroke #70a1ff
+
     &--cases
         stroke #ff4757
 
@@ -214,7 +224,7 @@ svg
         stroke #2ed573
 
     &--deaths
-        stroke #57606f
+        stroke #a4b0be
 
 .axis
     stroke #57606f
@@ -226,10 +236,13 @@ svg
 
 .circle
   stroke none
+
+  &--active
+    fill #70a1ff
   &--cases
     fill #ff4757
   &--deaths
-    fill #57606f
+    fill #a4b0be
   &--recovered
     fill #2ed573
 

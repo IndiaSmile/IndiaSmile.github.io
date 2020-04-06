@@ -86,30 +86,30 @@ export default {
       historical: [],
 
       card: {
-        title: 'Like Minded WhatsApp Communities',
+        title: 'Find like minded people to talk to',
         subtitle: 'Topic based community chats',
         image: require('~/assets/images/whatsapp-alt.jpg?resize'),
         color: '#1ebfa5',
         isDarkText: false,
         links: [
           {
-            name: 'Movies and TV',
+            name: '📺 Movies and TV',
             link: 'https://t.me/entertainment_isc',
           },
           {
-            name: 'Updates',
+            name: '📰 Updates',
             link: 'https://chat.whatsapp.com/KGdpQoNwG7q4IsZy2n13dd',
           },
           {
-            name: 'Mood Support',
+            name: '👫 Mood Support',
             link: 'https://chat.whatsapp.com/F97AbnosfqeEC3gJObw6sU',
           },
           {
-            name: 'Jokes',
+            name: '🤣 Jokes',
             link: 'https://chat.whatsapp.com/KrTMHQTJ8CcA1V58rYy9Mc',
           },
           {
-            name: 'Books',
+            name: '📚 Books',
             link: 'https://t.me/books_isc',
           },
         ],
