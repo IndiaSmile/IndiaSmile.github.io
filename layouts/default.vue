@@ -93,8 +93,19 @@ export default {
     padding 1.5em 1.875em
 
     .historical
+      position relative
       width calc(100% + 2rem)
       margin 0 -1rem
+
+      &__date
+        position absolute
+        left 1rem
+        top 1rem
+        padding 0.3rem 0.5rem
+        border-radius 0.25rem
+        font-weight bold
+        font-size 0.85rem
+        background rgba(108,117,125,.1)
 
     &__header
       display flex

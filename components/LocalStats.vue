@@ -1,7 +1,8 @@
 <template lang="pug">
   div
-    //- h3 India
-    //- StatsBox(:data="computedTotal")
+    div(v-if="!hideIndia")
+      h3 India
+      StatsBox(:data="computedTotal")
 
     //- slot
 
@@ -16,6 +17,14 @@ import StatsBox from '~/components/StatsBox'
 export default {
   components: {
     StatsBox,
+  },
+
+  props: {
+    hideIndia: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
 
   data() {

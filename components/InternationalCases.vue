@@ -20,11 +20,13 @@
         StatsBox(:data='selectedCountry')
 
         .historical
-          HistoricalGraph(:data="graphData")
+          .historical__date(v-if="graphDate") {{ graphDate }}
+          HistoricalGraph(:data="graphData" @updateBox="updateBox")
 
 </template>
 
 <script>
+import moment from 'moment'
 import StatsBox from '~/components/StatsBox'
 import HistoricalGraph from '~/components/HistoricalGraph'
 
@@ -50,7 +52,7 @@ export default {
           'https://corona-virus-stats.herokuapp.com/api/v1/cases/countries-search?search=',
       },
 
-      countries: ['Pakistan', 'Bangladesh', 'USA', 'Spain', 'Italy'],
+      countries: ['India', 'Pakistan', 'Bangladesh', 'USA', 'Italy'],
       currentCountry: 0,
 
       global: {},
@@ -64,12 +66,22 @@ export default {
       },
 
       graphData: {},
+
+      boxValue: {},
     }
   },
 
   computed: {
     selectedCountry() {
-      return this.countriesData[this.countries[this.currentCountry]]
+      return Object.keys(this.boxValue).length
+        ? this.boxValue
+        : this.countriesData[this.countries[this.currentCountry]]
+    },
+
+    graphDate() {
+      return this.selectedCountry.timestamp
+        ? moment(this.selectedCountry.timestamp).format('DD MMMM')
+        : undefined
     },
 
     globalData() {
@@ -110,6 +122,10 @@ export default {
           (o) => o.country === this.countries[this.currentCountry]
         ).timeline
       }
+    },
+
+    updateBox(value) {
+      this.boxValue = value
     },
   },
 }
