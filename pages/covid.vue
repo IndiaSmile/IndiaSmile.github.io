@@ -9,9 +9,11 @@
 
       IndianCases(:historical="historical")
 
-      Articles.margin-top(count="3")
+      Articles.margin-top(:count="3")
 
       LockdownCountdown.margin-top
+
+      Testing.margin-top
 
 </template>
 
@@ -22,6 +24,7 @@ import Tracker from '~/components/Tracker'
 import LockdownCountdown from '~/components/LockdownCountdown'
 import IndianCases from '~/components/IndianCases'
 import Articles from '~/components/Articles'
+import Testing from '~/components/Testing'
 
 export default {
   components: {
@@ -31,6 +34,7 @@ export default {
     LockdownCountdown,
     IndianCases,
     Articles,
+    Testing,
   },
 
   data() {

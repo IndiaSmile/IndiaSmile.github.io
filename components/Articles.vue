@@ -79,8 +79,6 @@ export default {
         return b.created - a.created
       })
 
-      console.log(this.count, sorted)
-
       return this.count ? sorted.slice(0, this.count) : sorted
     },
   },

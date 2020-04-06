@@ -13,12 +13,6 @@ export default {
     },
   },
 
-  data() {
-    return {
-      id: 'historicalGraph' + Math.floor(Math.random() * 1000),
-    }
-  },
-
   watch: {
     data() {
       this.createGraph()
@@ -36,7 +30,7 @@ export default {
       const d3 = require('d3')
 
       const w = document.querySelector('.content').offsetWidth - 20
-      const h = w * 0.67
+      const h = w * 0.34
       const margin = { top: 0, right: 40, bottom: 30, left: 0 }
       const innerWidth = w - margin.left - margin.right
       const innerHeight = h - margin.top - margin.bottom
