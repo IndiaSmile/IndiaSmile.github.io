@@ -1,19 +1,19 @@
 <template lang="pug">
   div
-    LocalStats.margin-top
+    LocalStats.margin-top(:hideIndia="true")
       .historical
-        HistoricalGraph(:data="graphData")
+        //- HistoricalGraph(:data="graphData")
 
 </template>
 
 <script>
 import LocalStats from '~/components/LocalStats'
-import HistoricalGraph from '~/components/HistoricalGraph'
+// import HistoricalGraph from '~/components/HistoricalGraph'
 
 export default {
   components: {
     LocalStats,
-    HistoricalGraph,
+    // HistoricalGraph,
   },
 
   props: {

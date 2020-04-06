@@ -75,6 +75,11 @@ export default {
         .rangeRound([innerHeight, 0])
         .nice()
 
+      const indexScale = d3
+        .scaleLinear()
+        .domain([0, casesData.length])
+        .range([0, innerWidth])
+
       const g = svg.append('g').attr('transform', 'translate(0, 10)')
 
       // create x axis
@@ -119,6 +124,89 @@ export default {
       g.append('path')
         .attr('class', 'line-path line-path--recovered')
         .attr('d', lineGenerator(recoveredData))
+
+      g.selectAll('.circle--cases')
+        .data(casesData)
+        .enter()
+        .append('circle')
+        .attr('class', 'circle circle--cases')
+        .attr('cx', (d) => xScale(xValue(d)))
+        .attr('cy', (d) => yScale(yValue(d)))
+        .attr('r', 2.5)
+
+      g.selectAll('.circle--deaths')
+        .data(deathsData)
+        .enter()
+        .append('circle')
+        .attr('class', 'circle circle--deaths')
+        .attr('cx', (d) => xScale(xValue(d)))
+        .attr('cy', (d) => yScale(yValue(d)))
+        .attr('r', 2.5)
+
+      g.selectAll('.circle--recovered')
+        .data(recoveredData)
+        .enter()
+        .append('circle')
+        .attr('class', 'circle circle--recovered')
+        .attr('cx', (d) => xScale(xValue(d)))
+        .attr('cy', (d) => yScale(yValue(d)))
+        .attr('r', 2.5)
+
+      g.selectAll('.circle')
+        .attr('pointer-events', 'all')
+        .on('mouseover', (d) => {
+          d3.select(d3.event.target).attr('r', 5)
+        })
+        .on('mouseout', (d) => {
+          d3.select(d3.event.target).attr('r', 2.5)
+        })
+
+      const mouseG = svg.append('g').attr('class', 'cover-mouse-over')
+
+      mouseG
+        .append('svg:rect')
+        .attr('width', w)
+        .attr('height', h)
+        .attr('pointer-events', 'all')
+        .on('mousemove', () => {
+          const mouse = d3.mouse(d3.event.target)
+
+          const i = Math.round(indexScale.invert(mouse[0]))
+          if (i >= 0 && i < casesData.length) {
+            this.emitData({
+              timestamp: casesData[i].date,
+              total_cases: casesData[i].value,
+              total_recovered: recoveredData[i].value,
+              total_deaths: deathsData[i].value,
+              active_cases: i
+                ? casesData[i].value - casesData[i - 1].value
+                : casesData[i].value,
+            })
+          }
+        })
+        .on('mouseout', () => {
+          this.emitData({
+            timestamp: undefined,
+            total_cases: casesData[casesData.length - 1].value,
+            total_recovered: recoveredData[casesData.length - 1].value,
+            total_deaths: deathsData[casesData.length - 1].value,
+            active_cases:
+              casesData.length - 1
+                ? casesData[casesData.length - 1].value -
+                  casesData[casesData.length - 2].value
+                : casesData[casesData.length - 1].value,
+          })
+        })
+    },
+
+    emitData(values) {
+      this.$emit('updateBox', {
+        timestamp: values.timestamp,
+        total_cases: values.total_cases,
+        active_cases: values.active_cases,
+        total_recovered: values.total_recovered,
+        total_deaths: values.total_deaths,
+      })
     },
   },
 }
@@ -150,4 +238,16 @@ svg
     .tick
         stroke none
         color #6c757d
+
+.circle
+  stroke none
+  &--cases
+    fill #ff073a
+  &--deaths
+    fill #6c757d
+  &--recovered
+    fill #28a745
+
+.cover-mouse-over
+  fill none
 </style>
