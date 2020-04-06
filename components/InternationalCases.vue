@@ -109,6 +109,7 @@ export default {
   methods: {
     switchCountry(countryIndex) {
       this.currentCountry = countryIndex
+      this.boxValue = {}
 
       this.updateGraph()
     },
