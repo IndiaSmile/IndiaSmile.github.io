@@ -125,7 +125,7 @@ export default {
           subtitle: 'Use this tool to find out how far is COVID-19 from you!',
           image: require('~/assets/images/tracker.jpg?resize'),
           color: 'rgba(0, 0, 0, 0.85)',
-          href: '/nearme',
+          href: '/covid',
           isDarkText: false,
         },
         {
