@@ -72,7 +72,7 @@ export default {
       window.geoip2.city(async (res) => {
         this.stateCode = res.subdivisions[0].iso_code
 
-        const response = await this.$axios('/api-c19')
+        const response = await this.$axios('/api-c19/')
 
         this.total = response.data.statewise[0]
 
