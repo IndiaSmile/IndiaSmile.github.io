@@ -21,7 +21,7 @@
         :image="list.card2.image"
         :color="list.card2.color"
         :isDarkText="list.card2.isDarkText"
-        :list="list.card2.links"
+        :to="list.card2.href"
       )
 
       Sharer(:title="title")
@@ -72,26 +72,9 @@ export default {
           title: 'Best Modern TV & Movies',
           subtitle: 'Things to watch when bored',
           image: require('~/assets/images/amitabh-bachchan.jpg?resize'),
-          color: '#ce4040',
+          color: 'rgba(128, 150, 140, 0.85)',
+          href: '/entertainment',
           isDarkText: false,
-          links: [
-            {
-              name: 'English Movies',
-              link: '/entertainment/movies/english',
-            },
-            {
-              name: 'Hindi Movies',
-              link: '/entertainment/movies/hindi',
-            },
-            {
-              name: 'English TV',
-              link: '/entertainment/tv/english',
-            },
-            {
-              name: 'Hindi TV',
-              link: '/entertainment/tv/hindi',
-            },
-          ],
         },
       },
     }

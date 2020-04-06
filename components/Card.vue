@@ -7,10 +7,6 @@
         .card__text__title(:class="textClassName") {{ title }}
         .card__text__subtitle(:class="textClassName") {{ subtitle }}
 
-        .card__action(v-if="!!button")
-          a(:href="to")
-            b-button.card__action__button(icon-right="chevron-right" :class="textClassName") {{ button }}
-
         .card__list(v-if="!!list.length")
           component.card__list__item(:is="childElement(item.link)" v-for="(item, idx) in list" :key="idx" :to="item.link" :href="item.link" :target="target(item.link)" rel="nofollow")
             img.card__list__item__icon(v-if="!!item.image" :src="item.image")
@@ -20,6 +16,11 @@
                 .card__list__item__body__text__subtext(v-if="item.text" :class="textClassName") {{ item.text }}
               .card__list__item__body__icon(:class="textClassName")
                 b-icon(icon="chevron-right")
+
+        .card__action(v-if="!!button")
+          a(:href="to")
+            b-button.card__action__button(icon-right="chevron-right" :class="textClassName") {{ button }}
+
 
 </template>
 
@@ -68,10 +69,10 @@ export default {
 
   computed: {
     parentClassNames() {
-      if (this.button) {
-        return 'card--large'
-      } else if (this.list.length) {
+      if (this.list.length) {
         return ['card--list', 'card--list--' + this.list.length]
+      } else if (this.button) {
+        return 'card--large'
       } else {
         return ''
       }
@@ -139,10 +140,10 @@ export default {
         height 170%
 
     &--4
-      padding-bottom 109%
+      padding-bottom 140%
 
       .card__gradient
-        height 170%
+        height 180%
 
   &__image
     display block

@@ -20,6 +20,7 @@
               :to="item.href"
               :isDarkText="item.isDarkText"
               :button="item.button"
+              :list="item.links ? item.links : undefined"
             )
             Sharer(
               v-else-if="item.custom === 'Sharer'"
@@ -50,10 +51,28 @@ export default {
           subtitle:
             'Discuss (and defend 😉) your favourite movies and TV shows. Also discover fresh recommendations from our users on this group 😋',
           image: require('~/assets/images/family-tv.jpg?resize'),
-          color: 'rgb(247, 235, 205)',
+          color: '#ce4040',
           href: 'https://t.me/entertainment_isc',
-          isDarkText: true,
+          isDarkText: false,
           button: 'Join on Telegram',
+          links: [
+            {
+              name: 'English Movies',
+              link: '/entertainment/movies/english',
+            },
+            {
+              name: 'Hindi Movies',
+              link: '/entertainment/movies/hindi',
+            },
+            {
+              name: 'English TV',
+              link: '/entertainment/tv/english',
+            },
+            {
+              name: 'Hindi TV',
+              link: '/entertainment/tv/hindi',
+            },
+          ],
         },
         {
           title: 'Updates',
