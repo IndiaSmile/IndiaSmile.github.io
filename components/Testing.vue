@@ -1,12 +1,7 @@
 <template lang="pug">
   div
-    h3 Testing data
-
-    .testing
-      .testing__item(v-for="(test, i) in testsDone" :key="i" v-if="test.value" :class="test.class")
-        .testing__item__text {{ test.name }}
-        .testing__item__count {{ test.value }}
-        .testing__item__subtext {{ test.subtext }}
+    .wrapper__title 🧪 Testing in <strong>India</strong>
+    .wrapper__subtitle {{ testsDone[2] ? testsDone[2].value : '...' }} samples tested so far
 
     svg#testingGraph
 

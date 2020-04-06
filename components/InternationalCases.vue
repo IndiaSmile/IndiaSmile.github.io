@@ -1,14 +1,22 @@
 <template lang="pug">
   div
     .wrapper
-      h3.wrapper__title Global statistics
+      header.wrapper__header
+        .wrapper__title 🌏 Global statistics
+        .wrapper__subtitle Cases around the world
       StatsBox(:data='globalData')
 
       .tabs-container
-        .buttons.has-addons.is-centered
-          .button.is-small(v-for="(country, idx) in countries" :key="idx" @click="switchCountry(idx)" :class="{'is-info is-selected': idx === currentCountry}") {{ country }}
+        .wrapper__subtitle Country history: Tap to see their charts
+        .country-selector.buttons.has-addons
+          .button.is-small(
+            v-for="(country, idx) in countries"
+            :key="idx"
+            @click="switchCountry(idx)"
+            :class="{ 'is-warning is-selected': idx === currentCountry }"
+          ) {{ country }}
 
-        h3.wrapper__title {{ countries[currentCountry] }}
+        //- .wrapper__title--small {{ countries[currentCountry] }}
         StatsBox(:data='selectedCountry')
 
         .historical
@@ -109,9 +117,9 @@ export default {
 
 <style lang="stylus" scoped>
 .wrapper
-  &__title
-    margin-top 0!important
-
   .tabs-container
-    margin-top 1rem
+    margin-top .5rem
+
+.country-selector
+  margin .5rem 0 .25rem
 </style>

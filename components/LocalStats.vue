@@ -1,11 +1,12 @@
 <template lang="pug">
   div
-    h3 India
-    StatsBox(:data="computedTotal")
+    //- h3 India
+    //- StatsBox(:data="computedTotal")
 
-    slot
+    //- slot
 
-    h3 {{ state.state }}
+    .wrapper__header
+      .wraper__title 🌆 Situation of Your State: <strong>{{ state.state }}</strong>
     StatsBox(:data="computedState")
 </template>
 

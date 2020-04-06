@@ -1,37 +1,46 @@
 <template lang="pug">
   .article
-    ArticleHero(:image="image")
+    TextHero(
+      title="COVID-19 Around You"
+    )
+      ul
+        li 👇 <strong>Scroll down</strong> to find how close COVID-19 is to you
+        li 🌐 See international and domestic stats for COVID-19's spread
+        li 👬 Join <strong>communities</strong> to make new friends and chat
 
     .content
-      InternationalCases(:historical="historical")
-
-      Tracker.margin-top
+      Tracker
 
       IndianCases(:historical="historical")
+
+      Testing.margin-top
+
+      InternationalCases.margin-top(:historical="historical")
 
       Articles.margin-top(:count="3")
 
       LockdownCountdown.margin-top
 
-      Testing.margin-top
-
+      CovidDisclaimers
 </template>
 
 <script>
-import ArticleHero from '~/components/ArticleHero'
+import TextHero from '~/components/TextHero'
 import InternationalCases from '~/components/InternationalCases'
 import Tracker from '~/components/Tracker'
 import LockdownCountdown from '~/components/LockdownCountdown'
+import CovidDisclaimers from '~/components/CovidDisclaimers'
 import IndianCases from '~/components/IndianCases'
 import Articles from '~/components/Articles'
 import Testing from '~/components/Testing'
 
 export default {
   components: {
-    ArticleHero,
+    TextHero,
     InternationalCases,
     Tracker,
     LockdownCountdown,
+    CovidDisclaimers,
     IndianCases,
     Articles,
     Testing,
@@ -82,6 +91,5 @@ export default {
 
 <style lang="stylus" scoped>
 .content
-  padding 16px
-  padding-top 32px
+  padding 1rem 1.5rem
 </style>

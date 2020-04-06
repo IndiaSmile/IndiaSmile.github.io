@@ -57,6 +57,30 @@ export default {
   .fade-leave-active
     opacity 0
 
+  // header & typoography
+  &__header
+    margin 0 0 .5rem
+
+  &__title
+    margin 0
+    font-size 1.125em
+    font-weight normal
+
+  &__subtitle
+    font-size .875em
+    color inherit
+    font-weight normal
+    color #999
+    margin 0 !important
+
+    &--em
+      color #1C5BFF
+
+  &__title--small
+    font-size 1.125em
+    color #444
+    font-weight bold
+
 // for article styles
 .article
   display flex
