@@ -1,7 +1,8 @@
 <template lang="pug">
   div
-    .wrapper__title 🧪 Testing in <strong>India</strong>
-    .wrapper__subtitle {{ testsDone[2] ? testsDone[2].value : '...' }} samples tested so far
+    .wrapper__header
+      .wrapper__title 🧪 Testing in <strong>India</strong>
+      .wrapper__subtitle {{ testsDone[2] ? testsDone[2].value : '...' }} samples tested so far
 
     svg#testingGraph
 

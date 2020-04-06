@@ -58,6 +58,11 @@ export default {
     opacity 0
 
   // header & typoography
+  &__hr
+    margin 1rem -.5rem
+    height 3px
+    border-top thin solid #eee
+
   &__header
     margin 0 0 .5rem
 

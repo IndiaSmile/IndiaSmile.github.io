@@ -4,23 +4,30 @@
       title="COVID-19 Around You"
     )
       ul
-        li 👇 <strong>Scroll down</strong> to find how close COVID-19 is to you
-        li 🌐 See international and domestic stats for COVID-19's spread
-        li 👬 Join <strong>communities</strong> to make new friends and chat
+        li 🌐 Scroll & understand COVID-19's worldwide spread
+        li 👬 Join <strong>communities</strong> to make new friends
+        li 🧠 <strong>Share & save</strong>: only source you need to keep updated.
 
     .content
       Tracker
 
       IndianCases(:historical="historical")
 
+      hr.wrapper__hr
       InternationalCases.margin-top(:historical="historical")
 
+      hr.wrapper__hr
       Testing.margin-top
 
+
+
+      hr.wrapper__hr
       Articles.margin-top(:count="3")
 
+      hr.wrapper__hr
       LockdownCountdown.margin-top
 
+      hr.wrapper__hr
       CovidDisclaimers
 </template>
 
