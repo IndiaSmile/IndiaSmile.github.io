@@ -30,7 +30,7 @@
 
       LocalStats
 
-      Articles(:count="count")
+      Articles.margin-top(:count="count")
 
       b-button(v-if="count !== 0" @click="count = 0" icon-left="chevron-down" type="is-primary") View more
 </template>
