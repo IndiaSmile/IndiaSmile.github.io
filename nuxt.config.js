@@ -94,9 +94,7 @@ export default {
     // Doc: https://github.com/bazzite/nuxt-optimized-images
     '@bazzite/nuxt-optimized-images',
     // Doc: https://github.com/nuxt-community/feed-module
-    '@nuxtjs/feed',
-    // Doc: https://github.com/nuxt-community/proxy-module
-    '@nuxtjs/proxy',
+    '@nuxtjs/feed'
   ],
   /*
    ** GTM
@@ -245,6 +243,7 @@ export default {
   ],
 
   proxy: {
-    '/api-c19': {target: 'https://api.covid19india.org/data.json', pathRewrite: {'^/api-c19': ''}},
+    '/api-c19/': {target: 'https://api.covid19india.org/data.json', pathRewrite: {'^/api-c19/': ''}},
+    '/api-geo2covid/': {target: 'https://script.google.com/macros/s/AKfycbwqcrVhD9D6Oi2aIi9EG16ks3hLjbJqag_jznwxqpY88xdoBQun/exec', pathRewrite: {'^/api-geo2covid/': ''}}
   },
 }

@@ -47,8 +47,7 @@ export default {
     return {
       position: null,
       distance: null,
-      endpoint:
-        'https://script.google.com/macros/s/AKfycbwqcrVhD9D6Oi2aIi9EG16ks3hLjbJqag_jznwxqpY88xdoBQun/exec',
+      endpoint: '/api-geo2covid',
 
       showError: false,
     }
@@ -105,9 +104,9 @@ export default {
     share(platform) {
       const message = `Nearest COVID19 case to my location is around ${this.distance} km away! 😨
 
-Check from your family's location: https://indiasmile.org/nearme 🦠
+Check from your family's location: https://indiasmile.org/covid 🦠
 
-Stay Indoors & Stay Safe  🇮🇳`
+Stay Indoors & Stay Safe 🇮🇳`
 
       sharer(message, '', platform)
     },
