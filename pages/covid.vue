@@ -30,8 +30,8 @@
         :subtitle="card.subtitle"
         :image="card.image"
         :color="card.color"
-        :to="card.href"
         :isDarkText="card.isDarkText"
+        :list="card.links"
       )
 
       hr.wrapper__hr
@@ -85,12 +85,33 @@ export default {
       historical: [],
 
       card: {
-        title: 'Like Minded WhatsApp Communities 👨‍👧‍👧',
+        title: 'Like Minded WhatsApp Communities',
         subtitle: 'Topic based community chats',
         image: require('~/assets/images/whatsapp-alt.jpg?resize'),
         color: '#1ebfa5',
-        href: '/communities',
         isDarkText: false,
+        links: [
+          {
+            name: 'Movies and TV',
+            link: 'https://t.me/entertainment_isc',
+          },
+          {
+            name: 'Updates',
+            link: 'https://chat.whatsapp.com/KGdpQoNwG7q4IsZy2n13dd',
+          },
+          {
+            name: 'Mood Support',
+            link: 'https://chat.whatsapp.com/F97AbnosfqeEC3gJObw6sU',
+          },
+          {
+            name: 'Jokes',
+            link: 'https://chat.whatsapp.com/KrTMHQTJ8CcA1V58rYy9Mc',
+          },
+          {
+            name: 'Books',
+            link: 'https://t.me/books_isc',
+          },
+        ],
       },
     }
   },

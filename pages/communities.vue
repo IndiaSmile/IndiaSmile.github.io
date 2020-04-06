@@ -55,24 +55,6 @@ export default {
           href: 'https://t.me/entertainment_isc',
           isDarkText: false,
           button: 'Join on Telegram',
-          links: [
-            {
-              name: 'English Movies',
-              link: '/entertainment/movies/english',
-            },
-            {
-              name: 'Hindi Movies',
-              link: '/entertainment/movies/hindi',
-            },
-            {
-              name: 'English TV',
-              link: '/entertainment/tv/english',
-            },
-            {
-              name: 'Hindi TV',
-              link: '/entertainment/tv/hindi',
-            },
-          ],
         },
         {
           title: 'Updates',

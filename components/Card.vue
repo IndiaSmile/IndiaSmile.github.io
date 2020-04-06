@@ -145,6 +145,12 @@ export default {
       .card__gradient
         height 180%
 
+    &--5
+      padding-bottom 140%
+
+      .card__gradient
+        height 210%
+
   &__image
     display block
     width 100%
