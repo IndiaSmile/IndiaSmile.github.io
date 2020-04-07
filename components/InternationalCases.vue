@@ -4,7 +4,7 @@
       header.wrapper__header
         .wrapper__title 🌏 Global statistics
         .wrapper__subtitle Cases around the world
-      StatsBox(:data='globalData')
+      StatsBox(:data='globalData' :showTotal="true")
 
       .tabs-container
         hr.wrapper__hr

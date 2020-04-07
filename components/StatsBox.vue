@@ -1,9 +1,9 @@
 <template lang="pug">
 .stats
-  //- .stats__item.stats__item--confirmed
-    .stats__item__text Confirmed 😷
+  .stats__item.stats__item--confirmed(v-show="showTotal")
+    .stats__item__text Total 😷
     .stats__item__number {{ data.total_cases }}
-  .stats__item.stats__item--active
+  .stats__item.stats__item--active(v-show="!showTotal")
     .stats__item__text Active 😷
     .stats__item__number {{ data.active_cases }}
   .stats__item.stats__item--recovered
@@ -20,6 +20,11 @@ export default {
     data: {
       type: Object,
       required: true,
+    },
+    showTotal: {
+      type: Boolean,
+      required: false,
+      default: false,
     },
   },
 }
