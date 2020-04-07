@@ -126,7 +126,7 @@ export default {
 
   head() {
     return {
-      title: 'Find how near COVID-19 is and other stats',
+      title: this.title,
       meta: [
         {
           hid: 'ogimage',
