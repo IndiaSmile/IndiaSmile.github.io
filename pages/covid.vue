@@ -10,7 +10,7 @@
 
     .content
       .wrapper__title 🇮🇳 Indian statistics
-      .wrapper__subtitle How our country is fighting CoronaVirus #jaihind
+      .wrapper__subtitle How our country is fighting CoronaVirus #JaiHind
 
       LocalStats.margin-top(:hideState="true")
 
@@ -73,7 +73,7 @@ export default {
 
   data() {
     return {
-      title: 'COVID19 Status',
+      title: 'Find how near COVID-19 is and other stats',
 
       image: require('~/assets/images/meta-image-covid.png?resize'),
 
@@ -132,6 +132,16 @@ export default {
           hid: 'ogimage',
           property: 'og:image',
           content: this.image,
+        },
+        {
+          hid: 'ogtitle',
+          property: 'og:title',
+          content: this.title + ' | IndiaSmile.org',
+        },
+        {
+          hid: 'twitterImage',
+          name: 'twitter:image',
+          content: 'https://indiasmile.org' + this.image,
         },
       ],
     }
