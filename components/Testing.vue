@@ -4,21 +4,21 @@
       .wrapper__title 🧪 Testing in <strong>India</strong>
       .wrapper__subtitle {{ testsDone[2] ? testsDone[2].value : '...' }} samples tested so far
 
-    .historical.testing
-      .testing__data(v-show="showStats")
-        .testing__data__date {{ computedTestDate }}
-        .testing__data__item
-          span.testing__data__item__box.testing__data__item__box--today
-          .testing__data__item__count {{ stats.testsToday }}
-          .testing__data__item__text tests done
-        .testing__data__item
-          span.testing__data__item__box.testing__data__item__box--positive
-          .testing__data__item__count {{ stats.totalPositive }}
-          .testing__data__item__text tests turned out positive
-        .testing__data__item
-          span.testing__data__item__box.testing__data__item__box--total
-          .testing__data__item__count {{ stats.totalTests }}
-          .testing__data__item__text total tests done so far
+    .historical
+      .historical__data(v-show="showStats")
+        .historical__data__date {{ computedTestDate }}
+        .historical__data__item
+          span.historical__data__item__box.historical__data__item__box--recovered
+          .historical__data__item__count {{ stats.testsToday }}
+          .historical__data__item__text tests done
+        .historical__data__item
+          span.historical__data__item__box.historical__data__item__box--total
+          .historical__data__item__count {{ stats.totalPositive }}
+          .historical__data__item__text tests turned out positive
+        .historical__data__item
+          span.historical__data__item__box.historical__data__item__box--active
+          .historical__data__item__count {{ stats.totalTests }}
+          .historical__data__item__text total tests done so far
 
       svg#testingGraph
 
@@ -265,35 +265,4 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
-.testing
-  &__data
-    position absolute
-    left 1rem
-    top 0
-
-    &__date
-      font-weight bold
-      font-size 0.85rem
-
-    &__item
-      display flex
-      align-items center
-      font-size 0.75rem
-
-      &__box
-        width 0.5rem
-        height 0.5rem
-        border-radius 0.1rem
-
-        &--today
-          background #2ed573
-        &--positive
-          background #ff4757
-        &--total
-          background #70a1ff
-
-      &__count
-        margin 0 0.5rem
-        font-weight bold
-</style>
+<style lang="stylus" scoped></style>

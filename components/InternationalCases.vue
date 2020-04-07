@@ -31,8 +31,22 @@
         StatsBox(:data='selectedCountry')
 
         .historical
-          .historical__date(v-if="graphDate") {{ graphDate }}
-          HistoricalGraph(:data="graphData" @updateBox="updateBox")
+          .historical__data(v-show="showStats")
+            .historical__data__date {{ computedDate }}
+            .historical__data__item
+              span.historical__data__item__box.historical__data__item__box--active
+              .historical__data__item__count {{ stats.active }}
+              .historical__data__item__text active
+            .historical__data__item
+              span.historical__data__item__box.historical__data__item__box--recovered
+              .historical__data__item__count {{ stats.recovered }}
+              .historical__data__item__text recovered
+            .historical__data__item
+              span.historical__data__item__box.historical__data__item__box--deceased
+              .historical__data__item__count {{ stats.deceased }}
+              .historical__data__item__text deceased
+
+          HistoricalGraph(:data="graphData" @updateStats="updateStats")
 
 </template>
 
@@ -79,7 +93,14 @@ export default {
 
       graphData: {},
 
-      boxValue: {},
+      stats: {
+        date: 0,
+        active: 0,
+        recovered: 0,
+        deceased: 0,
+      },
+
+      showStats: false,
 
       shareMessage: `Get the latest COVID19 stats and check from your family's location: https://indiasmile.org/covid 🦠
 
@@ -89,15 +110,7 @@ Stay Indoors & Stay Safe 🇮🇳`,
 
   computed: {
     selectedCountry() {
-      return Object.keys(this.boxValue).length
-        ? this.boxValue
-        : this.countriesData[this.countries[this.currentCountry]]
-    },
-
-    graphDate() {
-      return this.selectedCountry.timestamp
-        ? moment(this.selectedCountry.timestamp).format('DD MMMM')
-        : undefined
+      return this.countriesData[this.countries[this.currentCountry]]
     },
 
     globalData() {
@@ -107,6 +120,10 @@ Stay Indoors & Stay Safe 🇮🇳`,
         total_recovered: this.global.recovery_cases,
         total_deaths: this.global.death_cases,
       }
+    },
+
+    computedDate() {
+      return moment(this.stats.date).format('DD MMMM')
     },
   },
 
@@ -141,8 +158,13 @@ Stay Indoors & Stay Safe 🇮🇳`,
       }
     },
 
-    updateBox(value) {
-      this.boxValue = value
+    updateStats(stats) {
+      if (stats) {
+        this.showStats = true
+        this.stats = stats
+      } else {
+        this.showStats = false
+      }
     },
 
     share() {

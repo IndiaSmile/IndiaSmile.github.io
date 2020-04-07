@@ -107,15 +107,37 @@ export default {
       width calc(100% + 2rem)
       margin 0 -1rem
 
-      &__date
+      &__data
         position absolute
         left 1rem
-        top 1rem
-        padding 0.3rem 0.5rem
-        border-radius 0.25rem
-        font-weight bold
-        font-size 0.85rem
-        background rgba(108,117,125,.1)
+        top 0
+
+        &__date
+          font-weight bold
+          font-size 0.85rem
+
+        &__item
+          display flex
+          align-items center
+          font-size 0.75rem
+
+          &__box
+            width 0.5rem
+            height 0.5rem
+            border-radius 0.1rem
+
+            &--recovered
+              background #2ed573
+            &--total
+              background #ff4757
+            &--active
+              background #70a1ff
+            &--deceased
+              background #7f8c8d
+
+          &__count
+            margin 0 0.5rem
+            font-weight bold
 
     &__header
       display flex

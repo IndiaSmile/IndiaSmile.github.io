@@ -181,11 +181,11 @@ export default {
           const i = Math.round(indexScale.invert(mouse[0]))
           if (i >= 0 && i < casesData.length) {
             this.emitData({
-              timestamp: casesData[i].date,
-              total_cases: casesData[i].value,
-              total_recovered: recoveredData[i].value,
-              total_deaths: deathsData[i].value,
-              active_cases:
+              date: moment(casesData[i].date).format('DD MMMM'),
+              total: casesData[i].value,
+              recovered: recoveredData[i].value,
+              deceased: deathsData[i].value,
+              active:
                 casesData[i].value -
                 recoveredData[i].value -
                 deathsData[i].value,
@@ -193,12 +193,12 @@ export default {
           }
         })
         .on('mouseout', () => {
-          this.emitData({})
+          this.emitData(null)
         })
     },
 
     emitData(values) {
-      this.$emit('updateBox', values)
+      this.$emit('updateStats', values)
     },
   },
 }
