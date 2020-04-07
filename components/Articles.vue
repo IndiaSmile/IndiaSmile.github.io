@@ -1,7 +1,7 @@
 <template lang="pug">
   .news
     .news__heading 📰 Recent updates
-    .news__text Latest news about the COVID-19 outbreak from around the world.
+    .news__text.news__subheading Latest news about the COVID-19 outbreak from around the world.
 
     .news__section(v-for="(data, index) in articles" :key="index")
       .news__title {{ title(data) }}
@@ -14,19 +14,16 @@
       p.news__text(v-else v-html="text(data)")
 
       .news__action
-        b-button.news__action__button(icon-left="open-in-new") Read more
+        a(:href="data.link" target="_blank" rel="nofollow")
+          b-button.news__action__button(icon-left="open-in-new") Read more
 
-        b-button.news__action__button(icon-left="share-variant") Share
-      //- .news__user
-        a(v-if="!!data.link" :href="data.link" target="_blank" rel="nofollow")
-          .news__user__text
-            .news__user__text__name {{ author(data) }}
-            //- .news__user__text__date {{ date(data.created) }}
+        b-button.news__action__button(icon-left="share-variant" @click="share(data)") Share
 </template>
 
 <script>
 import moment from 'moment'
 import Feed from 'rss-to-json'
+import sharer from '~/services/sharer'
 import Button from '~/components/Button'
 
 export default {
@@ -134,6 +131,10 @@ export default {
         ? moment(timestamp).format('llll')
         : moment(timestamp).fromNow()
     },
+
+    share(data) {
+      sharer(data.title ? data.title : data.text, data.link)
+    },
   },
 }
 </script>
@@ -145,10 +146,12 @@ export default {
     font-size 1.25rem
     font-weight bold
 
+  &__subheading
+    margin-bottom 0.75rem
+
   &__section
     padding 1rem 0
     border-top 1px solid rgba(169, 194, 232, 0.5)
-    margin-top 0.75rem
 
   &__title
     color #19175B
