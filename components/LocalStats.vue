@@ -5,7 +5,7 @@
       StatsBox(:data="computedTotal")
 
     //- slot
-    div(v-if="!computedHideState")
+    div(v-if="!hideState")
       .wrapper__header
         .wraper__title 🌆 Situation of Your State: <strong>{{ state.state }}</strong>
       StatsBox(:data="computedState")
@@ -59,14 +59,6 @@ export default {
         total_recovered: this.state.recovered,
         total_deaths: this.state.deaths,
       }
-    },
-
-    computedHideState() {
-      return this.hideState
-        ? this.hideState
-        : this.state
-        ? Object.keys(this.state).length
-        : null
     },
 
     dataLength() {
