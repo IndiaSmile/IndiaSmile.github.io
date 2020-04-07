@@ -17,7 +17,7 @@ import sharer from '~/services/sharer'
 export default {
   props: {
     data: {
-      type: Object,
+      type: Array,
       required: true,
     },
   },
@@ -55,11 +55,7 @@ export default {
 
   computed: {
     states() {
-      return this.data
-        ? Object.keys(this.data).length
-          ? this.data.statewise.slice(1)
-          : []
-        : []
+      return this.data ? this.data.slice(1) : []
     },
   },
 

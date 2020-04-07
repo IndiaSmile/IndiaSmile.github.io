@@ -79,7 +79,7 @@ export default {
             async (position) => {
               this.showError = false
               this.position = position.coords
-              console.log(this.endpoint)
+
               const data = await this.$axios(
                 this.endpoint +
                   '?lat=' +

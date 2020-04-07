@@ -12,13 +12,13 @@
       .wrapper__title 🇮🇳 Indian statistics
       .wrapper__subtitle How our country is fighting CoronaVirus #JaiHind
 
-      LocalStats.margin-top(:data="statewise" :hideState="true")
+      IndiaStats.margin-top(:data="computedIndiaStats")
 
       hr.wrapper__hr
 
       Tracker.margin-top
 
-      IndianCases(:historical="historical" :statewise="statewise")
+      StateStats.margin-top(:data="statewise")
 
       hr.wrapper__hr
       InternationalCases.margin-top(:historical="historical")
@@ -54,11 +54,11 @@ import InternationalCases from '~/components/InternationalCases'
 import Tracker from '~/components/Tracker'
 import LockdownCountdown from '~/components/LockdownCountdown'
 import CovidDisclaimers from '~/components/CovidDisclaimers'
-import IndianCases from '~/components/IndianCases'
 import Articles from '~/components/Articles'
 import Testing from '~/components/Testing'
 import Card from '~/components/Card'
-import LocalStats from '~/components/LocalStats'
+import IndiaStats from '~/components/IndiaStats'
+import StateStats from '~/components/StateStats'
 import StatewiseTable from '~/components/StatewiseTable'
 
 export default {
@@ -68,11 +68,11 @@ export default {
     Tracker,
     LockdownCountdown,
     CovidDisclaimers,
-    IndianCases,
     Articles,
     Testing,
     Card,
-    LocalStats,
+    IndiaStats,
+    StateStats,
     StatewiseTable,
   },
 
@@ -90,7 +90,7 @@ export default {
       },
 
       historical: [],
-      statewise: {},
+      statewise: [],
 
       card: {
         title: 'Find like minded people to talk to',
@@ -124,13 +124,19 @@ export default {
     }
   },
 
+  computed: {
+    computedIndiaStats() {
+      return this.statewise.length ? this.statewise[0] : {}
+    },
+  },
+
   async created() {
     // fetch historical data
     const historical = await this.$axios(this.endpoints.historical)
     this.historical = historical.data
 
     const statewise = await this.$axios(this.endpoints.statewise)
-    this.statewise = statewise.data
+    this.statewise = statewise.data.statewise
   },
 
   head() {

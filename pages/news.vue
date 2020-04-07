@@ -4,7 +4,10 @@
 
     .content
       h3 COVID-19 India Statistics
-      LocalStats.stats(:data="statewise")
+
+      IndiaStats(:data="indiaData")
+
+      StateStats.margin-top(:data="statesData")
 
       Sharer(:title="title")
 
@@ -17,7 +20,8 @@
 
 <script>
 import ArticleHero from '~/components/ArticleHero'
-import LocalStats from '~/components/LocalStats'
+import IndiaStats from '~/components/IndiaStats'
+import StateStats from '~/components/StateStats'
 import Articles from '~/components/Articles'
 // import indiaSmileLogo from '~/assets/logo-square.png'
 
@@ -25,8 +29,9 @@ export default {
   name: 'HomePage',
   components: {
     ArticleHero,
-    LocalStats,
     Articles,
+    IndiaStats,
+    StateStats,
   },
 
   data() {
@@ -39,9 +44,19 @@ export default {
     }
   },
 
+  computed: {
+    indiaData() {
+      return this.statewise.length ? this.statewise[0] : {}
+    },
+
+    statesData() {
+      return this.statewise.length ? this.statewise : []
+    },
+  },
+
   async created() {
     const statewise = await this.$axios('/api-c19/')
-    this.statewise = statewise.data
+    this.statewise = statewise.data.statewise
   },
 
   head() {

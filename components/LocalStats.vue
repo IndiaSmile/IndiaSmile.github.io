@@ -5,7 +5,7 @@
       StatsBox(:data="computedTotal")
 
     //- slot
-    div(v-if="!hideState")
+    div(v-if="!hideState && doesStateExist")
       .wrapper__header
         .wraper__title 🌆 Situation of Your State: <strong>{{ state.state }}</strong>
       StatsBox(:data="computedState")
@@ -44,21 +44,25 @@ export default {
 
   computed: {
     computedTotal() {
-      return {
-        total_cases: this.total.confirmed,
-        active_cases: this.total.active,
-        total_recovered: this.total.recovered,
-        total_deaths: this.total.deaths,
-      }
+      return this.doesStateExist
+        ? {
+            total_cases: this.total.confirmed,
+            active_cases: this.total.active,
+            total_recovered: this.total.recovered,
+            total_deaths: this.total.deaths,
+          }
+        : {}
     },
 
     computedState() {
-      return {
-        total_cases: this.state.confirmed,
-        active_cases: this.state.active,
-        total_recovered: this.state.recovered,
-        total_deaths: this.state.deaths,
-      }
+      return this.doesStateExist
+        ? {
+            total_cases: this.state.confirmed,
+            active_cases: this.state.active,
+            total_recovered: this.state.recovered,
+            total_deaths: this.state.deaths,
+          }
+        : {}
     },
 
     dataLength() {
@@ -67,6 +71,10 @@ export default {
 
     total() {
       return this.dataLength ? this.data.statewise[0] : {}
+    },
+
+    doesStateExist() {
+      return Boolean(Object.keys(this.state).length)
     },
 
     state() {
