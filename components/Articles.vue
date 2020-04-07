@@ -158,6 +158,7 @@ export default {
   &__time
     font-size 0.75rem
     color #1C5BFF
+    margin-bottom 0.375rem
 
   &__text
     font-size .875em
