@@ -3,7 +3,7 @@
     .content__section
       header.wrapper__header
         .wrapper__title 👪 COVID-19 Near You
-        .wrapper__subtitle.wrapper__subtitle--em
+        .wrapper__subtitle.wrapper__subtitle--em(v-if="!computedDistance")
           | Allow location access & find out how close an infected patient is from you!
 
     b-message(v-if="showError" type="is-warning") We need access to your location to find the nearest case

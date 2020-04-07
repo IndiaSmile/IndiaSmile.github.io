@@ -5,7 +5,7 @@
       StatsBox(:data="computedTotal")
 
     //- slot
-    div(v-if="!hideState")
+    div(v-if="!computedHideState")
       .wrapper__header
         .wraper__title 🌆 Situation of Your State: <strong>{{ state.state }}</strong>
       StatsBox(:data="computedState")
@@ -59,6 +59,14 @@ export default {
         total_deaths: this.state.deaths,
       }
     },
+
+    computedHideState() {
+      return this.hideState
+        ? this.hideState
+        : this.state
+        ? Object.keys(this.state).length
+        : null
+    },
   },
 
   created() {
@@ -69,17 +77,19 @@ export default {
 
   methods: {
     fetchData() {
-      window.geoip2.city(async (res) => {
-        this.stateCode = res.subdivisions[0].iso_code
+      if (typeof window !== 'undefined') {
+        window.geoip2.city(async (res) => {
+          this.stateCode = res.subdivisions[0].iso_code
 
-        const response = await this.$axios('/api-c19/')
+          const response = await this.$axios('/api-c19/')
 
-        this.total = response.data.statewise[0]
+          this.total = response.data.statewise[0]
 
-        this.state = response.data.statewise.filter(
-          (item) => item.statecode === this.stateCode
-        )[0]
-      })
+          this.state = response.data.statewise.filter(
+            (item) => item.statecode === this.stateCode
+          )[0]
+        })
+      }
     },
   },
 }

@@ -1,16 +1,22 @@
 <template lang="pug">
-  div
-    .wrapper__title 📰 Recent updates
+  .news
+    .news__heading 📰 Recent updates
+    .news__text Latest news about the COVID-19 outbreak from around the world.
 
     .news__section(v-for="(data, index) in articles" :key="index")
+      .news__title {{ title(data) }}
 
-      .news__title(v-if="showTitle(data)") {{ data.title }}
+      .news__time {{ time(data.created) }}
 
       p.news__text(v-if="typeof data.text === 'string'" v-html="data.text")
       div(v-else-if="typeof data.text === 'object'")
         p.news__text(v-for="(text, idx) in data.text" :key="idx" v-html="text")
       p.news__text(v-else v-html="text(data)")
 
+      .news__action
+        b-button.news__action__button(icon-left="open-in-new") Read more
+
+        b-button.news__action__button(icon-left="share-variant") Share
       //- .news__user
         a(v-if="!!data.link" :href="data.link" target="_blank" rel="nofollow")
           .news__user__text
@@ -40,7 +46,7 @@ export default {
       rssArticles: [],
 
       twitter: {
-        username: 'ANI',
+        username: '@ANI',
         avatar:
           'https://pbs.twimg.com/profile_images/1497864299/ani_mic_logo_400x400.jpg',
       },
@@ -111,16 +117,22 @@ export default {
       return this.isTweet(data) ? data.title : data.description
     },
 
-    date(timestamp) {
-      return moment(timestamp).format('llll')
-    },
-
     showTitle(data) {
       return !this.isTweet(data)
     },
 
+    title(data) {
+      return !this.isTweet(data) ? data.title : this.twitter.username
+    },
+
     isTweet(data) {
       return data.link.startsWith('https://twitter.com/')
+    },
+
+    time(timestamp) {
+      return moment().diff(moment(timestamp), 'days') >= 2
+        ? moment(timestamp).format('llll')
+        : moment(timestamp).fromNow()
     },
   },
 }
@@ -128,16 +140,43 @@ export default {
 
 <style lang="stylus" scoped>
 .news
+  &__heading
+    color #19175B
+    font-size 1.25rem
+    font-weight bold
+
   &__section
-    margin .5rem 0
-    line-height 1.4
-    font-weight 400
+    padding 1rem 0
+    border-top 1px solid rgba(169, 194, 232, 0.5)
+    margin-top 0.75rem
 
   &__title
-    font-size .875em
-    font-weight normal
-    margin 0
+    color #19175B
+    font-size 1em
+    font-weight bold
+
+  &__time
+    font-size 0.75rem
+    color #1C5BFF
+
   &__text
-    font-size .75em
-    color #999
+    font-size .875em
+    color rgba(25, 23, 91, 0.65)
+
+  &__action
+    display flex
+    justify-content center
+
+    &__button
+      width 8.75rem
+      height 2.125rem
+      background-color rgba(28, 91, 255, 0.1)
+      border 0
+      border-radius 0.25rem
+      color #1C5BFF
+      font-size 0.875rem
+      font-weight 500
+
+      &:first-child
+        margin-right 0.75rem
 </style>
