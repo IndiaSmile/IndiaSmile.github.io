@@ -1,5 +1,5 @@
 <template lang="pug">
-  div
+  div(v-if="dataLength")
     div(v-if="!hideIndia")
       h3(v-if="!hideState") India
       StatsBox(:data="computedTotal")
@@ -20,6 +20,10 @@ export default {
   },
 
   props: {
+    data: {
+      type: Object,
+      required: true,
+    },
     hideIndia: {
       type: Boolean,
       required: false,
@@ -34,9 +38,6 @@ export default {
 
   data() {
     return {
-      total: {},
-      state: {},
-
       stateCode: '',
     }
   },
@@ -67,6 +68,22 @@ export default {
         ? Object.keys(this.state).length
         : null
     },
+
+    dataLength() {
+      return this.data ? Object.keys(this.data).length : null
+    },
+
+    total() {
+      return this.dataLength ? this.data.statewise[0] : {}
+    },
+
+    state() {
+      return this.dataLength
+        ? this.data.statewise.filter(
+            (item) => item.statecode === this.stateCode
+          )[0]
+        : {}
+    },
   },
 
   created() {
@@ -78,16 +95,8 @@ export default {
   methods: {
     fetchData() {
       if (typeof window !== 'undefined') {
-        window.geoip2.city(async (res) => {
+        window.geoip2.city((res) => {
           this.stateCode = res.subdivisions[0].iso_code
-
-          const response = await this.$axios('/api-c19/')
-
-          this.total = response.data.statewise[0]
-
-          this.state = response.data.statewise.filter(
-            (item) => item.statecode === this.stateCode
-          )[0]
         })
       }
     },

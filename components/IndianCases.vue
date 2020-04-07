@@ -1,6 +1,6 @@
 <template lang="pug">
   div
-    LocalStats.margin-top(:hideIndia="true")
+    LocalStats.margin-top(:hideIndia="true" :data="statewise")
       .historical
         //- HistoricalGraph(:data="graphData")
 
@@ -19,6 +19,10 @@ export default {
   props: {
     historical: {
       type: Array,
+      required: true,
+    },
+    statewise: {
+      type: Object,
       required: true,
     },
   },

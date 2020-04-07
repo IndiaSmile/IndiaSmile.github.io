@@ -12,13 +12,13 @@
       .wrapper__title 🇮🇳 Indian statistics
       .wrapper__subtitle How our country is fighting CoronaVirus #JaiHind
 
-      LocalStats.margin-top(:hideState="true")
+      LocalStats.margin-top(:data="statewise" :hideState="true")
 
       hr.wrapper__hr
 
       Tracker.margin-top
 
-      IndianCases(:historical="historical")
+      IndianCases(:historical="historical" :statewise="statewise")
 
       hr.wrapper__hr
       InternationalCases.margin-top(:historical="historical")
@@ -39,6 +39,9 @@
       Articles.margin-top(:count="3")
 
       hr.wrapper__hr
+      StatewiseTable(:data="statewise")
+
+      hr.wrapper__hr
       LockdownCountdown.margin-top
 
       hr.wrapper__hr
@@ -56,6 +59,7 @@ import Articles from '~/components/Articles'
 import Testing from '~/components/Testing'
 import Card from '~/components/Card'
 import LocalStats from '~/components/LocalStats'
+import StatewiseTable from '~/components/StatewiseTable'
 
 export default {
   components: {
@@ -69,6 +73,7 @@ export default {
     Testing,
     Card,
     LocalStats,
+    StatewiseTable,
   },
 
   data() {
@@ -81,9 +86,11 @@ export default {
         countrywise:
           'https://corona-virus-stats.herokuapp.com/api/v1/cases/countries-search?search=',
         historical: 'https://corona.lmao.ninja/v2/historical',
+        statewise: '/api-c19/',
       },
 
       historical: [],
+      statewise: {},
 
       card: {
         title: 'Find like minded people to talk to',
@@ -120,8 +127,10 @@ export default {
   async created() {
     // fetch historical data
     const historical = await this.$axios(this.endpoints.historical)
-
     this.historical = historical.data
+
+    const statewise = await this.$axios(this.endpoints.statewise)
+    this.statewise = statewise.data
   },
 
   head() {

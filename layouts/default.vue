@@ -245,4 +245,69 @@ export default {
 
 .margin-top
   margin-top 1rem
+
+
+svg
+  display block
+  margin 0 auto
+
+.line-path
+    fill none
+    stroke-width 2
+    stroke-linejoin round
+
+    &--active
+      stroke #70a1ff
+
+    &--cases
+        stroke #ff4757
+
+    &--recovered
+        stroke #2ed573
+
+    &--deaths
+        stroke #a4b0be
+
+.axis
+    stroke #57606f
+    stroke-width 1px
+
+    .tick
+        stroke none
+        color #57606f
+
+.circle
+  stroke none
+
+  &--active
+    fill #70a1ff
+  &--cases
+    fill #ff4757
+  &--deaths
+    fill #a4b0be
+  &--recovered
+    fill #2ed573
+
+.cover-mouse-over
+  fill none
+
+.text--confirmed
+  color #ff4757
+  &--light
+    color rgba(255,7,58,.6)
+
+.text--active
+  color #70a1ff
+  &--light
+    color rgba(0,123,255,.6)
+
+.text--deceased
+  color #a4b0be
+  &--light
+    color rgba(108,117,125,.6)
+
+.text--recovered
+  color #2ed573
+  &--light
+    color rgba(40,167,69,.6)
 </style>

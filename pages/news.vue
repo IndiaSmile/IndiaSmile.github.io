@@ -4,7 +4,7 @@
 
     .content
       h3 COVID-19 India Statistics
-      LocalStats.stats
+      LocalStats.stats(:data="statewise")
 
       Sharer(:title="title")
 
@@ -35,7 +35,13 @@ export default {
       title: 'News',
 
       count: 3,
+      statewise: {},
     }
+  },
+
+  async created() {
+    const statewise = await this.$axios('/api-c19/')
+    this.statewise = statewise.data
   },
 
   head() {
