@@ -1,5 +1,4 @@
 export default function(title, url = '', platform = 'whatsapp') {
-  console.log(title, url)
   if (navigator.share) {
     navigator
       .share({

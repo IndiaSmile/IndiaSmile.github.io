@@ -6,6 +6,14 @@
         .wrapper__subtitle Cases around the world
       StatsBox(:data='globalData' :showTotal="true")
 
+      .share-box(@click="share")
+        .share-box__icon
+          b-icon.share-box__icon__element(icon="share-variant")
+        .share-box__text
+          .share-box__text__title Share with your friends!
+          .share-box__text__subtitle Stay informed and keep others informed.
+
+
       .tabs-container
         hr.wrapper__hr
         header.wrapper__header
@@ -30,6 +38,7 @@
 
 <script>
 import moment from 'moment'
+import sharer from '~/services/sharer'
 import StatsBox from '~/components/StatsBox'
 import HistoricalGraph from '~/components/HistoricalGraph'
 
@@ -71,6 +80,10 @@ export default {
       graphData: {},
 
       boxValue: {},
+
+      shareMessage: `Get the latest COVID19 stats and check from your family's location: https://indiasmile.org/covid 🦠
+
+Stay Indoors & Stay Safe 🇮🇳`,
     }
   },
 
@@ -131,12 +144,44 @@ export default {
     updateBox(value) {
       this.boxValue = value
     },
+
+    share() {
+      sharer(this.shareMessage)
+    },
   },
 }
 </script>
 
 <style lang="stylus" scoped>
 .wrapper
+  .share-box
+    display flex
+    margin 0.875rem 0
+
+    &__icon
+      width 2.5rem
+      height 2.5rem
+      border-radius 100%
+      background #E8EFFF
+      margin-right 0.5625rem
+      display inline-flex
+      justify-content center
+      align-items center
+
+      &__element
+        color #1C5BFF
+        font-size 1.25rem
+
+    &__text
+      &__title
+        font-size 0.875rem
+        color #000
+        font-weight bold
+
+      &__subtitle
+        font-size 0.75rem
+        color #505050
+
   .tabs-container
     margin-top .5rem
 
