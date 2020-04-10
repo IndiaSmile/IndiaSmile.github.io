@@ -174,9 +174,13 @@ Stay Indoors & Stay Safe 🇮🇳`
     list-style-type none
 
     &__item
-      display flex
+      display inline-flex
       justify-content center
       margin-top 1rem
+      background-color rgba(28,91,255,0.05)
+      padding 0.5rem 1rem
+      border-radius 0.25rem
+      border-bottom 4px solid rgba(28,91,255,0.05)
 
       &__icon
         margin-right 0.5rem
