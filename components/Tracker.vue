@@ -74,9 +74,16 @@ export default {
   methods: {
     fetchLocation() {
       if (!process.server) {
+        // push GTM event
+        this.$gtm.push({ event: 'TapLocationAccess' })
+
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(
             async (position) => {
+              // permission granted
+              // push GTM event
+              this.$gtm.push({ event: 'LocationAccessGranted' })
+
               this.showError = false
               this.position = position.coords
 
@@ -90,10 +97,18 @@ export default {
 
               this.distance = Math.round(Number(data.data) * 100) / 100
 
+              // got nearby data
+              // push GTM event
+              this.$gtm.push({ event: 'GotNearbyLocationData' })
+
               // set the localstorage data
               localStorage.setItem('isLocationPermissionGranted', true)
             },
             () => {
+              // permission denied
+              // push GTM event
+              this.$gtm.push({ event: 'LocationAccessDenied' })
+
               this.showError = true
             }
           )
