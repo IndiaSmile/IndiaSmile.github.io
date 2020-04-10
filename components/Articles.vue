@@ -15,7 +15,7 @@
 
       .news__action
         a(:href="data.link" target="_blank" rel="nofollow")
-          b-button.news__action__button(icon-left="open-in-new") Read more
+          b-button.news__action__button(icon-left="open-in-new" size='is-small') Read more
 
         b-button.news__action__button(icon-left="share-variant" @click="share(data)") Share
 </template>
@@ -172,13 +172,13 @@ export default {
     justify-content center
 
     &__button
-      width 8.75rem
-      height 2.125rem
+      height 2rem
+      padding 0 1rem
       background-color rgba(28, 91, 255, 0.1)
       border 0
       border-radius 0.25rem
       color #1C5BFF
-      font-size 0.875rem
+      font-size 0.75rem
       font-weight 500
 
       &:first-child

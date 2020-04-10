@@ -14,8 +14,7 @@
               .card__list__item__body__text
                 .card__list__item__body__text__name(:class="textClassName") {{ item.name }}
                 .card__list__item__body__text__subtext(v-if="item.text" :class="textClassName") {{ item.text }}
-              .card__list__item__body__icon(:class="textClassName")
-                b-icon(icon="chevron-right")
+              b-button.card__list__item__body__button(:class="textClassName" icon-right='chevron-right' size='is-small') Join Now
 
         .card__action(v-if="!!button")
           a(:href="to")
@@ -228,13 +227,10 @@ export default {
             &.text--light
               color rgba(255,255,255,0.85)
 
-        &__icon
-          display inline-flex
-          align-items center
-          color #000000
-
-          &.text--light
-            color rgba(255,255,255,0.85)
+        &__button
+          border 0
+          color rgba(255, 255, 255, 0.85)
+          background rgba(255, 255, 255, 0.2)
 
 
 .link
