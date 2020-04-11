@@ -75,14 +75,16 @@ export default {
     fetchLocation() {
       if (!process.server) {
         // push GTM event
-        this.$gtm.push({ event: 'TapLocationAccess' })
+        this.$gtm.push({ event: 'tap_loc_acc' })
 
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(
             async (position) => {
               // permission granted
               // push GTM event
-              this.$gtm.push({ event: 'LocationAccessGranted' })
+              this.$gtm.push({ event: 'loc_acc_grant' })
+              // register timestamp to compare
+              const timestamp1 = Date.now()
 
               this.showError = false
               this.position = position.coords
@@ -95,19 +97,29 @@ export default {
                   this.position.longitude
               )
 
+              // data recieved, register another timestamp
+              const timestamp2 = Date.now()
+
               this.distance = Math.round(Number(data.data) * 100) / 100
 
               // got nearby data
               // push GTM event
-              this.$gtm.push({ event: 'GotNearbyLocationData' })
+              this.$gtm.push({ event: 'loc_acc_received' })
 
               // set the localstorage data
               localStorage.setItem('isLocationPermissionGranted', true)
+
+              // compare timestamps here
+              // if it took more than 10s
+              if ((timestamp2 - timestamp1) / 100 > 10) {
+                // push GTM event
+                this.$gtm.push({ event: 'loc_data_fail' })
+              }
             },
             () => {
               // permission denied
               // push GTM event
-              this.$gtm.push({ event: 'LocationAccessDenied' })
+              this.$gtm.push({ event: 'loc_acc_deny' })
 
               this.showError = true
             }
