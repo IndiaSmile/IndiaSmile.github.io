@@ -28,6 +28,9 @@
       hr.wrapper__hr
       Testing.margin-top
 
+      hr.wrapper__hr
+      StatewiseTable(:data="statewise")
+
       card.margin-top(
         :title="card.title"
         :subtitle="card.subtitle"
@@ -39,9 +42,6 @@
 
       hr.wrapper__hr
       Articles.margin-top(:count="3")
-
-      hr.wrapper__hr
-      StatewiseTable(:data="statewise")
 
       hr.wrapper__hr
       LockdownCountdown.margin-top

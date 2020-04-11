@@ -2,8 +2,8 @@
   .statewise
     .statewise__section
       .statewise__text
-        .statewise__text__title Other states
-        .statewise__text__subtitle How are other states doing?
+        .statewise__text__title 🌆 Statewise Statistics
+        .statewise__text__subtitle How is each state doing?
       .statewise__icon(@click="share")
         .statewise__icon__cover
           b-icon.statewise__icon__element(icon="share-variant")
