@@ -53,14 +53,14 @@ export default {
 
   methods: {
     async fetchData() {
-      if (this.$storage.getLocalStorage('userState')) {
-        this.stateCode = this.$storage.getLocalStorage('userState')
-      } else {
-        const response = await this.$axios('http://ip-api.com/json/')
-        this.stateCode = response.data.region
+      // if (this.$storage.getLocalStorage('userState')) {
+      // this.stateCode = this.$storage.getLocalStorage('userState')
+      // } else {
+      const response = await this.$axios('http://ip-api.com/json/')
+      this.stateCode = response.data.region
 
-        this.$storage.setLocalStorage('userState', this.stateCode)
-      }
+      // this.$storage.setLocalStorage('userState', this.stateCode)
+      // }
 
       if (this.data.length) {
         this.state = this.data.filter((item) => {

@@ -96,7 +96,7 @@ export default {
     // Doc: https://github.com/nuxt-community/feed-module
     '@nuxtjs/feed',
     // Doc: https://github.com/nuxt-community/universal-storage-module
-    '@nuxtjs/universal-storage',
+    // '@nuxtjs/universal-storage',
   ],
   /*
    ** GTM
@@ -258,9 +258,9 @@ export default {
   },
 
   // for storage
-  storage: {
-    localStorage: {
-      prefix: 'IndiaSmile'
-    },
-  },
+  // storage: {
+  //   localStorage: {
+  //     prefix: 'IndiaSmile'
+  //   },
+  // },
 }
