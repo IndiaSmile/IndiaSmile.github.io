@@ -1,5 +1,7 @@
 <template lang="pug">
   .article
+    Header
+
     TextHero(
       title="COVID-19 Around You"
     )
@@ -49,6 +51,7 @@
 </template>
 
 <script>
+import Header from '~/components/Header'
 import TextHero from '~/components/TextHero'
 import InternationalCases from '~/components/InternationalCases'
 import Tracker from '~/components/Tracker'
@@ -63,6 +66,7 @@ import StatewiseTable from '~/components/StatewiseTable'
 
 export default {
   components: {
+    Header,
     TextHero,
     InternationalCases,
     Tracker,

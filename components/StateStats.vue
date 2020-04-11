@@ -52,19 +52,22 @@ export default {
   },
 
   methods: {
-    fetchData() {
-      if (process.client && typeof window !== 'undefined') {
-        window.geoip2.city((res) => {
-          this.stateCode = res.subdivisions[0].iso_code
+    async fetchData() {
+      if (this.$storage.getLocalStorage('userState')) {
+        this.stateCode = this.$storage.getLocalStorage('userState')
+      } else {
+        const response = await this.$axios('http://ip-api.com/json/')
+        this.stateCode = response.data.region
 
-          if (this.data.length) {
-            this.state = this.data.filter((item) => {
-              return item.statecode === this.stateCode
-            })[0]
+        this.$storage.setLocalStorage('userState', this.stateCode)
+      }
 
-            this.stateName = this.state.state
-          }
-        })
+      if (this.data.length) {
+        this.state = this.data.filter((item) => {
+          return item.statecode === this.stateCode
+        })[0]
+
+        this.stateName = this.state.state
       }
     },
   },

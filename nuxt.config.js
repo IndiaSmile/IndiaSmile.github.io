@@ -95,6 +95,8 @@ export default {
     '@bazzite/nuxt-optimized-images',
     // Doc: https://github.com/nuxt-community/feed-module
     '@nuxtjs/feed',
+    // Doc: https://github.com/nuxt-community/universal-storage-module
+    '@nuxtjs/universal-storage',
   ],
   /*
    ** GTM
@@ -159,6 +161,7 @@ export default {
       theme_color: '#ffffff',
       background_color: '#ffffff',
       display: 'standalone',
+      start_url: '/covid',
     },
   },
 
@@ -251,6 +254,13 @@ export default {
       target:
         'https://script.google.com/macros/s/AKfycbwqcrVhD9D6Oi2aIi9EG16ks3hLjbJqag_jznwxqpY88xdoBQun/exec',
       pathRewrite: { '^/api-geo2covid/': '' },
+    },
+  },
+
+  // for storage
+  storage: {
+    localStorage: {
+      prefix: 'IndiaSmile'
     },
   },
 }

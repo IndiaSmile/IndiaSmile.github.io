@@ -179,6 +179,9 @@ Stay Indoors & Stay Safe 🇮🇳`,
   .share-box
     display flex
     margin 0.875rem 0
+    box-shadow 2px 2px 5px #ddd
+    padding 0.8rem
+    border-radius 0.25rem
 
     &__icon
       width 2.5rem

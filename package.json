@@ -19,6 +19,7 @@
     "@nuxtjs/gtm": "^2.2.3",
     "@nuxtjs/onesignal": "^3.0.0-beta.16",
     "@nuxtjs/pwa": "^3.0.0-0",
+    "@nuxtjs/universal-storage": "^0.5.4",
     "axios": "^0.19.2",
     "d3": "^5.15.1",
     "imagemin-mozjpeg": "^8.0.0",
