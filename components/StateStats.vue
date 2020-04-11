@@ -56,7 +56,7 @@ export default {
       // if (this.$storage.getLocalStorage('userState')) {
       // this.stateCode = this.$storage.getLocalStorage('userState')
       // } else {
-      const response = await this.$axios('http://ip-api.com/json/')
+      const response = await this.$axios('https://ip-api.com/json/')
       this.stateCode = response.data.region
 
       // this.$storage.setLocalStorage('userState', this.stateCode)
