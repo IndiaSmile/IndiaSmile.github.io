@@ -20,16 +20,14 @@
 
       Tracker.margin-top
 
-      StateStats.margin-top(:data="statewise")
+      hr.wrapper__hr
+      StatewiseTable(:data="statewise")
 
       hr.wrapper__hr
       InternationalCases.margin-top(:historical="historical")
 
       hr.wrapper__hr
       Testing.margin-top
-
-      hr.wrapper__hr
-      StatewiseTable(:data="statewise")
 
       card.margin-top(
         :title="card.title"
