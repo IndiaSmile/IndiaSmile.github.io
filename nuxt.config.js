@@ -260,7 +260,7 @@ export default {
   // for storage
   storage: {
     localStorage: {
-      prefix: 'IndiaSmile'
+      prefix: 'IndiaSmile',
     },
   },
 }
