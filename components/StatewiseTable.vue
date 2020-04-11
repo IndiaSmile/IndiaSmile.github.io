@@ -105,8 +105,8 @@ Stay Indoors & Stay Safe 🇮🇳`,
 
   &__text
     &__title
-      color #19175B
-      font-size 1.25rem
+      color #000
+      font-size 0.875rem
       font-weight bold
 
     &__subtitle
