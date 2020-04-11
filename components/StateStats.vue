@@ -1,8 +1,8 @@
 <template lang="pug">
   div
-    .wrapper__header
-      .wraper__title 🌆 Situation of Your State: <strong>{{ stateName }}</strong>
-    StatsBox(v-if="state" :data="computedState")
+    //- .wrapper__header
+    //-   .wraper__title 🌆 Situation of Your State: <strong>{{ stateName }}</strong>
+    //- StatsBox(v-if="state" :data="computedState")
 </template>
 
 <script>
@@ -41,36 +41,36 @@ export default {
     },
   },
 
-  watch: {
-    data() {
-      this.fetchData()
-    },
-  },
+  // watch: {
+  //   data() {
+  //     this.fetchData()
+  //   },
+  // },
 
-  created() {
-    this.fetchData()
-  },
+  // created() {
+  //   this.fetchData()
+  // },
 
-  methods: {
-    async fetchData() {
-      if (this.$storage.getLocalStorage('userState')) {
-        this.stateCode = this.$storage.getLocalStorage('userState')
-      } else {
-        const response = await this.$axios('http://ip-api.com/json/')
-        this.stateCode = response.data.region
+  // methods: {
+  //   async fetchData() {
+  //     if (this.$storage.getLocalStorage('userState')) {
+  //       this.stateCode = this.$storage.getLocalStorage('userState')
+  //     } else {
+  //       const response = await this.$axios('http://ip-api.com/json/')
+  //       this.stateCode = response.data.region
 
-        this.$storage.setLocalStorage('userState', this.stateCode)
-      }
+  //       this.$storage.setLocalStorage('userState', this.stateCode)
+  //     }
 
-      if (this.data.length) {
-        this.state = this.data.filter((item) => {
-          return item.statecode === this.stateCode
-        })[0]
+  //     if (this.data.length) {
+  //       this.state = this.data.filter((item) => {
+  //         return item.statecode === this.stateCode
+  //       })[0]
 
-        this.stateName = this.state.state
-      }
-    },
-  },
+  //       this.stateName = this.state.state
+  //     }
+  //   },
+  // },
 }
 </script>
 
