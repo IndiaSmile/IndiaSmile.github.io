@@ -88,7 +88,7 @@ export default {
         countrywise:
           'https://corona-virus-stats.herokuapp.com/api/v1/cases/countries-search?search=',
         historical: 'https://corona.lmao.ninja/v2/historical',
-        statewise: '/api-c19/data.json',
+        statewise: '/api-c19',
       },
 
       historical: [],
