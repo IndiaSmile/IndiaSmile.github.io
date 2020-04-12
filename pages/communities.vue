@@ -62,9 +62,9 @@ export default {
             'Important information regarding Covid 19 from official sources. Stay updated 🤙',
           image: require('~/assets/images/modi.jpg?resize'),
           color: 'rgb(255, 255, 242)',
-          href: 'https://chat.whatsapp.com/KGdpQoNwG7q4IsZy2n13dd',
+          href: 'https://t.me/isc_updates',
           isDarkText: true,
-          button: 'Join on WhatsApp',
+          button: 'Join on Telegram',
         },
         {
           title: 'Mood Support',
