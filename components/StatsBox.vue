@@ -1,7 +1,7 @@
 <template lang="pug">
 .stats
   .stats__item(v-show="showTotal || showAll")
-    .stats__item__text.text--confirmed--light Total 😷
+    .stats__item__text.text--confirmed--light Total 🏥
     .stats__item__number.text--confirmed {{ data.total_cases }}
   .stats__item(v-show="!showTotal")
     .stats__item__text.text--active--light Active 😷
