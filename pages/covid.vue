@@ -130,7 +130,7 @@ export default {
   },
 
   async mounted() {
-    const data = await this.$axios('?get=api')
+    const data = await this.$axios('/cache/api.json')
 
     this.historical = data.data.historical
     this.statewise = data.data.statewise.statewise

@@ -55,8 +55,8 @@ export default {
   },
 
   async mounted() {
-    const response = await this.$axios('?get=api')
-    this.statewise = response.data.statewise.statewise
+    const response = await this.$axios('/cache/cached-statewise.json')
+    this.statewise = response.data.statewise
   },
 
   head() {
