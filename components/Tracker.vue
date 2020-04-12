@@ -172,7 +172,7 @@ export default {
             // data recieved, register another timestamp
             this.timestamps.final = Date.now()
 
-            this.distance = Math.round(Number(data.geo2covid) * 100) / 100
+            this.distance = Math.round(Number(data.data.geo2covid) * 100) / 100
 
             // got nearby data
             // push GTM event

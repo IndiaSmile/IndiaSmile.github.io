@@ -136,10 +136,16 @@ export default {
 
     this.historical = data.data.historical
     this.statewise = data.data.statewise.statewise
-    this.testing = data.data.testing.values
+
+    if (typeof data.data.testing === 'object') {
+      this.testing = data.data.testing.values
+    }
   },
 
   head() {
+    const description =
+      'Get all the latest stats related to COVID-19 on a single page, including state level data as well as testing data, at your fingertips. Find like minded communities, get resources to keep yourself occupied and more, only on IndiaSmile.org'
+
     return {
       title: this.title,
       meta: [
@@ -154,9 +160,24 @@ export default {
           content: this.title + ' | IndiaSmile.org',
         },
         {
+          hid: 'twitterTitle',
+          name: 'twitter:title',
+          content: this.title + ' | IndiaSmile.org',
+        },
+        {
           hid: 'twitterImage',
           name: 'twitter:image',
           content: 'https://indiasmile.org' + this.image,
+        },
+        {
+          hid: 'twitterDescription',
+          name: 'twitter:description',
+          content: description,
+        },
+        {
+          hid: 'description',
+          name: 'description',
+          content: description,
         },
       ],
     }
