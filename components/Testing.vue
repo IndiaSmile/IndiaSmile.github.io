@@ -117,7 +117,7 @@ export default {
     },
   },
 
-  created() {
+  mounted() {
     if (this.$storage.getLocalStorage('TestingData')) {
       const data = this.$storage.getLocalStorage('TestingData')
 
