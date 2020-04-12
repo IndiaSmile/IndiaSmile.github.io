@@ -104,7 +104,7 @@ export default {
 
               // got nearby data
               // push GTM event
-              this.$gtm.push({ event: 'loc_acc_received' })
+              this.$gtm.push({ event: 'loc_data_received' })
 
               // set the localstorage data
               localStorage.setItem('isLocationPermissionGranted', true)
