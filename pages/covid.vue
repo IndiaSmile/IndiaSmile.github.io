@@ -42,9 +42,6 @@
       Articles.margin-top(:count="3")
 
       hr.wrapper__hr
-      LockdownCountdown.margin-top
-
-      hr.wrapper__hr
       CovidDisclaimers
 </template>
 
@@ -53,7 +50,6 @@ import Header from '~/components/Header'
 import TextHero from '~/components/TextHero'
 import InternationalCases from '~/components/InternationalCases'
 import Tracker from '~/components/Tracker'
-import LockdownCountdown from '~/components/LockdownCountdown'
 import CovidDisclaimers from '~/components/CovidDisclaimers'
 import Articles from '~/components/Articles'
 import Testing from '~/components/Testing'
@@ -68,7 +64,6 @@ export default {
     TextHero,
     InternationalCases,
     Tracker,
-    LockdownCountdown,
     CovidDisclaimers,
     Articles,
     Testing,
