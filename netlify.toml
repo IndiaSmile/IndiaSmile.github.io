@@ -4,11 +4,11 @@
 # API Redirects
 
 [[redirects]]
-  from = "/api-c19"
+  from = "/api-c19/*"
   to = "http://api.covid19india.org"
   force = true
 
 [[redirects]]
-  from = "/api-geo2covid"
+  from = "/api-geo2covid/*"
   to = "http://script.google.com/macros/s/AKfycbwqcrVhD9D6Oi2aIi9EG16ks3hLjbJqag_jznwxqpY88xdoBQun"
   force = true
