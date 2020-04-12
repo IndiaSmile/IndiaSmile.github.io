@@ -22,7 +22,6 @@
 
 <script>
 import moment from 'moment'
-import Feed from 'rss-to-json'
 import sharer from '~/services/sharer'
 import Button from '~/components/Button'
 
@@ -82,15 +81,9 @@ export default {
     },
   },
 
-  created() {
-    // this.rssUrls.forEach((rss) => {
-    Feed.load('/feed.xml', (err, data) => {
-      if (err) {
-        console.error(err)
-      } else {
-        this.rssArticles = data.items
-      }
-    })
+  async mounted() {
+    const response = await this.$axios('?get=feed')
+    this.rssArticles = response.data.rss
   },
 
   methods: {

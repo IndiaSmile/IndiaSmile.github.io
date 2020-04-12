@@ -108,6 +108,12 @@ Stay Indoors & Stay Safe 🇮🇳`,
     }
   },
 
+  watch: {
+    historical() {
+      this.updateGraph()
+    },
+  },
+
   computed: {
     selectedCountry() {
       return this.countriesData[this.countries[this.currentCountry]]
@@ -127,7 +133,7 @@ Stay Indoors & Stay Safe 🇮🇳`,
     },
   },
 
-  async created() {
+  async mounted() {
     // fetch global data
     const response = await this.$axios(this.endpoints.general)
 

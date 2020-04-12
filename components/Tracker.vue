@@ -70,7 +70,6 @@ export default {
     return {
       position: null,
       distance: null,
-      endpoint: '/api-geo2covid/exec',
 
       showError: false,
       loadingMessage: '',
@@ -130,81 +129,74 @@ export default {
     },
   },
 
-  created() {
-    if (!process.server) {
-      if (localStorage.getItem('isLocationPermissionGranted')) {
-        this.fetchLocation()
-      }
+  mounted() {
+    if (this.$storage.getLocalStorage('IsLocationPermissionGranted')) {
+      this.fetchLocation()
     }
   },
 
   methods: {
     fetchLocation() {
-      if (!process.server) {
-        // push GTM event
-        this.$gtm.push({ event: 'tap_loc_acc' })
+      // push GTM event
+      this.$gtm.push({ event: 'tap_loc_acc' })
 
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(
-            async (position) => {
-              // permission granted
-              // push GTM event
-              this.$gtm.push({ event: 'loc_acc_grant' })
-              // register timestamp to compare
-              this.timestamps.initial = Date.now()
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          async (position) => {
+            // permission granted
+            // push GTM event
+            this.$gtm.push({ event: 'loc_acc_grant' })
+            // register timestamp to compare
+            this.timestamps.initial = Date.now()
 
-              // register timeouts
-              this.addTimeout(3000)
+            // register timeouts
+            this.addTimeout(3000)
 
-              // also add another timeout for 22s
-              setTimeout(() => {
-                if (!this.distance) {
-                  this.showTimeoutError = true
-                }
-              }, 22000)
-
-              this.showError = false
-              this.position = position.coords
-
-              const data = await this.$axios(
-                this.endpoint +
-                  '?lat=' +
-                  this.position.latitude +
-                  '&long=' +
-                  this.position.longitude
-              )
-
-              // data recieved, register another timestamp
-              this.timestamps.final = Date.now()
-
-              this.distance = Math.round(Number(data.data) * 100) / 100
-
-              // got nearby data
-              // push GTM event
-              this.$gtm.push({ event: 'loc_data_received' })
-
-              // set the localstorage data
-              localStorage.setItem('isLocationPermissionGranted', true)
-
-              // compare timestamps here
-              // if it took more than 10s
-              if (
-                (this.timestamps.final - this.timestamps.initial) / 100 >
-                10
-              ) {
-                // push GTM event
-                this.$gtm.push({ event: 'loc_data_fail' })
+            // also add another timeout for 22s
+            setTimeout(() => {
+              if (!this.distance) {
+                this.showTimeoutError = true
               }
-            },
-            () => {
-              // permission denied
-              // push GTM event
-              this.$gtm.push({ event: 'loc_acc_deny' })
+            }, 22000)
 
-              this.showError = true
+            this.showError = false
+            this.position = position.coords
+
+            const data = await this.$axios(
+              '?get=geo2covid' +
+                '?lat=' +
+                this.position.latitude +
+                '&long=' +
+                this.position.longitude
+            )
+
+            // data recieved, register another timestamp
+            this.timestamps.final = Date.now()
+
+            this.distance = Math.round(Number(data.geo2covid) * 100) / 100
+
+            // got nearby data
+            // push GTM event
+            this.$gtm.push({ event: 'loc_data_received' })
+
+            // set the localstorage data
+            this.$storage.setLocalStorage('IsLocationPermissionGranted', true)
+
+            // compare timestamps here
+            // if it took more than 10s
+            if ((this.timestamps.final - this.timestamps.initial) / 100 > 10) {
+              // push GTM event
+              this.$gtm.push({ event: 'loc_data_fail' })
             }
-          )
-        }
+          },
+          () => {
+            // permission denied
+            // push GTM event
+            this.$gtm.push({ event: 'loc_acc_deny' })
+
+            this.showError = true
+          }
+        )
       }
     },
 

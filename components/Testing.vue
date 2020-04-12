@@ -30,12 +30,15 @@
 import moment from 'moment'
 
 export default {
+  props: {
+    data: {
+      type: Array,
+      required: true,
+    },
+  },
+
   data() {
     return {
-      rows: [],
-      endpoint:
-        'https://sheets.googleapis.com/v4/spreadsheets/1R08ny_AVHLasuEyfT9lNX5sscBi6Nl5mgKvQ3cmSvj8/values/Sheet1!A1:G40?key=AIzaSyB1O3W2yx8LTFwrYDsn98FuvaAG50k7hkI',
-
       stats: {
         date: 0,
         testsToday: 0,
@@ -49,7 +52,7 @@ export default {
 
   computed: {
     computedData() {
-      const data = this.rows
+      const data = this.data
       data.shift()
 
       return data
@@ -117,38 +120,24 @@ export default {
     },
   },
 
-  created() {
-    if (this.$storage.getLocalStorage('TestingData')) {
-      const data = this.$storage.getLocalStorage('TestingData')
-
-      if (moment().diff(moment(data.timestamp), 'hours') > 3) {
-        this.rows = data.data
-      } else {
-        this.fetchData()
-      }
-    } else {
-      this.fetchData()
-    }
-
-    if (typeof window !== 'undefined') {
-      this.createGraph()
-    }
-  },
-
-  methods: {
-    async fetchData() {
-      const res = await this.$axios(this.endpoint)
-
-      this.rows = res.data.values
-
+  watch: {
+    data() {
       const obj = {
-        data: res.data.values,
+        data: this.data,
         timestamp: Date.now(),
       }
 
       this.$storage.setLocalStorage('TestingData', JSON.stringify(obj))
-    },
 
+      this.createGraph()
+    },
+  },
+
+  mounted() {
+    this.createGraph()
+  },
+
+  methods: {
     createGraph() {
       const d3 = require('d3')
 

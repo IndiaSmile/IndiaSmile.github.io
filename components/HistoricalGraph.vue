@@ -19,7 +19,7 @@ export default {
     },
   },
 
-  created() {
+  mounted() {
     if (typeof window !== 'undefined' && !!this.data.length) {
       this.createGraph()
     }

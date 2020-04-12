@@ -27,7 +27,7 @@
       InternationalCases.margin-top(:historical="historical")
 
       hr.wrapper__hr
-      Testing.margin-top
+      Testing(:data='testing').margin-top
 
       card.margin-top(
         :title="card.title"
@@ -87,12 +87,11 @@ export default {
       endpoints: {
         countrywise:
           'https://corona-virus-stats.herokuapp.com/api/v1/cases/countries-search?search=',
-        historical: 'https://corona.lmao.ninja/v2/historical',
-        statewise: '/api-c19/data.json',
       },
 
       historical: [],
       statewise: [],
+      testing: [],
 
       card: {
         title: 'Find like minded people to talk to',
@@ -132,13 +131,12 @@ export default {
     },
   },
 
-  async created() {
-    // fetch historical data
-    const historical = await this.$axios(this.endpoints.historical)
-    this.historical = historical.data
+  async mounted() {
+    const data = await this.$axios('?get=api')
 
-    const statewise = await this.$axios(this.endpoints.statewise)
-    this.statewise = statewise.data.statewise
+    this.historical = data.data.historical
+    this.statewise = data.data.statewise.statewise
+    this.testing = data.data.testing.values
   },
 
   head() {

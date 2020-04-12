@@ -1,6 +1,3 @@
-import { parseString } from 'xml2js'
-import axios from 'axios'
-
 process.env.DEBUG = 'nuxt:*'
 
 export default {
@@ -93,8 +90,6 @@ export default {
     '@nuxtjs/dotenv',
     // Doc: https://github.com/bazzite/nuxt-optimized-images
     '@bazzite/nuxt-optimized-images',
-    // Doc: https://github.com/nuxt-community/feed-module
-    '@nuxtjs/feed',
     // Doc: https://github.com/nuxt-community/universal-storage-module
     '@nuxtjs/universal-storage',
   ],
@@ -110,7 +105,7 @@ export default {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    proxy: true,
+    baseURL: 'https://api.indiasmile.org',
   },
   /*
    ** Build configuration
@@ -172,88 +167,6 @@ export default {
       welcomeNotification: {
         disable: true,
       },
-    },
-  },
-
-  feed: [
-    {
-      path: '/feed.xml',
-      cacheTime: 1000 * 60 * 15,
-      type: 'rss2',
-      async create(feed) {
-        const toFetchUrls = [
-          'https://www.thehindu.com/news/corona/feeder/default.rss',
-        ]
-
-        for (const url of toFetchUrls) {
-          const response = await axios(url)
-
-          parseString(
-            response.data,
-            { trim: false, normalize: true, mergeAttrs: true },
-            (err, res) => {
-              if (err) {
-                console.error(err)
-              } else {
-                const channel = res.rss.channel[0]
-
-                channel.item.forEach((item) => {
-                  feed.addItem({
-                    title: item.title[0],
-                    description: item.description[0],
-                    date: new Date(item.pubDate[0]),
-                    link: item.link[0],
-                    author: item.author
-                      ? [{ name: item.author[0] }]
-                      : undefined,
-                  })
-                })
-              }
-            }
-          )
-        }
-
-        const twitterResponse = await axios(
-          'http://twitrss.me/twitter_user_to_rss/?user=ANI'
-        )
-
-        parseString(
-          twitterResponse.data,
-          { trim: false, normalize: true, mergeAttrs: true },
-          (err, res) => {
-            if (err) {
-              console.error(err)
-            } else {
-              const channel = res.rss.channel[0]
-
-              channel.item.forEach((item) => {
-                feed.addItem({
-                  title: item.title[0],
-                  description: item.description[0],
-                  date: new Date(item.pubDate[0]),
-                  link: item.link[0],
-                })
-              })
-            }
-          }
-        )
-
-        feed.options = {
-          title: 'IndiaSmile Feed',
-        }
-      },
-    },
-  ],
-
-  proxy: {
-    '/api-c19/': {
-      target: 'https://api.covid19india.org/data.json',
-      pathRewrite: { '^/api-c19/': '' },
-    },
-    '/api-geo2covid/': {
-      target:
-        'https://script.google.com/macros/s/AKfycbwqcrVhD9D6Oi2aIi9EG16ks3hLjbJqag_jznwxqpY88xdoBQun/exec',
-      pathRewrite: { '^/api-geo2covid/': '' },
     },
   },
 
