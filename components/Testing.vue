@@ -117,10 +117,18 @@ export default {
     },
   },
 
-  async created() {
-    const res = await this.$axios(this.endpoint)
+  created() {
+    if (this.$storage.getLocalStorage('TestingData')) {
+      const data = this.$storage.getLocalStorage('TestingData')
 
-    this.rows = res.data.values
+      if (moment().diff(moment(data.timestamp), 'hours') > 3) {
+        this.rows = data.data
+      } else {
+        this.fetchData()
+      }
+    } else {
+      this.fetchData()
+    }
 
     if (typeof window !== 'undefined') {
       this.createGraph()
@@ -128,6 +136,19 @@ export default {
   },
 
   methods: {
+    async fetchData() {
+      const res = await this.$axios(this.endpoint)
+
+      this.rows = res.data.values
+
+      const obj = {
+        data: res.data.values,
+        timestamp: Date.now(),
+      }
+
+      this.$storage.setLocalStorage('TestingData', JSON.stringify(obj))
+    },
+
     createGraph() {
       const d3 = require('d3')
 

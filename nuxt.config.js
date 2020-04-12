@@ -266,6 +266,6 @@ export default {
 
   // to fix 404 on netlify
   generate: {
-    fallback: true
+    fallback: true,
   },
 }

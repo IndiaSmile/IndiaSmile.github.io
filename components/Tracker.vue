@@ -6,7 +6,22 @@
         .wrapper__subtitle.wrapper__subtitle--em(v-if="!computedDistance")
           | Allow location access & find out how close an infected patient is from you!
 
-    b-message(v-if="showError" type="is-warning") We need access to your location to find the nearest case
+    b-message(v-if="showError" type="is-warning")
+      | We need access to your location to find the nearest case #[br]
+      | Enable location access by following the steps below:
+
+      .steps-list
+        b-collapse.card(animation='slide' v-for='(step, i) of steps' :key='i' :open='currentStep === i' @open='currentStep = i')
+          .card-header(slot='trigger' slot-scope='props' role='button')
+            .card-header-title
+              b-icon.card-header-title__icon(:icon='step.icon')
+              | {{ step.title }}
+            span.card-header-icon
+              b-icon(:icon="props.open ? 'menu-up' : 'menu-down'")
+
+          .card-content
+            ol.context
+              li(v-for="(stepItem, i2) in step.items" :key='i2' v-html='stepItem')
 
     .content__section.request-container(v-if="!position")
       b-button.request__button(icon-left="crosshairs-gps" type="is-primary" @click="fetchLocation") Allow location access
@@ -14,29 +29,37 @@
 
     .content__section.location(v-else)
       .location__wrapper
-        .location__wrapper__icon
-          b-icon(icon="map-marker")
-        .location__wrapper__text.is-size-7 You are
-        .location__wrapper__text.is-size-5
+        div(v-if='showTimeoutError')
+          span(@click='reload') Try Again 😳
 
-          span(v-if="computedDistance") {{ computedDistance }} KM
+        div(v-else-if="computedDistance")
+          .location__wrapper__icon
+            b-icon(icon="map-marker")
+          .location__wrapper__text.is-size-7 You are
+          .location__wrapper__text.is-size-5
+            span {{ computedDistance }} KM
 
-          b-icon.location__wrapper__loading(v-else icon="loading")
+          .location__wrapper__text.is-size-7 from the nearest confirmed case *
 
-        .location__wrapper__text.is-size-7 from the nearest confirmed case *
+        div(v-else)
+          b-icon.location__wrapper__loading(icon="loading")
+          .is-size-7 {{ loadingMessage }}
 
-      .location__text Your <strong>family or friends</strong> could be close to someone affected 😷 <strong>Share this page</strong> & keep your loved ones safe 👨‍👩‍👦
+      .location__text(v-if="showTimeoutError") We were unable to get this data due to too many users. #[u(@click="reload") Click here to refresh and try again]
 
-      ul.location__list
-        li.location__list__item(@click="share('whatsapp')")
-          b-icon.location__list__item__icon.icon--whatsapp(size="is-small" icon="whatsapp")
-          | Share on WhatsApp
-        li.location__list__item(@click="share('facebook')")
-          b-icon.location__list__item__icon.icon--facebook(size="is-small" icon="facebook")
-          | Share on Facebook
-        li.location__list__item(@click="share('twitter')")
-          b-icon.location__list__item__icon.icon--twitter(size="is-small" icon="twitter")
-          | Share on Twitter
+      div(v-else)
+        .location__text Your <strong>family or friends</strong> could be close to someone affected 😷 <strong>Share this page</strong> & keep your loved ones safe 👨‍👩‍👦
+
+        ul.location__list
+          li.location__list__item(@click="share('whatsapp')")
+            b-icon.location__list__item__icon.icon--whatsapp(size="is-small" icon="whatsapp")
+            | Share on WhatsApp
+          li.location__list__item(@click="share('facebook')")
+            b-icon.location__list__item__icon.icon--facebook(size="is-small" icon="facebook")
+            | Share on Facebook
+          li.location__list__item(@click="share('twitter')")
+            b-icon.location__list__item__icon.icon--twitter(size="is-small" icon="twitter")
+            | Share on Twitter
 </template>
 
 <script>
@@ -50,6 +73,50 @@ export default {
       endpoint: '/api-geo2covid/exec',
 
       showError: false,
+      loadingMessage: '',
+      loadingMessages: [
+        'We are calculating distance from your location',
+        'We are still trying to calculate distance, hang on!',
+        'This is taking longer than usual',
+      ],
+      loadingMessageCounter: 0,
+
+      timestamps: {
+        initial: null,
+        final: null,
+      },
+
+      showTimeoutError: false,
+
+      currentStep: null,
+      steps: [
+        {
+          icon: 'apple',
+          title: 'iOS',
+          items: [
+            'Go to your phone <b>Settings</b>',
+            'Open <b>General</b> settings',
+            'Scroll to the bottom and go to <b>Reset</b>',
+            'Tap <b>Reset Location & Privacy</b>',
+            'Open Safari & Reload the page',
+            'Tap Allow Location Access & Click <b>Allow</b>',
+          ],
+        },
+        {
+          icon: 'android',
+          title: 'Android',
+          items: [
+            'Use <b>Google Chrome</b> as your browser to access IndiaSmile',
+            '<b>Inside Chrome</b>, Open <b>Settings</b> by clicking 3 dots in top right corner of the screen',
+            'Scroll to bottom and go to <b>Site settings</b>',
+            'Tap <b>Location</b> settings',
+            'Scroll to <b>find</b> ‘https://indiasmile.org’ and tap on it',
+            'Click <b>Clear Settings</b>',
+            'Reload <b>IndiaSmile Corona Around You</b> page',
+            'Tap Allow Location Access & Click <b>Okay</b>',
+          ],
+        },
+      ],
     }
   },
 
@@ -84,7 +151,17 @@ export default {
               // push GTM event
               this.$gtm.push({ event: 'loc_acc_grant' })
               // register timestamp to compare
-              const timestamp1 = Date.now()
+              this.timestamps.initial = Date.now()
+
+              // register timeouts
+              this.addTimeout(3000)
+
+              // also add another timeout for 22s
+              setTimeout(() => {
+                if (!this.distance) {
+                  this.showTimeoutError = true
+                }
+              }, 22000)
 
               this.showError = false
               this.position = position.coords
@@ -98,7 +175,7 @@ export default {
               )
 
               // data recieved, register another timestamp
-              const timestamp2 = Date.now()
+              this.timestamps.final = Date.now()
 
               this.distance = Math.round(Number(data.data) * 100) / 100
 
@@ -111,7 +188,10 @@ export default {
 
               // compare timestamps here
               // if it took more than 10s
-              if ((timestamp2 - timestamp1) / 100 > 10) {
+              if (
+                (this.timestamps.final - this.timestamps.initial) / 100 >
+                10
+              ) {
                 // push GTM event
                 this.$gtm.push({ event: 'loc_data_fail' })
               }
@@ -128,6 +208,21 @@ export default {
       }
     },
 
+    addTimeout(time = 5000) {
+      setTimeout(() => {
+        if (!this.distance) {
+          this.loadingMessage = this.loadingMessages[this.loadingMessageCounter]
+
+          this.loadingMessageCounter++
+
+          // add another timeout
+          if (this.loadingMessageCounter < this.loadingMessages.length) {
+            this.addTimeout()
+          }
+        }
+      }, time)
+    },
+
     share(platform) {
       const message = `Nearest COVID19 case to my location is around ${this.distance} km away! 😨
 
@@ -137,11 +232,23 @@ Stay Indoors & Stay Safe 🇮🇳`
 
       sharer(message, '', platform)
     },
+
+    reload() {
+      if (typeof window !== 'undefined') {
+        window.location.reload()
+      }
+    },
   },
 }
 </script>
 
 <style lang="stylus" scoped>
+.steps-list
+  margin-top 1rem
+
+  .card-header-title__icon
+    margin-right 1rem
+
 .request-container
   height 6.94rem
   width 100%
@@ -186,6 +293,7 @@ Stay Indoors & Stay Safe 🇮🇳`
       display flex
       justify-content center
       align-items center
+      margin 0 auto
       margin-bottom 0.56rem
 
     &__loading
