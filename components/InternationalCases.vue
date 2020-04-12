@@ -108,12 +108,6 @@ Stay Indoors & Stay Safe 🇮🇳`,
     }
   },
 
-  watch: {
-    historical() {
-      this.updateGraph()
-    },
-  },
-
   computed: {
     selectedCountry() {
       return this.countriesData[this.countries[this.currentCountry]]
@@ -130,6 +124,12 @@ Stay Indoors & Stay Safe 🇮🇳`,
 
     computedDate() {
       return moment(this.stats.date).format('DD MMMM')
+    },
+  },
+
+  watch: {
+    historical() {
+      this.updateGraph()
     },
   },
 

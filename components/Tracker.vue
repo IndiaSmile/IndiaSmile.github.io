@@ -70,7 +70,6 @@ export default {
     return {
       position: null,
       distance: null,
-
       showError: false,
       loadingMessage: '',
       loadingMessages: [
