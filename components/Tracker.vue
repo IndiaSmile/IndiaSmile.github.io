@@ -70,7 +70,7 @@ export default {
     return {
       position: null,
       distance: null,
-      endpoint: '/api-geo2covid/',
+      endpoint: '/api-geo2covid/exec',
 
       showError: false,
       loadingMessage: '',
