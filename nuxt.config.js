@@ -263,4 +263,9 @@ export default {
       prefix: 'IndiaSmile',
     },
   },
+
+  // to fix 404 on netlify
+  generate: {
+    fallback: true
+  },
 }
