@@ -1,6 +1,6 @@
 <template lang="pug">
   div
-    StatsBox(:data="computedTotal")
+    StatsBox(:data="computedTotal" :showAll='true')
 
 </template>
 
