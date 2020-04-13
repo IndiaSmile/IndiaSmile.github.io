@@ -71,12 +71,11 @@ export default {
       ShowShareModal = true
     }
 
-    console.log(SiteViewsCount)
-
     if (
       ShowShareModal &&
       typeof SiteViewsCount === 'number' &&
-      SiteViewsCount % 2 === 0
+      (SiteViewsCount === 2 ||
+        (SiteViewsCount % 2 === 1) & (SiteViewsCount >= 5))
     ) {
       this.isShareModalActive = true
 
