@@ -50,15 +50,15 @@
       div(v-else)
         .location__text Your <strong>family or friends</strong> could be close to someone affected 😷 <strong>Share this page</strong> & keep your loved ones safe 👨‍👩‍👦
 
-        ul.location__list
-          li.location__list__item(@click="share('whatsapp')")
-            b-icon.location__list__item__icon.icon--whatsapp(size="is-small" icon="whatsapp")
+        ul.social-list
+          li.social-list__item(@click="share('whatsapp')")
+            b-icon.social-list__item__icon.icon--whatsapp(size="is-small" icon="whatsapp")
             | Share on WhatsApp
-          li.location__list__item(@click="share('facebook')")
-            b-icon.location__list__item__icon.icon--facebook(size="is-small" icon="facebook")
+          li.social-list__item(@click="share('facebook')")
+            b-icon.social-list__item__icon.icon--facebook(size="is-small" icon="facebook")
             | Share on Facebook
-          li.location__list__item(@click="share('twitter')")
-            b-icon.location__list__item__icon.icon--twitter(size="is-small" icon="twitter")
+          li.social-list__item(@click="share('twitter')")
+            b-icon.social-list__item__icon.icon--twitter(size="is-small" icon="twitter")
             | Share on Twitter
 </template>
 
@@ -292,37 +292,6 @@ Stay Indoors & Stay Safe 🇮🇳`
 
   &__text
     margin-top 1rem
-
-  &__list
-    margin 0
-    margin-top 1rem
-    padding 0
-    list-style-type none
-
-    &__item
-      display inline-flex
-      justify-content center
-      margin-top 1rem
-      background-color rgba(28,91,255,0.05)
-      padding 0.5rem 1rem
-      border-radius 0.25rem
-      border-bottom 4px solid rgba(28,91,255,0.05)
-
-      &__icon
-        margin-right 0.5rem
-        color #fff
-        border-radius 100%
-        height 1.5rem
-        width 1.5rem
-
-        &.icon--twitter
-          background-color #1DA1F2
-
-        &.icon--facebook
-          background-color #4267B2
-
-        &.icon--whatsapp
-          background-color #25D366
 
 @keyframes spin
   0%
