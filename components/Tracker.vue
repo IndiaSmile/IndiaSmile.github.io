@@ -162,7 +162,7 @@ export default {
             this.position = position.coords
 
             const data = await this.$axios(
-              '?get=geo2covid' +
+              '/api?get=geo2covid' +
                 '&lat=' +
                 this.position.latitude +
                 '&long=' +

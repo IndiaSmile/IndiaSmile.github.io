@@ -82,7 +82,7 @@ export default {
   },
 
   async mounted() {
-    const response = await this.$axios('?get=feed')
+    const response = await this.$axios('/api?get=feed')
     this.rssArticles = response.data.rss
   },
 
