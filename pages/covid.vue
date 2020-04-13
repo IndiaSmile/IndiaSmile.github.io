@@ -20,8 +20,8 @@
 
       Tracker.margin-top
 
-      //- hr.wrapper__hr
-      //- StateStats.margin-top(:data='statewise')
+      hr.wrapper__hr
+      StateStats.margin-top(:data='statewise')
 
       hr.wrapper__hr
       StatewiseTable(:data="statewise")
