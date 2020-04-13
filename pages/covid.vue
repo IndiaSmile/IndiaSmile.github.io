@@ -108,11 +108,11 @@ export default {
           },
           {
             name: '👫 Mood Support',
-            link: 'https://chat.whatsapp.com/F97AbnosfqeEC3gJObw6sU',
+            link: 'https://t.me/isc_mood',
           },
           {
             name: '🤣 Jokes',
-            link: 'https://chat.whatsapp.com/KrTMHQTJ8CcA1V58rYy9Mc',
+            link: 'https://chat.whatsapp.com/D55fizDYgfUBbymciAQN5v',
           },
           {
             name: '📚 Books',
