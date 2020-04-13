@@ -55,7 +55,9 @@ export default {
   },
 
   async mounted() {
-    const response = await this.$axios('/cache/cached-statewise.json')
+    const response = await this.$axios(
+      'https://indiasmile-api.s3.ap-south-1.amazonaws.com/cache/statewise.json'
+    )
     this.statewise = response.data.statewise
   },
 

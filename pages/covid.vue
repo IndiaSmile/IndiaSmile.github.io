@@ -130,7 +130,9 @@ export default {
   },
 
   async mounted() {
-    const data = await this.$axios('/cache/api.json')
+    const data = await this.$axios(
+      'https://indiasmile-api.s3.ap-south-1.amazonaws.com/cache/api.json'
+    )
 
     this.historical = data.data.historical
     this.statewise = data.data.statewise.statewise
