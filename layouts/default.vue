@@ -89,7 +89,7 @@ export default {
     share(name) {
       this.$storage.setLocalStorage('ShowShareModal', false)
 
-      window.location.href = this.socialLinks[name]
+      window.open(this.socialLinks[name])
     },
   },
 
