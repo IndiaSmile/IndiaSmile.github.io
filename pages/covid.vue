@@ -20,8 +20,8 @@
 
       Tracker.margin-top
 
-      hr.wrapper__hr
-      StateStats.margin-top(:data='statewise')
+      //- hr.wrapper__hr
+      //- StateStats.margin-top(:data='statewise')
 
       hr.wrapper__hr
       StatewiseTable(:data="statewise")
@@ -104,7 +104,7 @@ export default {
           },
           {
             name: '📰 Updates',
-            link: 'https://chat.whatsapp.com/KGdpQoNwG7q4IsZy2n13dd',
+            link: 'https://t.me/isc_updates',
           },
           {
             name: '👫 Mood Support',
