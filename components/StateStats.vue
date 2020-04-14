@@ -47,7 +47,7 @@ export default {
   },
 
   watch: {
-    data() {
+    ipData() {
       this.updateData()
     },
   },
@@ -65,7 +65,9 @@ export default {
           return item.statecode === this.stateCode
         })[0]
 
-        this.stateName = this.state.state
+        if (typeof this.state === 'object' && this.state.state) {
+          this.stateName = this.state.state
+        }
       }
     },
   },

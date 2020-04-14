@@ -6,7 +6,28 @@
         .wrapper__subtitle.wrapper__subtitle--em(v-if="!computedDistance")
           | Allow location access & find out how close an infected patient is from you!
 
-    .content__section.location(v-if='position')
+    b-message(v-if="showError" type="is-warning")
+        | We need access to your location to find the nearest case #[br]
+        | Enable location access by following the steps below:
+
+        .steps-list
+          b-collapse.card(animation='slide' v-for='(step, i) of steps' :key='i' :open='currentStep === i' @open='currentStep = i')
+            .card-header(slot='trigger' slot-scope='props' role='button')
+              .card-header-title
+                b-icon.card-header-title__icon(:icon='step.icon')
+                | {{ step.title }}
+              span.card-header-icon
+                b-icon(:icon="props.open ? 'menu-up' : 'menu-down'")
+
+            .card-content
+              ol.context
+                li(v-for="(stepItem, i2) in step.items" :key='i2' v-html='stepItem')
+
+    .content__section.request-container(v-if="!position")
+        b-button.request__button(icon-left="crosshairs-gps" type="is-primary" @click="fetchLocation") Allow location access
+        p.request__text Your current location will be used to get this data.
+
+    .content__section.location(v-else)
       .location__wrapper
         div(v-if='showTimeoutError')
           span(@click='reload') Try Again 😳
@@ -57,6 +78,7 @@ export default {
     return {
       position: null,
       distance: null,
+      showError: false,
       loadingMessage: '',
       loadingMessages: [
         'We are calculating distance from your location',
@@ -73,6 +95,35 @@ export default {
       showTimeoutError: false,
       locationPermission: '',
       usedIpForLocation: false,
+      currentStep: null,
+      steps: [
+        {
+          icon: 'apple',
+          title: 'iOS',
+          items: [
+            'Go to your phone <b>Settings</b>',
+            'Open <b>General</b> settings',
+            'Scroll to the bottom and go to <b>Reset</b>',
+            'Tap <b>Reset Location & Privacy</b>',
+            'Open Safari & Reload the page',
+            'Tap Allow Location Access & Click <b>Allow</b>',
+          ],
+        },
+        {
+          icon: 'android',
+          title: 'Android',
+          items: [
+            'Use <b>Google Chrome</b> as your browser to access IndiaSmile',
+            '<b>Inside Chrome</b>, Open <b>Settings</b> by clicking 3 dots in top right corner of the screen',
+            'Scroll to bottom and go to <b>Site settings</b>',
+            'Tap <b>Location</b> settings',
+            'Scroll to <b>find</b> ‘https://indiasmile.org’ and tap on it',
+            'Click <b>Clear Settings</b>',
+            'Reload <b>IndiaSmile Corona Around You</b> page',
+            'Tap Allow Location Access & Click <b>Okay</b>',
+          ],
+        },
+      ],
     }
   },
 
@@ -110,6 +161,7 @@ export default {
           async (position) => {
             // permission granted
             this.locationPermission = 'granted'
+            this.showError = false
 
             // push GTM event
             this.$gtm.push({ event: 'loc_acc_grant' })
@@ -151,6 +203,8 @@ export default {
             // permission denied
             this.locationPermission = 'denied'
 
+            this.showError = true
+
             // push GTM event
             this.$gtm.push({ event: 'loc_acc_deny' })
 
@@ -177,7 +231,13 @@ export default {
     },
 
     share(platform) {
-      const message = `Nearest COVID19 case to my location is around ${this.distance} km away! 😨
+      let distance = `${this.distance} KM away`
+
+      if (this.distance < 3) {
+        distance = 'withing 3 KM'
+      }
+
+      const message = `Nearest COVID19 case to my location is around ${distance}! 😨
 
 Get the latest COVID19 stats and check from your family's location: https://indiasmile.org/covid 🦠
 
