@@ -87,11 +87,6 @@ export default {
 
       image: require('~/assets/images/meta-image-covid.png?resize'),
 
-      endpoints: {
-        countrywise:
-          'https://corona-virus-stats.herokuapp.com/api/v1/cases/countries-search?search=',
-      },
-
       historical: [],
       statewise: [],
       testing: [],

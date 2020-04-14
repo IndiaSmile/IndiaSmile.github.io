@@ -217,10 +217,11 @@ export default {
   display flex
   flex-direction column
   align-items center
+  max-width 26em
+  margin 0 auto
 
 .content
   width 100%
-  max-width 26em
   padding 1.5em 1.875em
 
   .historical

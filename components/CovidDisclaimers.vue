@@ -1,9 +1,6 @@
 <template lang="pug">
   div
     .disclaimer__footer
-      p.disclaimer__footer__text "Near You" information provided by our friends at
-      a.disclaimer__footer__link(href="https://bit.ly/COVID19Distance" target="_blank" rel="nofollow") coronatracker.in
-        b-icon(icon="open-in-new" size="is-small")
       p.disclaimer__footer__text Statistical information provided by our friends at
       a.disclaimer__footer__link(href="https://api.covid19india.org" target="_blank" rel="nofollow") covid19india.org
         b-icon(icon="open-in-new" size="is-small")

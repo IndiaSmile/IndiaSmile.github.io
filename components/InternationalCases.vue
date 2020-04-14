@@ -28,7 +28,7 @@
           ) {{ country }}
 
         //- .wrapper__title--small {{ countries[currentCountry] }}
-        StatsBox(:data='selectedCountry')
+        StatsBox(v-if='selectedCountry' :data='selectedCountry')
 
         .historical
           .historical__data(v-show="showStats")
@@ -71,25 +71,13 @@ export default {
 
   data() {
     return {
-      endpoints: {
-        general:
-          'https://corona-virus-stats.herokuapp.com/api/v1/cases/general-stats',
-        countrywise:
-          'https://corona-virus-stats.herokuapp.com/api/v1/cases/countries-search?search=',
-      },
+      endpoint:
+        'https://corona-virus-stats.herokuapp.com/api/v1/cases/general-stats',
 
       countries: ['India', 'Pakistan', 'Bangladesh', 'USA', 'Italy'],
       currentCountry: 0,
 
       global: {},
-      countriesData: {
-        Pakistan: {},
-        Bangladesh: {},
-        USA: {},
-        Spain: {},
-        Italy: {},
-        India: {},
-      },
 
       graphData: {},
 
@@ -101,6 +89,7 @@ export default {
       },
 
       showStats: false,
+      showStatsBox: false,
 
       shareMessage: `Get the latest COVID19 stats and check from your family's location: https://indiasmile.org/covid 🦠
 
@@ -110,7 +99,30 @@ Stay Indoors & Stay Safe 🇮🇳`,
 
   computed: {
     selectedCountry() {
-      return this.countriesData[this.countries[this.currentCountry]]
+      if (
+        typeof this.graphData === 'object' &&
+        Object.keys(this.graphData).length > 0
+      ) {
+        const cases = Object.values(this.graphData.cases)[
+          Object.values(this.graphData.cases).length - 1
+        ]
+        const recovered = Object.values(this.graphData.recovered)[
+          Object.values(this.graphData.recovered).length - 1
+        ]
+        const deaths = Object.values(this.graphData.deaths)[
+          Object.values(this.graphData.deaths).length - 1
+        ]
+        const active = cases - recovered - deaths
+
+        return {
+          total_cases: cases,
+          active_cases: active,
+          total_recovered: recovered,
+          total_deaths: deaths,
+        }
+      } else {
+        return null
+      }
     },
 
     globalData() {
@@ -135,15 +147,9 @@ Stay Indoors & Stay Safe 🇮🇳`,
 
   async mounted() {
     // fetch global data
-    const response = await this.$axios(this.endpoints.general)
+    const response = await this.$axios(this.endpoint)
 
     this.global = response.data.data
-
-    // fetch countrywise data
-    for (const country of this.countries) {
-      const response = await this.$axios(this.endpoints.countrywise + country)
-      this.countriesData[country] = response.data.data.rows[0]
-    }
 
     this.updateGraph()
   },
@@ -161,6 +167,8 @@ Stay Indoors & Stay Safe 🇮🇳`,
         this.graphData = this.historical.find(
           (o) => o.country === this.countries[this.currentCountry]
         ).timeline
+
+        this.showStatsBox = true
       }
     },
 

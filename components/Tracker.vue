@@ -40,12 +40,12 @@
             span {{ computedDistance }} KM
 
           .location__wrapper__text.is-size-7 from the nearest confirmed case *
-          .location__wrapper__text.is-size-7(v-if='usedIpForLocation') This is an approximate location
 
         div(v-else)
           b-icon.location__wrapper__loading(icon="loading")
           .is-size-7 {{ loadingMessage }}
 
+      .location__text.is-size-7(v-if='usedIpForLocation') This is an approximate distance using your IP address. Follow the steps above to give location access for more accurate results.
       .location__text(v-if="showTimeoutError") We were unable to get this data due to too many users. #[u(@click="reload") Click here to refresh and try again]
 
       div(v-else)
@@ -130,7 +130,9 @@ export default {
   computed: {
     computedDistance() {
       return this.distance
-        ? this.distance < 3
+        ? this.usedIpForLocation
+          ? 'Within 5'
+          : this.distance < 3
           ? 'Within 3'
           : this.distance
         : false
@@ -234,7 +236,11 @@ export default {
       let distance = `${this.distance} KM away`
 
       if (this.distance < 3) {
-        distance = 'withing 3 KM'
+        distance = 'within 3 KM'
+      }
+
+      if (this.usedIpForLocation) {
+        distance = 'within 5 KM'
       }
 
       const message = `Nearest COVID19 case to my location is around ${distance}! 😨
