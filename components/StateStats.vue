@@ -18,6 +18,11 @@ export default {
       type: Array,
       required: true,
     },
+
+    ipData: {
+      type: Object,
+      required: true,
+    },
   },
 
   data() {
@@ -43,26 +48,17 @@ export default {
 
   watch: {
     data() {
-      this.fetchData()
+      this.updateData()
     },
   },
 
   mounted() {
-    this.fetchData()
+    this.updateData()
   },
 
   methods: {
-    async fetchData() {
-      if (this.$storage.getLocalStorage('userState')) {
-        this.stateCode = this.$storage.getLocalStorage('userState')
-      } else {
-        const response = await this.$axios(
-          'https://pro.ip-api.com/json/?key=0vSC7Gzu2XD8Eew'
-        )
-        this.stateCode = response.data.region
-
-        this.$storage.setLocalStorage('userState', this.stateCode)
-      }
+    updateData() {
+      this.stateCode = this.ipData.region
 
       if (this.data.length) {
         this.state = this.data.filter((item) => {

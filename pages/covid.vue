@@ -18,10 +18,10 @@
 
       hr.wrapper__hr
 
-      Tracker.margin-top
+      Tracker.margin-top(:ipData='ipData')
 
       hr.wrapper__hr
-      StateStats.margin-top(:data='statewise')
+      StateStats.margin-top(:data='statewise' :ipData='ipData')
 
       hr.wrapper__hr
       StatewiseTable(:data="statewise")
@@ -96,6 +96,8 @@ export default {
       statewise: [],
       testing: [],
 
+      ipData: {},
+
       card: {
         title: 'Find like minded people to talk to',
         subtitle: 'Topic based community chats',
@@ -144,6 +146,18 @@ export default {
 
     if (typeof data.data.testing === 'object') {
       this.testing = data.data.testing.values
+    }
+
+    // now fetch ip data
+    if (this.$storage.getLocalStorage('ipData')) {
+      this.ipData = this.$storage.getLocalStorage('ipData')
+    } else {
+      const response = await this.$axios(
+        'https://pro.ip-api.com/json/?key=0vSC7Gzu2XD8Eew'
+      )
+      this.ipData = response.data
+
+      this.$storage.setLocalStorage('ipData', this.ipData)
     }
   },
 

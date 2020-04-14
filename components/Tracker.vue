@@ -6,28 +6,7 @@
         .wrapper__subtitle.wrapper__subtitle--em(v-if="!computedDistance")
           | Allow location access & find out how close an infected patient is from you!
 
-    b-message(v-if="showError" type="is-warning")
-      | We need access to your location to find the nearest case #[br]
-      | Enable location access by following the steps below:
-
-      .steps-list
-        b-collapse.card(animation='slide' v-for='(step, i) of steps' :key='i' :open='currentStep === i' @open='currentStep = i')
-          .card-header(slot='trigger' slot-scope='props' role='button')
-            .card-header-title
-              b-icon.card-header-title__icon(:icon='step.icon')
-              | {{ step.title }}
-            span.card-header-icon
-              b-icon(:icon="props.open ? 'menu-up' : 'menu-down'")
-
-          .card-content
-            ol.context
-              li(v-for="(stepItem, i2) in step.items" :key='i2' v-html='stepItem')
-
-    .content__section.request-container(v-if="!position")
-      b-button.request__button(icon-left="crosshairs-gps" type="is-primary" @click="fetchLocation") Allow location access
-      p.request__text Your current location will be used to get this data.
-
-    .content__section.location(v-else)
+    .content__section.location(v-if='position')
       .location__wrapper
         div(v-if='showTimeoutError')
           span(@click='reload') Try Again 😳
@@ -40,6 +19,7 @@
             span {{ computedDistance }} KM
 
           .location__wrapper__text.is-size-7 from the nearest confirmed case *
+          .location__wrapper__text.is-size-7(v-if='usedIpForLocation') This is an approximate location
 
         div(v-else)
           b-icon.location__wrapper__loading(icon="loading")
@@ -66,11 +46,17 @@
 import sharer from '~/services/sharer'
 
 export default {
+  props: {
+    ipData: {
+      type: Object,
+      required: true,
+    },
+  },
+
   data() {
     return {
       position: null,
       distance: null,
-      showError: false,
       loadingMessage: '',
       loadingMessages: [
         'We are calculating distance from your location',
@@ -85,36 +71,8 @@ export default {
       },
 
       showTimeoutError: false,
-
-      currentStep: null,
-      steps: [
-        {
-          icon: 'apple',
-          title: 'iOS',
-          items: [
-            'Go to your phone <b>Settings</b>',
-            'Open <b>General</b> settings',
-            'Scroll to the bottom and go to <b>Reset</b>',
-            'Tap <b>Reset Location & Privacy</b>',
-            'Open Safari & Reload the page',
-            'Tap Allow Location Access & Click <b>Allow</b>',
-          ],
-        },
-        {
-          icon: 'android',
-          title: 'Android',
-          items: [
-            'Use <b>Google Chrome</b> as your browser to access IndiaSmile',
-            '<b>Inside Chrome</b>, Open <b>Settings</b> by clicking 3 dots in top right corner of the screen',
-            'Scroll to bottom and go to <b>Site settings</b>',
-            'Tap <b>Location</b> settings',
-            'Scroll to <b>find</b> ‘https://indiasmile.org’ and tap on it',
-            'Click <b>Clear Settings</b>',
-            'Reload <b>IndiaSmile Corona Around You</b> page',
-            'Tap Allow Location Access & Click <b>Okay</b>',
-          ],
-        },
-      ],
+      locationPermission: '',
+      usedIpForLocation: false,
     }
   },
 
@@ -125,6 +83,14 @@ export default {
           ? 'Within 3'
           : this.distance
         : false
+    },
+  },
+
+  watch: {
+    ipData() {
+      if (this.locationPermission === 'denied') {
+        this.useIPData()
+      }
     },
   },
 
@@ -143,6 +109,8 @@ export default {
         navigator.geolocation.getCurrentPosition(
           async (position) => {
             // permission granted
+            this.locationPermission = 'granted'
+
             // push GTM event
             this.$gtm.push({ event: 'loc_acc_grant' })
             // register timestamp to compare
@@ -158,21 +126,12 @@ export default {
               }
             }, 22000)
 
-            this.showError = false
             this.position = position.coords
 
-            const data = await this.$axios(
-              '/api?get=geo2covid' +
-                '&lat=' +
-                this.position.latitude +
-                '&long=' +
-                this.position.longitude
-            )
+            await this.calculateDistance(this.position)
 
             // data recieved, register another timestamp
             this.timestamps.final = Date.now()
-
-            this.distance = Math.round(Number(data.data.geo2covid) * 100) / 100
 
             // got nearby data
             // push GTM event
@@ -190,10 +149,13 @@ export default {
           },
           () => {
             // permission denied
+            this.locationPermission = 'denied'
+
             // push GTM event
             this.$gtm.push({ event: 'loc_acc_deny' })
 
-            this.showError = true
+            this.usedIpForLocation = true
+            this.useIPData()
           }
         )
       }
@@ -228,6 +190,62 @@ Stay Indoors & Stay Safe 🇮🇳`
       if (typeof window !== 'undefined') {
         window.location.reload()
       }
+    },
+
+    async calculateDistance(position) {
+      const response = await this.$axios(
+        'https://indiasmile-api.s3.ap-south-1.amazonaws.com/cache/infectedDistricts.json'
+      )
+
+      const array = Object.values(response.data)
+
+      const distancesArray = array.map((obj) => {
+        return this.distanceBetweenCoords(
+          obj.coords.lat,
+          obj.coords.lng,
+          position.latitude,
+          position.longitude
+        )
+      })
+
+      distancesArray.sort((a, b) => a - b)
+
+      this.distance = Math.round(Number(distancesArray[0]) * 100) / 100
+    },
+
+    distanceBetweenCoords(lat1, lon1, lat2, lon2) {
+      if (lat1 === lat2 && lon1 === lon2) {
+        return 0
+      } else {
+        const radlat1 = (Math.PI * lat1) / 180
+        const radlat2 = (Math.PI * lat2) / 180
+        const theta = lon1 - lon2
+        const radtheta = (Math.PI * theta) / 180
+        let dist =
+          Math.sin(radlat1) * Math.sin(radlat2) +
+          Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta)
+
+        if (dist > 1) {
+          dist = 1
+        }
+
+        dist = Math.acos(dist)
+        dist = (dist * 180) / Math.PI
+        dist = dist * 60 * 1.1515
+        dist = dist * 1.609344 // convert to KMs
+
+        return dist
+      }
+    },
+
+    useIPData() {
+      // use ip data for location
+      this.position = {
+        latitude: this.ipData.lat,
+        longitude: this.ipData.lon,
+      }
+
+      this.calculateDistance(this.position)
     },
   },
 }
