@@ -1,5 +1,6 @@
 <template lang="pug">
   .wrapper
+    #fb-root
     transition(name="fade")
       nuxt
     Colophon
@@ -12,16 +13,15 @@
           img(src='~/assets/images/support.png')
 
         .card-content.content
-          .content__heading Thanks for supporting IndiaSmile!
+          .content__heading Thanks for using IndiaSmile!
           .share-modal__text Follow us on Facebook and Twitter to stay up to date with the latest developments.
 
-          ul.share-modal__actions.social-list
-            li.social-list__item(@click="share('facebook')")
-              b-icon.social-list__item__icon.icon--facebook(size="is-small" icon="facebook")
-              | Like on Facebook
-            li.social-list__item(@click="share('twitter')")
-              b-icon.social-list__item__icon.icon--twitter(size="is-small" icon="twitter")
-              | Follow on Twitter
+          .share-modal__actions
+            .share-modal__action.share-modal__action--facebook(@click='hideModal')
+              .fb-like(data-href="https://www.facebook.com/IndiaSmileOrg/" data-width="280" data-layout="standard" data-action="like" data-size="large" data-share="false")
+
+            .share-modal__action
+              a(href="https://twitter.com/indiasmileorg?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large" data-show-count="false") Follow @indiasmileorg
 
           .share-modal__text Thanks and keep smiling! #[br] - IndiaSmile Team
 </template>
@@ -49,8 +49,8 @@ export default {
       isShareModalActive: false,
       socialLinks: {
         twitter: 'https://twitter.com/indiasmileorg',
-        facebook: 'https://www.facebook.com/IndiaSmileOrg/',
       },
+      SocialWidgetLoaded: 0,
     }
   },
 
@@ -75,21 +75,29 @@ export default {
       ShowShareModal &&
       typeof SiteViewsCount === 'number' &&
       (SiteViewsCount === 2 ||
-        (SiteViewsCount % 2 === 1) & (SiteViewsCount >= 5))
+        (SiteViewsCount % 2 === 1 &&
+          SiteViewsCount >= 5 &&
+          SiteViewsCount <= 9))
     ) {
       this.isShareModalActive = true
-
-      const js = document.createElement('script')
-      js.src = 'https://platform.twitter.com/widgets.js'
-      document.body.appendChild(js)
     }
   },
 
   methods: {
-    share(name) {
+    hideModal() {
+      this.isShareModalActive = false
       this.$storage.setLocalStorage('ShowShareModal', false)
+    },
 
-      window.open(this.socialLinks[name])
+    loadWidgets() {
+      if (process.client && this.SocialWidgetLoaded === 2) {
+        window.twttr.events.bind('click', () => {
+          this.hideModal()
+        })
+        window.FB.Event.subscribe('edge.create', () => {
+          this.hideModal()
+        })
+      }
     },
   },
 
@@ -102,6 +110,28 @@ export default {
           content:
             'https://indiasmile.org' +
             require('~/assets/images/meta-image.jpg'),
+        },
+      ],
+
+      script: [
+        {
+          hid: 'twitterWidget',
+          src: 'https://platform.twitter.com/widgets.js',
+          async: true,
+          callback: () => {
+            this.SocialWidgetLoaded++
+            this.loadWidgets()
+          },
+        },
+        {
+          hid: 'facebookWidget',
+          src: 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v6.0',
+          async: true,
+          defer: true,
+          callback: () => {
+            this.SocialWidgetLoaded++
+            this.loadWidgets()
+          },
         },
       ],
     }
@@ -158,6 +188,14 @@ export default {
 
     &__actions
       margin-bottom 1rem!important
+
+    &__action
+      width 100%
+      margin-top 1rem
+      display block
+
+      &--facebook
+        height 1.75rem
 
     &__text
       margin 0
