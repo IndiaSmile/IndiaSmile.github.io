@@ -41,8 +41,8 @@
         :list="card.links"
       )
 
-      hr.wrapper__hr
-      Articles.margin-top(:count="3")
+      //- hr.wrapper__hr
+      //- Articles.margin-top(:count="3")
 
       hr.wrapper__hr
       CovidDisclaimers
@@ -54,7 +54,7 @@ import TextHero from '~/components/TextHero'
 import InternationalCases from '~/components/InternationalCases'
 import Tracker from '~/components/Tracker'
 import CovidDisclaimers from '~/components/CovidDisclaimers'
-import Articles from '~/components/Articles'
+// import Articles from '~/components/Articles'
 import Testing from '~/components/Testing'
 import Card from '~/components/Card'
 import IndiaStats from '~/components/IndiaStats'
@@ -68,7 +68,7 @@ export default {
     InternationalCases,
     Tracker,
     CovidDisclaimers,
-    Articles,
+    // Articles,
     Testing,
     Card,
     IndiaStats,

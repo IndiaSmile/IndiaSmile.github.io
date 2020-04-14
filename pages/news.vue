@@ -1,4 +1,12 @@
-<template lang="pug">
+<script>
+export default {
+  middleware({ redirect }) {
+    return redirect('/404')
+  },
+}
+</script>
+
+<!-- <template lang="pug">
   .article
     ArticleHero(:image="image")
 
@@ -84,3 +92,4 @@ export default {
   &__section
     margin-bottom 1rem
 </style>
+ -->
