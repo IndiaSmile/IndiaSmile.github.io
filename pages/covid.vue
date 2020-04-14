@@ -45,6 +45,9 @@
       //- Articles.margin-top(:count="3")
 
       hr.wrapper__hr
+      LockdownCountdown.margin-top
+
+      hr.wrapper__hr
       CovidDisclaimers
 </template>
 
@@ -60,6 +63,7 @@ import Card from '~/components/Card'
 import IndiaStats from '~/components/IndiaStats'
 import StateStats from '~/components/StateStats'
 import StatewiseTable from '~/components/StatewiseTable'
+import LockdownCountdown from '~/components/LockdownCountdown'
 
 export default {
   components: {
@@ -74,6 +78,7 @@ export default {
     IndiaStats,
     StateStats,
     StatewiseTable,
+    LockdownCountdown,
   },
 
   data() {

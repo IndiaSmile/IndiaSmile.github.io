@@ -10,6 +10,8 @@
         li 🧠 Visit every day and add to homescreen to <strong>beat boredom</strong>
         li 👬 <strong>Share</strong> in friends & family groups to spread the love!
 
+    LockdownCountdown
+
     section.section.content
       .container
         .columns.is-multiline
@@ -38,6 +40,7 @@
 import Header from '~/components/Header'
 import Card from '~/components/Card'
 import TextHero from '~/components/TextHero'
+import LockdownCountdown from '~/components/LockdownCountdown'
 
 export default {
   name: 'HomePage',
@@ -45,6 +48,7 @@ export default {
     Header,
     Card,
     TextHero,
+    LockdownCountdown,
   },
 
   data() {
