@@ -153,6 +153,9 @@ export default {
   },
 
   async mounted() {
+    const response = await this.$axios('/cache/infectedDistricts.json')
+    this.infectedDistricts = Object.values(response.data)
+
     if (this.$storage.getLocalStorage('IsLocationPermissionGranted')) {
       // check for allowSponsored variable
       if (
@@ -166,9 +169,6 @@ export default {
 
       this.fetchLocation()
     }
-
-    const response = await this.$axios('/cache/infectedDistricts.json')
-    this.infectedDistricts = Object.values(response.data)
   },
 
   methods: {
