@@ -152,14 +152,6 @@ export default {
     },
   },
 
-  watch: {
-    ipData() {
-      if (this.locationPermission === 'denied') {
-        this.useLeafletMap()
-      }
-    },
-  },
-
   async mounted() {
     if (this.$storage.getLocalStorage('IsLocationPermissionGranted')) {
       // check for allowSponsored variable
