@@ -105,7 +105,7 @@ export default {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    baseURL: 'https://ww4qjq0vs4.execute-api.ap-south-1.amazonaws.com',
+    baseURL: 'https://indiasmile-api.s3.ap-south-1.amazonaws.com',
   },
   /*
    ** Build configuration

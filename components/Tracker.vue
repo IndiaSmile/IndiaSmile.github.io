@@ -79,13 +79,13 @@ export default {
       position: null,
       distance: null,
       showError: false,
-      loadingMessage: '',
+      loadingMessage: 'We are calculating distance from your location',
       loadingMessages: [
         'We are calculating distance from your location',
         'We are still trying to calculate distance, hang on!',
         'This is taking longer than usual',
       ],
-      loadingMessageCounter: 0,
+      loadingMessageCounter: 1,
 
       timestamps: {
         initial: null,
@@ -271,9 +271,7 @@ Stay Indoors & Stay Safe 🇮🇳`
     },
 
     async calculateDistance(position) {
-      const response = await this.$axios(
-        'https://indiasmile-api.s3.ap-south-1.amazonaws.com/cache/infectedDistricts.json'
-      )
+      const response = await this.$axios('/cache/infectedDistricts.json')
 
       const array = Object.values(response.data)
 
