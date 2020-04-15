@@ -255,7 +255,7 @@ export default {
         distance = 'within 5 KM'
       }
 
-      const message = `Nearest COVID19 case to my location is around ${distance}! 😨
+      const message = `Nearest COVID19 case to my location is ${distance}! 😨
 
 Get the latest COVID19 stats and check from your family's location: https://indiasmile.org/covid 🦠
 
