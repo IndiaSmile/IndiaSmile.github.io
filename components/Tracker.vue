@@ -6,9 +6,7 @@
         .wrapper__subtitle.wrapper__subtitle--em(v-if="!computedDistance")
           | Allow location access & find out how close an infected patient is from you!
 
-    b-message(v-if="showError" type="is-warning")
-        | We need access to your location to find the nearest case #[br]
-        | Enable location access by following the steps below:
+    b-message(v-if="showError" type="is-warning") We were unable to determine your location. Please try the following steps to attempt fixing it, or just use the map below to set a pin and calculate.
 
         .steps-list
           b-collapse.card(animation='slide' v-for='(step, i) of steps' :key='i' :open='currentStep === i' @open='currentStep = i')
@@ -37,6 +35,8 @@
             p.control
               b-button.button.is-primary(@click='searchLocation') Search
         .map#map
+        .margin-top(v-if='pinLocation')
+          b-button.is-primary(@click='calculateDistance') Calculate location from point
         .map-result.margin-top(v-if='computedDistance')
           | The nearest confirmed COVID-19 case from pinned location is #[b {{ computedDistance }}] KM.
 
@@ -88,6 +88,7 @@ export default {
       map: null,
       mapCoords: [],
       showMap: false,
+      pinLocation: null,
 
       position: null,
       distance: null,
@@ -107,6 +108,7 @@ export default {
 
       showTimeoutError: false,
       locationPermission: '',
+      infectedDistricts: null,
       // usedIpForLocation: false,
       currentStep: null,
       steps: [
@@ -158,7 +160,7 @@ export default {
     },
   },
 
-  mounted() {
+  async mounted() {
     if (this.$storage.getLocalStorage('IsLocationPermissionGranted')) {
       // check for allowSponsored variable
       if (
@@ -172,6 +174,9 @@ export default {
 
       this.fetchLocation()
     }
+
+    const response = await this.$axios('/cache/infectedDistricts.json')
+    this.infectedDistricts = Object.values(response.data)
   },
 
   methods: {
@@ -181,7 +186,7 @@ export default {
 
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
-          async (position) => {
+          (position) => {
             // permission granted
             this.locationPermission = 'granted'
             this.showError = false
@@ -206,7 +211,7 @@ export default {
 
             this.position = position.coords
 
-            await this.calculateDistance(this.position)
+            this.calculateDistance(this.position)
 
             // data recieved, register another timestamp
             this.timestamps.final = Date.now()
@@ -279,12 +284,10 @@ Stay Indoors & Stay Safe 🇮🇳`
       }
     },
 
-    async calculateDistance(position) {
-      const response = await this.$axios('/cache/infectedDistricts.json')
+    calculateDistance(position) {
+      position = position.latitude ? position : this.pinLocation
 
-      const array = Object.values(response.data)
-
-      const distancesArray = array.map((obj) => {
+      const distancesArray = this.infectedDistricts.map((obj) => {
         return this.distanceBetweenCoords(
           obj.coords.lat,
           obj.coords.lng,
@@ -357,10 +360,10 @@ Stay Indoors & Stay Safe 🇮🇳`
           this.mapCoords = [e.latlng.lat, e.latlng.lng]
           marker = window.L.marker(this.mapCoords).addTo(this.map)
 
-          this.calculateDistance({
+          this.pinLocation = {
             latitude: this.mapCoords[0],
             longitude: this.mapCoords[1],
-          })
+          }
         })
       }, 2000)
     },
