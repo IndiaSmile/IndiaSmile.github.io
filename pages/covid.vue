@@ -114,7 +114,7 @@ export default {
           },
           {
             name: '🤣 Jokes',
-            link: 'https://chat.whatsapp.com/EHIFa2mn0lJDIaIfC60T19',
+            link: 'https://chat.whatsapp.com/D55fizDYgfUBbymciAQN5v',
           },
           {
             name: '📚 Books',
