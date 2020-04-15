@@ -81,6 +81,13 @@ export default {
     ) {
       this.isShareModalActive = true
     }
+
+    // update window.allowSponsored
+    if (SiteViewsCount > 1) {
+      window.allowSponsored = 1
+    } else {
+      window.allowSponsored = 0
+    }
   },
 
   methods: {

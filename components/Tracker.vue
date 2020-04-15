@@ -23,8 +23,8 @@
               ol.context
                 li(v-for="(stepItem, i2) in step.items" :key='i2' v-html='stepItem')
 
-    .content__section.request-container(v-if="!position")
-        b-button.request__button(icon-left="crosshairs-gps" type="is-primary" @click="fetchLocation") Allow location access
+    .content__section.request-container(v-if="!position" @click="fetchLocation")
+        b-button.request__button(icon-left="crosshairs-gps" type="is-primary") Allow location access
         p.request__text Your current location will be used to get this data.
 
     .content__section.location(v-else)
@@ -149,6 +149,16 @@ export default {
 
   mounted() {
     if (this.$storage.getLocalStorage('IsLocationPermissionGranted')) {
+      // check for allowSponsored variable
+      if (
+        this.$storage.getLocalStorage('SiteViewsCount') &&
+        this.$storage.getLocalStorage('SiteViewsCount') > 1
+      ) {
+        window.allowSponsored = 1
+      } else {
+        window.allowSponsored = 0
+      }
+
       this.fetchLocation()
     }
   },
@@ -233,6 +243,8 @@ export default {
     },
 
     share(platform) {
+      this.$gtm.push({ event: 'tapShare' })
+
       let distance = `${this.distance} KM away`
 
       if (this.distance < 3) {
