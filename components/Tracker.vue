@@ -288,7 +288,10 @@ Stay Indoors & Stay Safe 🇮🇳`
 
       distancesArray.sort((a, b) => a - b)
 
-      this.distance = Math.round(Number(distancesArray[0]) * 100) / 100
+      setTimeout(() => {
+        // show the distance after 3 seconds
+        this.distance = Math.round(Number(distancesArray[0]) * 100) / 100
+      }, 3000)
     },
 
     distanceBetweenCoords(lat1, lon1, lat2, lon2) {
