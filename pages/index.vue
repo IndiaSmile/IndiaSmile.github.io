@@ -4,6 +4,8 @@
       title="Getting bored at home?"
     )
       ul
+        li
+          nuxt-link(to='/covid') 🦠 COVID-19 Tracker and Stats
         li 👇 <strong>Scroll down</strong> to see all content
         li 🎊 Choose Entertainment, Fitness, News, or anything you like!
         li 😍 Scroll and click on all photos to find best content

@@ -28,25 +28,33 @@
         p.request__text Your current location will be used to get this data.
 
     .content__section.location(v-else)
-      .location__wrapper
-        div(v-if='showTimeoutError')
-          span(@click='reload') Try Again 😳
+      //- div(v-if='showTimeoutError')
+        //- span(@click='reload') Try Again 😳
+      .map-container.margin-top(v-if='showMap')
+        .search
+          b-field(label="Search..." label-position="on-border")
+            b-input(v-model="locationText" placeholder='Search your location' type='search')
+            p.control
+              b-button.button.is-primary(@click='searchLocation') Search
+        .map#map
+        .map-result.margin-top(v-if='computedDistance')
+          | The nearest confirmed COVID-19 case from pinned location is #[b {{ computedDistance }}] KM.
 
-        div(v-else-if="computedDistance")
-          .location__wrapper__icon
-            b-icon(icon="map-marker")
-          .location__wrapper__text.is-size-7 You are
-          .location__wrapper__text.is-size-5
-            span {{ computedDistance }} KM
+      .location__wrapper(v-else-if="computedDistance")
+        .location__wrapper__icon
+          b-icon(icon="map-marker")
+        .location__wrapper__text.is-size-7 You are
+        .location__wrapper__text.is-size-5
+          span {{ computedDistance }} KM
 
-          .location__wrapper__text.is-size-7 from the nearest confirmed case *
+        .location__wrapper__text.is-size-7 from the nearest confirmed case *
 
-        div(v-else)
-          b-icon.location__wrapper__loading(icon="loading")
-          .is-size-7 {{ loadingMessage }}
+      .location__wrapper(v-else)
+        b-icon.location__wrapper__loading(icon="loading")
+        .is-size-7 {{ loadingMessage }}
 
-      .location__text.is-size-7(v-if='usedIpForLocation') This is an approximate distance using your IP address. Follow the steps above to give location access for more accurate results.
-      .location__text(v-if="showTimeoutError") We were unable to get this data due to too many users. #[u(@click="reload") Click here to refresh and try again]
+      //- .location__text.is-size-7(v-if='usedIpForLocation') This is an approximate distance using your IP address. Follow the steps above to give location access for more accurate results.
+      .location__text(v-if="showTimeoutError") We were unable to get this data due to too many users. #[u(@click="reload") Click here to refresh and try again] or use the map above to find your location.
 
       div(v-else)
         .location__text Your <strong>family or friends</strong> could be close to someone affected 😷 <strong>Share this page</strong> & keep your loved ones safe 👨‍👩‍👦
@@ -76,6 +84,11 @@ export default {
 
   data() {
     return {
+      locationText: '',
+      map: null,
+      mapCoords: [],
+      showMap: false,
+
       position: null,
       distance: null,
       showError: false,
@@ -94,7 +107,7 @@ export default {
 
       showTimeoutError: false,
       locationPermission: '',
-      usedIpForLocation: false,
+      // usedIpForLocation: false,
       currentStep: null,
       steps: [
         {
@@ -130,9 +143,7 @@ export default {
   computed: {
     computedDistance() {
       return this.distance
-        ? this.usedIpForLocation
-          ? 'Within 5'
-          : this.distance < 3
+        ? this.distance < 3
           ? 'Within 3'
           : this.distance
         : false
@@ -142,7 +153,7 @@ export default {
   watch: {
     ipData() {
       if (this.locationPermission === 'denied') {
-        this.useIPData()
+        this.useLeafletMap()
       }
     },
   },
@@ -187,8 +198,11 @@ export default {
             setTimeout(() => {
               if (!this.distance) {
                 this.showTimeoutError = true
+
+                // try leaflet map for location
+                this.useLeafletMap()
               }
-            }, 22000)
+            }, 10000)
 
             this.position = position.coords
 
@@ -214,14 +228,13 @@ export default {
           () => {
             // permission denied
             this.locationPermission = 'denied'
-
             this.showError = true
 
             // push GTM event
             this.$gtm.push({ event: 'loc_acc_deny' })
+            // this.usedIpForLocation = true
 
-            this.usedIpForLocation = true
-            this.useIPData()
+            this.useLeafletMap()
           }
         )
       }
@@ -249,10 +262,6 @@ export default {
 
       if (this.distance < 3) {
         distance = 'within 3 KM'
-      }
-
-      if (this.usedIpForLocation) {
-        distance = 'within 5 KM'
       }
 
       const message = `Nearest COVID19 case to my location is ${distance}! 😨
@@ -317,14 +326,58 @@ Stay Indoors & Stay Safe 🇮🇳`
       }
     },
 
-    useIPData() {
-      // use ip data for location
+    useLeafletMap() {
+      this.showMap = true
       this.position = {
         latitude: this.ipData.lat,
         longitude: this.ipData.lon,
       }
 
-      this.calculateDistance(this.position)
+      // adding delay because vue takes time to render
+      setTimeout(() => {
+        this.map = window.L.map('map').setView(
+          [this.position.latitude, this.position.longitude],
+          15
+        )
+
+        window.L.tileLayer(
+          'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+          {
+            attribution:
+              '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+          }
+        ).addTo(this.map)
+
+        let marker
+
+        this.map.on('click', (e) => {
+          if (marker) marker.remove()
+          this.distance = null
+
+          this.mapCoords = [e.latlng.lat, e.latlng.lng]
+          marker = window.L.marker(this.mapCoords).addTo(this.map)
+
+          this.calculateDistance({
+            latitude: this.mapCoords[0],
+            longitude: this.mapCoords[1],
+          })
+        })
+      }, 2000)
+    },
+
+    searchLocation() {
+      window.L.esri.Geocoding.geocode()
+        .text(this.locationText)
+        .run((err, results) => {
+          if (err) {
+            console.log(err)
+          } else {
+            // using the most credible result
+            const coords = results.results[0].latlng
+
+            this.map.panTo(new window.L.LatLng(coords.lat, coords.lng))
+          }
+        })
     },
   },
 }
@@ -389,6 +442,12 @@ Stay Indoors & Stay Safe 🇮🇳`
 
   &__text
     margin-top 1rem
+
+.map
+  height 13rem
+  width 100%
+  position relative
+  overflow hidden
 
 @keyframes spin
   0%

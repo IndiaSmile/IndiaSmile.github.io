@@ -120,6 +120,13 @@ export default {
         },
       ],
 
+      link: [
+        {
+          rel: 'stylesheet',
+          href: 'https://unpkg.com/leaflet@1.6.0/dist/leaflet.css',
+        },
+      ],
+
       script: [
         {
           hid: 'twitterWidget',
@@ -139,6 +146,15 @@ export default {
             this.SocialWidgetLoaded++
             this.loadWidgets()
           },
+        },
+        {
+          src: 'https://unpkg.com/leaflet/dist/leaflet.js',
+        },
+        {
+          src: 'https://unpkg.com/esri-leaflet/dist/esri-leaflet.js',
+        },
+        {
+          src: 'https://unpkg.com/esri-leaflet-geocoder',
         },
       ],
     }
