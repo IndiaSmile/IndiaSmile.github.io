@@ -258,7 +258,7 @@ export default {
 
 Get the latest COVID19 stats and check from your family's location: https://indiasmile.org/covid 🦠
 
-Stay Indoors & Stay Safe 🇮🇳`
+Stay Indoors & Stay Safe #IndiaSmile 🇮🇳`
 
       sharer(message, '', platform)
     },
