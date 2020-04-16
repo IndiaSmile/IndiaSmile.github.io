@@ -5,7 +5,8 @@
     )
       ul
         li
-          nuxt-link(to='/covid') 🦠 COVID-19 Tracker and Stats
+          nuxt-link(to='/covid')
+            b-button(type='is-primary' inverted) &#x1F9A0; COVID-19 Tracker and Stats
         li 👇 <strong>Scroll down</strong> to see all content
         li 🎊 Choose Entertainment, Fitness, News, or anything you like!
         li 😍 Scroll and click on all photos to find best content
