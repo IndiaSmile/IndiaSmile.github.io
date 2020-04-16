@@ -4,9 +4,9 @@
       title="Getting bored at home?"
     )
       ul
-        li
+        li.has-text-centered
           nuxt-link(to='/covid')
-            b-button(type='is-primary' inverted) &#x1F9A0; COVID-19 Tracker and Stats
+            b-button(type='is-primary' size='is-medium' inverted) &#x1F9A0; COVID-19 Tracker and Stats
         li 👇 <strong>Scroll down</strong> to see all content
         li 🎊 Choose Entertainment, Fitness, News, or anything you like!
         li 😍 Scroll and click on all photos to find best content
