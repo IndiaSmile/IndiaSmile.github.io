@@ -158,14 +158,7 @@ export default {
 
     if (this.$storage.getLocalStorage('IsLocationPermissionGranted')) {
       // check for allowSponsored variable
-      if (
-        this.$storage.getLocalStorage('SiteViewsCount') &&
-        this.$storage.getLocalStorage('SiteViewsCount') > 1
-      ) {
-        window.allowSponsored = 1
-      } else {
-        window.allowSponsored = 0
-      }
+      window.allowSponsored = 1
 
       this.fetchLocation()
     }

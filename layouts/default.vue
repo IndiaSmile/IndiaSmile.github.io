@@ -83,11 +83,7 @@ export default {
     }
 
     // update window.allowSponsored
-    if (SiteViewsCount > 1) {
-      window.allowSponsored = 1
-    } else {
-      window.allowSponsored = 0
-    }
+    window.allowSponsored = 1
   },
 
   methods: {
