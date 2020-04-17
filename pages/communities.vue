@@ -97,6 +97,16 @@ export default {
           button: 'Join on Telegram',
         },
         {
+          title: 'Gaming',
+          subtitle:
+            'Join for all the intense discussions on PS5 or Xbox, or profess your loyalty to PC on the gaming group',
+          image: require('~/assets/images/computer-console.jpg?resize'),
+          color: 'rgba(0, 0, 0, 0.85)',
+          href: 'https://t.me/isc_gaming',
+          isDarkText: false,
+          button: 'Join on Telegram',
+        },
+        {
           custom: 'Sharer',
         },
       ],
