@@ -83,7 +83,7 @@
       .card
         .card-content
           p IndiaSmile is a non-profit NGO that uses publicly available data from news & government sources to show information of infected cases all around the world. For privacy reasons, we do not store the exact location of an infected case but have to approximate it to the nearest distance location. We then use the location information you provide to calculate a distance to the nearest patient.
-          p This information comes from a public [database maintained by volunteers](#[a(href='http://patientdb.covid19india.org/' target='_blank') http://patientdb.covid19india.org/]). Any information we collect from you contains no identifiable IDs and is deleted when you leave the webpage
+          p This information comes from a public (#[a(href='http://patientdb.covid19india.org/' target='_blank') database maintained by volunteers]). Any information we collect from you contains no identifiable IDs and is deleted when you leave the webpage
 </template>
 
 <script>
