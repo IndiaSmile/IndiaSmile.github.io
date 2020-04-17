@@ -33,7 +33,7 @@
 
         .search.margin-top
           b-field(label="Search..." label-position="on-border")
-            b-input(v-model="locationText" placeholder='Search your location' type='search')
+            b-input(v-model="locationText" placeholder='Enter your address' type='search')
             p.control
               b-button.button.is-primary(@click='searchLocation') Search
 
@@ -60,7 +60,7 @@
       //- .location__text.is-size-7(v-if='usedIpForLocation') This is an approximate distance using your IP address. Follow the steps above to give location access for more accurate results.
       .location__text(v-if="showTimeoutError") We were unable to get this data due to too many users. #[u(@click="reload") Click here to refresh and try again] or use the map above to find your location.
 
-      div(v-else)
+      div(v-else v-show='distance')
         .location__text Your <strong>family or friends</strong> could be close to someone affected 😷 <strong>Share this page</strong> & keep your loved ones safe 👨‍👩‍👦
 
         ul.social-list
@@ -154,6 +154,14 @@ export default {
           ? 'Within 3'
           : this.distance
         : false
+    },
+  },
+
+  watch: {
+    ipData() {
+      if (this.map !== null) {
+        this.map.panTo(new window.L.LatLng(this.ipData.lat, this.ipData.lon))
+      }
     },
   },
 
