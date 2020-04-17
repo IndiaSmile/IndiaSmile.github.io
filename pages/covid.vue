@@ -32,6 +32,8 @@
       hr.wrapper__hr
       Testing(:data='testing').margin-top
 
+      .g-sponsored
+
       card.margin-top(
         :title="card.title"
         :subtitle="card.subtitle"
