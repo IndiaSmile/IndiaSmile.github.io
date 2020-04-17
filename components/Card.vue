@@ -69,7 +69,10 @@ export default {
   computed: {
     parentClassNames() {
       if (this.list.length) {
-        return ['card--list', 'card--list--' + this.list.length]
+        return [
+          'card--list',
+          'card--list--' + (this.list.length <= 5 ? this.list.length : 5),
+        ]
       } else if (this.button) {
         return 'card--large'
       } else {

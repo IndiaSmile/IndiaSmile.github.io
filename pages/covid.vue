@@ -122,6 +122,10 @@ export default {
             name: '📚 Books',
             link: 'https://t.me/books_isc',
           },
+          {
+            name: '🎮 Gaming',
+            link: 'https://t.me/isc_gaming',
+          },
         ],
       },
     }
