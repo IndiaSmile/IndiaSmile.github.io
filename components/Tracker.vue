@@ -6,38 +6,42 @@
         .wrapper__subtitle.wrapper__subtitle--em(v-if="!computedDistance")
           | Allow location access & find out how close an infected patient is from you!
 
-    b-message(v-if="showError" type="is-warning") We were unable to determine your location. Please try the following steps to attempt fixing it, or just use the map below to set a pin and calculate.
-
-        .steps-list
-          b-collapse.card(animation='slide' v-for='(step, i) of steps' :key='i' :open='currentStep === i' @open='currentStep = i')
-            .card-header(slot='trigger' slot-scope='props' role='button')
-              .card-header-title
-                b-icon.card-header-title__icon(:icon='step.icon')
-                | {{ step.title }}
-              span.card-header-icon
-                b-icon(:icon="props.open ? 'menu-up' : 'menu-down'")
-
-            .card-content
-              ol.context
-                li(v-for="(stepItem, i2) in step.items" :key='i2' v-html='stepItem')
-
     .content__section.request-container(v-if="!position" @click="fetchLocation")
         b-button.request__button(icon-left="crosshairs-gps" type="is-primary") Allow location access
         p.request__text Your current location will be used to get this data.
 
     .content__section.location(v-else)
-      //- div(v-if='showTimeoutError')
-        //- span(@click='reload') Try Again 😳
-      .map-container.margin-top(v-if='showMap')
-        .search
+
+      .map-container.margin-top.has-text-left(v-if='showMap')
+        div(v-if="showError") We were unable to determine your exact location. Please try the following steps to attempt fixing it.
+
+            .steps-list
+              b-collapse.card(animation='slide' v-for='(step, i) of steps' v-if='step.title === userOS' :key='i' :open='currentStep === i' @open='currentStep = i')
+                .card-header(slot='trigger' slot-scope='props' role='button')
+                  .card-header-title
+                    b-icon.card-header-title__icon(:icon='step.icon')
+                    | {{ step.title }}
+                  span.card-header-icon
+                    b-icon(:icon="props.open ? 'menu-up' : 'menu-down'")
+
+                .card-content
+                  ol.context
+                    li(v-for="(stepItem, i2) in step.items" :key='i2' v-html='stepItem')
+
+        .content__heading Use the map to calculate from any location
+        .content__text Tap anywhere to place a pin. Then tap the button to calculate distance.
+
+        .search.margin-top
           b-field(label="Search..." label-position="on-border")
             b-input(v-model="locationText" placeholder='Search your location' type='search')
             p.control
               b-button.button.is-primary(@click='searchLocation') Search
+
         .map#map
-        .margin-top(v-if='pinLocation')
+
+        .margin-top.has-text-centered(v-if='pinLocation')
           b-button.is-primary(@click='calculateDistance') Calculate location from point
-        .map-result.margin-top(v-if='computedDistance')
+        .map-result.has-text-centered.margin-top(v-if='computedDistance')
           | The nearest confirmed COVID-19 case from pinned location is #[b {{ computedDistance }}] KM.
 
       .location__wrapper(v-else-if="computedDistance")
@@ -111,6 +115,7 @@ export default {
       infectedDistricts: null,
       // usedIpForLocation: false,
       currentStep: null,
+      userOS: 'Android',
       steps: [
         {
           icon: 'apple',
@@ -218,6 +223,21 @@ export default {
           () => {
             // permission denied
             this.locationPermission = 'denied'
+
+            // calculate user's operating system
+            const userAgent =
+              navigator.userAgent || navigator.vendor || window.opera
+
+            if (/android/i.test(userAgent)) {
+              this.userOS = 'Android'
+            }
+
+            // iOS detection from: http://stackoverflow.com/a/9039885/177710
+            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+              this.userOS = 'iOS'
+            }
+
+            // show error messages
             this.showError = true
 
             // push GTM event
