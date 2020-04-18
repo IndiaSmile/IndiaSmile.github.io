@@ -62,9 +62,6 @@
       .location__text(v-if="showTimeoutError") We were unable to get this data due to too many users. #[u(@click="reload") Click here to refresh and try again] or use the map above to find your location.
 
       div(v-else v-show='distance')
-        .margin-top.has-text-centered
-          u.has-text-info(@click='showInfoModal = true') How it works?
-
         .location__text Your <strong>family or friends</strong> could be close to someone affected 😷 <strong>Share this page</strong> & keep your loved ones safe 👨‍👩‍👦
 
         ul.social-list
@@ -77,13 +74,6 @@
           li.social-list__item(@click="share('twitter')")
             b-icon.social-list__item__icon.icon--twitter(size="is-small" icon="twitter")
             | Share on Twitter
-
-
-    b-modal.modal--custom(:active.sync='showInfoModal' has-modal-card trap-focus aria-role='dialog' aria-modal)
-      .card
-        .card-content
-          p IndiaSmile is a non-profit NGO that uses publicly available data from news & government sources to show information of infected cases all around the world. For privacy reasons, we do not store the exact location of an infected case but have to approximate it to the nearest distance location. We then use the location information you provide to calculate a distance to the nearest patient.
-          p This information comes from a public (#[a(href='http://patientdb.covid19india.org/' target='_blank') database maintained by volunteers]). Any information we collect from you contains no identifiable IDs and is deleted when you leave the webpage
 </template>
 
 <script>
@@ -104,8 +94,6 @@ export default {
       mapCoords: [],
       showMap: false,
       pinLocation: null,
-
-      showInfoModal: false,
 
       position: null,
       distance: null,
@@ -483,12 +471,4 @@ Stay Indoors & Stay Safe #IndiaSmile 🇮🇳`
     transform rotate(0)
   100%
     transform rotate(360deg)
-
-.modal--custom
-  z-index 1000
-
-  .card
-    max-width 20rem
-    margin 0 auto
-    border-radius 0.5rem
 </style>
