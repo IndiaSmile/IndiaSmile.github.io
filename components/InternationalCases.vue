@@ -71,8 +71,7 @@ export default {
 
   data() {
     return {
-      endpoint:
-        'https://corona-virus-stats.herokuapp.com/api/v1/cases/general-stats',
+      endpoint: 'https://corona.lmao.ninja/v2/all',
 
       countries: ['India', 'Pakistan', 'Bangladesh', 'USA', 'Italy'],
       currentCountry: 0,
@@ -127,10 +126,10 @@ Stay Indoors & Stay Safe 🇮🇳`,
 
     globalData() {
       return {
-        total_cases: this.global.total_cases,
-        active_cases: this.global.currently_infected,
-        total_recovered: this.global.recovery_cases,
-        total_deaths: this.global.death_cases,
+        total_cases: this.global.cases,
+        active_cases: this.global.active,
+        total_recovered: this.global.recovered,
+        total_deaths: this.global.deaths,
       }
     },
 
@@ -149,7 +148,7 @@ Stay Indoors & Stay Safe 🇮🇳`,
     // fetch global data
     const response = await this.$axios(this.endpoint)
 
-    this.global = response.data.data
+    this.global = response.data
 
     this.updateGraph()
   },

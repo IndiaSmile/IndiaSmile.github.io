@@ -16,9 +16,10 @@
 
       IndiaStats.margin-top(:data="computedIndiaStats")
 
-      hr.wrapper__hr
+      #trackerContainer
+        hr.wrapper__hr
 
-      Tracker.margin-top(:ipData='ipData')
+        Tracker.margin-top(:ipData='ipData')
 
       hr.wrapper__hr
       StateStats.margin-top(:data='statewise' :ipData='ipData')
