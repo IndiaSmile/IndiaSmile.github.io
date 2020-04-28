@@ -82,7 +82,7 @@ export default {
             ' You laugh we win! The funniest memes and jokes to lighten you up. 😂 P.S - The best way to fight coronavirus? Stay home and make fun of it 😜',
           image: require('~/assets/images/clown.jpg?resize'),
           color: 'rgb(140, 119, 140)',
-          href: 'https://chat.whatsapp.com/D55fizDYgfUBbymciAQN5v',
+          href: 'https://chat.whatsapp.com/I1IclvHv7on3xNxl9XgPy5',
           isDarkText: false,
           button: 'Join on WhatsApp',
         },
