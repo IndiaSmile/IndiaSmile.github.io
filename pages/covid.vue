@@ -16,10 +16,9 @@
 
       IndiaStats.margin-top(:data="computedIndiaStats")
 
-      #trackerContainer
-        hr.wrapper__hr
+      hr.wrapper__hr
 
-        Tracker.margin-top(:ipData='ipData')
+      Tracker.margin-top(:ipData='ipData')
 
       hr.wrapper__hr
       StateStats.margin-top(:data='statewise' :ipData='ipData')
@@ -117,7 +116,7 @@ export default {
           },
           {
             name: '🤣 Jokes',
-            link: 'https://chat.whatsapp.com/I1IclvHv7on3xNxl9XgPy5',
+            link: 'https://chat.whatsapp.com/D55fizDYgfUBbymciAQN5v',
           },
           {
             name: '📚 Books',

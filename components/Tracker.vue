@@ -6,27 +6,17 @@
         .wrapper__subtitle.wrapper__subtitle--em(v-if="!computedDistance")
           | Allow location access & find out how close an infected patient is from you!
 
-    .content__section.request-container(v-if="!position" @click="fetchLocation")
+    .location.has-text-left(v-if='showFixSteps')
+      FixSteps(v-if='showFixSteps')
+
+    .content__section.request-container(v-else-if="!position" @click="fetchLocation")
         b-button.request__button(icon-left="crosshairs-gps" type="is-primary") Allow location access
         p.request__text Your current location will be used to get this data.
 
     .content__section.location(v-else)
 
-      .map-container.margin-top.has-text-left(v-if='showMap')
-        div(v-if="showError") We were unable to determine your exact location. Please try the following steps to attempt fixing it.
-
-            .steps-list
-              b-collapse.card(animation='slide' v-for='(step, i) of steps' v-if='step.title === userOS' :key='i' :open='currentStep === i' @open='currentStep = i')
-                .card-header(slot='trigger' slot-scope='props' role='button')
-                  .card-header-title
-                    b-icon.card-header-title__icon(:icon='step.icon')
-                    | {{ step.title }}
-                  span.card-header-icon
-                    b-icon(:icon="props.open ? 'menu-up' : 'menu-down'")
-
-                .card-content
-                  ol.context
-                    li(v-for="(stepItem, i2) in step.items" :key='i2' v-html='stepItem')
+      .map-container.margin-top.has-text-left(v-if='shouldShowMap')
+        FixSteps(v-if="showError")
 
         .content__heading Use the map to calculate from any location
         .content__text Tap anywhere to place a pin. Then tap the button to calculate distance.
@@ -58,7 +48,7 @@
         b-icon.location__wrapper__loading(icon="loading")
         .is-size-7 {{ loadingMessage }}
 
-      //- .location__text.is-size-7(v-if='usedIpForLocation') This is an approximate distance using your IP address. Follow the steps above to give location access for more accurate results.
+        //- .location__text.is-size-7(v-if='usedIpForLocation') This is an approximate distance using your IP address. Follow the steps above to give location access for more accurate results.
       .location__text(v-if="showTimeoutError") We were unable to get this data due to too many users. #[u(@click="reload") Click here to refresh and try again] or use the map above to find your location.
 
       div(v-else v-show='distance')
@@ -74,12 +64,17 @@
           li.social-list__item(@click="share('twitter')")
             b-icon.social-list__item__icon.icon--twitter(size="is-small" icon="twitter")
             | Share on Twitter
+
 </template>
 
 <script>
 import sharer from '~/services/sharer'
+import FixSteps from '~/components/FixSteps'
 
 export default {
+  components: {
+    FixSteps,
+  },
   props: {
     ipData: {
       type: Object,
@@ -98,6 +93,7 @@ export default {
       position: null,
       distance: null,
       showError: false,
+      showFixSteps: false,
       loadingMessage: 'We are calculating distance from your location',
       loadingMessages: [
         'We are calculating distance from your location',
@@ -115,36 +111,6 @@ export default {
       locationPermission: '',
       infectedDistricts: null,
       // usedIpForLocation: false,
-      currentStep: null,
-      userOS: 'Android',
-      steps: [
-        {
-          icon: 'apple',
-          title: 'iOS',
-          items: [
-            'Go to your phone <b>Settings</b>',
-            'Open <b>General</b> settings',
-            'Scroll to the bottom and go to <b>Reset</b>',
-            'Tap <b>Reset Location & Privacy</b>',
-            'Open Safari & Reload the page',
-            'Tap Allow Location Access & Click <b>Allow</b>',
-          ],
-        },
-        {
-          icon: 'android',
-          title: 'Android',
-          items: [
-            'Use <b>Google Chrome</b> as your browser to access IndiaSmile',
-            '<b>Inside Chrome</b>, Open <b>Settings</b> by clicking 3 dots in top right corner of the screen',
-            'Scroll to bottom and go to <b>Site settings</b>',
-            'Tap <b>Location</b> settings',
-            'Scroll to <b>find</b> ‘https://indiasmile.org’ and tap on it',
-            'Click <b>Clear Settings</b>',
-            'Reload <b>IndiaSmile Corona Around You</b> page',
-            'Tap Allow Location Access & Click <b>Okay</b>',
-          ],
-        },
-      ],
     }
   },
 
@@ -155,6 +121,12 @@ export default {
           ? 'Within 3'
           : this.distance
         : false
+    },
+
+    shouldShowMap() {
+      return typeof window.showMap === 'boolean'
+        ? window.showMap && this.showMap
+        : this.showMap
     },
   },
 
@@ -189,6 +161,9 @@ export default {
             // permission granted
             this.locationPermission = 'granted'
             this.showError = false
+
+            // hide fix errors
+            this.showFixSteps = false
 
             // push GTM event
             this.$gtm.push({ event: 'loc_acc_grant' })
@@ -232,19 +207,6 @@ export default {
           () => {
             // permission denied
             this.locationPermission = 'denied'
-
-            // calculate user's operating system
-            const userAgent =
-              navigator.userAgent || navigator.vendor || window.opera
-
-            if (/android/i.test(userAgent)) {
-              this.userOS = 'Android'
-            }
-
-            // iOS detection from: http://stackoverflow.com/a/9039885/177710
-            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-              this.userOS = 'iOS'
-            }
 
             // show error messages
             this.showError = true
@@ -344,42 +306,48 @@ Stay Indoors & Stay Safe #IndiaSmile 🇮🇳`
     },
 
     useLeafletMap() {
-      this.showMap = true
-      this.position = {
-        latitude: this.ipData.lat || 20.5937, // using India's coordinates as fallback
-        longitude: this.ipData.lon || 78.9629,
+      // should the map be shown?
+      if (window.showMap !== false) {
+        this.showMap = true
+        this.position = {
+          latitude: this.ipData.lat || 20.5937, // using India's coordinates as fallback
+          longitude: this.ipData.lon || 78.9629,
+        }
+
+        // adding delay because vue takes time to render
+        setTimeout(() => {
+          this.map = window.L.map('map').setView(
+            [this.position.latitude, this.position.longitude],
+            15
+          )
+
+          window.L.tileLayer(
+            'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+            {
+              attribution:
+                '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+            }
+          ).addTo(this.map)
+
+          let marker
+
+          this.map.on('click', (e) => {
+            if (marker) marker.remove()
+            this.distance = null
+
+            this.mapCoords = [e.latlng.lat, e.latlng.lng]
+            marker = window.L.marker(this.mapCoords).addTo(this.map)
+
+            this.pinLocation = {
+              latitude: this.mapCoords[0],
+              longitude: this.mapCoords[1],
+            }
+          })
+        }, 2000)
+      } else {
+        // show fix steps
+        this.showFixSteps = true
       }
-
-      // adding delay because vue takes time to render
-      setTimeout(() => {
-        this.map = window.L.map('map').setView(
-          [this.position.latitude, this.position.longitude],
-          15
-        )
-
-        window.L.tileLayer(
-          'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-          {
-            attribution:
-              '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-          }
-        ).addTo(this.map)
-
-        let marker
-
-        this.map.on('click', (e) => {
-          if (marker) marker.remove()
-          this.distance = null
-
-          this.mapCoords = [e.latlng.lat, e.latlng.lng]
-          marker = window.L.marker(this.mapCoords).addTo(this.map)
-
-          this.pinLocation = {
-            latitude: this.mapCoords[0],
-            longitude: this.mapCoords[1],
-          }
-        })
-      }, 2000)
     },
 
     searchLocation() {
@@ -401,12 +369,6 @@ Stay Indoors & Stay Safe #IndiaSmile 🇮🇳`
 </script>
 
 <style lang="stylus" scoped>
-.steps-list
-  margin-top 1rem
-
-  .card-header-title__icon
-    margin-right 1rem
-
 .request-container
   height 6.94rem
   width 100%
