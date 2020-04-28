@@ -32,6 +32,10 @@
       hr.wrapper__hr
       Testing(:data='testing').margin-top
 
+      hr.wrapper
+      a.sponsored-banner(href='https://luckyroyale.app.link/pP51yTGnH5')
+        img(src="~/assets/images/banner.png")
+
       .g-sponsored
 
       card.margin-top(
