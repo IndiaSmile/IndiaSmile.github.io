@@ -120,7 +120,7 @@ export default {
           },
           {
             name: '🤣 Jokes',
-            link: 'https://chat.whatsapp.com/EJW1SmnM7iH0hZjPbSnPIV',
+            link: 'http://t.me/jokes_isc',
           },
           {
             name: '📚 Books',
