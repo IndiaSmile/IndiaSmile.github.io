@@ -33,7 +33,7 @@
       Testing(:data='testing').margin-top
 
       hr.wrapper
-      a.sponsored-banner(href='https://luckyroyale.app.link/pP51yTGnH5')
+      a.sponsored-banner(v-if='isAndroid' href='https://luckyroyale.app.link/pP51yTGnH5')
         img(src="~/assets/images/banner.png")
 
       .g-sponsored
@@ -96,6 +96,8 @@ export default {
       historical: [],
       statewise: [],
       testing: [],
+
+      isAndroid: false,
 
       ipData: {},
 
@@ -162,6 +164,13 @@ export default {
 
       this.$storage.setLocalStorage('ipData', this.ipData)
     }
+
+    // test user's device OS
+    const userAgent = navigator
+      ? navigator.userAgent || navigator.vendor || window.opera
+      : ''
+
+    this.isAndroid = /android/i.test(userAgent)
   },
 
   head() {
