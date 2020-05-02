@@ -10,7 +10,7 @@
     .stats__item__text.text--recovered--light Recovered 👩‍⚕️
     .stats__item__number.text--recovered {{ data.total_recovered }}
   .stats__item
-    .stats__item__text.text--deceased--light Deceased 💀
+    .stats__item__text.text--deceased--light Deceased ⚱️
     .stats__item__number.text--deceased {{ data.total_deaths }}
 </template>
 
