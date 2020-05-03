@@ -70,7 +70,7 @@
       b-select(v-model='currentDistrict' placeholder='Choose your district')
         option(v-for='(district, index) of districts' :key='index' :value='index') {{ district.name }}
 
-      p.margin-top This district is in {{ currentZone }} zone.
+      p.margin-top Your district falls in the #[span(:class="'zone--' + currentZone") {{ currentZone }}] zone. Share with your friends and family now to let them know.
       b-button.share-button(icon-left="share-variant" @click="shareZone") Share
     //- b-table.margin-top(v-if='districts' :data='districts' :columns='districtsColumns' :mobile-cards="false")
 
@@ -509,6 +509,14 @@ Stay Indoors & Stay Safe #IndiaSmile 🇮🇳`
   color #1C5BFF
   font-size 1rem
   font-weight 500
+
+.zone
+  &--red
+    color red
+  &--green
+    color green
+  &--orange
+    color orange
 
 @keyframes spin
   0%
