@@ -65,6 +65,15 @@
             b-icon.social-list__item__icon.icon--twitter(size="is-small" icon="twitter")
             | Share on Twitter
 
+    b-message.margin-top(v-if='districts' type='is-info')
+      p Please select your district.
+      b-select(v-model='currentDistrict' placeholder='Choose your district')
+        option(v-for='(district, index) of districts' :key='index' :value='index') {{ district.name }}
+
+      p.margin-top This district is in {{ currentZone }} zone.
+      b-button.share-button(icon-left="share-variant" @click="shareZone") Share
+    //- b-table.margin-top(v-if='districts' :data='districts' :columns='districtsColumns' :mobile-cards="false")
+
 </template>
 
 <script>
@@ -110,6 +119,10 @@ export default {
       showTimeoutError: false,
       locationPermission: '',
       infectedDistricts: null,
+      allDistricts: null,
+      zones: null,
+      districts: null,
+      currentDistrict: 0,
       // usedIpForLocation: false,
     }
   },
@@ -128,6 +141,10 @@ export default {
         ? window.showMap && this.showMap
         : this.showMap
     },
+
+    currentZone() {
+      return this.districts[this.currentDistrict].zone.toLowerCase()
+    },
   },
 
   watch: {
@@ -139,8 +156,14 @@ export default {
   },
 
   async mounted() {
-    const response = await this.$axios('/cache/infectedDistricts.json')
-    this.infectedDistricts = Object.values(response.data)
+    const infectedDistricts = await this.$axios('/cache/infectedDistricts.json')
+    this.infectedDistricts = Object.values(infectedDistricts.data)
+
+    const allDistricts = await this.$axios('/cache/allDistricts.json')
+    this.allDistricts = allDistricts.data
+
+    const zones = await this.$axios('https://api.covid19india.org/zones.json')
+    this.zones = zones.data.zones
 
     if (this.$storage.getLocalStorage('IsLocationPermissionGranted')) {
       // check for allowSponsored variable
@@ -254,6 +277,12 @@ Stay Indoors & Stay Safe #IndiaSmile 🇮🇳`
       sharer(message, '', platform)
     },
 
+    shareZone() {
+      const message = `My district is in the '${this.currentZone}' zone. Discover your district's classification on https://indiasmile.org/covid now!`
+
+      sharer(message)
+    },
+
     reload() {
       if (typeof window !== 'undefined') {
         window.location.reload()
@@ -263,20 +292,62 @@ Stay Indoors & Stay Safe #IndiaSmile 🇮🇳`
     calculateDistance(position) {
       position = position.latitude ? position : this.pinLocation
 
-      const distancesArray = this.infectedDistricts.map((obj) => {
-        return this.distanceBetweenCoords(
-          obj.coords.lat,
-          obj.coords.lng,
-          position.latitude,
-          position.longitude
-        )
-      })
+      const distancesArray = Object.values(this.infectedDistricts).map(
+        (obj, index) => {
+          return this.distanceBetweenCoords(
+            obj.coords.lat,
+            obj.coords.lng,
+            position.latitude,
+            position.longitude
+          )
+        }
+      )
 
       distancesArray.sort((a, b) => a - b)
 
+      // unset district
+      this.districts = null
+
+      // calculate zone
+      const allDistrictsSorted = Object.entries(this.allDistricts).map(
+        (entry) => {
+          const districtName = entry[0]
+          const obj = entry[1]
+
+          return {
+            districtName,
+            distance: this.distanceBetweenCoords(
+              obj.coords.lat,
+              obj.coords.lng,
+              position.latitude,
+              position.longitude
+            ),
+          }
+        }
+      )
+
+      allDistrictsSorted.sort((a, b) => a.distance - b.distance)
+
       setTimeout(() => {
-        // show the distance after 3 seconds
+        // show the distance and district after 3 seconds
+
         this.distance = Math.round(Number(distancesArray[0]) * 100) / 100
+
+        this.districts = allDistrictsSorted.slice(0, 3).map((district) => {
+          return {
+            name: district.districtName,
+            zone: this.zones.find(
+              (obj) => obj.district === district.districtName
+            ).zone,
+          }
+        })
+
+        // this.districts = {
+        //   name: allDistrictsSorted[0].districtName,
+        //   zone: this.zones.find(
+        //     (obj) => obj.district === allDistrictsSorted[0].districtName
+        //   ).zone,
+        // }
       }, 3000)
     },
 
@@ -334,6 +405,7 @@ Stay Indoors & Stay Safe #IndiaSmile 🇮🇳`
           this.map.on('click', (e) => {
             if (marker) marker.remove()
             this.distance = null
+            this.districts = null
 
             this.mapCoords = [e.latlng.lat, e.latlng.lng]
             marker = window.L.marker(this.mapCoords).addTo(this.map)
@@ -427,6 +499,16 @@ Stay Indoors & Stay Safe #IndiaSmile 🇮🇳`
   width 100%
   position relative
   overflow hidden
+
+.share-button
+  height 2rem
+  padding 0 1rem
+  background-color rgba(28, 91, 255, 0.1)
+  border 0
+  border-radius 0.25rem
+  color #1C5BFF
+  font-size 1rem
+  font-weight 500
 
 @keyframes spin
   0%
