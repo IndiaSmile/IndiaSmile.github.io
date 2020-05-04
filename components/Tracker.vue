@@ -66,11 +66,11 @@
             | Share on Twitter
 
     b-message.margin-top(v-if='districts' type='is-info')
-      p Please select your district.
-      b-select(v-model='currentDistrict' placeholder='Choose your district')
+      p.has-text-centered Please select your district.
+      b-select.b-select(v-model='currentDistrict' placeholder='Choose your district')
         option(v-for='(district, index) of districts' :key='index' :value='index') {{ district.name }}
 
-      p.margin-top Your district falls in the #[span(:class="'zone--' + currentZone") {{ currentZone }}] zone. Share with your friends and family now to let them know.
+      p.margin-top.has-text-centered Your district falls in the #[span(:class="'zone zone--' + currentZone") {{ currentZone }}] zone. Share with your friends and family now to let them know.
       b-button.share-button(icon-left="share-variant" @click="shareZone") Share
     //- b-table.margin-top(v-if='districts' :data='districts' :columns='districtsColumns' :mobile-cards="false")
 
@@ -502,6 +502,7 @@ Stay Indoors & Stay Safe #IndiaSmile 🇮🇳`
 
 .share-button
   height 2rem
+  width 100%
   padding 0 1rem
   background-color rgba(28, 91, 255, 0.1)
   border 0
@@ -511,6 +512,9 @@ Stay Indoors & Stay Safe #IndiaSmile 🇮🇳`
   font-weight 500
 
 .zone
+  text-transform capitalize
+  font-weight bold
+
   &--red
     color red
   &--green
@@ -523,4 +527,10 @@ Stay Indoors & Stay Safe #IndiaSmile 🇮🇳`
     transform rotate(0)
   100%
     transform rotate(360deg)
+</style>
+
+<style lang="stylus">
+.b-select
+  .select, select
+    width 100%
 </style>
