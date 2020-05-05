@@ -1,9 +1,9 @@
 <template lang="pug">
   div
     .wrapper__header
-      .wraper__title 🌆 Situation of Your State:
-      b-select(v-model='stateIterator' placeholder='State')
-        option(v-for='(stateData, index) of states' :key='index' :value='index') {{ stateData.state }}
+      .wraper__title.states-select-container 🌆 Situation in
+        b-select.states-select(v-model='stateIterator' placeholder='State' size='is-small' expanded)
+          option(v-for='(stateData, index) of states' :key='index' :value='index') {{ stateData.state }}
 
     StatsBox(v-if="states.length" :data="computedState")
 </template>
@@ -64,7 +64,7 @@ export default {
       this.userStateCode = this.ipData.region
 
       if (this.data.length) {
-        const states = this.data
+        const states = [...this.data]
 
         const userStateIndex = states.findIndex((item) => {
           return item.statecode === this.userStateCode
@@ -98,4 +98,13 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus"></style>
+<style scoped lang="stylus">
+.states-select-container
+  display flex
+  justify-content space-between
+  flex-wrap wrap
+
+.states-select
+  display inline-block
+  float right
+</style>
