@@ -491,7 +491,7 @@ svg
     color rgba(40,167,69,.6)
 
 // for dark theme
-.dark-theme
+darkMode()
   // for district
   &, .district, .district select, .message .message-body, .country-selector.buttons .button, .crumb__link
     background-color #181b21
@@ -544,4 +544,10 @@ svg
 
   .stream-guide, .stream-guide strong
     color #181b21 !important
+
+@media screen and (prefers-color-scheme: dark)
+  darkMode()
+
+.dark-theme
+  darkMode()
 </style>

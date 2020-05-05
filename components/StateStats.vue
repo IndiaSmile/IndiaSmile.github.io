@@ -35,7 +35,7 @@ export default {
 
   computed: {
     computedState() {
-      return this.stateName
+      return this.state
         ? {
             total_cases: this.state.confirmed,
             active_cases: this.state.active,
