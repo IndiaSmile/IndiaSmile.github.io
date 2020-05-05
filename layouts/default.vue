@@ -493,7 +493,7 @@ svg
 // for dark theme
 darkMode()
   // for district
-  body, .district, .district select, .message .message-body, .country-selector.buttons .button, .crumb__link
+  body, .district, .select select, .message .message-body, .country-selector.buttons .button, .crumb__link
     background-color #181b21
     border-color rgba(0, 0, 0, .3)
     color #cacaca !important

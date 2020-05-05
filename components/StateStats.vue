@@ -1,8 +1,11 @@
 <template lang="pug">
   div
     .wrapper__header
-      .wraper__title 🌆 Situation of Your State: <strong>{{ stateName }}</strong>
-    StatsBox(v-if="state" :data="computedState")
+      .wraper__title 🌆 Situation of Your State:
+      b-select(v-model='stateIterator' placeholder='State')
+        option(v-for='(stateData, index) of states' :key='index' :value='index') {{ stateData.state }}
+
+    StatsBox(v-if="states.length" :data="computedState")
 </template>
 
 <script>
@@ -27,20 +30,20 @@ export default {
 
   data() {
     return {
-      stateCode: '',
-      stateName: '',
-      state: false,
+      userStateCode: '',
+      states: [],
+      stateIterator: 0,
     }
   },
 
   computed: {
     computedState() {
-      return this.state
+      return this.states.length
         ? {
-            total_cases: this.state.confirmed,
-            active_cases: this.state.active,
-            total_recovered: this.state.recovered,
-            total_deaths: this.state.deaths,
+            total_cases: this.states[this.stateIterator].confirmed,
+            active_cases: this.states[this.stateIterator].active,
+            total_recovered: this.states[this.stateIterator].recovered,
+            total_deaths: this.states[this.stateIterator].deaths,
           }
         : null
     },
@@ -58,16 +61,37 @@ export default {
 
   methods: {
     updateData() {
-      this.stateCode = this.ipData.region
+      this.userStateCode = this.ipData.region
 
       if (this.data.length) {
-        this.state = this.data.filter((item) => {
-          return item.statecode === this.stateCode
-        })[0]
+        const states = this.data
 
-        if (typeof this.state === 'object' && this.state.state) {
-          this.stateName = this.state.state
-        }
+        const userStateIndex = states.findIndex((item) => {
+          return item.statecode === this.userStateCode
+        })
+
+        const userState = states[userStateIndex]
+
+        // find "total element"
+        states.splice(
+          states.findIndex((item) => {
+            return item.state.toLowerCase() === 'total'
+          }),
+          1
+        )
+
+        // remove stateitem from array
+        states.splice(userStateIndex, 1)
+
+        // serialise
+        states.sort((a, b) => {
+          return a.state.localeCompare(b.state)
+        })
+
+        // push to beginning of array
+        states.unshift(userState)
+
+        this.states = states
       }
     },
   },
