@@ -67,7 +67,7 @@
 
     b-message.district.margin-top(v-if='districts' type='is-info')
       p.has-text-centered Please select your district.
-      b-select.b-select(v-model='currentDistrict' placeholder='Choose your district')
+      b-select.b-select(v-model='currentDistrict' placeholder='Choose your district' expanded)
         option(v-for='(district, index) of districts' :key='index' :value='index') {{ district.name }}
 
       p.margin-top.has-text-centered Your district falls in the #[span(:class="'zone zone--' + currentZone") {{ currentZone }}] zone. Share with your friends and family now to let them know.
@@ -527,10 +527,4 @@ Stay Indoors & Stay Safe #IndiaSmile 🇮🇳`
     transform rotate(0)
   100%
     transform rotate(360deg)
-</style>
-
-<style lang="stylus">
-.b-select
-  .select, select
-    width 100%
 </style>
