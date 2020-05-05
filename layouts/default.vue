@@ -498,6 +498,9 @@ darkMode()
     border-color rgba(0, 0, 0, .3)
     color #cacaca !important
 
+  .select select
+    background-color rgba(255, 255, 255, 0.1)
+
   .crumb::after
     border-left-color #181b21 !important
 
@@ -524,7 +527,11 @@ darkMode()
 
     &__icon
       &__cover
-        background-color rgba(0, 0, 0, .3)
+        background-color rgba(0, 0, 0, .3) !important
+      &__text
+        color #ccc !important
+      &__element
+        color #fff !important
 
     .table
       background rgba(0, 0, 0, .3)
@@ -537,9 +544,19 @@ darkMode()
     background rgba(255, 255, 255, .02)
     box-shadow 2px 2px 5px #0c0c0c !important
 
+    &__icon
+      background-color rgba(0, 0, 0, .3) !important
+      &__element
+        color #fff !important
+
     &__text
       &__title
+        color #fff !important
+      &__subtitle
         color #ccc !important
+
+  .share-button
+    color #ddd
   // for content pages
   .content__title, .content__heading
     color #eee
