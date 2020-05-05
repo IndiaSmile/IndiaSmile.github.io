@@ -65,7 +65,7 @@
             b-icon.social-list__item__icon.icon--twitter(size="is-small" icon="twitter")
             | Share on Twitter
 
-    b-message.margin-top(v-if='districts' type='is-info')
+    b-message.district.margin-top(v-if='districts' type='is-info')
       p.has-text-centered Please select your district.
       b-select.b-select(v-model='currentDistrict' placeholder='Choose your district')
         option(v-for='(district, index) of districts' :key='index' :value='index') {{ district.name }}

@@ -55,6 +55,9 @@ export default {
   },
 
   mounted() {
+    // set dark class on body
+    // document.body.classList.add('dark-theme')
+
     let SiteViewsCount = this.$storage.getLocalStorage('SiteViewsCount')
     let ShowShareModal = this.$storage.getLocalStorage('ShowShareModal')
 
@@ -421,6 +424,8 @@ export default {
   margin-top 1rem
 
 
+// for graphs
+
 svg
   display block
   margin 0 auto
@@ -484,4 +489,59 @@ svg
   color #2ed573
   &--light
     color rgba(40,167,69,.6)
+
+// for dark theme
+.dark-theme
+  // for district
+  &, .district, .district select, .message .message-body, .country-selector.buttons .button, .crumb__link
+    background-color #181b21
+    border-color rgba(0, 0, 0, .3)
+    color #cacaca !important
+
+  .crumb::after
+    border-left-color #181b21 !important
+
+  .country-selector.buttons
+    .button
+      border-color #181b21
+    .button.is-selected
+      background-color rgba(0, 0, 0, .3)
+
+  strong
+    color #eee
+
+  .wrapper__hr
+    background rgba(255, 255, 255, .1) !important
+    border-top none
+
+  .statewise
+    &__section
+      border bottom none
+
+    &__icon
+      &__cover
+        background-color rgba(0, 0, 0, .3)
+
+    .table
+      background rgba(0, 0, 0, .3)
+      color #aaa
+
+      thead, th
+        background-color #0a1017 !important
+
+  .share-box
+    background rgba(255, 255, 255, .02)
+    box-shadow 2px 2px 5px #0c0c0c !important
+
+    &__text
+      &__title
+        color #ccc !important
+  // for content pages
+  .content__title, .content__heading
+    color #eee
+  .content__text, .hero__header__button
+    color #cacaca
+
+  .stream-guide, .stream-guide strong
+    color #181b21 !important
 </style>

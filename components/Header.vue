@@ -38,7 +38,6 @@ export default {
   display flex
   align-items center
   justify-content center
-  background #fff
   margin 0
   position relative
 
