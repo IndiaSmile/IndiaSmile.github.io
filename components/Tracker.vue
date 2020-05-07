@@ -156,10 +156,14 @@ export default {
   },
 
   async mounted() {
-    const infectedDistricts = await this.$axios('/cache/infectedDistricts.json')
+    const infectedDistricts = await this.$axios(
+      '/api/cache/infectedDistricts.json'
+    )
+
     this.infectedDistricts = Object.values(infectedDistricts.data)
 
-    const allDistricts = await this.$axios('/cache/allDistricts.json')
+    const allDistricts = await this.$axios('/api/cache/allDistricts.json')
+
     this.allDistricts = allDistricts.data
 
     const zones = await this.$axios('https://api.covid19india.org/zones.json')

@@ -105,7 +105,7 @@ export default {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    baseURL: 'https://files.indiasmile.xyz',
+    baseURL: 'https://indiasmile.org',
   },
   /*
    ** Build configuration
