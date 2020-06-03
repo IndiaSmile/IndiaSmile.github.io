@@ -1,5 +1,5 @@
 <template lang="pug">
-  .container
+  .container(v-if="false")
     b-message.lockdown-countdown(type="is-info") You&rsquo;ve survived <strong>{{completed}} days so far</strong> 😷 only <strong>{{remaining}}&nbsp;more days</strong> before the lockdown is lifted. Congrats! 🥳
 </template>
 
