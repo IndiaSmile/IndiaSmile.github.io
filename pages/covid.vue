@@ -11,6 +11,9 @@
         li 🧠 <strong>Share & save</strong>: only source you need to keep updated.
 
     .content
+      a.sponsored-banner(href="https://whatiwrote.in")
+        img(src="~/assets/whatiwrote.png")
+
       .wrapper__title 🇮🇳 Indian statistics
       .wrapper__subtitle How our country is fighting CoronaVirus #JaiHind
 
