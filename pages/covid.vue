@@ -17,9 +17,9 @@
 
       IndiaStats.margin-top(:data="computedIndiaStats")
 
-      hr.wrapper__hr
+      //- hr.wrapper__hr
 
-      Tracker.margin-top(:ipData='ipData')
+      //- Tracker.margin-top(:ipData='ipData')
 
       hr.wrapper__hr
       StateStats.margin-top(:data='statewise' :ipData='ipData')
@@ -62,7 +62,7 @@
 import Header from '~/components/Header'
 import TextHero from '~/components/TextHero'
 import InternationalCases from '~/components/InternationalCases'
-import Tracker from '~/components/Tracker'
+// import Tracker from '~/components/Tracker'
 import CovidDisclaimers from '~/components/CovidDisclaimers'
 // import Articles from '~/components/Articles'
 import Testing from '~/components/Testing'
@@ -77,7 +77,7 @@ export default {
     Header,
     TextHero,
     InternationalCases,
-    Tracker,
+    // Tracker,
     CovidDisclaimers,
     // Articles,
     Testing,
